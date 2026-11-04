@@ -1,0 +1,140 @@
+﻿# EN 1092-1 flange tolerances (Table 22)
+# Standard: EN 1092-1:2018
+# Verified: 2026-11-04
+# Source: EN 1092-1:2018, §5.9 — Tolerances (p. 18); EN 1092-1:2018, Table 22 — Tolerances (pp. 77–82); EN 1092-1:2018, Table 23 — Corner radii R1 and hub radius R2 after back facing (p. 82); EN 22768-1:1993, referred to by §5.9
+# Reference data only. The purchased standard edition governs.
+
+# Table 22 (p. 77) — tolerances on neck outside diameter, bore, wall thickness and bevel
+# Note: Tolerance is given as upper / lower limit in mm unless a percentage is shown. Dimension letters follow the standard's dimension symbols. Wall thickness S has two regimes: a neck machined on both faces, and a neck machined on one face only or unmachined; the second value is in the right-hand column.
+Dimension,Flange types,Size,Tolerance,"Neck one face machined, or un-machined"
+Outside diameter of neck A,"11, 21, 34",≤ DN 125,"+3,0 / 0",—
+Outside diameter of neck A,"11, 21, 34",> DN 125 ≤ DN 1200,"+4,5 / 0",—
+Outside diameter of neck A,"11, 21, 34",> DN 1200,"+6,0 / 0",—
+Outside diameter of neck A,"35, 36, 37",≤ DN 150,"±0,75 % a, min. ±0,3 mm",—
+Outside diameter of neck A,"35, 36, 37",> DN 150,"±1 % a, max. ±3,0 mm",—
+"Bore diameter B1, B2, B3","01, 02, 04, 12, 32",≤ DN 100,"+0,5 / 0",—
+"Bore diameter B1, B2, B3","01, 02, 04, 12, 32",> DN 100 ≤ DN 400,"+1,0 / 0",—
+"Bore diameter B1, B2, B3","01, 02, 04, 12, 32",> DN 400 ≤ DN 600,"+1,5 / 0",—
+"Bore diameter B1, B2, B3","01, 02, 04, 12, 32",> DN 600,"+3,0 / 0",—
+Wall thickness S c,"11, 34 b",≤ DN 100,"+1,0 / 0","+2,0 / 0"
+Wall thickness S c,"11, 34 b",> DN 100 ≤ DN 400,"+1,5 / 0","+2,5 / 0"
+Wall thickness S c,"11, 34 b",> DN 400,"+2,0 / 0","+3,5 / 0"
+Wall thickness S c,35,S ≤ 8,+15 % / −10 %,—
+Wall thickness S c,35,S > 8,+15 % / −5 %,—
+Wall thickness S c,"36, 37",≤ DN 600,"−12,5 % a / +15 %",—
+Wall thickness S c,"36, 37",> DN 600,"−0,5 mm a / +15 %",—
+Bevelled wall thickness Sp,"35, 36, 37",S ≤ 6,"+1,0 / 0",—
+Bevelled wall thickness Sp,"35, 36, 37",S > 6,"+2,0 / 0",—
+
+# Table 22 (p. 78) — tolerances on outside diameter D, hub length and neck diameter N1
+# Note: Tolerance is given as upper / lower limit in mm. Neck diameter N1 is toleranced differently depending on whether the bolting bearing surface is machined.
+Dimension,Flange types,Size,Tolerance
+Outside diameter D,21,≤ DN 250,"±4,0"
+Outside diameter D,21,> DN 250 ≤ DN 500,"±5,0"
+Outside diameter D,21,> DN 500 ≤ DN 800,"±6,0"
+Outside diameter D,21,> DN 800 ≤ DN 1200,"±7,0"
+Outside diameter D,21,> DN 1200 ≤ DN 1600,"±8,0"
+Outside diameter D,21,> DN 1600 ≤ DN 2000,"±10,0"
+Outside diameter D,All other types,≤ DN 150,"±2,0"
+Outside diameter D,All other types,> DN 150 ≤ DN 500,"±3,0"
+Outside diameter D,All other types,> DN 500 ≤ DN 1200,"±5,0"
+Outside diameter D,All other types,> DN 1200 ≤ DN 1800,"±7,0"
+Outside diameter D,All other types,> DN 1800,"±10,0"
+"Length through hub H1, H2, H3, H4, H5","11, 12, 13, 34, 35, 36, 37",≤ DN 80,"±1,5"
+"Length through hub H1, H2, H3, H4, H5","11, 12, 13, 34, 35, 36, 37",> DN 80 ≤ DN 250,"±2,0"
+"Length through hub H1, H2, H3, H4, H5","11, 12, 13, 34, 35, 36, 37",> DN 250,"±3,0"
+Neck diameter N1,11 (machined bearing surface),N1 ≤ 120,"0 / −1,0"
+Neck diameter N1,11 (machined bearing surface),N1 > 120 ≤ 400,"0 / −1,2"
+Neck diameter N1,11 (machined bearing surface),N1 > 400 ≤ 1000,"+1,6 / 0"
+Neck diameter N1,11 (machined bearing surface),N1 > 1000 ≤ 2000,"+2,5 / 0"
+Neck diameter N1,11 (machined bearing surface),N1 > 2000,"+4,0 / 0"
+Neck diameter N1,11 (un-machined bearing surface),N1 ≤ 120,"0 / −1,0"
+Neck diameter N1,11 (un-machined bearing surface),N1 > 120 ≤ 400,"0 / −2,0"
+Neck diameter N1,11 (un-machined bearing surface),N1 > 400 ≤ 1000,"+4,0 / 0"
+Neck diameter N1,11 (un-machined bearing surface),N1 > 1000 ≤ 2000,"+6,0 / 0"
+Neck diameter N1,11 (un-machined bearing surface),N1 > 2000,"+8,0 / 0"
+
+# Table 22 (p. 79) — tolerances on neck diameters N1, N2 and N3
+# Note: Tolerance is given as upper / lower limit in mm.
+Dimension,Flange types,Size,Tolerance
+"Neck diameter N1, N2, N3","21, 34 (un-machined bearing surface)",≤ DN 50,"0 / −2,0"
+"Neck diameter N1, N2, N3","21, 34 (un-machined bearing surface)",> DN 50 ≤ DN 150,"0 / −4,0"
+"Neck diameter N1, N2, N3","21, 34 (un-machined bearing surface)",> DN 150 ≤ DN 300,"0 / −6,0"
+"Neck diameter N1, N2, N3","21, 34 (un-machined bearing surface)",> DN 300 ≤ DN 600,"0 / −8,0"
+"Neck diameter N1, N2, N3","21, 34 (un-machined bearing surface)",> DN 600 ≤ DN 4000,"0 / −10,0"
+"Neck diameter N1, N2, N3","21, 34 (machined bearing surface)",≤ DN 50,"+1,0 / 0"
+"Neck diameter N1, N2, N3","21, 34 (machined bearing surface)",> DN 50 ≤ DN 150,"+1,5 / 0"
+"Neck diameter N1, N2, N3","21, 34 (machined bearing surface)",> DN 150 ≤ DN 300,"+2,0 / 0"
+"Neck diameter N1, N2, N3","21, 34 (machined bearing surface)",> DN 300 ≤ DN 600,"+2,5 / 0"
+"Neck diameter N1, N2, N3","21, 34 (machined bearing surface)",> DN 600 ≤ DN 4000,"+3,0 / 0"
+"Neck diameter N2, N3","12, 13",≤ DN 50,"+1,0 / 0"
+"Neck diameter N2, N3","12, 13",> DN 50 ≤ DN 150,"+2,0 / 0"
+"Neck diameter N2, N3","12, 13",> DN 150 ≤ DN 300,"+4,0 / 0"
+"Neck diameter N2, N3","12, 13",> DN 300 ≤ DN 600,"+8,0 / 0"
+"Neck diameter N2, N3","12, 13",> DN 600 ≤ DN 1200,"+12,0 / 0"
+"Neck diameter N2, N3","12, 13",> DN 1200 ≤ DN 1800,"+16,0 / 0"
+"Neck diameter N2, N3","12, 13",> DN 1800,"+20,0 / 0"
+
+# Table 22 (p. 80) — tolerances on collar thickness, flange thickness and facing diameter
+# Note: Tolerance is given as upper / lower limit in mm unless a percentage is shown.
+Dimension,Flange types,Size,Tolerance
+Collar thickness F,35 (machined on both facings),≤ 18 mm thickness,"±1,0"
+Collar thickness F,35 (machined on both facings),> 18 mm ≤ 50 mm thickness,"±1,5"
+Collar thickness F,"35 (machined on front face only, or un-machined)",≤ 18 mm thickness,"+2,0 / −1,3"
+Collar thickness F,"35 (machined on front face only, or un-machined)",> 18 mm ≤ 50 mm thickness,"+4,0 / −1,5"
+Collar thickness F,"36 (machined on front face only, or un-machined)",≤ 18 mm thickness,±10 %
+Collar thickness F,37 (un-machined),≤ 5 mm thickness,"±0,20"
+Collar thickness F,37 (un-machined),> 5 mm thickness,"±0,30"
+Collar thickness F,"32, 34 (machined on both faces)",≤ 18 mm thickness,"+1,0 / −1,3"
+Collar thickness F,"32, 34 (machined on both faces)",> 18 mm thickness,"±1,5"
+Collar thickness F,"32, 34 (machined on front side only)",≤ 18 mm thickness,"+2,0 / −1,3"
+Collar thickness F,"32, 34 (machined on front side only)",> 18 mm ≤ 30 mm thickness,"+3,0 / −1,5"
+Collar thickness F,"32, 34 (machined on front side only)",> 30 mm thickness,"+4,0 / −1,5"
+"Flange thickness C1, C2, C3, C4",All types (machined on both faces),≤ 18 mm thickness,"+1,0 / −1,3"
+"Flange thickness C1, C2, C3, C4",All types (machined on both faces),> 18 mm ≤ 50 mm thickness,"±1,5"
+"Flange thickness C1, C2, C3, C4",All types (machined on both faces),> 50 mm thickness,"±2,0"
+"Flange thickness C1, C2, C3, C4",All types (machined on front side only); Type 02 and 04 (un-machined),≤ 18 mm thickness,"+2,0 / −1,3"
+"Flange thickness C1, C2, C3, C4",All types (machined on front side only); Type 02 and 04 (un-machined),> 18 mm ≤ 50 mm thickness,"+4,0 / −1,5"
+"Flange thickness C1, C2, C3, C4",All types (machined on front side only); Type 02 and 04 (un-machined),> 50 mm thickness,"+7,0 / −2,0"
+Facing diameter d1,All types,≤ DN 250,"+2,0 / −1,0"
+Facing diameter d1,All types,> DN 250,"+3,0 / −1,0"
+
+# Table 22 (p. 81) — tolerances on facing heights, facing dimensions and bolting
+# Note: Tolerance is given as upper / lower limit in mm. Facing heights f1 to f4 correspond to the facing dimensions in Figure 4; W, X, Y and Z are facing dimensions of the tongue, groove, spigot and recess types.
+Dimension,Flange types,Size,Tolerance
+Facing height f1,"All types (facing type B, D, F and G)",≤ DN 32 (2 mm),"0 / −1,0"
+Facing height f1,"All types (facing type B, D, F and G)",> DN 32 to DN 250 (3 mm),"0 / −2,0"
+Facing height f1,"All types (facing type B, D, F and G)",> DN 250 to DN 500 (4 mm),"0 / −3,0"
+Facing height f1,"All types (facing type B, D, F and G)",> DN 500 (5 mm),"0 / −4,0"
+Facing height f2,"All types (facing type C, E and G)",All DN,"+0,5 / 0"
+Facing height f3,All types (facing type D and F),All DN,"+0,5 / 0"
+Facing height f3,All types (facing type H),All DN,"+0,2 / 0"
+Facing height f4,All types (facing type H),All DN,"+0,5 / 0"
+Facing dimension W,All types,All DN,"+0,5 / 0"
+Facing dimension X,All types,All DN,"0 / −0,5"
+Facing dimension Y,All types,All DN,"+0,5 / 0"
+Facing dimension Z,All types,All DN,"0 / −0,5"
+Diameter of bolt circle K,All types,Bolt size M10 to M24,"±1,0"
+Diameter of bolt circle K,All types,Bolt size M27 to M45,"±1,5"
+Diameter of bolt circle K,All types,Bolt size > M45,"±2,0"
+Diameter of bolt holes L,All types,Bolt size M10 to M24,"+1,0 / 0"
+Diameter of bolt holes L,All types,Bolt size M27 to M45,"+2,5 / 0"
+Diameter of bolt holes L,All types,Bolt size > M45,"+4,0 / 0"
+Centre-to-centre of adjacent bolt holes,All types,Bolt size M10 to M24,"±1,0"
+Centre-to-centre of adjacent bolt holes,All types,Bolt size M27 to M45,"±1,5"
+Centre-to-centre of adjacent bolt holes,All types,Bolt size > M45,"±2,0"
+
+# Table 22 (p. 82) — eccentricity of facing diameters and parallelism of bearing surface
+# Note: Eccentricity is a maximum in mm; parallelism is an angle. Footnote d applies to both dimensions.
+Dimension,Flange types,Size,Tolerance
+Eccentricity of machined facing diameters d,All types,≤ DN 65,"1,0"
+Eccentricity of machined facing diameters d,All types,> DN 65,"2,0"
+Parallelism between bolting bearing surface and flange jointing faces,All types (machined bearing surface),All DN,1°
+Parallelism between bolting bearing surface and flange jointing faces,All types (un-machined bearing surface),All DN,2°
+
+# Table 23 (p. 82) — corner radii R1 and hub radius R2 after back facing
+# Note: R1 minimum and maximum apply to types 33 and 35 to 37; for types 11, 12, 13, 21 and 34 see the dimension tables (Tables 10 to 21).
+Flange size,R1 min.,R1 max.,R2 min.
+Up to and including DN 50,3,5,"1,6"
+Over DN 50 and up to and including DN 350,3,6,"2,4"
+Over DN 350,5,8,"3,2"

@@ -1,0 +1,35 @@
+﻿# ASME B16.47-2025 changes and record numbers
+# Standard: ASME B16.47-2025
+# Verified: 2026-11-04
+# Source: ASME B16.47-2025, Summary of Changes, pp. xi-xiv (PDF pp. 12-15); ASME B16.47-2025, List of Changes in Record Number Order, p. xiv (PDF p. 15); ASME B16.47-2025, Foreword, pp. vi-vii (PDF pp. 7-8); ASME B16.47-2025, Date of Issuance and next-edition schedule, PDF p. 3
+# Reference data only. The purchased standard edition governs.
+
+# Summary of Changes (pp. xi-xiv) — B16.47-2025 revisions grouped by area
+# Note: The standard's own margin note for 2025 changes is '(25)'. Record numbers are listed in the order the standard presents them, not by importance.
+Area,Change in the 2025 edition,Impact for buyers
+Edition status,ANSI approval on 4 March 2025; issue date 30 May 2025; next edition scheduled for 2028.,Quote ASME B16.47-2025 on new orders; confirm which edition an existing drawing calls up.
+Unit-system table titles,Titles of the complementary SI and U.S. Customary tables were editorially revised to name the applicable unit system.,It is now unambiguous which table is bar and which is psig; no rating or dimension changed for this item alone.
+Pressure–temperature ratings,Working-pressure values and the accompanying notes were revised throughout Tables 3-28 and 3C-28C (record 23-2374).,Ratings can differ from B16.47-2020. Re-check the allowable pressure at the design temperature against the 2025 tables.
+Group 2.13 duplex stainless,A new Table 29 / 29C was added for Group 2.13 materials (duplex and super-duplex grades).,Duplex flanges now have a dedicated rating table rather than a cross-reference; check the grade against Table 1.
+Table 1 materials,Table 1 was revised (records 21-1888 and 23-2374).,Confirm the material group number of your grade before reading a rating table; a different group means a different table.
+Bolting,ASTM A320-L7M was added to Table 2 and Note (5) was revised (record 22-651).,An additional low-temperature bolting option is now listed; bolting must still suit the flange material and service temperature.
+Table 2 notes,Note (7) was deleted and the subsequent notes renumbered (record 21-1888).,"If a QA document quotes a Table 2 note number, re-check it against the 2025 print."
+Definitions,"A new para. 1.13 defines 'may', 'shall' and 'should' (record 22-2279), and 'must' was replaced in two clauses.",Requirement wording is more consistent; no technical requirement changed for this item alone.
+Metric note temperatures,"In the notes to Tables 3-6, 21 and 25, metric temperatures were revised to the nearest degree (record 22-2277).",Note-level temperature limits may read slightly differently; use the rounded °C value in the 2025 print.
+Table numbering,"The new Table 29/29C displaced the later tables: dimension Tables 32-42 were formerly Tables 31-41, and the 'Minimum Thickness of Flange, t' subheadings were editorially revised.",Update drawing and specification references; a reference to 'Table 35' in an old document may now be Table 36.
+Rating ceilings (non-mandatory),Ceiling pressures for Classes 300-900 in Table A-1 / A-1C were revised (record 22-2110).,"Affects the non-mandatory rating-ceiling appendix, not the mandatory Tables 3-29 ratings."
+Errata incorporated,Table 20: Class 150 working pressure at 400 °C corrected to 5.5 bar (record 22-203). Table 36: minimum thickness for an NPS 30 weld-neck corrected to 149.4 mm (record 22-99).,"If you hold an earlier print, these two values may be wrong in your copy; the 2025 print carries the corrections."
+References,The References section and the references in Mandatory Appendix I were updated (records 23-2265 and 21-1888).,Cited editions of related standards changed; check the new reference list when writing specifications.
+
+# List of Changes in Record Number Order (p. xiv) — record numbers cited by B16.47-2025
+# Note: Scope is summarised from the record-number list; see the standard for the full text of each change.
+Record number,Scope
+21-1888,"Revised paras. 2.4, 2.5.3 and 5.3.4, Table 1 and Table 2, Tables 3-28 (3C-28C) and Table A-1 (A-1C, formerly Table A-2); updated references in Mandatory Appendix I."
+22-99,Errata: minimum thickness for an NPS 30 weld-neck flange in Table 36 corrected to 149.4 mm.
+22-203,Errata: Class 150 working pressure at 400 °C in Table 20 corrected to 5.5 bar.
+22-651,Added a bolting material (A320-L7M) to Table 2.
+22-2110,Revised ceiling pressures for Classes 300-900 in Table A-1 (A-1C).
+22-2277,"In the notes to Tables 3-6, 21 and 25, revised metric temperatures to the nearest degree."
+22-2279,"Added para. 1.13 defining 'may', 'shall' and 'should'; replaced 'must' with 'shall' in para. 2.2 and with 'should' in para. 5.3.5(a)."
+23-2265,Updated the references in Mandatory Appendix I.
+23-2374,"Revised materials in Table 1, and pressure values and notes in Tables 3-28 (3C-28C); added Table 29 (29C) for Group 2.13 materials."

@@ -1,0 +1,29 @@
+﻿# JIS B2220 marking requirements
+# Standard: JIS B2220:2012
+# Verified: 2026-11-04
+# Source: JIS B2220:2012, clause 20 and marking examples 1 to 9 (PDF p. 18; printed p. 13); JIS B2220:2012, clause 20 b) to d) (PDF p. 19; printed p. 14); JIS B2220:2012, clause 19 designation (PDF p. 17; printed p. 12); JIS B2220:2012, clause 6 and Table 4, black and white flanges (PDF p. 9; printed p. 4)
+# Reference data only. The purchased standard edition governs.
+
+# Clause 20 (p. 13) — marking requirements
+# Note: The marking is applied to the periphery surface by an indelible method: stamping, die marking, electrolytic etching or spraying.
+Clause,What is marked,Detail
+a),"Nominal pressure, nominal size and material symbol",The nominal-size letter A is optional.
+1),Letter L after the nominal pressure,Marks a light flange for nominal pressure 10K.
+2),Letter H after the nominal pressure,Marks a welding neck flange (WN) for 5K or 10K made with alternative dimensions.
+3),"Letter A, B or C after the nominal pressure","Marks the SOH type at 20K and 30K: Type A, Type B or Type C."
+b),Melting or casting number,Alternatively a quality-control number that can be traced back to the heat or cast number.
+c),Manufacturer's name,"Full name, shortened name or trademark."
+d),Other necessary information,Must be distinguishable from the items above.
+
+# Clause 20 (p. 13) — marking examples 1 to 9
+# Note: The letter A of the nominal size is left out in examples 1, 3, 5, 7 and 9, which clause 20 a) allows. Examples 4, 5, 7 and 8 also carry the optional letter L, H, A or C after the nominal pressure.
+Example,Marking,What it identifies
+1,5K 300 SS 400,"5K, nominal size 300 (300A), material SS 400"
+2,5K 450A SF 390A,"5K, 450A, material SF 390A"
+3,10K 80 SCS 13A,"10K, nominal size 80 (80A), material SCS 13A"
+4,10K H 1000A SFVC 1,"10K WN with alternative dimensions, 1000A, material SFVC 1"
+5,10K L 150 S 20 C,"10K light flange, nominal size 150 (150A), material S 20 C"
+6,16K 200A S 25 C,"16K, 200A, material S 25 C"
+7,20K A 50 SUS F316L,"20K SOH Type A, nominal size 50 (50A), material SUS F316L"
+8,30K C 65A SFVC 2A,"30K SOH Type C, 65A, material SFVC 2A"
+9,40K 100 SFVA F1,"40K, nominal size 100 (100A), material SFVA F1"

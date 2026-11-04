@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% load catalog_extras %}
+
+{% block title %}{{ site_name }} · 法兰尺寸查询与打印{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="wrap hero-inner">
+    <p class="eyebrow">FLANGE STANDARD LIBRARY · 法兰标准数据</p>
+    <h1>查一个型号，<br>拿到尺寸、标注图<br class="hero-break">和可打印的规格卡。</h1>
+    <p class="hero-sub">
+      ASME B16.5 / B16.47、EN 1092-1、JIS B2220，共 {{ total_specs }} 条规格。
+      每条数据标注标准版本与核对日期，图纸按尺寸自动生成，A4 单页打印直接下车间。
+    </p>
+
+    <form class="hero-search" action="{% url 'catalog:search' %}" method="get" role="search">
+      <label class="sr-only" for="hero-q">搜索规格</label>
+      <input id="hero-q" type="search" name="q" autofocus
+             placeholder="输入型号或尺寸：DN100 PN16 / 6″ Class 150 / B16.5 4 寸 300 磅">
+      <button type="submit">查询</button>
+    </form>
+
+    <div class="hero-chips">
+      <span class="hero-chips-label">试试：</span>
+      {% for example in search_examples %}
+        <a class="chip" href="{% url 'catalog:search' %}?q={{ example|urlencode }}">{{ example }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="stats-strip">
+  <div class="wrap stats-grid">
+    <div class="stat">
+      <span class="stat-value">{{ standards|length }}</span>
+      <span class="stat-label">个标准 / 系列</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{{ total_specs }}</span>
+      <span class="stat-label">条尺寸规格</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">3</span>
+      <span class="stat-label">种法兰类型</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{{ data_import.source_version|default:"—" }}</span>
+      <span class="stat-label">数据版本</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="standards">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">STANDARDS</p>
+        <h2>按标准进入</h2>
+      </div>
+      <p class="section-desc">每个标准一张尺寸总表；先选类型，再按压力等级或口径筛选，点尺寸进规格卡。</p>
+    </div>
+
+    <div class="standard-grid">
+      {% for std in standards %}
+        <a class="standard-card" href="{% url 'catalog:standard_detail' std.id %}">
+          <div class="standard-card-top">
+            <span class="standard-short">{{ std.short }}</span>
+            <span class="tag">{{ std.effective_edition }}</span>
+          </div>
+          <h3>{{ std.name_zh }}</h3>
+          <p class="standard-meta">{{ std.region }} · {{ std.rating_name }}</p>
+          <ul class="standard-facts">
+            <li><span>尺寸规格</span><strong>{{ std.row_count }} 条</strong></li>
+            <li><span>基础材料</span><strong>{{ std.base_material|default:"—" }}</strong></li>
+            <li><span>参考数据</span><strong>压力-温度 · 材料组 · 公差 · 标记</strong></li>
+          </ul>
+          <span class="card-link">进入标准 <span aria-hidden="true">→</span></span>
+        </a>
+      {% empty %}
+        <p class="empty">数据库还没有导入标准，请先在后台执行 <code>python manage.py import_standards</code>。</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">QUICK ACCESS</p>
+        <h2>常用规格速查</h2>
+      </div>
+      <p class="section-desc">车间最常被问到的几条，直接点进规格卡。</p>
+    </div>
+
+    <div class="quick-table">
+      <table>
+        <thead>
+          <tr>
+            <th>规格</th>
+            <th>外径 D</th>
+            <th>厚度 C</th>
+            <th>中心圆 K</th>
+            <th>螺栓</th>
+            <th class="ta-right">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in quick_links %}
+            <tr>
+              <td>
+                <span class="quick-std">{{ item.row.standard.short }}</span>
+                <a class="quick-name" href="{{ item.row.get_absolute_url }}">{{ item.row.size_label }} · {{ item.row.rating.label }} · {{ item.row.flange_type.name_zh }}</a>
+              </td>
+              <td class="num">{{ item.row.od|dim }}</td>
+              <td class="num">{{ item.row.th|dim }}</td>
+              <td class="num">{{ item.row.bc|dim }}</td>
+              <td class="num">{{ item.row.bolts }} × Ø{{ item.row.bolt_hole|dim }}</td>
+              <td class="ta-right"><a class="text-link" href="{{ item.row.get_absolute_url }}">查看</a></td>
+            </tr>
+          {% empty %}
+            <tr><td colspan="6" class="empty">暂无数据</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">HOW IT WORKS</p>
+        <h2>从查询到打印</h2>
+      </div>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <span class="step-no">01</span>
+        <h3>查</h3>
+        <p>输入 “DN100 PN16” 或 “6″ Class 150”，也可以从标准目录按类型、等级、口径筛选。</p>
+      </li>
+      <li class="step">
+        <span class="step-no">02</span>
+        <h3>看</h3>
+        <p>规格卡同时给出标注图、尺寸表、压力-温度额定值和相邻规格，图纸随尺寸自动生成。</p>
+      </li>
+      <li class="step">
+        <span class="step-no">03</span>
+        <h3>打</h3>
+        <p>点“打印规格卡”，A4 单页输出：图纸、尺寸、等级、来源和免责声明都在一页上。</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="notice-strip">
+  <div class="wrap notice-inner">
+    <div>
+      <strong>数据边界：</strong>本库是事实性数据的整理，不替代标准文本，也不包含标准 PDF、正文段落和原图。
+      生产、报价、投标前请按项目指定的标准版本复核。
+    </div>
+    <a class="btn btn-ghost" href="{% url 'admin:index' %}">数据维护</a>
+  </div>
+</section>
+{% endblock %}

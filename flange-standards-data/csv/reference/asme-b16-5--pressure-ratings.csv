@@ -1,0 +1,390 @@
+﻿# ASME B16.5-2025 pressure ratings by material group
+# Standard: ASME B16.5-2025
+# Verified: 2026-11-04
+# Source: ASME B16.5-2025, Table 2-1.1, Pressure–Temperature Ratings for Group 1.1 Materials — SI Units, printed p. 25 (PDF p. 46).; ASME B16.5-2025, Table 2-1.1C, Pressure–Temperature Ratings for Group 1.1 Materials — U.S. Customary Units, printed p. 26 (PDF p. 47).; ASME B16.5-2025, Table 1.1-1, List of Material Specifications (Group 1.1 rows), printed p. 5 (PDF p. 26).; ASME B16.5-2025, §2.1 (interpolation rules) and §2.4 (rating temperature), printed p. 2 (PDF p. 23); §1.6 (relevant units), printed p. 1 (PDF p. 22).; ASME B16.5-2025, notes (1)–(6) printed beneath Tables 2-1.1 and 2-1.1C, printed pp. 25–26 (PDF pp. 46–47).; ASME B16.5-2025, Table 2-1.5, Pressure–Temperature Ratings for Group 1.5 Materials — SI Units, printed p. 33 (PDF p. 54).; ASME B16.5-2025, Table 2-1.9, Pressure–Temperature Ratings for Group 1.9 Materials — SI Units, printed p. 37 (PDF p. 58).; ASME B16.5-2025, Table 2-1.10, Pressure–Temperature Ratings for Group 1.10 Materials — SI Units, printed p. 39 (PDF p. 60).; ASME B16.5-2025, Table 2-1.14, Pressure–Temperature Ratings for Group 1.14 Materials — SI Units, printed p. 45 (PDF p. 66).; ASME B16.5-2025, Table 2-1.15, Pressure–Temperature Ratings for Group 1.15 Materials — SI Units, printed p. 47 (PDF p. 68).; ASME B16.5-2025, Table 2-1.17, Pressure–Temperature Ratings for Group 1.17 Materials — SI Units, printed p. 49 (PDF p. 70).; ASME B16.5-2025, Table 2-2.1, Pressure–Temperature Ratings for Group 2.1 Materials — SI Units, printed p. 53 (PDF p. 74).; ASME B16.5-2025, Table 2-2.2, Pressure–Temperature Ratings for Group 2.2 Materials — SI Units, printed p. 55 (PDF p. 76).; ASME B16.5-2025, Table 2-2.3, Pressure–Temperature Ratings for Group 2.3 Materials — SI Units, printed p. 57 (PDF p. 78).; ASME B16.5-2025, Table 2-2.4, Pressure–Temperature Ratings for Group 2.4 Materials — SI Units, printed p. 59 (PDF p. 80).; ASME B16.5-2025, Table 2-2.5, Pressure–Temperature Ratings for Group 2.5 Materials — SI Units, printed p. 61 (PDF p. 82).; ASME B16.5-2025, Table 2-2.6, Pressure–Temperature Ratings for Group 2.6 Materials — SI Units, printed p. 63 (PDF p. 84).; ASME B16.5-2025, Table 1.1-1, List of Material Specifications — rows for Groups 1.5–1.17 and 2.1–2.6, printed pp. 5–6 (PDF pp. 26–27).; Scope: this page transcribes Tables 2-1.1 / 2-1.1C and the SI tables 2-1.5 to 2-2.6. The remaining group tables, and the U.S. Customary companions for groups other than 1.1, are printed in the standard; the purchased 2025 edition governs.
+# Reference data only. The purchased standard edition governs.
+
+# Tables 2-1.1 and 2-1.1C, material header (printed pp. 25–26) — Group 1.1 designations and applicable ASTM specifications
+# Note: Product forms are shown where the standard lists a specification; the standard prints an ellipsis in cells for which it lists no specification of that form, shown here as "—". The bracketed note numbers are explained in the footnotes under each rating table; note (6), minimum-temperature guidance, applies to both unit systems.
+Nominal designation,Forgings,Castings,Plates
+C-Si,"A105 [Notes (1), (2)]",A216 Gr. WCB [Note (1)],A515 Gr. 70 [Note (1)]
+C-Mn-Si,A350 Gr. LF2 [Note (1)],—,"A516 Gr. 70 [Notes (1), (3)]"
+C-Mn-Si,—,—,A537 Cl. 1 [Note (4)]
+C-Mn-Si-V,A350 Gr. LF6 Cl. 1 [Note (3)],—,—
+3½Ni,A350 Gr. LF3 [Note (5)],—,—
+
+# Table 1.1-1 (printed pp. 5–6) — the groups covered on this page, their materials and their rating table
+# Note: Materials are shortened from Table 1.1-1; a group can contain more specifications than shown, and the standard lists forgings, castings and plates separately. Group 1.1 is described in the section above; the remaining groups have their own SI table below.
+Group,Typical materials,SI rating table
+1.5,C-½Mo: A182 Gr. F1 (forging); A204 Gr. A / B (plate),2-1.5
+1.9,1¼Cr-½Mo / 1¼Cr-½Mo-Si: A217 Gr. WC6; A182 Gr. F11 Cl. 2; A387 Gr. 11 Cl. 2,2-1.9
+1.10,2¼Cr-1Mo: A182 Gr. F22 Cl. 3; A217 Gr. WC9; A387 Gr. 22 Cl. 2,2-1.10
+1.14,9Cr-1Mo: A182 Gr. F9; A217 Gr. C12,2-1.14
+1.15,9Cr-1Mo-V: A182 Gr. F91 Type 1; A217 Gr. C12A; A387 Gr. 91 Cl. 2,2-1.15
+1.17,1Cr-½Mo and 5Cr-½Mo: A182 Gr. F12 Cl. 2 and A182 Gr. F5 (forgings only),2-1.17
+2.1,18Cr-8Ni: A182 Gr. F304 / F304H; A351 Gr. CF3 / CF8; A240 Gr. 304 / 304H,2-2.1
+2.2,16Cr-12Ni-2Mo and relatives: A182 Gr. F316 / F316H / F317; A351 Gr. CF3M / CF8M / CG8M; A240 Gr. 316 / 316H / 317,2-2.2
+2.3,Low-carbon 300 series: A182 Gr. F304L / F316L / F317L; A240 Gr. 304L / 316L,2-2.3
+2.4,18Cr-10Ni-Ti: A182 Gr. F321 / F321H; A240 Gr. 321 / 321H,2-2.4
+2.5,18Cr-10Ni-Cb: A182 Gr. F347 / F347H / F348 / F348H; A240 Gr. 347 / 347H / 348 / 348H,2-2.5
+2.6,23Cr-12Ni: A240 Gr. 309H (plate only),2-2.6
+
+# Table 2-1.1 (printed p. 25) — pressure–temperature ratings for Group 1.1 materials, SI units
+# Note: Maximum allowable working pressure in bar at the listed metal temperature. Values fall or stay level as temperature rises. Linear interpolation is allowed between the listed temperatures; interpolation between classes and any extrapolation are not.
+Temperature,Class 150,Class 300,Class 400,Class 600,Class 900,Class 1500,Class 2500
+Min. to 38 [Note (6)],19.6,51.0,68.0,102.0,153.1,255.1,425.1
+50,19.1,49.8,66.4,99.6,149.3,248.9,414.9
+100,17.7,46.7,62.3,93.4,140.1,233.5,389.1
+150,15.8,45.1,60.1,90.1,135.2,225.3,375.4
+200,13.8,43.8,58.4,87.6,131.5,219.1,365.1
+250,12.1,42.0,56.0,83.9,125.9,209.8,349.7
+300,10.2,39.9,53.2,79.8,119.7,199.5,332.6
+325,9.3,38.7,51.6,77.3,116.0,193.4,322.3
+350,8.4,37.6,50.2,75.3,112.9,188.2,313.7
+375,7.4,36.4,48.5,72.8,109.2,182.1,303.4
+400,6.5,34.6,46.2,69.3,103.9,173.1,288.6
+425,5.5,28.7,38.3,57.5,86.2,143.7,239.4
+450,4.6,23.0,30.6,45.9,68.9,114.9,191.4
+475,3.7,17.5,23.3,35.0,52.5,87.4,145.7
+500,2.8,11.5,15.4,23.0,34.6,57.6,96.0
+538,1.4,5.8,7.7,11.6,17.4,29.0,48.4
+
+# Table 2-1.1C (printed p. 26) — pressure–temperature ratings for Group 1.1 materials, U.S. Customary units
+# Note: Maximum allowable working pressure in psig at the listed metal temperature. The temperature steps are those printed in the U.S. Customary table and do not match the SI steps. Linear interpolation is allowed between listed temperatures only.
+Temperature,Class 150,Class 300,Class 400,Class 600,Class 900,Class 1500,Class 2500
+Min. to 100 [Note (6)],285,740,985,"1,480","2,220","3,705","6,170"
+200,260,680,905,"1,360","2,035","3,395","5,655"
+300,230,655,870,"1,310","1,965","3,270","5,450"
+400,200,635,845,"1,265","1,900","3,170","5,280"
+500,170,605,805,"1,205","1,810","3,015","5,025"
+600,140,570,755,"1,135","1,705","2,840","4,730"
+650,125,550,730,"1,100","1,650","2,745","4,575"
+700,110,530,710,"1,060","1,590","2,655","4,425"
+750,95,505,675,"1,015","1,520","2,535","4,230"
+800,80,410,550,825,"1,235","2,055","3,430"
+850,65,320,425,640,955,"1,595","2,655"
+900,50,230,305,460,690,"1,150","1,915"
+950,35,135,185,275,410,685,"1,145"
+"1,000",20,85,115,170,255,430,715
+
+# Table 2-1.5 (printed p. 33) — pressure–temperature ratings for Group 1.5 materials, SI units
+# Note: Maximum allowable working pressure in bar at the listed metal temperature. Values fall or stay level as the temperature rises. Linear interpolation is allowed between the listed temperatures; interpolation between classes and any extrapolation are not. A class the standard does not rate at that temperature is printed there as an ellipsis and is shown here as "—".
+Temperature,Class 150,Class 300,Class 400,Class 600,Class 900,Class 1500,Class 2500
+Min. to 38 [Note (2)],18.4,48.0,64.0,96.0,144.0,240.0,400.0
+50,18.4,48.0,64.0,96.0,144.0,240.0,400.0
+100,17.7,48.0,64.0,96.0,144.0,240.0,400.0
+150,15.8,47.3,63.1,94.6,141.9,236.6,394.3
+200,13.8,45.9,61.2,91.7,137.6,229.4,382.3
+250,12.1,44.4,59.2,88.9,133.3,222.2,370.3
+300,10.2,43.2,57.6,86.4,129.6,216.0,360.0
+325,9.3,42.6,56.8,85.2,127.7,212.9,354.9
+350,8.4,41.9,55.8,83.6,125.5,209.1,348.7
+375,7.4,40.5,53.9,80.7,121.2,201.9,336.1
+400,6.5,38.0,50.7,76.2,114.2,190.4,317.1
+425,5.5,36.8,48.9,73.2,109.8,183.0,304.7
+450,4.6,35.4,47.3,71.1,106.5,177.5,295.9
+475,3.7,34.4,45.9,68.8,103.2,171.6,286.3
+500,2.8,23.3,31.1,46.7,70.0,116.7,194.6
+538,1.4,11.2,14.9,22.4,33.5,55.9,93.2
+
+# Table 2-1.9 (printed p. 37) — pressure–temperature ratings for Group 1.9 materials, SI units
+# Note: Maximum allowable working pressure in bar at the listed metal temperature. Values fall or stay level as the temperature rises. Linear interpolation is allowed between the listed temperatures; interpolation between classes and any extrapolation are not. A class the standard does not rate at that temperature is printed there as an ellipsis and is shown here as "—".
+Temperature,Class 150,Class 300,Class 400,Class 600,Class 900,Class 1500,Class 2500
+Min. to 38 [Note (5)],19.8,51.7,68.9,103.4,155.1,258.6,430.9
+50,19.5,51.7,68.9,103.4,155.1,258.6,430.9
+100,17.7,51.5,68.7,103.0,154.6,257.6,429.4
+150,15.8,49.8,66.4,99.6,149.3,248.9,414.9
+200,13.8,47.9,63.9,95.9,143.8,239.7,399.4
+250,12.1,46.3,61.7,92.6,138.9,231.4,385.7
+300,10.2,45.0,60.0,90.0,135.0,225.1,375.0
+325,9.3,43.3,57.6,86.3,129.6,215.9,358.9
+350,8.4,41.9,55.8,83.6,125.5,209.1,348.7
+375,7.4,40.5,53.9,80.7,121.2,201.9,336.1
+400,6.5,38.0,50.7,76.2,114.2,190.4,317.1
+425,5.5,36.8,48.9,73.2,109.8,183.0,304.7
+450,4.6,35.4,47.3,71.1,106.5,177.5,295.9
+475,3.7,34.4,45.9,68.8,103.2,171.6,286.3
+500,2.8,25.0,33.3,50.0,75.0,125.0,208.3
+538,1.4,15.1,20.1,30.1,45.2,75.3,125.5
+550,—,12.4,16.6,24.9,37.3,62.2,103.7
+575,—,8.6,11.5,17.3,25.9,43.2,72.0
+600,—,6.0,8.0,12.1,18.1,30.2,50.3
+625,—,4.3,5.7,8.5,12.8,21.3,35.5
+649,—,2.8,3.8,5.7,8.5,14.1,23.6
+
+# Table 2-1.10 (printed p. 39) — pressure–temperature ratings for Group 1.10 materials, SI units
+# Note: Maximum allowable working pressure in bar at the listed metal temperature. Values fall or stay level as the temperature rises. Linear interpolation is allowed between the listed temperatures; interpolation between classes and any extrapolation are not. A class the standard does not rate at that temperature is printed there as an ellipsis and is shown here as "—".
+Temperature,Class 150,Class 300,Class 400,Class 600,Class 900,Class 1500,Class 2500
+Min. to 38 [Note (4)],19.8,51.7,68.9,103.4,155.1,258.6,430.9
+50,19.5,51.7,68.9,103.4,155.1,258.6,430.9
+100,17.7,51.5,68.7,103.0,154.6,257.6,429.4
+150,15.8,50.3,67.0,100.3,150.6,250.8,418.2
+200,13.8,48.6,64.8,97.2,145.8,243.4,405.4
+250,12.1,46.3,61.8,92.7,139.0,231.8,386.2
+300,10.2,45.0,60.0,90.0,135.0,225.1,375.0
+325,9.3,43.3,57.6,86.3,129.6,215.9,359.8
+350,8.4,41.9,55.8,83.6,125.5,209.1,348.7
+375,7.4,40.5,53.9,80.7,121.2,201.9,336.1
+400,6.5,38.0,50.7,76.2,114.2,190.4,317.1
+425,5.5,36.8,48.9,73.2,109.8,183.0,304.7
+450,4.6,35.4,47.3,71.1,106.5,177.5,295.9
+475,3.7,34.4,45.9,68.8,103.2,171.6,286.3
+500,2.8,30.7,40.9,61.3,92.0,153.3,255.4
+538,1.4,18.6,24.7,37.1,55.7,92.8,154.6
+550,—,15.4,20.5,30.8,46.2,77.0,128.3
+575,—,10.3,13.8,20.6,31.0,51.6,86.0
+600,—,6.8,9.0,13.5,20.3,33.8,56.3
+625,—,4.4,5.9,8.8,13.3,22.1,36.9
+649,—,2.8,3.8,5.7,8.5,14.1,23.6
+
+# Table 2-1.14 (printed p. 45) — pressure–temperature ratings for Group 1.14 materials, SI units
+# Note: Maximum allowable working pressure in bar at the listed metal temperature. Values fall or stay level as the temperature rises. Linear interpolation is allowed between the listed temperatures; interpolation between classes and any extrapolation are not. A class the standard does not rate at that temperature is printed there as an ellipsis and is shown here as "—".
+Temperature,Class 150,Class 300,Class 400,Class 600,Class 900,Class 1500,Class 2500
+Min. to 38 [Note (3)],20.0,51.7,68.9,103.4,155.1,258.6,430.9
+50,19.5,51.7,68.9,103.4,155.1,258.6,430.9
+100,17.7,51.5,68.7,103.0,154.6,257.6,429.4
+150,15.8,50.3,67.0,100.3,150.6,250.8,418.2
+200,13.8,48.6,64.8,97.2,145.8,243.4,405.4
+250,12.1,46.3,61.8,92.7,139.0,231.8,386.2
+300,10.2,45.0,60.0,90.0,135.0,225.1,375.0
+325,9.3,43.3,57.6,86.3,129.6,215.9,359.8
+350,8.4,41.9,55.8,83.6,125.5,209.1,348.7
+375,7.4,40.5,53.9,80.7,121.2,201.9,336.1
+400,6.5,38.0,50.7,76.2,114.2,190.4,317.1
+425,5.5,36.8,48.9,73.2,109.8,183.0,304.7
+450,4.6,35.4,47.3,71.1,106.5,177.5,295.9
+475,3.7,34.4,45.9,68.8,103.2,171.6,286.3
+500,2.8,30.2,40.3,60.5,90.7,151.2,252.0
+538,1.4,17.7,23.6,35.3,53.0,88.4,147.3
+550,—,14.7,19.7,29.5,44.2,73.7,122.9
+575,—,10.3,13.7,20.6,30.9,51.4,85.7
+600,—,7.1,9.4,14.1,21.2,35.3,58.9
+625,—,4.9,6.6,9.9,14.8,24.7,41.1
+649,—,3.6,4.7,7.1,10.7,17.8,29.6
+
+# Table 2-1.15 (printed p. 47) — pressure–temperature ratings for Group 1.15 materials, SI units
+# Note: Maximum allowable working pressure in bar at the listed metal temperature. Values fall or stay level as the temperature rises. Linear interpolation is allowed between the listed temperatures; interpolation between classes and any extrapolation are not. A class the standard does not rate at that temperature is printed there as an ellipsis and is shown here as "—".
+Temperature,Class 150,Class 300,Class 400,Class 600,Class 900,Class 1500,Class 2500
+Min. to 38 [Note (2)],20.0,51.7,68.9,103.4,155.1,258.6,430.9
+50,19.5,51.7,68.9,103.4,155.1,258.6,430.9
+100,17.7,51.5,68.7,103.0,154.6,257.6,429.4
+150,15.8,50.3,67.0,100.3,150.6,250.8,418.2
+200,13.8,48.6,64.8,97.2,145.8,243.4,405.4
+250,12.1,46.3,61.8,92.7,139.0,231.8,386.2
+300,10.2,45.0,60.0,90.0,135.0,225.1,375.0
+325,9.3,43.3,57.6,86.3,129.6,215.9,359.8
+350,8.4,41.9,55.8,83.6,125.5,209.1,348.7
+375,7.4,40.5,53.9,80.7,121.2,201.9,336.1
+400,6.5,38.0,50.7,76.2,114.2,190.4,317.1
+425,5.5,36.8,48.9,73.2,109.8,183.0,304.7
+450,4.6,35.4,47.3,71.1,106.5,177.5,295.9
+475,3.7,34.4,45.9,68.8,103.2,171.6,286.3
+500,2.8,32.1,42.9,64.4,96.6,160.6,267.9
+538,1.4,29.0,38.5,57.5,86.5,144.3,240.2
+550,—,28.8,38.3,57.3,86.0,143.6,239.2
+575,—,25.9,34.5,51.8,77.7,129.4,215.7
+600,—,18.6,24.8,37.2,55.9,93.1,155.1
+625,—,12.6,16.8,25.2,37.9,63.1,105.1
+649,—,8.4,11.2,16.8,25.2,42.0,70.0
+
+# Table 2-1.17 (printed p. 49) — pressure–temperature ratings for Group 1.17 materials, SI units
+# Note: Maximum allowable working pressure in bar at the listed metal temperature. Values fall or stay level as the temperature rises. Linear interpolation is allowed between the listed temperatures; interpolation between classes and any extrapolation are not. A class the standard does not rate at that temperature is printed there as an ellipsis and is shown here as "—".
+Temperature,Class 150,Class 300,Class 400,Class 600,Class 900,Class 1500,Class 2500
+Min. to 38 [Note (3)],19.8,51.7,68.9,103.4,155.1,258.6,430.9
+50,19.5,51.6,68.7,103.1,154.7,257.8,429.6
+100,17.7,50.6,67.4,101.1,151.7,252.9,421.4
+150,15.8,48.1,64.2,96.3,144.4,240.7,401.1
+200,13.8,46.3,61.7,92.6,138.9,231.4,385.7
+250,12.1,44.8,59.8,89.7,134.5,224.2,373.7
+300,10.2,43.6,58.1,87.2,130.8,218.1,363.4
+325,9.3,43.0,57.3,86.0,129.0,215.0,358.3
+350,8.4,41.9,55.8,83.6,125.5,209.1,348.7
+375,7.4,40.5,53.9,80.7,121.2,201.9,336.1
+400,6.5,38.0,50.7,76.2,114.2,190.4,317.1
+425,5.5,36.8,48.9,73.2,109.8,183.0,304.7
+450,4.6,35.0,46.6,69.9,104.9,174.9,291.4
+475,3.7,27.8,37.1,55.6,83.4,139.0,231.7
+500,2.8,21.2,28.3,42.4,63.6,105.9,176.6
+538,1.4,13.8,18.4,27.6,41.5,69.1,115.2
+550,—,11.9,15.9,23.8,35.7,59.5,99.1
+575,—,8.8,11.8,17.7,26.5,44.2,73.7
+600,—,5.9,7.9,11.9,17.8,29.7,49.4
+625,—,3.9,5.3,7.9,11.8,19.7,32.9
+649,—,2.4,3.1,4.7,7.1,11.8,19.6
+
+# Table 2-2.1 (printed p. 53) — pressure–temperature ratings for Group 2.1 materials, SI units
+# Note: Maximum allowable working pressure in bar at the listed metal temperature. Values fall or stay level as the temperature rises. Linear interpolation is allowed between the listed temperatures; interpolation between classes and any extrapolation are not. A class the standard does not rate at that temperature is printed there as an ellipsis and is shown here as "—".
+Temperature,Class 150,Class 300,Class 400,Class 600,Class 900,Class 1500,Class 2500
+Min. to 38 [Note (3)],19.1,49.7,66.3,99.4,149.1,248.6,414.3
+50,18.5,48.3,64.5,96.7,145.0,241.7,402.9
+100,15.6,40.8,54.4,81.6,122.4,204.0,340.0
+150,14.2,37.0,49.4,74.1,111.1,185.1,308.6
+200,13.1,34.3,45.7,68.6,102.9,171.4,285.7
+250,12.1,32.2,42.9,64.3,96.5,160.8,268.0
+300,10.2,31.0,41.3,61.9,92.9,154.8,258.0
+325,9.3,30.2,40.3,60.5,90.7,151.2,252.0
+350,8.4,29.5,39.4,59.0,88.6,147.6,246.0
+375,7.4,29.0,38.7,58.1,87.1,145.2,242.0
+400,6.5,28.3,37.8,56.6,85.0,141.6,236.0
+425,5.5,28.1,37.4,56.2,84.2,140.4,234.0
+450,4.6,27.4,36.5,54.7,82.1,136.8,228.0
+475,3.7,26.9,35.8,53.8,80.6,134.4,224.0
+500,2.8,26.4,35.2,52.8,79.2,132.0,220.0
+538,1.4,24.4,32.5,48.8,73.2,122.1,203.4
+550,—,24.0,32.0,48.0,72.0,120.0,200.0
+575,—,21.0,28.0,42.0,62.9,104.9,174.9
+600,—,16.8,22.4,33.6,50.4,84.0,140.0
+625,—,13.7,18.3,27.5,41.2,68.7,114.6
+650,—,11.2,15.0,22.5,33.7,56.2,93.7
+675,—,9.3,12.4,18.7,28.0,46.6,77.7
+700,—,8.0,10.7,16.0,24.1,40.1,66.9
+725,—,6.7,9.0,13.4,20.2,33.6,56.0
+750,—,5.7,7.6,11.5,17.2,28.6,47.7
+775,—,4.8,6.4,9.5,14.3,23.8,39.7
+800,—,3.8,5.1,7.6,11.4,19.0,31.7
+816,—,3.3,4.4,6.6,9.9,16.4,27.4
+
+# Table 2-2.2 (printed p. 55) — pressure–temperature ratings for Group 2.2 materials, SI units
+# Note: Maximum allowable working pressure in bar at the listed metal temperature. Values fall or stay level as the temperature rises. Linear interpolation is allowed between the listed temperatures; interpolation between classes and any extrapolation are not. A class the standard does not rate at that temperature is printed there as an ellipsis and is shown here as "—".
+Temperature,Class 150,Class 300,Class 400,Class 600,Class 900,Class 1500,Class 2500
+Min. to 38 [Note (4)],19.1,49.7,66.3,99.4,149.1,248.6,414.3
+50,18.5,48.3,64.5,96.7,145.0,241.7,402.9
+100,16.2,42.2,56.2,84.3,126.5,210.9,351.4
+150,14.7,38.4,51.2,76.8,115.2,192.0,320.0
+200,13.7,35.7,47.5,71.3,107.0,178.3,297.1
+250,12.1,33.4,44.5,66.7,100.1,166.8,278.0
+300,10.2,31.4,41.9,62.9,94.3,157.2,262.0
+325,9.3,31.0,41.3,61.9,92.9,154.8,258.0
+350,8.4,30.2,40.3,60.5,90.7,151.2,252.0
+375,7.4,29.8,39.7,59.5,89.3,148.8,248.0
+400,6.5,29.5,39.4,59.0,88.6,147.6,246.0
+425,5.5,29.0,38.7,58.1,87.1,145.2,242.0
+450,4.6,28.8,38.4,57.6,86.4,144.0,240.0
+475,3.7,28.6,38.1,57.1,85.7,142.8,238.0
+500,2.8,28.3,37.8,56.6,85.0,141.6,236.0
+538,1.4,26.7,35.6,53.4,80.1,133.5,222.6
+550,—,26.6,35.5,53.2,79.8,133.0,221.7
+575,—,25.3,33.7,50.5,75.8,126.3,210.6
+600,—,19.9,26.5,39.7,59.6,99.3,165.4
+625,—,15.8,21.0,31.5,47.3,78.9,131.4
+650,—,12.7,16.9,25.3,38.0,63.3,105.4
+675,—,10.3,13.8,20.6,31.0,51.6,86.0
+700,—,8.3,11.1,16.7,25.0,41.7,69.4
+725,—,7.0,9.3,13.9,20.9,34.8,58.0
+750,—,5.8,7.8,11.7,17.5,29.1,48.6
+775,—,4.6,6.1,9.2,13.8,23.0,38.3
+800,—,3.6,4.8,7.1,10.7,17.8,29.7
+816,—,3.1,4.1,6.1,9.2,15.3,25.4
+
+# Table 2-2.3 (printed p. 57) — pressure–temperature ratings for Group 2.3 materials, SI units
+# Note: Maximum allowable working pressure in bar at the listed metal temperature. Values fall or stay level as the temperature rises. Linear interpolation is allowed between the listed temperatures; interpolation between classes and any extrapolation are not. A class the standard does not rate at that temperature is printed there as an ellipsis and is shown here as "—".
+Temperature,Class 150,Class 300,Class 400,Class 600,Class 900,Class 1500,Class 2500
+Min. to 38 [Note (2)],15.8,41.1,54.9,82.3,123.4,205.7,342.9
+50,15.5,40.5,53.9,80.9,121.4,202.3,337.1
+100,13.4,35.0,46.6,69.9,104.9,174.9,291.4
+150,12.1,31.4,41.9,62.9,94.3,157.2,262.0
+200,11.1,29.0,38.7,58.1,87.1,145.2,242.0
+250,10.5,27.4,36.5,54.7,82.1,136.8,228.0
+300,9.9,25.9,34.6,51.8,77.8,129.6,216.0
+325,9.3,25.4,33.9,50.9,76.3,127.2,212.0
+350,8.4,25.0,33.3,49.9,74.9,124.8,208.0
+375,7.4,24.7,33.0,49.4,74.2,123.6,206.0
+400,6.5,24.2,32.3,48.5,72.7,121.2,202.0
+425,5.5,23.9,31.8,47.7,71.6,119.3,198.9
+454,4.6,23.4,31.2,46.8,70.3,117.1,195.1
+
+# Table 2-2.4 (printed p. 59) — pressure–temperature ratings for Group 2.4 materials, SI units
+# Note: Maximum allowable working pressure in bar at the listed metal temperature. Values fall or stay level as the temperature rises. Linear interpolation is allowed between the listed temperatures; interpolation between classes and any extrapolation are not. A class the standard does not rate at that temperature is printed there as an ellipsis and is shown here as "—".
+Temperature,Class 150,Class 300,Class 400,Class 600,Class 900,Class 1500,Class 2500
+Min. to 38 [Note (3)],19.1,49.7,66.3,99.4,149.1,248.6,414.3
+50,18.7,48.7,64.9,97.4,146.1,243.4,405.7
+100,17.0,44.2,59.0,88.5,132.7,221.1,368.6
+150,15.8,41.1,54.9,82.3,123.4,205.7,342.9
+200,13.8,38.4,51.2,76.8,115.2,192.0,320.0
+250,12.1,36.0,48.0,72.0,108.0,180.0,300.0
+300,10.2,34.1,45.4,68.2,102.2,170.4,284.0
+325,9.3,33.4,44.5,66.7,100.1,166.8,278.0
+350,8.4,32.6,43.5,65.3,97.9,163.2,272.0
+375,7.4,31.9,42.6,63.8,95.8,159.6,266.0
+400,6.5,31.7,42.2,63.4,95.0,158.4,264.0
+425,5.5,31.2,41.6,62.4,93.6,156.0,260.0
+450,4.6,30.7,41.0,61.4,92.2,153.6,256.0
+475,3.7,30.5,40.6,61.0,91.4,152.4,254.0
+500,2.8,30.2,40.3,60.5,90.7,151.2,252.0
+538,1.4,27.5,36.7,55.0,82.5,137.5,229.1
+550,—,27.5,36.7,55.0,82.5,137.5,229.1
+575,—,26.6,35.5,53.3,79.9,133.2,220.0
+600,—,20.1,26.8,40.3,60.4,100.6,167.7
+625,—,15.8,21.0,31.5,47.3,78.9,131.4
+650,—,12.7,16.9,25.3,38.0,63.3,105.4
+675,—,9.8,13.1,19.7,29.5,49.2,82.0
+700,—,7.9,10.5,15.7,23.6,39.3,65.4
+725,—,6.3,8.4,12.6,18.9,31.5,52.6
+750,—,4.9,6.6,9.9,14.8,24.7,41.1
+775,—,3.9,5.3,7.9,11.8,19.7,32.9
+800,—,3.1,4.2,6.3,9.4,15.7,26.2
+816,—,2.6,3.5,5.2,7.8,12.9,21.6
+
+# Table 2-2.5 (printed p. 61) — pressure–temperature ratings for Group 2.5 materials, SI units
+# Note: Maximum allowable working pressure in bar at the listed metal temperature. Values fall or stay level as the temperature rises. Linear interpolation is allowed between the listed temperatures; interpolation between classes and any extrapolation are not. A class the standard does not rate at that temperature is printed there as an ellipsis and is shown here as "—".
+Temperature,Class 150,Class 300,Class 400,Class 600,Class 900,Class 1500,Class 2500
+Min. to 38 [Note (4)],19.1,49.7,66.3,99.4,149.1,248.6,414.3
+50,18.8,49.0,65.4,98.1,147.1,245.1,408.6
+100,17.3,45.3,60.3,90.5,135.8,226.3,377.1
+150,15.8,42.5,56.7,85.0,127.5,212.6,354.3
+200,13.8,39.8,53.0,79.5,119.3,198.9,331.4
+250,12.1,37.7,50.3,75.4,113.1,188.6,314.3
+300,10.2,36.0,48.0,72.0,108.0,180.0,300.0
+325,9.3,35.3,47.1,70.6,105.9,176.6,294.3
+350,8.4,35.0,46.6,69.9,104.9,174.9,291.4
+375,7.4,34.1,45.4,68.2,102.2,170.4,284.0
+400,6.5,33.8,45.1,67.7,101.5,169.2,282.0
+425,5.5,33.6,44.8,67.2,100.8,168.0,280.0
+450,4.6,33.4,44.5,66.7,100.1,166.8,278.0
+475,3.7,33.4,44.5,66.7,100.1,166.8,278.0
+500,2.8,32.1,42.9,64.4,96.6,160.6,267.9
+538,1.4,29.0,38.5,57.5,86.5,144.3,240.2
+550,—,28.8,38.3,57.3,86.0,143.6,239.2
+575,—,27.8,37.1,55.6,83.3,138.9,231.4
+600,—,25.3,33.6,50.2,75.1,125.2,208.8
+625,—,21.5,28.7,43.0,64.5,107.2,178.6
+650,—,16.6,22.1,33.2,50.2,83.4,138.9
+675,—,14.2,18.9,28.4,42.6,71.0,118.3
+700,—,10.9,14.5,21.8,32.7,54.5,90.9
+725,—,8.2,10.9,16.4,24.6,41.0,68.3
+750,—,6.4,8.6,12.9,19.3,32.2,53.7
+775,—,5.0,6.7,10.0,15.0,25.0,41.7
+800,—,3.7,4.9,7.4,11.1,18.5,30.9
+816,—,3.1,4.1,6.1,9.2,15.3,25.4
+
+# Table 2-2.6 (printed p. 63) — pressure–temperature ratings for Group 2.6 materials, SI units
+# Note: Maximum allowable working pressure in bar at the listed metal temperature. Values fall or stay level as the temperature rises. Linear interpolation is allowed between the listed temperatures; interpolation between classes and any extrapolation are not. A class the standard does not rate at that temperature is printed there as an ellipsis and is shown here as "—".
+Temperature,Class 150,Class 300,Class 400,Class 600,Class 900,Class 1500,Class 2500
+Min. to 38 [Note (1)],19.1,49.7,66.3,99.4,149.1,248.6,414.3
+50,18.5,48.3,64.5,96.7,145.0,241.7,402.9
+100,16.4,42.9,57.1,85.7,128.6,214.3,357.1
+150,15.4,40.1,53.5,80.2,120.3,200.6,334.3
+200,13.8,37.7,50.3,75.4,113.1,188.6,314.3
+250,12.1,36.0,48.0,72.0,108.0,180.0,300.0
+300,10.2,35.0,46.6,69.9,104.9,174.9,291.4
+325,9.3,34.3,45.7,68.6,102.9,171.4,285.7
+350,8.4,33.8,45.1,67.7,101.5,169.2,282.0
+375,7.4,33.4,44.5,66.7,100.1,166.8,278.0
+400,6.5,33.1,44.2,66.2,99.4,165.6,276.0
+425,5.5,32.6,43.5,65.3,97.9,163.2,272.0
+450,4.6,32.2,42.9,64.3,96.5,160.8,268.0
+475,3.7,31.7,42.2,63.4,95.0,158.4,264.0
+500,2.8,31.2,41.6,62.4,93.6,156.0,260.0
+538,1.4,28.1,37.5,56.2,84.3,140.6,234.3
+550,—,27.1,36.1,54.1,81.2,135.3,225.4
+575,—,22.4,29.6,44.7,67.1,111.8,186.3
+600,—,16.7,22.2,33.3,50.0,83.3,138.9
+625,—,12.4,16.6,24.9,37.3,62.2,103.7
+650,—,9.4,12.5,18.7,28.1,46.8,78.0
+675,—,7.2,9.6,14.5,21.7,36.2,60.3
+700,—,5.5,7.3,10.9,16.4,27.3,45.4
+725,—,4.3,5.7,8.6,12.9,21.4,35.7
+750,—,3.4,4.5,6.8,10.2,17.0,28.3
+775,—,2.7,3.6,5.3,8.0,13.3,22.2
+800,—,2.1,2.8,4.2,6.3,10.5,17.5
+816,—,1.8,2.3,3.5,5.3,8.8,14.7

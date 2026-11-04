@@ -1,0 +1,6 @@
+﻿std,std_name,edition,rows,types,ratings,sizes,dn_min,dn_max
+asme-b16-5,ASME B16.5,ASME B16.5-2025,382,weld-neck | slip-on | blind,150 | 300 | 400 | 600 | 900 | 1500 | 2500,21,15,600
+asme-b16-47-a,ASME B16.47 Series A,ASME B16.47-2025,168,blind | weld-neck,150 | 300 | 400 | 600 | 900,18,650,1500
+asme-b16-47-b,ASME B16.47 Series B,ASME B16.47-2025,168,blind | weld-neck,150 | 300 | 400 | 600 | 900,18,650,1500
+jis-b2220,JIS B2220,JIS B2220:2012,330,weld-neck | slip-on | blind,5k | 10k | 16k | 20k | 30k,24,10,600
+en-1092-1,EN 1092-1,EN 1092-1:2018,300,weld-neck | slip-on | blind,pn6 | pn10 | pn16 | pn25 | pn40,20,10,600

@@ -1,0 +1,20 @@
+﻿# ASME B16.47-2025 marking requirements (Section 4)
+# Standard: ASME B16.47-2025
+# Verified: 2026-11-04
+# Source: ASME B16.47-2025, Section 4, Marking, paras. 4.1-4.2.9, pp. 3-4 (PDF pp. 18-19); ASME B16.47-2025, Table 1 and para. 4.2.8 (multiple material marking), pp. 11 and 4 (PDF pp. 26 and 19); ASME B16.47-2025, footnote to para. 4.2.2 on ASME BPVC Section II specifications, p. 3 (PDF p. 18); ASME B16.47-2025, para. 4.1 reference to MSS SP-25, p. 3 (PDF p. 18)
+# Reference data only. The purchased standard edition governs.
+
+# Section 4, para. 4.2 (pp. 3-4) — identification markings required by B16.47-2025
+# Note: The standard does not fix the order or the layout of these marks; the column on the right gives the paragraph for each requirement.
+Marking element,Requirement,Clause
+Manufacturer,Manufacturer's name or trademark applied to the flange.,4.2.1
+Material — castings,"ASTM specification, grade identification symbol, and the melt number or melt identification.",4.2.2(a)
+Material — forgings and plate,ASTM specification number and grade identification symbol.,4.2.2(b)
+Trade designation (optional),"The manufacturer may add a trade name for the grade, provided the symbols cannot be confused.",4.2.2(c)
+Pressure class,"The class number: 75, 150, 300, 400, 600 or 900.",4.2.3
+Standard conformance,"The designation B16 or B16.47, preferably adjacent to the class designation. The prefix 'ASME' is optional.",4.2.4
+Size,The NPS identification number.,4.2.6
+Ring-joint flange,The letter R and the corresponding ring-groove number on the edge (periphery) of the flange.,4.2.7
+Temperature (optional),"Not required; if marked, the temperature must be shown with its corresponding tabulated pressure rating.",4.2.5
+Multiple material grades (optional),"If the material meets more than one specification or grade, more than one may be marked, following ASME BPVC Section II, Part D, Appendix 7.",4.2.8
+Case number,"When the flange meets an ASME Case, the marking includes 'Case ##'.",4.2.9

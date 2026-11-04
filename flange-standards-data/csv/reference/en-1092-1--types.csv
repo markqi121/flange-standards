@@ -1,0 +1,59 @@
+﻿# EN 1092-1 flange types and facings
+# Standard: EN 1092-1:2018
+# Verified: 2026-11-04
+# Source: EN 1092-1:2018, Table 1 — Methods of manufacture (p. 14); EN 1092-1:2018, §5.6 — Dimensions (pp. 15–16); EN 1092-1:2018, Table 6 — Types of steel flanges and collars (p. 26); EN 1092-1:2018, §5.7 — Facings (pp. 16–17); EN 1092-1:2018, Figure 3 — Flange facing types (p. 27); EN 1092-1:2018, Table 2 — Surface finish for jointing faces (p. 17); EN 1092-1:2018, Table 7 — Synoptic table (pp. 28–33)
+# Reference data only. The purchased standard edition governs.
+
+# Table 6 (p. 26) — types of steel flanges and collars
+# Note: Type numbers are deliberately non-consecutive so that future types can be added. Types 32, 33, 35, 36 and 37 are collars used with type 02 loose plate flanges; type 34 is a collar used with type 04.
+Type No.,Description,Kind,Use / note
+01,Plate flange for welding,Flange,—
+02,Loose plate flange with weld-on plate collar or for lapped pipe end,Flange,"Used with collars 32, 33, 35, 36 or 37"
+04,Loose plate flange with weld-neck collar,Flange,Used with collar 34
+05,Blind flange,Flange,—
+11,Weld-neck flange,Flange,—
+12,Hubbed slip-on flange for welding,Flange,—
+13,Hubbed threaded flange,Flange,—
+21,Integral flange,Flange,Part of pressure equipment or a component (footnote a)
+32,Weld-on plate collar,Collar,For type 02 flanges (footnote b)
+33,Lapped pipe end,Collar,For type 02 flanges (footnote b)
+34,Weld-neck collar,Collar,For type 04 flanges (footnote b)
+35,Welding neck,Collar,For type 02 flanges (footnote b)
+36,Pressed collar with long neck,Collar,For type 02 flanges (footnote b)
+37,Pressed collar,Collar,For type 02 flanges (footnote b)
+
+# Table 1 (p. 14) — permitted methods of manufacture by flange and collar type
+# Note: yes / no as printed in the standard. The type 11 entry for bent and electric welded manufacture is limited to DN 700 and above.
+Type No.,Forged a,Cast,Made from flat products (plates),Machined from rolled or forged bars and forged sectional steel,"Bent and electric welded form bars, sectional steel or strip",Pressed from welded or seamless pipes or flat products
+01,yes,no,yes,yes,yes,no
+02,yes,no,yes,yes,yes,no
+04,yes,no,yes,yes,yes,no
+05,yes,no,yes,yes,no,no
+11,yes,no,no,yes,"yes, for ≥ DN 700",no
+12,yes,no,no,yes,no,no
+13,yes,no,no,yes,no,no
+21,yes,yes,no,yes,no,no
+32,yes,no,yes,yes,yes,no
+33,yes,no,yes,no,yes,yes
+34,yes,yes,no,yes,yes,no
+35,yes,no,yes,yes,yes,no
+36,yes,no,no,no,yes,yes
+37,yes,no,yes,yes,yes,yes
+
+# Figure 3 (p. 27) — flange facing types
+# Note: Facing dimensions are given in Figure 4 and Table 8. For facing types B, D, F and G the transition from the edge of the raised face to the flange face may be a radius or a chamfer, at the manufacturer's choice.
+Facing,Description,Note
+A,Flat face,—
+B,Raised face,"Two variants, B1 and B2, with different specified surface roughness (see Table 2)"
+C,Tongue,—
+D,Groove,—
+E,Spigot,—
+F,Recess,—
+G,O-ring spigot,—
+H,O-ring groove,—
+
+# Table 2 (p. 17) — surface finish for jointing faces
+# Note: Ra and Rz are in µm. The facing types are compared with reference specimens by visual or tactile means rather than by instrument measurement on the face itself.
+Facing types,Method of machining,Radius of round-nosed tool min.,Ra min.,Ra max.,Rz min.,Rz max.
+"A, B1, E, F",Turning c,"1,0","3,2","12,5","12,5",50
+"B2, C, D, G, H",Turning c,—,"0,8","3,2","3,2","12,5"

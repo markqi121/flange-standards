@@ -1,0 +1,20 @@
+﻿# ASME B16.5-2025 marking requirements (Section 4)
+# Standard: ASME B16.5-2025
+# Verified: 2026-11-04
+# Source: ASME B16.5-2025, §4 Marking, printed p. 4 (PDF p. 25).; ASME B16.5-2025, footnote 2 to §4.2.2 (ASME Code specification substitution), printed p. 4 (PDF p. 25).; ASME B16.5-2025, §1.10 Cases, printed p. 2 (PDF p. 23).; ASME B16.5-2025, §3.2 and §3.3 (size designation of reducing flanges and fittings), printed pp. 3–4 (PDF pp. 24–25).; ASME B16.5-2025, Table 1.1-1 (material specifications referenced by 4.2.8), printed pp. 5–7 (PDF pp. 26–28).; MSS SP-25, Standard Marking System for Valves, Fittings, Flanges and Unions — the base marking standard cited by §4.1.; Scope: marking requirements only; the purchased 2025 edition and any agreed ASME Case govern.
+# Reference data only. The purchased standard edition governs.
+
+# Section 4.2 (printed p. 4) — identification markings required by ASME B16.5-2025
+# Note: Paraphrased from the clause text; the clause number is given for each row. "Must" appears here because the clause uses "shall".
+Requirement,Clause,What must be marked
+Manufacturer identity,4.2.1,The manufacturer's name or trademark.
+Material — cast flanges and flanged fittings,4.2.2(a),"The ASTM specification, the grade identification symbol (letters and numbers), and the melt number or melt identification."
+"Material — plate and forged flanges, and flanged fittings",4.2.2(b),The ASTM specification number and the grade identification symbol.
+Optional trade designation,4.2.2(c),"The manufacturer may add its trade designation for the material grade, provided confusion of symbols is avoided."
+Pressure class,4.2.3,"The number of the rating class designation: 150, 300, 400, 600, 900, 1500 or 2500."
+Conformance mark,4.2.4,"The designation ""B16"" or ""B16.5"", preferably next to the class designation. An ""ASME"" prefix is optional."
+Size,4.2.6,The NPS designation. Reducing flanges and reducing flanged fittings carry the applicable NPS designation for each opening (paras. 3.2 and 3.3).
+Ring-joint flanges,4.2.7,On the edge (periphery): the letter R and the corresponding ring-groove number.
+Multiple material marking,4.2.8,"Optional: more than one applicable specification or grade symbol, placed to avoid confusion and following ASME BPVC Section II, Part D, Mandatory Appendix 7."
+Case number,4.2.9,"""Case ##"" when the flange or flanged fitting relies on and meets the requirements of a Case."
+Temperature (optional),4.2.5,"Not required. If the temperature is marked, it must be shown with its corresponding tabulated pressure rating for the material."

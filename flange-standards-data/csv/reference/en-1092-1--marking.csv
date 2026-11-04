@@ -1,0 +1,18 @@
+﻿# EN 1092-1 flange marking (§5.10)
+# Standard: EN 1092-1:2018
+# Verified: 2026-11-04
+# Source: EN 1092-1:2018, §5.10.1 — General marking requirements (p. 19); EN 1092-1:2018, §5.10.2 — Stamping (p. 19); EN 1092-1:2018, §5.10.3 — Declaration of compliance (p. 19); EN 1092-1:2018, §5.13 — Certificates (p. 24)
+# Reference data only. The purchased standard edition governs.
+
+# §5.10.1 — general marking requirements (p. 19)
+# Note: The marks are applied in this order and separated by slashes. Type 21 flanges are excluded from the general marking requirement.
+Item,What must be marked,Example / note
+a,Flange/collar manufacturer's name or trade mark,XXX
+b,Number of the European Standard,EN 1092-1
+c,Flange/collar type number,"11, 05, 34 …"
+d,"DN, nominal size",DN 150
+e,PN designation,PN 40; a lower PN may be marked where the dimensions are identical
+f,"Wall thickness S, only if it is not according to this standard",S = 9 mm
+g,"Name, number or grade of the material","P245GH, 1.0352 …"
+h,"Heat number of the melt and/or a suitable identification code for traceability, where test certification is required",A2345
+i,Additional marking (M) for flanges according to Annex I,34M

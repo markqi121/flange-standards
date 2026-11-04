@@ -1,0 +1,53 @@
+﻿# ASME B16.5-2025 flange tolerances (Section 7)
+# Standard: ASME B16.5-2025
+# Verified: 2026-11-04
+# Source: ASME B16.5-2025, §7.1 and §7.2, printed p. 13 (PDF p. 34).; ASME B16.5-2025, §7.3 to §7.7, printed p. 14 (PDF p. 35).; ASME B16.5-2025, §7.8, printed p. 15 (PDF p. 36).; ASME B16.5-2025, §6.4.5 and §6.4.6 (flange facing finish), printed p. 11 (PDF p. 32).; ASME B16.5-2025, §6.6 (bolting bearing surfaces), printed p. 11 (PDF p. 32).; ASME B16.5-2025, Table 5 / Table 5C (ring-joint facing dimensions and tolerances), referenced by §7.3.1(d).; Scope: Section 7 tolerances only; the purchased 2025 edition and any governing piping code govern acceptance.
+# Reference data only. The purchased standard edition governs.
+
+# Section 7.2–7.4 (printed p. 13) — required tolerances for centre-to-contact dimensions, facings and flange thickness
+# Note: Metric values are printed first with the inch values in parentheses; both are reproduced. Plus and minus signs are as printed: where only a plus value is shown, no negative tolerance is permitted. The ring-joint groove is toleranced in Table 5 (Table 5C), not in Section 7.
+Feature,Clause,Size range,"Tolerance, mm (in.)"
+"Centre-to-contact surface, other than ring joint",7.2(a),NPS ≤ 10,±1.0 (±0.04)
+"Centre-to-contact surface, other than ring joint",7.2(a),NPS ≥ 12,±1.5 (±0.06)
+"Centre-to-end, ring joint",7.2(b),NPS ≤ 10,±1.0 (±0.04)
+"Centre-to-end, ring joint",7.2(b),NPS ≥ 12,±1.5 (±0.06)
+"Contact-surface-to-contact-surface, other than ring joint",7.2(c),NPS ≤ 10,±2.0 (±0.08)
+"Contact-surface-to-contact-surface, other than ring joint",7.2(c),NPS ≥ 12,±3.0 (±0.12)
+"End-to-end, ring joint",7.2(d),NPS ≤ 10,±2.0 (±0.08)
+"End-to-end, ring joint",7.2(d),NPS ≥ 12,±3.0 (±0.12)
+"Inside and outside diameter, large and small tongue-and-groove and female facings",7.3.1(a),All sizes,±0.5 (±0.02)
+"Outside diameter, 1.5 mm (0.06 in.) raised face",7.3.1(b),All sizes,±1.0 (±0.04)
+"Outside diameter, 6.4 mm (0.25 in.) raised face",7.3.1(c),All sizes,±0.5 (±0.02)
+Ring-joint groove,7.3.1(d),All sizes,Per Table 5 (Table 5C)
+Perpendicularity of face with bore,7.3.2,NPS ≤ 5,1°
+Perpendicularity of face with bore,7.3.2,NPS ≥ 6,0.5°
+Flange thickness t,7.4,NPS ≤ 18,"+3.0, −0.0 (+0.12, −0.00)"
+Flange thickness t,7.4,NPS ≥ 20,"+5.0, −0.0 (+0.20, −0.00)"
+
+# Section 7.5–7.7 (printed p. 14) — required tolerances for welding ends, hubs and bores
+# Note: The hub thickness rule in 7.5.4 overrides the A and B tolerances: however much the listed minus tolerances would allow, the hub at the welding end must not fall below 87.5% of the nominal pipe wall. Bores for lapped and slip-on flanges (7.7.1) are toleranced differently from welding-end bores (7.5.2).
+Feature,Clause,Size range,"Tolerance, mm (in.)"
+"Welding-end outside diameter, dimension A, Figures 7 and 8",7.5.1,NPS ≤ 5,"+2.0, −1.0 (+0.08, −0.04)"
+"Welding-end outside diameter, dimension A, Figures 7 and 8",7.5.1,NPS ≥ 6,"+4.0, −1.0 (+0.16, −0.04)"
+"Welding-end inside diameter, dimension B, Figures 4, 7 and 8",7.5.2(a),NPS ≤ 10,±1.0 (±0.04)
+"Welding-end inside diameter, dimension B, Figures 4, 7 and 8",7.5.2(a),12 ≤ NPS ≤ 18,±1.5 (±0.06)
+"Welding-end inside diameter, dimension B, Figures 4, 7 and 8",7.5.2(a),NPS ≥ 20,"+3.0, −1.5 (+0.12, −0.06)"
+"Inside diameter, dimension B, Figure 9",7.5.2(b),NPS ≤ 10,"+0.0, −1.0 (+0.0, −0.04)"
+"Inside diameter, dimension B, Figure 9",7.5.2(b),NPS ≥ 12,"+0.0, −1.5 (+0.0, −0.06)"
+"Backing-ring contact bore, dimension C, Figures 9 and 10",7.5.3,2 ≤ NPS ≤ 24,"+0.25, −0.0 (+0.01, −0.0)"
+"Length through hub, welding-neck flanges",7.6,NPS ≤ 4,±1.5 (±0.06)
+"Length through hub, welding-neck flanges",7.6,5 ≤ NPS ≤ 10,"+1.5, −3.0 (+0.06, −0.12)"
+"Length through hub, welding-neck flanges",7.6,NPS ≥ 12,"+3.0, −5.0 (+0.12, −0.20)"
+Lapped and slip-on flange bore,7.7.1,NPS ≤ 10,"+1.0, −0.0 (+0.04, −0.0)"
+Lapped and slip-on flange bore,7.7.1,NPS ≥ 12,"+1.5, −0.0 (+0.06, −0.0)"
+Threaded flange counterbore,7.7.2,NPS ≤ 10,"+1.0, −0.0 (+0.04, −0.0)"
+Threaded flange counterbore,7.7.2,NPS ≥ 12,"+1.5, −0.0 (+0.06, −0.0)"
+Socket-welding flange counterbore,7.7.3,½ ≤ NPS ≤ 3,±0.25 (±0.010)
+
+# Section 7.8 (printed p. 15) — required tolerances for drilling and facing
+# Note: The first two limits apply to all sizes. The concentricity limit is a single value in each size range; the standard prints no ± sign for it.
+Feature,Clause,Size range,"Tolerance, mm (in.)"
+Bolt circle diameter,7.8.1,All sizes,±1.5 (±0.06)
+Centre-to-centre of adjacent bolt holes,7.8.2,All sizes,±0.8 (±0.03)
+Bolt circle concentricity with machined facing,7.8.3,NPS ≤ 2½,0.8 (0.03)
+Bolt circle concentricity with machined facing,7.8.3,NPS ≥ 3,1.5 (0.06)

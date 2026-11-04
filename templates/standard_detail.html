@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+{% load catalog_extras %}
+
+{% block title %}{{ standard.name_zh }} · {{ site_name }}{% endblock %}
+{% block description %}{{ standard.name }} {{ standard.effective_edition }} 法兰尺寸表：{{ standard.name_zh }}，共 {{ standard.rows.count }} 条规格，可按类型、压力等级和口径筛选并打印规格卡。{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+  <div class="wrap">
+    <a href="{% url 'catalog:home' %}">首页</a><span>/</span>
+    <span>{{ standard.name }}</span>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<section class="page-head page-head-std">
+  <div class="wrap">
+    <div class="page-head-main">
+      <div>
+        <p class="eyebrow">STANDARD · {{ standard.id|upper }}</p>
+        <h1>{{ standard.name_zh }}</h1>
+        <p class="page-sub">{{ standard.name }} · {{ standard.effective_edition }}</p>
+      </div>
+      <div class="page-head-side">
+        <div class="badge-stack">
+          <span class="tag tag-solid">{{ standard.effective_edition }}</span>
+          <span class="tag">{{ standard.region }}</span>
+          <span class="tag">{{ standard.rating_name }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="intro-copy">
+      {% for paragraph in standard.intro_zh %}<p>{{ paragraph }}</p>{% endfor %}
+    </div>
+
+    <div class="fact-strip">
+      <div class="fact"><span>基础材料</span><strong>{{ standard.base_material|default:"—" }}</strong></div>
+      <div class="fact"><span>尺寸写法</span><strong>{{ standard.size_syntax|default:"—" }}</strong></div>
+      <div class="fact"><span>可选材料</span><strong>{{ standard.material_options|length }} 类</strong></div>
+      <div class="fact"><span>参考数据</span><strong>{{ topics|length }} 个主题</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">DIMENSIONS</p>
+        <h2>尺寸数据</h2>
+      </div>
+      <p class="section-desc">一行一条规格；点尺寸进入规格卡，可看图、看压力-温度额定值并打印。</p>
+    </div>
+
+    <div class="type-tabs" role="tablist" aria-label="法兰类型">
+      {% for item in type_stats %}
+        <a class="type-tab {% if item.flange_type_id == type_slug %}is-active{% endif %}"
+           href="?type={{ item.flange_type_id }}"
+           role="tab" aria-selected="{% if item.flange_type_id == type_slug %}true{% else %}false{% endif %}">
+          {{ item.flange_type__name_zh }}
+          <span class="type-count">{{ item.count }}</span>
+        </a>
+      {% endfor %}
+    </div>
+
+    {% if type_note and type_row %}
+      <p class="type-note"><strong>{{ type_row.flange_type__name_zh }}：</strong>{{ type_note }} 共 {{ type_row.count }} 条规格。</p>
+    {% endif %}
+
+    <div class="filter-bar">
+      <div class="filter-group">
+        <span class="filter-label">压力等级</span>
+        <a class="filter-chip {% if not rating_code %}is-active{% endif %}"
+           href="?type={{ type_slug }}{% if size_dn %}&amp;size={{ size_dn }}{% endif %}">全部</a>
+        {% for item in rating_stats %}
+          <a class="filter-chip {% if item.rating__code == rating_code %}is-active{% endif %}"
+             href="?type={{ type_slug }}&amp;rating={{ item.rating__code }}{% if size_dn %}&amp;size={{ size_dn }}{% endif %}">
+            {{ item.rating__label }}<span>{{ item.count }}</span>
+          </a>
+        {% endfor %}
+      </div>
+
+      <form class="filter-size" method="get" action="">
+        <input type="hidden" name="type" value="{{ type_slug }}">
+        {% if rating_code %}<input type="hidden" name="rating" value="{{ rating_code }}">{% endif %}
+        <label for="size-select">口径</label>
+        <select id="size-select" name="size" onchange="this.form.submit()">
+          <option value="">全部口径</option>
+          {% for size in sizes %}
+            <option value="{{ size.dn }}" {% if size.dn|stringformat:"s" == size_dn %}selected{% endif %}>
+              DN{{ size.dn }} · {{ size.size_label }}
+            </option>
+          {% endfor %}
+        </select>
+        <noscript><button type="submit">筛选</button></noscript>
+      </form>
+
+      <span class="filter-total">当前 {{ total_filtered }} 条</span>
+    </div>
+
+    {% if page_obj %}
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>尺寸</th>
+              <th>压力等级</th>
+              <th class="ta-right">外径 D</th>
+              <th class="ta-right">厚度 C</th>
+              <th class="ta-right hide-mobile">密封面 D2</th>
+              <th class="ta-right hide-mobile">中心圆 K</th>
+              <th class="hide-mobile">螺栓孔</th>
+              <th class="ta-right hide-mobile">轮毂 A</th>
+              <th class="ta-right hide-mobile">长度 H</th>
+              <th class="ta-right hide-mobile">重量</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in page_obj %}
+              <tr>
+                <td class="strong">
+                  <a href="{{ row.get_absolute_url }}">{{ row.size_label }}</a>
+                  <span class="sub">DN{{ row.dn }}</span>
+                </td>
+                <td><span class="rating">{{ row.rating.label }}</span></td>
+                <td class="num">{{ row.od|dim }}</td>
+                <td class="num">{{ row.th|dim }}</td>
+                <td class="num hide-mobile">{{ row.rf|dim|default:"—" }}</td>
+                <td class="num hide-mobile">{{ row.bc|dim }}</td>
+                <td class="num hide-mobile">{{ row.bolts }} × Ø{{ row.bolt_hole|dim }}</td>
+                <td class="num hide-mobile">{{ row.hub|dim|default:"—" }}</td>
+                <td class="num hide-mobile">{{ row.length|dim|default:"—" }}</td>
+                <td class="num hide-mobile">{% if row.weight %}{{ row.weight|weight }} kg{% else %}—{% endif %}</td>
+                <td class="ta-right"><a class="text-link" href="{{ row.get_absolute_url }}">规格卡</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      {% if page_obj.has_other_pages %}
+        <nav class="pagination" aria-label="分页">
+          {% if page_obj.has_previous %}
+            <a href="?type={{ type_slug }}{% if rating_code %}&amp;rating={{ rating_code }}{% endif %}{% if size_dn %}&amp;size={{ size_dn }}{% endif %}&amp;page={{ page_obj.previous_page_number }}">上一页</a>
+          {% else %}<span class="is-disabled">上一页</span>{% endif %}
+          <span class="page-info">第 {{ page_obj.number }} / {{ page_obj.paginator.num_pages }} 页</span>
+          {% if page_obj.has_next %}
+            <a href="?type={{ type_slug }}{% if rating_code %}&amp;rating={{ rating_code }}{% endif %}{% if size_dn %}&amp;size={{ size_dn }}{% endif %}&amp;page={{ page_obj.next_page_number }}">下一页</a>
+          {% else %}<span class="is-disabled">下一页</span>{% endif %}
+        </nav>
+      {% endif %}
+    {% else %}
+      <p class="empty">该筛选条件下没有数据。</p>
+    {% endif %}
+  </div>
+</section>
+
+{% if topics %}
+<section class="section section-tint">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">REFERENCE</p>
+        <h2>参考数据</h2>
+      </div>
+      <p class="section-desc">来自 {{ standard.effective_edition }} 的表格与条款，保留原表号和页码。</p>
+    </div>
+    <div class="topic-grid">
+      {% for topic in topics %}
+        <a class="topic-card" href="{% url 'catalog:reference_topic' standard.id topic.key %}">
+          <span class="topic-label">{{ topic.label }}</span>
+          <h3>{{ topic.title }}</h3>
+          <p>{{ topic.intro|truncatechars:90 }}</p>
+          <span class="card-link">查看 <span aria-hidden="true">→</span></span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section">
+  <div class="wrap note-grid">
+    <div class="note-card">
+      <h3>压力等级怎么读</h3>
+      <p>{{ standard.rating_note_zh }}</p>
+    </div>
+    <div class="note-card">
+      <h3>版本与核对</h3>
+      <p>{{ standard.edition_note_zh }}</p>
+      <p class="hint">尺寸数据最后导入：{{ data_import.imported_at|date:"Y-m-d H:i"|default:"—" }}</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

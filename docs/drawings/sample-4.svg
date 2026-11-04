@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="170.00mm" height="105.00mm" viewBox="0 0 170.00 105.00" preserveAspectRatio="xMidYMid meet" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" fill="none" stroke="#000" stroke-width="0.58" stroke-linejoin="round"><title>EN 1092-1 · DN100 · PN16 · 对焊法兰</title><rect x="0" y="0" width="170.00" height="105.00" fill="#ffffff" stroke="none"/><defs><pattern id="hatch-en-1092-1-weld-neck-dn100" width="1.60" height="1.60" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="1.60" stroke="#000" stroke-width="0.23"/></pattern></defs><g transform="translate(0.00 0.00) scale(1.0000)"><text x="85.00" y="5.50" font-size="3.39" text-anchor="middle" fill="#000" stroke="none" font-weight="600">EN 1092-1 · DN100 · PN16 · 对焊法兰</text>
+<circle cx="39.40" cy="52.00" r="35.34" fill="none" stroke-width="0.58"/>
+<circle cx="39.40" cy="52.00" r="25.38" fill="none" stroke-width="0.55"/>
+<circle cx="39.40" cy="52.00" r="16.53" fill="none" stroke-width="0.55"/>
+<circle cx="39.40" cy="52.00" r="28.92" fill="none" stroke-width="0.28" stroke-dasharray="4.0 1.2 0.9 1.2"/>
+<circle cx="66.12" cy="40.93" r="2.89" fill="#ffffff" stroke-width="0.55"/>
+<circle cx="50.47" cy="25.28" r="2.89" fill="#ffffff" stroke-width="0.55"/>
+<circle cx="28.33" cy="25.28" r="2.89" fill="#ffffff" stroke-width="0.55"/>
+<circle cx="12.68" cy="40.93" r="2.89" fill="#ffffff" stroke-width="0.55"/>
+<circle cx="12.68" cy="63.07" r="2.89" fill="#ffffff" stroke-width="0.55"/>
+<circle cx="28.33" cy="78.72" r="2.89" fill="#ffffff" stroke-width="0.55"/>
+<circle cx="50.47" cy="78.72" r="2.89" fill="#ffffff" stroke-width="0.55"/>
+<circle cx="66.12" cy="63.07" r="2.89" fill="#ffffff" stroke-width="0.55"/>
+<line x1="1.56" y1="52.00" x2="77.24" y2="52.00" stroke-width="0.28" stroke-linecap="butt" stroke-dasharray="4.0 1.2 0.9 1.2"/>
+<line x1="39.40" y1="14.16" x2="39.40" y2="89.84" stroke-width="0.28" stroke-linecap="butt" stroke-dasharray="4.0 1.2 0.9 1.2"/>
+<line x1="4.06" y1="51.44" x2="4.06" y2="12.02" stroke-width="0.28" stroke-linecap="butt"/>
+<line x1="74.74" y1="51.44" x2="74.74" y2="12.02" stroke-width="0.28" stroke-linecap="butt"/>
+<line x1="4.06" y1="13.46" x2="74.74" y2="13.46" stroke-width="0.28" stroke-linecap="butt"/>
+<path d="M4.06,13.46 L6.08,12.94 L6.08,13.97 Z" fill="#000" stroke="none"/>
+<path d="M74.74,13.46 L72.72,13.97 L72.72,12.94 Z" fill="#000" stroke="none"/>
+<text x="39.40" y="11.06" font-size="3.20" text-anchor="middle" fill="#000" stroke="none">外径 D 220</text>
+<line x1="75.60" y1="70.88" x2="59.85" y2="72.45" stroke-width="0.28" stroke-linecap="butt"/>
+<path d="M59.85,72.45 L61.81,71.73 L61.91,72.76 Z" fill="#000" stroke="none"/>
+<text x="96.00" y="72.00" font-size="3.20" text-anchor="end" fill="#000" stroke="none">螺栓孔中心圆</text>
+<text x="96.00" y="76.96" font-size="3.20" text-anchor="end" fill="#000" stroke="none">K 180</text>
+<line x1="82.43" y1="90.22" x2="53.19" y2="79.70" stroke-width="0.28" stroke-linecap="butt"/>
+<path d="M53.19,79.70 L55.27,79.89 L54.92,80.87 Z" fill="#000" stroke="none"/>
+<text x="94.00" y="91.34" font-size="3.20" text-anchor="end" fill="#000" stroke="none">8×Ø18</text>
+<line x1="1.80" y1="90.22" x2="21.45" y2="69.95" stroke-width="0.28" stroke-linecap="butt"/>
+<path d="M21.45,69.95 L20.41,71.76 L19.67,71.04 Z" fill="#000" stroke="none"/>
+<text x="3.00" y="91.34" font-size="3.20" text-anchor="start" fill="#000" stroke="none">密封面 Ø 158</text>
+<path d="M110.48,35.47 L110.48,26.62 L111.12,26.62 L111.12,16.66 L117.55,16.66 L117.55,30.95 L127.19,33.64 L127.19,35.47 Z" fill="url(#hatch-en-1092-1-weld-neck-dn100)" stroke-width="0.58"/>
+<path d="M110.48,68.53 L110.48,77.38 L111.12,77.38 L111.12,87.34 L117.55,87.34 L117.55,73.05 L127.19,70.36 L127.19,68.53" fill="none" stroke-width="0.58"/>
+<line x1="110.48" y1="68.53" x2="127.19" y2="68.53" stroke-width="0.40" stroke-linecap="butt" stroke-dasharray="2.4 1.3"/>
+<line x1="111.12" y1="20.19" x2="117.55" y2="20.19" stroke-width="0.40" stroke-linecap="butt" stroke-dasharray="2.4 1.3"/>
+<line x1="111.12" y1="25.97" x2="117.55" y2="25.97" stroke-width="0.40" stroke-linecap="butt" stroke-dasharray="2.4 1.3"/>
+<line x1="111.12" y1="20.19" x2="111.12" y2="25.97" stroke-width="0.40" stroke-linecap="butt" stroke-dasharray="2.4 1.3"/>
+<line x1="117.55" y1="20.19" x2="117.55" y2="25.97" stroke-width="0.40" stroke-linecap="butt" stroke-dasharray="2.4 1.3"/>
+<line x1="109.92" y1="23.08" x2="118.75" y2="23.08" stroke-width="0.28" stroke-linecap="butt" stroke-dasharray="4.0 1.2 0.9 1.2"/>
+<line x1="111.12" y1="78.03" x2="117.55" y2="78.03" stroke-width="0.40" stroke-linecap="butt" stroke-dasharray="2.4 1.3"/>
+<line x1="111.12" y1="83.81" x2="117.55" y2="83.81" stroke-width="0.40" stroke-linecap="butt" stroke-dasharray="2.4 1.3"/>
+<line x1="111.12" y1="78.03" x2="111.12" y2="83.81" stroke-width="0.40" stroke-linecap="butt" stroke-dasharray="2.4 1.3"/>
+<line x1="117.55" y1="78.03" x2="117.55" y2="83.81" stroke-width="0.40" stroke-linecap="butt" stroke-dasharray="2.4 1.3"/>
+<line x1="109.92" y1="80.92" x2="118.75" y2="80.92" stroke-width="0.28" stroke-linecap="butt" stroke-dasharray="4.0 1.2 0.9 1.2"/>
+<line x1="106.98" y1="52.00" x2="130.69" y2="52.00" stroke-width="0.28" stroke-linecap="butt" stroke-dasharray="4.0 1.2 0.9 1.2"/>
+<line x1="111.12" y1="16.09" x2="111.12" y2="10.42" stroke-width="0.28" stroke-linecap="butt"/>
+<line x1="117.55" y1="16.09" x2="117.55" y2="10.42" stroke-width="0.28" stroke-linecap="butt"/>
+<line x1="108.10" y1="11.86" x2="120.57" y2="11.86" stroke-width="0.28" stroke-linecap="butt"/>
+<path d="M111.12,11.86 L109.10,12.37 L109.10,11.34 Z" fill="#000" stroke="none"/>
+<path d="M117.55,11.86 L119.57,11.34 L119.57,12.37 Z" fill="#000" stroke="none"/>
+<text x="121.07" y="12.98" font-size="3.20" text-anchor="start" fill="#000" stroke="none">厚度 C 20</text>
+<line x1="82.33" y1="8.98" x2="110.48" y2="26.62" stroke-width="0.28" stroke-linecap="butt"/>
+<path d="M110.48,26.62 L108.49,25.98 L109.04,25.10 Z" fill="#000" stroke="none"/>
+<text x="107.98" y="10.10" font-size="3.20" text-anchor="end" fill="#000" stroke="none">密封面高度 f 2.0</text>
+<line x1="110.48" y1="77.95" x2="110.48" y2="93.28" stroke-width="0.28" stroke-linecap="butt"/>
+<line x1="127.19" y1="70.93" x2="127.19" y2="93.28" stroke-width="0.28" stroke-linecap="butt"/>
+<line x1="110.48" y1="91.84" x2="127.19" y2="91.84" stroke-width="0.28" stroke-linecap="butt"/>
+<path d="M110.48,91.84 L112.50,91.33 L112.50,92.36 Z" fill="#000" stroke="none"/>
+<path d="M127.19,91.84 L125.16,92.36 L125.16,91.33 Z" fill="#000" stroke="none"/>
+<text x="118.83" y="96.48" font-size="3.20" text-anchor="middle" fill="#000" stroke="none">长度 H 52</text>
+<line x1="130.99" y1="30.95" x2="117.55" y2="30.95" stroke-width="0.28" stroke-linecap="butt"/>
+<path d="M117.55,30.95 L119.57,30.44 L119.57,31.47 Z" fill="#000" stroke="none"/>
+<text x="132.19" y="32.07" font-size="3.20" text-anchor="start" fill="#000" stroke="none">轮毂 Ø A 131</text>
+<line x1="130.99" y1="70.36" x2="127.19" y2="70.36" stroke-width="0.28" stroke-linecap="butt"/>
+<path d="M127.19,70.36 L129.21,69.84 L129.21,70.88 Z" fill="#000" stroke="none"/>
+<text x="132.19" y="71.48" font-size="3.20" text-anchor="start" fill="#000" stroke="none">焊接端 Ø 114.3</text>
+<text x="3.00" y="102.00" font-size="3.11" text-anchor="start" fill="#000" stroke="none">两视图同一比例 1:3.1；示意图，尺寸以标准表为准</text>
+<text x="167.00" y="102.00" font-size="3.11" text-anchor="end" fill="#000" stroke="none">单位：mm</text></g></svg>

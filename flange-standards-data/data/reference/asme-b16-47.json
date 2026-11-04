@@ -1,0 +1,603 @@
+{
+  "id": "asme-b16-47",
+  "edition": "ASME B16.47-2025",
+  "verifiedOn": "2026-11-04",
+  "sourceDocument": "ASME B16.47-2025 (PDF supplied for this project)",
+  "topics": {
+    "pressure-ratings": {
+      "title": "ASME B16.47-2025 pressure–temperature ratings (Group 1.1)",
+      "metaDescription": "Working pressures for ASME B16.47-2025 Group 1.1 steels, Classes 75 to 900, in bar and psi from 38 °C to 538 °C, taken from Tables 3 and 3C.",
+      "intro": [
+        "Table 3 (SI, bar) and Table 3C (U.S. customary, psig) of ASME B16.47-2025 give the maximum working pressure of Group 1.1 flanges at design temperatures from 38 °C to 538 °C (100 °F to 1,000 °F) for Classes 75, 150, 300, 400, 600 and 900. The ratings apply to large-diameter Series A and Series B flanges alike: the allowable pressure is fixed by the pressure class and the material group, not by the flange series or the outside diameter.",
+        "The first row of each table is a floor, not an extra data point — every temperature at or below 38 °C (100 °F) takes the ambient rating. Linear interpolation is permitted between the listed temperatures, but interpolation between classes is not, and the tables must not be extrapolated above their highest listed temperature. The six notes under each table carry the material and temperature limits that go with the numbers; they are reproduced as footnotes on the tables below."
+      ],
+      "keyFacts": [
+        { "label": "Standard", "value": "ASME B16.47-2025" },
+        { "label": "Tables", "value": "3 (bar) and 3C (psig)" },
+        { "label": "Material group", "value": "1.1" },
+        { "label": "Classes", "value": "75, 150, 300, 400, 600, 900" },
+        { "label": "Ambient rating", "value": "9.8 bar (Class 75) to 153.1 bar (Class 900)" },
+        { "label": "Top temperature", "value": "538 °C / 1,000 °F" }
+      ],
+      "sections": [
+        {
+          "heading": "Materials covered by Tables 3 and 3C",
+          "paragraphs": [
+            "Group 1.1 is the carbon and carbon-manganese steel group. Table 3 and Table 3C name a nominal designation for each row and list the accepted forging, casting and plate specifications; note markers refer to the limits given under each rating table. The same group also covers the C-Mn-Si-V and 3½Ni grades listed below."
+          ],
+          "table": {
+            "caption": "Table 3/3C header — Group 1.1 materials (p. 14-15)",
+            "note": "Product forms shown exactly where the standard lists them; '—' means the standard lists no specification of that form for the row. Note markers correspond to the footnotes on the rating tables.",
+            "columns": [
+              { "key": "designation", "label": "Nominal designation", "align": "left" },
+              { "key": "forgings", "label": "Forgings", "align": "left" },
+              { "key": "castings", "label": "Castings", "align": "left" },
+              { "key": "plates", "label": "Plates", "align": "left" }
+            ],
+            "rows": [
+              ["C-Si", "A105 [Notes (1), (2)]", "A216 Gr. WCB [Note (1)]", "A515 Gr. 70 [Note (1)]"],
+              ["C-Mn-Si", "A350 Gr. LF2 [Note (1)]", "—", "A516 Gr. 70 [Notes (1), (2)]"],
+              ["C-Mn-Si", "—", "—", "A537 Cl. 1 [Note (3)]"],
+              ["C-Mn-Si-V", "A350 Gr. LF6 Cl. 1 [Note (4)]", "—", "—"],
+              ["3½Ni", "A350 Gr. LF3 [Note (5)]", "—", "—"]
+            ]
+          }
+        },
+        {
+          "heading": "Table 3 — Group 1.1 working pressure in bar (SI units)",
+          "paragraphs": [
+            "Metric table. Pressure values are bar; temperatures are degrees Celsius. The 538 °C row is the last tabulated condition."
+          ],
+          "table": {
+            "caption": "Table 3 (p. 14) — pressure–temperature ratings for Group 1.1 materials, SI units",
+            "note": "Maximum allowable working pressure in bar at the listed metal temperature. Temperatures at or below 38 °C use the 'min. to 38' row. Linear interpolation is permitted between listed temperatures; interpolation between classes is not permitted. '—' records a cell for which the standard prints no rating ('...').",
+            "columns": [
+              { "key": "temp", "label": "Temperature", "unit": "°C", "align": "left" },
+              { "key": "c75", "label": "Class 75", "unit": "bar", "align": "right" },
+              { "key": "c150", "label": "Class 150", "unit": "bar", "align": "right" },
+              { "key": "c300", "label": "Class 300", "unit": "bar", "align": "right" },
+              { "key": "c400", "label": "Class 400", "unit": "bar", "align": "right" },
+              { "key": "c600", "label": "Class 600", "unit": "bar", "align": "right" },
+              { "key": "c900", "label": "Class 900", "unit": "bar", "align": "right" }
+            ],
+            "rows": [
+              ["min. to 38 [Note 6]", "9.8", "19.6", "51.0", "68.0", "102.0", "153.1"],
+              ["50", "9.6", "19.1", "49.8", "66.4", "99.6", "149.3"],
+              ["100", "8.8", "17.7", "46.7", "62.3", "93.4", "140.1"],
+              ["150", "7.9", "15.8", "45.1", "60.1", "90.1", "135.2"],
+              ["200", "6.9", "13.8", "43.8", "58.4", "87.6", "131.5"],
+              ["250", "6.0", "12.1", "42.0", "56.0", "83.9", "125.9"],
+              ["300", "5.1", "10.2", "39.9", "53.2", "79.6", "119.7"],
+              ["325", "4.6", "9.3", "38.7", "51.6", "77.3", "116.0"],
+              ["350", "3.1", "8.4", "37.6", "50.2", "75.3", "112.9"],
+              ["375", "—", "7.4", "36.4", "48.5", "72.8", "109.2"],
+              ["400", "—", "6.5", "34.6", "46.2", "69.3", "103.9"],
+              ["425", "—", "5.5", "28.7", "38.3", "57.5", "86.2"],
+              ["450", "—", "4.6", "23.0", "30.6", "45.9", "68.9"],
+              ["475", "—", "3.7", "17.5", "23.3", "35.0", "52.5"],
+              ["500", "—", "2.8", "11.5", "15.4", "23.0", "34.6"],
+              ["538", "—", "1.4", "5.8", "7.7", "11.6", "17.4"]
+            ],
+            "footnotes": [
+              { "marker": "1", "text": "Prolonged service above 427 °C can convert the carbide phase to graphite. The standard permits such service but does not recommend it." },
+              { "marker": "2", "text": "Only killed steel may be used above 455 °C." },
+              { "marker": "3", "text": "A537 Cl. 1 plate is limited to 371 °C." },
+              { "marker": "4", "text": "A350 LF6 Cl. 1 is limited to 260 °C." },
+              { "marker": "5", "text": "A350 LF3 is limited to 343 °C." },
+              { "marker": "6", "text": "Minimum-temperature guidance is given in para. 2.5.3." }
+            ]
+          }
+        },
+        {
+          "heading": "Table 3C — Group 1.1 working pressure in psig (U.S. customary units)",
+          "paragraphs": [
+            "U.S. customary table. Pressure values are psig; temperatures are degrees Fahrenheit. The same materials and temperature limits apply as in Table 3."
+          ],
+          "table": {
+            "caption": "Table 3C (p. 15) — pressure–temperature ratings for Group 1.1 materials, U.S. customary units",
+            "note": "Maximum allowable working pressure in psig at the listed metal temperature. Temperatures at or below 100 °F use the 'min. to 100' row. Linear interpolation is permitted between listed temperatures; interpolation between classes is not permitted. '—' records a cell for which the standard prints no rating ('...').",
+            "columns": [
+              { "key": "temp", "label": "Temperature", "unit": "°F", "align": "left" },
+              { "key": "c75", "label": "Class 75", "unit": "psig", "align": "right" },
+              { "key": "c150", "label": "Class 150", "unit": "psig", "align": "right" },
+              { "key": "c300", "label": "Class 300", "unit": "psig", "align": "right" },
+              { "key": "c400", "label": "Class 400", "unit": "psig", "align": "right" },
+              { "key": "c600", "label": "Class 600", "unit": "psig", "align": "right" },
+              { "key": "c900", "label": "Class 900", "unit": "psig", "align": "right" }
+            ],
+            "rows": [
+              ["min. to 100 [Note 6]", "140", "285", "740", "985", "1,480", "2,220"],
+              ["200", "130", "260", "680", "905", "1,360", "2,035"],
+              ["300", "115", "230", "655", "870", "1,310", "1,965"],
+              ["400", "100", "200", "635", "845", "1,265", "1,900"],
+              ["500", "85", "170", "605", "805", "1,205", "1,810"],
+              ["600", "70", "140", "570", "755", "1,135", "1,705"],
+              ["650", "60", "125", "550", "730", "1,100", "1,650"],
+              ["700", "—", "110", "530", "710", "1,060", "1,590"],
+              ["750", "—", "95", "505", "675", "1,015", "1,520"],
+              ["800", "—", "80", "410", "550", "825", "1,235"],
+              ["850", "—", "65", "320", "425", "640", "955"],
+              ["900", "—", "50", "230", "305", "460", "690"],
+              ["950", "—", "35", "135", "185", "275", "410"],
+              ["1,000", "—", "20", "85", "115", "170", "255"]
+            ],
+            "footnotes": [
+              { "marker": "1", "text": "Prolonged service above 800 °F can convert the carbide phase to graphite. The standard permits such service but does not recommend it." },
+              { "marker": "2", "text": "Only killed steel may be used above 850 °F." },
+              { "marker": "3", "text": "A537 Cl. 1 plate is limited to 700 °F." },
+              { "marker": "4", "text": "A350 LF6 Cl. 1 is limited to 500 °F." },
+              { "marker": "5", "text": "A350 LF3 is limited to 650 °F." },
+              { "marker": "6", "text": "Minimum-temperature guidance is given in para. 2.5.3." }
+            ]
+          }
+        }
+      ],
+      "faq": [
+        {
+          "q": "Do Series A and Series B flanges share the same pressure ratings?",
+          "a": "Yes. The rating depends on the pressure class and the material group, not on the flange series. A Class 300 Series A flange and a Class 300 Series B flange made from the same group 1.1 material are both rated from Table 3 or 3C. The series only changes dimensions and bolt pattern, so never use it as a proxy for pressure capability."
+        },
+        {
+          "q": "Why does Table 3 list a Class 75 column?",
+          "a": "Class 75 is the surviving part of the original API 605 line, which became Series B. ASME B16.47-2025 publishes Class 75 dimensions for Series B flanges only (Tables 37 and 37C), but its pressure–temperature tables keep a Class 75 column so those flanges have a rating. The ambient value is 140 psig (9.8 bar), exactly half the Class 150 rating."
+        },
+        {
+          "q": "Can a Class 900 B16.47 flange be used at 500 °C?",
+          "a": "For Group 1.1 the table still gives a rating at 500 °C — 34.6 bar (500 psig at 932 °F) — and 538 °C is the highest listed temperature. Note (1) is the constraint to respect: prolonged service above 427 °C is permitted but not recommended for these carbon steels, and no rating exists above 538 °C. Higher-temperature service needs a different material group with its own table."
+        },
+        {
+          "q": "What does the 'min. to 38 °C' row mean?",
+          "a": "It is the ambient floor for the table. Paragraph 2.4 of the standard says that for any temperature below 38 °C (100 °F) the rating may not exceed the value shown at 38 °C, so design at 0 °C or 20 °C uses 19.6 bar for a Class 150 group 1.1 flange. The same convention applies to the 'min. to 100 °F' row in Table 3C."
+        }
+      ],
+      "sources": [
+        "ASME B16.47-2025, Table 3, Pressure-Temperature Ratings for Group 1.1 Materials — SI Units, p. 14 (PDF p. 29)",
+        "ASME B16.47-2025, Table 3C, Pressure-Temperature Ratings for Group 1.1 Materials — U.S. Customary Units, p. 15 (PDF p. 30)",
+        "ASME B16.47-2025, paras. 2.1 and 2.4 (interpolation and ambient floor), p. 2 (PDF p. 17)",
+        "ASME B16.47-2025, Table 1, List of Material Specifications, pp. 11-12 (PDF pp. 26-27)"
+      ],
+      "related": [
+        { "label": "ASME B16.47 Series A flange dimensions", "href": "/standards/asme-b16-47-series-a/" },
+        { "label": "ASME B16.47 Series B flange dimensions", "href": "/standards/asme-b16-47-series-b/" },
+        { "label": "Weld neck flanges for large-diameter lines", "href": "/products/flanges/weld-neck-flanges/" }
+      ]
+    },
+    "material-groups": {
+      "title": "ASME B16.47-2025 material groups (Table 1)",
+      "metaDescription": "ASME B16.47-2025 Table 1 material groups: 27 groups with forging, casting and plate ASTM specifications, from carbon steel group 1.1 to duplex group 2.13.",
+      "intro": [
+        "ASME B16.47-2025 sorts every permitted flange material into a numbered group, and the group number — not the individual grade — selects the pressure–temperature table. Table 1 (pp. 11-12) lists 27 groups: 1.1 through 1.18 for ferritic carbon and low-alloy steels, and 2.1 through 2.13 for austenitic and duplex stainless steels, together with the forging, casting and plate specifications accepted for each group.",
+        "The group also decides which of Tables 3-29 applies to a flange. A105 forgings, for example, are group 1.1 and share Table 3/3C with A216 WCB castings and A515 Gr. 70 plate, while A182 F316L forgings are group 2.3 and read Table 19/19C. Plate materials are only permitted for blind flanges and reducing flanges without hubs (para. 5.1 and Note 1 of Table 1). Group numbering is historical and not consecutive: 1.6, 1.8, 1.12 and 1.16 are not used in this edition."
+      ],
+      "keyFacts": [
+        { "label": "Source", "value": "Table 1, pp. 11-12" },
+        { "label": "Material groups", "value": "27 (1.1-1.18 and 2.1-2.13)" },
+        { "label": "Rating tables", "value": "Tables 3-29 (SI) and 3C-29C (US)" },
+        { "label": "Group 1.1", "value": "A105 / A216 WCB / A515 Gr. 70" },
+        { "label": "Group 2.3", "value": "A182 F304L, F316L, F317L" },
+        { "label": "Plate restriction", "value": "Blind and hubless reducing flanges only" }
+      ],
+      "sections": [
+        {
+          "heading": "Table 1 — material groups and applicable ASTM specifications",
+          "paragraphs": [
+            "Groups 1.x are ferritic; groups 2.x are austenitic and duplex stainless. The column headed 'P/T table' is the rating table pair that governs the group (Tables 3-29 in SI units, 3C-29C in U.S. customary units). Where the standard prints '...' for a product form, it is shown here as '—'."
+          ],
+          "table": {
+            "caption": "Table 1 (pp. 11-12) — list of material specifications by material group",
+            "note": "Plate materials are listed only for blind flanges and reducing flanges without hubs (Note 1). Upper temperature limits are in the notes to Tables 3-28; lower temperature limits are discussed in para. 2.5.3.",
+            "columns": [
+              { "key": "group", "label": "Group", "align": "left" },
+              { "key": "designation", "label": "Nominal designation", "align": "left" },
+              { "key": "forgings", "label": "Forgings", "align": "left" },
+              { "key": "castings", "label": "Castings", "align": "left" },
+              { "key": "plates", "label": "Plates", "align": "left" },
+              { "key": "ratingTable", "label": "P/T table", "align": "left" }
+            ],
+            "rows": [
+              ["1.1", "C-Si", "A105", "A216 Gr. WCB", "A515 Gr. 70", "3 / 3C"],
+              ["1.1", "C-Mn-Si", "A350 Gr. LF2", "—", "A516 Gr. 70", "3 / 3C"],
+              ["1.1", "C-Mn-Si", "—", "—", "A537 Cl. 1", "3 / 3C"],
+              ["1.1", "C-Mn-Si-V", "A350 Gr. LF6 Cl. 1", "—", "—", "3 / 3C"],
+              ["1.1", "3½Ni", "A350 Gr. LF3", "—", "—", "3 / 3C"],
+              ["1.2", "C-Mn-Si", "—", "A216 Gr. WCC", "—", "4 / 4C"],
+              ["1.2", "C-Mn-Si", "—", "A352 Gr. LCC", "—", "4 / 4C"],
+              ["1.2", "C-Mn-Si-V", "A350 Gr. LF6 Cl. 2", "—", "—", "4 / 4C"],
+              ["1.2", "2½Ni", "—", "A352 Gr. LC2", "A203 Gr. B", "4 / 4C"],
+              ["1.2", "3½Ni", "—", "A352 Gr. LC3", "A203 Gr. E", "4 / 4C"],
+              ["1.3", "C-Si", "—", "A352 Gr. LCB", "A515 Gr. 65", "5 / 5C"],
+              ["1.3", "C-Mn-Si", "—", "—", "A516 Gr. 65", "5 / 5C"],
+              ["1.3", "2½Ni", "—", "—", "A203 Gr. A", "5 / 5C"],
+              ["1.3", "3½Ni", "—", "—", "A203 Gr. D", "5 / 5C"],
+              ["1.3", "C-½Mo", "—", "A217 Gr. WC1", "—", "5 / 5C"],
+              ["1.3", "C-½Mo", "—", "A352 Gr. LC1", "—", "5 / 5C"],
+              ["1.4", "C-Si", "—", "—", "A515 Gr. 60", "6 / 6C"],
+              ["1.4", "C-Mn-Si", "A350 Gr. LF1 Cl. 1", "—", "A516 Gr. 60", "6 / 6C"],
+              ["1.5", "C-½Mo", "A182 Gr. F1", "—", "A204 Gr. A", "7 / 7C"],
+              ["1.5", "C-½Mo", "—", "—", "A204 Gr. B", "7 / 7C"],
+              ["1.7", "½Cr-½Mo", "A182 Gr. F2", "—", "—", "8 / 8C"],
+              ["1.7", "Ni-½Cr-½Mo", "—", "A217 Gr. WC4", "—", "8 / 8C"],
+              ["1.7", "¾Ni-¾Cr-1Mo", "—", "A217 Gr. WC5", "—", "8 / 8C"],
+              ["1.9", "1¼Cr-½Mo", "—", "A217 Gr. WC6", "—", "9 / 9C"],
+              ["1.9", "1¼Cr-½Mo-Si", "A182 Gr. F11 Cl. 2", "—", "A387 Gr. 11 Cl. 2", "9 / 9C"],
+              ["1.10", "2¼Cr-1Mo", "A182 Gr. F22 Cl. 3", "A217 Gr. WC9", "A387 Gr. 22 Cl. 2", "10 / 10C"],
+              ["1.11", "3Cr-1Mo", "A182 F21", "—", "A387 Gr. 21 Cl. 2", "11 / 11C"],
+              ["1.11", "C-½Mo", "—", "—", "A240 Gr. C", "11 / 11C"],
+              ["1.13", "5Cr-½Mo", "A182 Gr. F5A", "A217 Gr. C5", "—", "12 / 12C"],
+              ["1.14", "9Cr-1Mo", "A182 Gr. F9", "A217 Gr. C12", "—", "13 / 13C"],
+              ["1.15", "9Cr-1Mo-V", "A182 Gr. F91 Type 1", "A217 Gr. C12A", "A387 Gr. 91 Cl. 2", "14 / 14C"],
+              ["1.17", "1Cr-½Mo", "A182 Gr. F12 Cl. 2", "—", "—", "15 / 15C"],
+              ["1.17", "5Cr-½Mo", "A182 Gr. F5", "—", "—", "15 / 15C"],
+              ["1.18", "9Cr-2W-V", "A182 Gr. F92", "—", "—", "16 / 16C"],
+              ["2.1", "18Cr-8Ni", "A182 Gr. F304", "A351 Gr. CF3", "A240 Gr. 304", "17 / 17C"],
+              ["2.1", "18Cr-8Ni", "A182 Gr. F304H", "A351 Gr. CF8", "A240 Gr. 304H", "17 / 17C"],
+              ["2.2", "16Cr-12Ni-2Mo", "A182 Gr. F316", "A351 Gr. CF3M", "A240 Gr. 316", "18 / 18C"],
+              ["2.2", "16Cr-12Ni-2Mo", "A182 Gr. F316H", "A351 Gr. CF8M", "A240 Gr. 316H", "18 / 18C"],
+              ["2.2", "18Cr-13Ni-3Mo", "A182 Gr. F317", "—", "A240 Gr. 317", "18 / 18C"],
+              ["2.2", "19Cr-10Ni-3Mo", "—", "A351 Gr. CG8M", "—", "18 / 18C"],
+              ["2.3", "18Cr-8Ni", "A182 Gr. F304L", "—", "A240 Gr. 304L", "19 / 19C"],
+              ["2.3", "16Cr-12Ni-2Mo", "A182 Gr. F316L", "—", "A240 Gr. 316L", "19 / 19C"],
+              ["2.3", "18Cr-13Ni-3Mo", "A182 Gr. F317L", "—", "—", "19 / 19C"],
+              ["2.4", "18Cr-10Ni-Ti", "A182 Gr. F321", "—", "A240 Gr. 321", "20 / 20C"],
+              ["2.4", "18Cr-10Ni-Ti", "A182 Gr. F321H", "—", "A240 Gr. 321H", "20 / 20C"],
+              ["2.5", "18Cr-10Ni-Cb", "A182 Gr. F347", "—", "A240 Gr. 347", "21 / 21C"],
+              ["2.5", "18Cr-10Ni-Cb", "A182 Gr. F347H", "—", "A240 Gr. 347H", "21 / 21C"],
+              ["2.5", "18Cr-10Ni-Cb", "A182 Gr. F348", "—", "A240 Gr. 348", "21 / 21C"],
+              ["2.5", "18Cr-10Ni-Cb", "A182 Gr. F348H", "—", "A240 Gr. 348H", "21 / 21C"],
+              ["2.6", "23Cr-12Ni", "—", "—", "A240 Gr. 309H", "22 / 22C"],
+              ["2.7", "25Cr-20Ni", "A182 Gr. F310H", "—", "A240 Gr. 310H", "23 / 23C"],
+              ["2.8", "20Cr-18Ni-6Mo", "A182 Gr. F44", "A351 Gr. CK3MCuN", "A240 Gr. S31254", "24 / 24C"],
+              ["2.9", "23Cr-12Ni", "—", "—", "A240 Gr. 309S", "25 / 25C"],
+              ["2.9", "25Cr-20Ni", "—", "—", "A240 Gr. 310S", "25 / 25C"],
+              ["2.10", "25Cr-12Ni", "—", "A351 Gr. CH8", "—", "26 / 26C"],
+              ["2.10", "25Cr-12Ni", "—", "A351 Gr. CH20", "—", "26 / 26C"],
+              ["2.11", "18Cr-10Ni-Cb", "—", "A351 Gr. CF8C", "—", "27 / 27C"],
+              ["2.12", "25Cr-20Ni", "—", "A351 Gr. CK20", "—", "28 / 28C"],
+              ["2.13", "22Cr-5Ni-3Mo-N", "A182 Gr. F51", "A995 CD3MN (4A)", "A240 Gr. S31803", "29 / 29C"],
+              ["2.13", "22Cr-5Ni-3Mo-N", "A182 Gr. F60", "—", "—", "29 / 29C"],
+              ["2.13", "22Cr-5Ni-3Mo-N", "—", "—", "A240 Gr. S32205", "29 / 29C"],
+              ["2.13", "25Cr-5Ni-3Mo-2Cu", "—", "—", "A240 Gr. S32550", "29 / 29C"],
+              ["2.13", "25Cr-7Ni-4Mo-N", "A182 Gr. F53", "—", "A240 Gr. S32750", "29 / 29C"],
+              ["2.13", "24Cr-10Ni-4Mo-N", "—", "A995 Gr. CE8MN (2A)", "—", "29 / 29C"],
+              ["2.13", "25Cr-5Ni-3Cu-2Mo-N", "—", "A995 Gr. CD4MCuN (1B)", "—", "29 / 29C"],
+              ["2.13", "25Cr-7Ni-3.5Mo-W-Cb", "—", "A995 Gr. CD3MWCuN (6A)", "—", "29 / 29C"],
+              ["2.13", "25Cr-7Ni-3.5Mo-N-Cu-W", "A182 Gr. F55", "—", "A240 Gr. S32760", "29 / 29C"]
+            ]
+          }
+        },
+        {
+          "heading": "How a material group is used",
+          "paragraphs": [
+            "Write the group number into the specification alongside the grade. A flange drawing that says only 'A105' or 'F316L' leaves the rating open to interpretation if the specification is revised; 'A105, group 1.1' or 'F316L, group 2.3' ties the component to the exact rating table used in the design calculation.",
+            "The group is also the natural cross-check between forgings, castings and plate. A group can contain several product forms with the same allowable stresses, which is why a casting (A216 WCB) and a forging (A105) can both read Table 3. Mixing product forms is legitimate; mixing groups is not. If a grade appears in more than one group, use the group the mill certificate and the design calculation are based on, and make sure the marking and the certificate agree."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Which material group is ASTM A105?",
+          "a": "A105 forgings are group 1.1, the same group as A216 Gr. WCB castings and A515 Gr. 70 plate. Their pressure–temperature rating is Table 3 in bar or Table 3C in psig, with an ambient Class 150 rating of 19.6 bar (285 psig)."
+        },
+        {
+          "q": "Which group are 316 and 316L?",
+          "a": "A182 F316 and F316H forgings, together with A240 316/316H plate, are group 2.2. The low-carbon grades A182 F316L and A240 316L are group 2.3. They do not share a rating table, so check the exact grade rather than assuming all '316' flanges behave alike."
+        },
+        {
+          "q": "Can a weld-neck flange be made from A515 Gr. 70 plate?",
+          "a": "No. B16.47 lists plate specifications in Table 1, but para. 5.1 and Note 1 of Table 1 restrict plate to blind flanges and reducing flanges without hubs. A weld-neck flange must be forged or cast in a listed specification and must be made as one piece; assembling it from plate or by welding is not permitted."
+        },
+        {
+          "q": "Why are groups 1.6, 1.8, 1.12 and 1.16 missing?",
+          "a": "The group numbering is historical and shared with the ASME B16.5 material system, so not every number is used in B16.47-2025. Use the group printed in Table 1 for the exact specification and grade; do not infer a group from the sequence or from an older catalogue."
+        }
+      ],
+      "sources": [
+        "ASME B16.47-2025, Table 1, List of Material Specifications, pp. 11-12 (PDF pp. 26-27)",
+        "ASME B16.47-2025, para. 5.1(a) and Note 1 of Table 1 (plate restriction), pp. 11 and 4 (PDF pp. 26 and 19)",
+        "ASME B16.47-2025, Tables 3-29 and 3C-29C, table of contents pp. iv-v (PDF pp. 4-5)"
+      ],
+      "related": [
+        { "label": "ASME B16.47 Series A flange dimensions", "href": "/standards/asme-b16-47-series-a/" },
+        { "label": "ASME B16.47 Series B flange dimensions", "href": "/standards/asme-b16-47-series-b/" },
+        { "label": "Carbon steel flange materials", "href": "/products/materials/carbon-steel/" }
+      ]
+    },
+    "tolerances": {
+      "title": "ASME B16.47-2025 flange tolerances (Section 7)",
+      "metaDescription": "ASME B16.47-2025 Section 7 tolerances in one table: facing, thickness, welding-end, hub length, bolt circle and bolt-hole limits in mm and inches.",
+      "intro": [
+        "Section 7 of ASME B16.47-2025 sets the permissible manufacturing deviations for large-diameter flanges: raised-face and ring-joint facing dimensions, flange thickness, welding-end outside and inside diameter, backing-ring contact bore, hub length, bolt circle diameter, bolt-hole spacing and bolt-circle concentricity. The values are acceptance limits for new manufacture, not allowances to be added to a design dimension.",
+        "B16.47-2025 publishes metric dimensions as primary and U.S. customary values in parentheses; both are reproduced in the table below. Where a tolerance is stated as a single plus value that is intentional — the 1.5 mm raised face carries +0.5 mm and no minus value, and flange thickness carries only a plus tolerance, so a flange may finish thicker than nominal but not thinner. Ring-joint groove dimensions and tolerances are governed by Table 30 (Table 30C) rather than repeated in Section 7."
+      ],
+      "keyFacts": [
+        { "label": "Clause", "value": "Section 7, pp. 6-7" },
+        { "label": "Thickness", "value": "Plus tolerance only (+3.0 to +10.0 mm)" },
+        { "label": "Bolt circle", "value": "±1.5 mm (±0.06 in.)" },
+        { "label": "Bolt-hole spacing", "value": "±0.8 mm (±0.03 in.)" },
+        { "label": "Weld-end OD", "value": "+5.0 / -2.0 mm" },
+        { "label": "Hub length", "value": "+3.0 / -5.0 mm" }
+      ],
+      "sections": [
+        {
+          "heading": "Section 7 tolerances at a glance",
+          "paragraphs": [
+            "One table collects every limit in Section 7, in the order the standard presents them: facings, thickness, welding ends, hub length and drilling/facing. Where a limit depends on part size, the size bands are the standard's own."
+          ],
+          "table": {
+            "caption": "Section 7 (pp. 6-7) — required tolerances for ASME B16.47-2025 flanges",
+            "note": "Metric values are primary in B16.47-2025; the inch values in the standard are shown in parentheses and are reproduced here separately. Plus and minus signs are as printed: a single plus value means no negative tolerance is permitted.",
+            "columns": [
+              { "key": "feature", "label": "Feature", "align": "left" },
+              { "key": "range", "label": "Size range", "align": "left" },
+              { "key": "mm", "label": "Tolerance, mm", "align": "left" },
+              { "key": "inch", "label": "Tolerance, in.", "align": "left" }
+            ],
+            "rows": [
+              ["Raised-face outside diameter", "All sizes", "±2.0", "±0.08"],
+              ["1.5 mm (0.06 in.) raised-face height", "All sizes", "+0.5", "+0.02"],
+              ["6.4 mm (0.25 in.) raised-face height", "All sizes", "±2.0", "±0.08"],
+              ["Ring-joint groove", "All sizes", "Per Table 30", "Per Table 30C"],
+              ["Flange thickness t", "t ≤ 25 mm (≤ 1.0 in.)", "+3.0, -0.0", "+0.12, -0.00"],
+              ["Flange thickness t", "> 25 to ≤ 50 mm (> 1.0 to ≤ 2.0 in.)", "+5.0, -0.0", "+0.20, -0.00"],
+              ["Flange thickness t", "> 50 to ≤ 75 mm (> 2.0 to ≤ 3.0 in.)", "+8.0, -0.0", "+0.31, -0.00"],
+              ["Flange thickness t", "> 75 mm (> 3.0 in.)", "+10.0, -0.0", "+0.39, -0.00"],
+              ["Welding-end outside diameter (dim. A, Figure 1)", "All sizes", "+5.0, -2.0", "+0.20, -0.08"],
+              ["Welding-end inside diameter (dim. B, Figure 1)", "All sizes", "+3.0, -2.0", "+0.12, -0.08"],
+              ["Welding-end inside diameter (dim. B, Figure 2)", "All sizes", "+0.0, -2.0", "+0.00, -0.08"],
+              ["Backing-ring contact bore (dim. C, Figure 2)", "All sizes", "+0.25, -0.0", "+0.01, -0.00"],
+              ["Hub overall length, welding neck", "All sizes", "+3.0, -5.0", "+0.12, -0.20"],
+              ["Bolt circle diameter", "All sizes", "±1.5", "±0.06"],
+              ["Bolt hole to adjacent bolt hole (centre to centre)", "All sizes", "±0.8", "±0.03"],
+              ["Bolt circle concentricity to machined facing", "All sizes", "1.5 max.", "0.06 max."],
+              ["Hub thickness at welding end", "All sizes", "≥ 87.5% of nominal pipe wall", "—"]
+            ],
+            "footnotes": [
+              { "marker": "a", "text": "Ring-joint groove dimensions and tolerances are tabulated in Table 30 (Table 30C); they are not repeated in Section 7." },
+              { "marker": "b", "text": "The hub thickness at the welding end overrides the plus/minus limits on dimensions A and B: it must not fall below 87.5% of the nominal pipe wall (or the minimum wall specified by the purchaser)." },
+              { "marker": "c", "text": "The plus thickness tolerance applies at bolting bearing surfaces whether as-forged, as-cast, spot-faced or back-faced." }
+            ]
+          }
+        },
+        {
+          "heading": "How the limits are applied",
+          "paragraphs": [
+            "The face and drilling limits are measured on the finished component. Bolt holes are equally spaced in multiples of four (para. 6.2), which is why the adjacent-hole tolerance controls the pattern rather than a single hole position. The bolt-circle concentricity limit is measured against the machined facing diameter, so it is checked after facing rather than before.",
+            "Flange thickness is checked at the bolting bearing surface as well as the body. Spot-facing or back-facing may not take the flange below the minimum thickness in the dimension tables, and the plus-only tolerance means a marginally thick forging can be cleaned up by machining while a thin one cannot be recovered. Weld-end dimensions A, B and C refer to the profiles in Figures 1-3; the same figures also limit how much extra thickness may be added to match a heavier pipe.",
+            "These are dimensional acceptance limits only. Surface finish, facing-finish imperfections and marking are handled elsewhere in the standard, and the standard does not require flanges to be pressure tested (para. 8.1)."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can a B16.47 flange be thinner than nominal?",
+          "a": "No. Section 7.2 gives only a plus tolerance on flange thickness — +3.0 mm up to 25 mm, rising to +10.0 mm above 75 mm — with no minus allowance. A flange that measures under the tabulated minimum thickness does not conform, even if it is within other dimensional tolerances."
+        },
+        {
+          "q": "What is the bolt circle tolerance on a B16.47 flange?",
+          "a": "The bolt circle diameter has a tolerance of ±1.5 mm (±0.06 in.), the centre-to-centre distance of adjacent bolt holes is ±0.8 mm (±0.03 in.), and the bolt circle must be concentric with the machined facing diameter within 1.5 mm (0.06 in.). Bolt holes are equally spaced in multiples of four."
+        },
+        {
+          "q": "Which tolerance applies to the weld-end bore?",
+          "a": "It depends on the weld-end profile. For the Figure 1 profile the inside diameter tolerance is +3.0/-2.0 mm; for the Figure 2 backing-ring profile it is +0.0/-2.0 mm. In both cases the hub at the welding end must also be at least 87.5% of the nominal pipe wall, which can govern over the dimensional tolerance."
+        },
+        {
+          "q": "Are the inch tolerances exact conversions of the metric values?",
+          "a": "They are the standard's own U.S. customary values, printed alongside the metric values, and some are rounded independently (for example ±2.0 mm is shown as ±0.08 in.). Use the unit system called out on the drawing or purchase order; do not convert one column to check the other, because the rounding will not be exact."
+        }
+      ],
+      "sources": [
+        "ASME B16.47-2025, paras. 7.1-7.5, Tolerances, pp. 6-7 (PDF pp. 21-22)",
+        "ASME B16.47-2025, Figures 1-3, Welding Ends, pp. 8-10 (PDF pp. 23-25)",
+        "ASME B16.47-2025, Tables 30 and 30C, Dimensions of Ring-Joint Facings, p. 66-67 (PDF pp. 81-82)",
+        "ASME B16.47-2025, para. 6.2 (bolt holes in multiples of four), p. 6 (PDF p. 21)"
+      ],
+      "related": [
+        { "label": "ASME B16.47 Series A flange dimensions", "href": "/standards/asme-b16-47-series-a/" },
+        { "label": "ASME B16.47 Series B flange dimensions", "href": "/standards/asme-b16-47-series-b/" },
+        { "label": "Large-diameter blind flanges", "href": "/products/flanges/blind-flanges/" }
+      ]
+    },
+    "marking": {
+      "title": "ASME B16.47-2025 marking requirements (Section 4)",
+      "metaDescription": "What ASME B16.47-2025 requires on a large-diameter flange: manufacturer, material grade, class, size, B16.47 conformance, ring-joint R number, case marks.",
+      "intro": [
+        "Section 4 of ASME B16.47-2025 defines the identification markings that must appear on every large-diameter flange covered by the standard. The baseline is MSS SP-25, with paragraph 4.2 adding the B16.47-specific content: manufacturer identity, material specification and grade, pressure class, size, conformance to B16.47, and — for ring-joint flanges — the R groove number.",
+        "Marking is the buyer's traceability link between the flange, the material certificate and the pressure rating. The class number marked on the flange selects the pressure–temperature table, the material marking selects the material group, and the size marking is the NPS designation, not the bore. The standard does not prescribe a layout or a marking method; it lists what must appear."
+      ],
+      "keyFacts": [
+        { "label": "Clause", "value": "Section 4, pp. 3-4" },
+        { "label": "Baseline", "value": "MSS SP-25 (para. 4.1)" },
+        { "label": "Class mark", "value": "75, 150, 300, 400, 600 or 900" },
+        { "label": "Conformance mark", "value": "B16 or B16.47" },
+        { "label": "Size mark", "value": "NPS number" },
+        { "label": "Ring-joint", "value": "R + ring-groove number" }
+      ],
+      "sections": [
+        {
+          "heading": "Required identification markings",
+          "paragraphs": [
+            "Paragraph 4.2 is written as a list of elements rather than a sample stamp, so several arrangements are acceptable. The table records each element with the requirement that applies to it."
+          ],
+          "table": {
+            "caption": "Section 4, para. 4.2 (pp. 3-4) — identification markings required by B16.47-2025",
+            "note": "The standard does not fix the order or the layout of these marks; the column on the right gives the paragraph for each requirement.",
+            "columns": [
+              { "key": "element", "label": "Marking element", "align": "left" },
+              { "key": "requirement", "label": "Requirement", "align": "left" },
+              { "key": "clause", "label": "Clause", "align": "left" }
+            ],
+            "rows": [
+              ["Manufacturer", "Manufacturer's name or trademark applied to the flange.", "4.2.1"],
+              ["Material — castings", "ASTM specification, grade identification symbol, and the melt number or melt identification.", "4.2.2(a)"],
+              ["Material — forgings and plate", "ASTM specification number and grade identification symbol.", "4.2.2(b)"],
+              ["Trade designation (optional)", "The manufacturer may add a trade name for the grade, provided the symbols cannot be confused.", "4.2.2(c)"],
+              ["Pressure class", "The class number: 75, 150, 300, 400, 600 or 900.", "4.2.3"],
+              ["Standard conformance", "The designation B16 or B16.47, preferably adjacent to the class designation. The prefix 'ASME' is optional.", "4.2.4"],
+              ["Size", "The NPS identification number.", "4.2.6"],
+              ["Ring-joint flange", "The letter R and the corresponding ring-groove number on the edge (periphery) of the flange.", "4.2.7"],
+              ["Temperature (optional)", "Not required; if marked, the temperature must be shown with its corresponding tabulated pressure rating.", "4.2.5"],
+              ["Multiple material grades (optional)", "If the material meets more than one specification or grade, more than one may be marked, following ASME BPVC Section II, Part D, Appendix 7.", "4.2.8"],
+              ["Case number", "When the flange meets an ASME Case, the marking includes 'Case ##'.", "4.2.9"]
+            ]
+          }
+        },
+        {
+          "heading": "What is not required — and the exception to watch",
+          "bullets": [
+            "Temperature marking is not required. If a temperature is stamped, it must be paired with the tabulated pressure rating for that material at that temperature, so the mark cannot be misread as a separate rating.",
+            "The 'ASME' prefix before B16 or B16.47 is optional; the conformance designation itself is what matters.",
+            "Multiple-grade marking is at the manufacturer's option, not an obligation. The pressure rating of any of the marked grades may then be used, provided the marking follows the BPVC guidance.",
+            "A heat number or melt number is mandatory on cast flanges but not on forged or plate flanges, where the minimum is the ASTM specification number plus the grade symbol. In practice heat identity is carried on the inspection certificate and is frequently added to the flange by agreement.",
+            "The general marking practice comes from MSS SP-25, to which Section 4 is the B16.47-specific addition. An ASME Boiler and Pressure Vessel Code, Section II specification number may replace an ASTM number where its requirements are identical or more stringent."
+          ]
+        },
+        {
+          "heading": "An illustrative marking string",
+          "paragraphs": [
+            "Because B16.47 does not publish a sample stamp, the order of the characters is a manufacturer choice. A forged Series A flange could read 'ACME 26 B16.47 300 A105' — manufacturer, NPS 26, standard conformance, Class 300, A105 forging. A cast flange must add the melt number, for example 'ACME 30 B16.47 150 A216 Gr. WCB M4471'. A ring-joint flange adds the letter R and its groove number. These strings are illustrative only; check that every element required by para. 4.2 appears on the actual flange and matches its certificate."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is a heat number required on a forged B16.47 flange?",
+          "a": "Not by Section 4.2. Forged and plate flanges must show the ASTM specification number and grade identification symbol, while cast flanges must also show the melt number or melt identification. A heat number on a forging is a traceability improvement, usually tied to the inspection certificate, rather than a minimum marking requirement of the standard."
+        },
+        {
+          "q": "Does the flange have to say 'ASME B16.47'?",
+          "a": "It must carry the conformance designation B16 or B16.47, preferably next to the class mark. The 'ASME' prefix is optional, so 'B16.47' or 'B16' alone is sufficient. The class number must also be present because that is what selects the pressure–temperature table."
+        },
+        {
+          "q": "Is a temperature stamp required?",
+          "a": "No. Temperature marking is not required on B16.47 flanges. If a temperature is marked, the corresponding tabulated pressure rating for the material must be shown with it, so the pair cannot be separated or misread."
+        },
+        {
+          "q": "What is the R marking on a ring-joint flange?",
+          "a": "The edge or periphery of every ring-joint flange must be marked with the letter R followed by the ring-groove number that identifies the groove size. The groove dimensions themselves are in Table 30 (Table 30C); the R marking lets the groove be identified without measuring it."
+        }
+      ],
+      "sources": [
+        "ASME B16.47-2025, Section 4, Marking, paras. 4.1-4.2.9, pp. 3-4 (PDF pp. 18-19)",
+        "ASME B16.47-2025, Table 1 and para. 4.2.8 (multiple material marking), pp. 11 and 4 (PDF pp. 26 and 19)",
+        "ASME B16.47-2025, footnote to para. 4.2.2 on ASME BPVC Section II specifications, p. 3 (PDF p. 18)",
+        "ASME B16.47-2025, para. 4.1 reference to MSS SP-25, p. 3 (PDF p. 18)"
+      ],
+      "related": [
+        { "label": "ASME B16.47 Series A flange dimensions", "href": "/standards/asme-b16-47-series-a/" },
+        { "label": "ASME B16.47 Series B flange dimensions", "href": "/standards/asme-b16-47-series-b/" },
+        { "label": "Flange inspection and certificates", "href": "/quality/" }
+      ]
+    },
+    "changes": {
+      "title": "ASME B16.47-2025 changes and record numbers",
+      "metaDescription": "ASME B16.47-2025 revision summary: revised pressure–temperature ratings, new Group 2.13 duplex table, A320-L7M bolting and renumbered dimension tables.",
+      "intro": [
+        "ASME B16.47-2025 was approved by the American National Standards Institute on 4 March 2025 and issued on 30 May 2025, succeeding B16.47-2020; the next edition is scheduled for 2028. The Foreword (pp. vi-vii) and the Summary of Changes (pp. xi-xiv) set out what moved, and each changed clause or table in the body of the standard carries a margin note marked '(25)'.",
+        "The changes that matter most commercially are the revised pressure–temperature ratings throughout Tables 3-28 and the new Table 29/29C for Group 2.13 duplex stainless steels. Dimension tables were also renumbered by one place — Tables 32-42 were formerly Tables 31-41 — so references copied from older drawings or specifications need checking. The record numbers in the second table are the standard's own change identifiers and can be quoted in technical queries."
+      ],
+      "keyFacts": [
+        { "label": "Approved", "value": "4 March 2025 (ANSI)" },
+        { "label": "Issued", "value": "30 May 2025" },
+        { "label": "Follows", "value": "ASME B16.47-2020" },
+        { "label": "New rating table", "value": "29 / 29C, Group 2.13 duplex" },
+        { "label": "Ratings", "value": "Revised throughout Tables 3-28" },
+        { "label": "Change records", "value": "9 listed for this edition" }
+      ],
+      "sections": [
+        {
+          "heading": "What changed in the 2025 edition",
+          "paragraphs": [
+            "The Summary of Changes lists each location, whether it was added or revised, and the record number behind it. The table groups those entries by subject and adds the practical effect for a buyer or designer."
+          ],
+          "table": {
+            "caption": "Summary of Changes (pp. xi-xiv) — B16.47-2025 revisions grouped by area",
+            "note": "The standard's own margin note for 2025 changes is '(25)'. Record numbers are listed in the order the standard presents them, not by importance.",
+            "columns": [
+              { "key": "area", "label": "Area", "align": "left" },
+              { "key": "change", "label": "Change in the 2025 edition", "align": "left" },
+              { "key": "impact", "label": "Impact for buyers", "align": "left" }
+            ],
+            "rows": [
+              ["Edition status", "ANSI approval on 4 March 2025; issue date 30 May 2025; next edition scheduled for 2028.", "Quote ASME B16.47-2025 on new orders; confirm which edition an existing drawing calls up."],
+              ["Unit-system table titles", "Titles of the complementary SI and U.S. Customary tables were editorially revised to name the applicable unit system.", "It is now unambiguous which table is bar and which is psig; no rating or dimension changed for this item alone."],
+              ["Pressure–temperature ratings", "Working-pressure values and the accompanying notes were revised throughout Tables 3-28 and 3C-28C (record 23-2374).", "Ratings can differ from B16.47-2020. Re-check the allowable pressure at the design temperature against the 2025 tables."],
+              ["Group 2.13 duplex stainless", "A new Table 29 / 29C was added for Group 2.13 materials (duplex and super-duplex grades).", "Duplex flanges now have a dedicated rating table rather than a cross-reference; check the grade against Table 1."],
+              ["Table 1 materials", "Table 1 was revised (records 21-1888 and 23-2374).", "Confirm the material group number of your grade before reading a rating table; a different group means a different table."],
+              ["Bolting", "ASTM A320-L7M was added to Table 2 and Note (5) was revised (record 22-651).", "An additional low-temperature bolting option is now listed; bolting must still suit the flange material and service temperature."],
+              ["Table 2 notes", "Note (7) was deleted and the subsequent notes renumbered (record 21-1888).", "If a QA document quotes a Table 2 note number, re-check it against the 2025 print."],
+              ["Definitions", "A new para. 1.13 defines 'may', 'shall' and 'should' (record 22-2279), and 'must' was replaced in two clauses.", "Requirement wording is more consistent; no technical requirement changed for this item alone."],
+              ["Metric note temperatures", "In the notes to Tables 3-6, 21 and 25, metric temperatures were revised to the nearest degree (record 22-2277).", "Note-level temperature limits may read slightly differently; use the rounded °C value in the 2025 print."],
+              ["Table numbering", "The new Table 29/29C displaced the later tables: dimension Tables 32-42 were formerly Tables 31-41, and the 'Minimum Thickness of Flange, t' subheadings were editorially revised.", "Update drawing and specification references; a reference to 'Table 35' in an old document may now be Table 36."],
+              ["Rating ceilings (non-mandatory)", "Ceiling pressures for Classes 300-900 in Table A-1 / A-1C were revised (record 22-2110).", "Affects the non-mandatory rating-ceiling appendix, not the mandatory Tables 3-29 ratings."],
+              ["Errata incorporated", "Table 20: Class 150 working pressure at 400 °C corrected to 5.5 bar (record 22-203). Table 36: minimum thickness for an NPS 30 weld-neck corrected to 149.4 mm (record 22-99).", "If you hold an earlier print, these two values may be wrong in your copy; the 2025 print carries the corrections."],
+              ["References", "The References section and the references in Mandatory Appendix I were updated (records 23-2265 and 21-1888).", "Cited editions of related standards changed; check the new reference list when writing specifications."]
+            ]
+          }
+        },
+        {
+          "heading": "Change record numbers in this edition",
+          "paragraphs": [
+            "The standard lists nine record numbers for the 2025 edition. Each number points to the clauses and tables it revised, and the number can be used when raising a technical query or checking a certificate of conformance to a particular print."
+          ],
+          "table": {
+            "caption": "List of Changes in Record Number Order (p. xiv) — record numbers cited by B16.47-2025",
+            "note": "Scope is summarised from the record-number list; see the standard for the full text of each change.",
+            "columns": [
+              { "key": "record", "label": "Record number", "align": "left" },
+              { "key": "scope", "label": "Scope", "align": "left" }
+            ],
+            "rows": [
+              ["21-1888", "Revised paras. 2.4, 2.5.3 and 5.3.4, Table 1 and Table 2, Tables 3-28 (3C-28C) and Table A-1 (A-1C, formerly Table A-2); updated references in Mandatory Appendix I."],
+              ["22-99", "Errata: minimum thickness for an NPS 30 weld-neck flange in Table 36 corrected to 149.4 mm."],
+              ["22-203", "Errata: Class 150 working pressure at 400 °C in Table 20 corrected to 5.5 bar."],
+              ["22-651", "Added a bolting material (A320-L7M) to Table 2."],
+              ["22-2110", "Revised ceiling pressures for Classes 300-900 in Table A-1 (A-1C)."],
+              ["22-2277", "In the notes to Tables 3-6, 21 and 25, revised metric temperatures to the nearest degree."],
+              ["22-2279", "Added para. 1.13 defining 'may', 'shall' and 'should'; replaced 'must' with 'shall' in para. 2.2 and with 'should' in para. 5.3.5(a)."],
+              ["23-2265", "Updated the references in Mandatory Appendix I."],
+              ["23-2374", "Revised materials in Table 1, and pressure values and notes in Tables 3-28 (3C-28C); added Table 29 (29C) for Group 2.13 materials."]
+            ]
+          }
+        },
+        {
+          "heading": "Edition history at a glance",
+          "bullets": [
+            "Work on a large-diameter flange standard began in 1980. Early drafts covered NPS 26 to NPS 60 and Class 75 to Class 1500, with dimensions split into Series A (from MSS SP-44) and Series B (from API 605); Class 1500 was later dropped for lack of interest.",
+            "ANSI approved the first edition on 12 June 1990. The 1996 edition added multiple material marking and permitted flange facing imperfections; the 2006 edition made metric units primary; the 2011 edition updated references; the 2017 edition revised Group 1.18 ratings at 650 °C.",
+            "The 2020 edition moved the U.S. Customary tables from a mandatory appendix into the main text with a 'C' suffix (for example Table 3C), added bolt lengths to the dimension tables and added Nonmandatory Appendix D.",
+            "The 2025 edition adds a bolting material, revises pressure–temperature ratings throughout, introduces the Group 2.13 duplex table, defines may/shall/should and updates the reference list."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Does B16.47-2025 replace B16.47-2020 or B16.47-2017?",
+          "a": "It is the edition after B16.47-2020. The Foreword traces the sequence 2017, 2020, 2025, so a 2017 print is two editions old. Both the 2017 and 2020 prints predate the revised pressure–temperature ratings and the new Group 2.13 table, so re-check any rating taken from them."
+        },
+        {
+          "q": "Do the 2025 pressure–temperature ratings change my 2020 design?",
+          "a": "They can. The Summary of Changes records revised pressure values and notes throughout Tables 3-28 (record 23-2374). The safe approach is to re-read the allowable pressure at the design temperature from the 2025 table for the exact material group, rather than carrying a 2020 or 2017 value across."
+        },
+        {
+          "q": "Which table covers duplex stainless flanges now?",
+          "a": "Group 2.13 duplex and super-duplex grades are rated by the new Table 29 in bar and Table 29C in psig. The grades include A182 F51, F53, F55 and F60 forgings, A995 castings and A240 plate; check Table 1 to confirm which group your exact grade and product form falls into."
+        },
+        {
+          "q": "What does the margin note '(25)' mean?",
+          "a": "It marks text changed in the 2025 edition. Where the standard shows '(25)' beside a clause, paragraph or table title, the change is traceable through the Summary of Changes and the record-number list. The same note is not used on unchanged text, so it functions as a compact change log in the body of the document."
+        }
+      ],
+      "sources": [
+        "ASME B16.47-2025, Summary of Changes, pp. xi-xiv (PDF pp. 12-15)",
+        "ASME B16.47-2025, List of Changes in Record Number Order, p. xiv (PDF p. 15)",
+        "ASME B16.47-2025, Foreword, pp. vi-vii (PDF pp. 7-8)",
+        "ASME B16.47-2025, Date of Issuance and next-edition schedule, PDF p. 3"
+      ],
+      "related": [
+        { "label": "ASME B16.47 Series A flange dimensions", "href": "/standards/asme-b16-47-series-a/" },
+        { "label": "ASME B16.47 Series B flange dimensions", "href": "/standards/asme-b16-47-series-b/" },
+        { "label": "ASME vs DIN flange standards compared", "href": "/blog/flange-standards-comparison/" }
+      ]
+    }
+  }
+}

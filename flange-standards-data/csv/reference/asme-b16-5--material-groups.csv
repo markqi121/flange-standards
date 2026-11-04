@@ -1,0 +1,204 @@
+﻿# ASME B16.5-2025 material groups and bolting tables
+# Standard: ASME B16.5-2025
+# Verified: 2026-11-04
+# Source: ASME B16.5-2025, Table 1.1-1, List of Material Specifications, printed pp. 5–7 (PDF pp. 26–28).; ASME B16.5-2025, General Notes (a) and (b) and Note (1) to Table 1.1-1, printed p. 7 (PDF p. 28).; ASME B16.5-2025, Table 1.1-2, List of Bolting Specifications: Applicable ASTM Specifications, printed p. 9 (PDF p. 30).; ASME B16.5-2025, Table 1.1-3, Flange Bolting Dimensional Recommendations, printed p. 13 (PDF p. 34).; ASME B16.5-2025, §5.1 (material restrictions), printed p. 4 (PDF p. 25); §5.3 (bolting categories), printed p. 8 (PDF p. 29).; ASME B16.5-2025, §6.10.1 and §6.10.2 (bolting dimensions and stud-bolt lengths), printed p. 12 (PDF p. 33).; Scope: material and bolting tables transcribed as printed; the purchased 2025 edition governs.
+# Reference data only. The purchased standard edition governs.
+
+# Table 1.1-1 (printed p. 5) — Group 1 materials: carbon, carbon-manganese and low-alloy steels
+# Note: The group number is the standard's material-group index, not a ranking. Read the working pressure for the row from the pressure–temperature table named in the third column; the C-suffixed companion gives the same group in U.S. Customary units. "—" marks a product form for which the standard lists no specification.
+Group,Nominal designation,P–T rating table,Forgings,Castings,Plates
+1.1,C-Si,2-1.1,A105,A216 Gr. WCB,A515 Gr. 70
+1.1,C-Mn-Si,2-1.1,A350 Gr. LF2,—,A516 Gr. 70
+1.1,C-Mn-Si,2-1.1,—,—,A537 Cl. 1
+1.1,C-Mn-Si-V,2-1.1,A350 Gr. LF6 Cl. 1,—,—
+1.1,3½Ni,2-1.1,A350 Gr. LF3,—,—
+1.2,C-Mn-Si,2-1.2,—,A216 Gr. WCC,—
+1.2,C-Mn-Si,2-1.2,—,A352 Gr. LCC,—
+1.2,C-Mn-Si-V,2-1.2,A350 Gr. LF6 Cl. 2,—,—
+1.2,2½Ni,2-1.2,—,A352 Gr. LC2,A203 Gr. B
+1.2,3½Ni,2-1.2,—,A352 Gr. LC3,A203 Gr. E
+1.3,C-Si,2-1.3,—,A352 Gr. LCB,A515 Gr. 65
+1.3,C-Mn-Si,2-1.3,—,—,A516 Gr. 65
+1.3,2½Ni,2-1.3,—,—,A203 Gr. A
+1.3,3½Ni,2-1.3,—,—,A203 Gr. D
+1.3,C-½Mo,2-1.3,—,A217 Gr. WC1,—
+1.3,C-½Mo,2-1.3,—,A352 Gr. LC1,—
+1.4,C-Si,2-1.4,—,—,A515 Gr. 60
+1.4,C-Mn-Si,2-1.4,A350 Gr. LF1 Cl. 1,—,A516 Gr. 60
+1.5,C-½Mo,2-1.5,A182 Gr. F1,—,A204 Gr. A
+1.5,C-½Mo,2-1.5,—,—,A204 Gr. B
+1.7,½Cr-½Mo,2-1.7,A182 Gr. F2,—,—
+1.7,Ni-½Cr-½Mo,2-1.7,—,A217 Gr. WC4,—
+1.7,¾Ni-¾Cr-1Mo,2-1.7,—,A217 Gr. WC5,—
+1.9,1¼Cr-½Mo,2-1.9,—,A217 Gr. WC6,—
+1.9,1¼Cr-½Mo-Si,2-1.9,A182 Gr. F11 Cl. 2,—,A387 Gr. 11 Cl. 2
+1.10,2¼Cr-1Mo,2-1.10,A182 Gr. F22 Cl. 3,A217 Gr. WC9,A387 Gr. 22 Cl. 2
+1.11,3Cr-1Mo,2-1.11,A182 Gr. F21,—,A387 Gr. 21 Cl. 2
+1.11,C-½Mo,2-1.11,—,—,A204 Gr. C
+1.13,5Cr-½Mo,2-1.13,A182 Gr. F5a,A217 Gr. C5,—
+1.14,9Cr-1Mo,2-1.14,A182 Gr. F9,A217 Gr. C12,—
+1.15,9Cr-1Mo-V,2-1.15,A182 Gr. F91 Type 1,A217 Gr. C12A,A387 Gr. 91 Cl. 2
+1.17,1Cr-½Mo,2-1.17,A182 Gr. F12 Cl. 2,—,—
+1.17,5Cr-½Mo,2-1.17,A182 Gr. F5,—,—
+1.18,9Cr-2W-V,2-1.18,A182 Gr. F92,—,—
+
+# Table 1.1-1 (printed pp. 5–6) — Group 2 materials: stainless and duplex steels
+# Note: The group number is the standard's material-group index, not a ranking. Read the working pressure for the row from the pressure–temperature table named in the third column; the C-suffixed companion gives the same group in U.S. Customary units. "—" marks a product form for which the standard lists no specification.
+Group,Nominal designation,P–T rating table,Forgings,Castings,Plates
+2.1,18Cr-8Ni,2-2.1,A182 Gr. F304,A351 Gr. CF3,A240 Gr. 304
+2.1,18Cr-8Ni,2-2.1,A182 Gr. F304H,A351 Gr. CF8,A240 Gr. 304H
+2.2,16Cr-12Ni-2Mo,2-2.2,A182 Gr. F316,A351 Gr. CF3M,A240 Gr. 316
+2.2,16Cr-12Ni-2Mo,2-2.2,A182 Gr. F316H,A351 Gr. CF8M,A240 Gr. 316H
+2.2,18Cr-13Ni-3Mo,2-2.2,A182 Gr. F317,—,A240 Gr. 317
+2.2,19Cr-10Ni-3Mo,2-2.2,—,A351 Gr. CG8M,—
+2.3,18Cr-8Ni,2-2.3,A182 Gr. F304L,—,A240 Gr. 304L
+2.3,16Cr-12Ni-2Mo,2-2.3,A182 Gr. F316L,—,A240 Gr. 316L
+2.3,18Cr-13Ni-3Mo,2-2.3,A182 Gr. F317L,—,—
+2.4,18Cr-10Ni-Ti,2-2.4,A182 Gr. F321,—,A240 Gr. 321
+2.4,18Cr-10Ni-Ti,2-2.4,A182 Gr. F321H,—,A240 Gr. 321H
+2.5,18Cr-10Ni-Cb,2-2.5,A182 Gr. F347,—,A240 Gr. 347
+2.5,18Cr-10Ni-Cb,2-2.5,A182 Gr. F347H,—,A240 Gr. 347H
+2.5,18Cr-10Ni-Cb,2-2.5,A182 Gr. F348,—,A240 Gr. 348
+2.5,18Cr-10Ni-Cb,2-2.5,A182 Gr. F348H,—,A240 Gr. 348H
+2.6,23Cr-12Ni,2-2.6,—,—,A240 Gr. 309H
+2.7,25Cr-20Ni,2-2.7,A182 Gr. 310H,—,A240 Gr. 310H
+2.8,20Cr-18Ni-6Mo,2-2.8,A182 Gr. F44,A351 Gr. CK3MCuN,A240 Gr. S31254
+2.9,23Cr-12Ni,2-2.9,—,—,A240 Gr. 309S
+2.9,25Cr-12Ni,2-2.9,—,—,A240 Gr. 310S
+2.10,25Cr-12Ni,2-2.10,—,A351 Gr. CH8,—
+2.10,25Cr-12Ni,2-2.10,—,A351 Gr. CH20,—
+2.11,18Cr-10Ni-Cb,2-2.11,—,A351 Gr. CF8C,—
+2.12,25Cr-20Ni,2-2.12,—,A351 Gr. CK20,—
+2.13,22Cr-5Ni-3Mo-N,2-2.13,A182 Gr. F51,A995 Gr. CD3MN (4A),A240 Gr. S31803
+2.13,22Cr-5Ni-3Mo-N,2-2.13,A182 Gr. F60,—,—
+2.13,22Cr-5Ni-3Mo-N,2-2.13,—,—,A240 Gr. S32205
+2.13,25Cr-5Ni-3Mo-2Cu,2-2.13,—,—,A240 Gr. S32550
+2.13,25Cr-7Ni-4Mo-N,2-2.13,A182 Gr. F53,—,A240 Gr. S32750
+2.13,24Cr-10Ni-4Mo-V,2-2.13,—,A995 Gr. CE8MN (2A),—
+2.13,25Cr-5Ni-2Mo-3Cu-N,2-2.13,—,A995 Gr. CD4MCuN (1B),—
+2.13,25Cr-7Ni-3.5Mo-W-Cb,2-2.13,—,A995 Gr. CD3MWCuN (6A),—
+2.13,25Cr-7Ni-3.5Mo-N-Cu-W,2-2.13,A182 Gr. F55,—,A240 Gr. S32760
+
+# Table 1.1-1 (printed pp. 6–7) — Group 3 materials: nickel alloys and special alloys
+# Note: The group number is the standard's material-group index, not a ranking. Read the working pressure for the row from the pressure–temperature table named in the third column; the C-suffixed companion gives the same group in U.S. Customary units. "—" marks a product form for which the standard lists no specification.
+Group,Nominal designation,P–T rating table,Forgings,Castings,Plates
+3.1,35Ni-35Fe-20Cr-Cb,2-3.1,A182 Gr. N08020,—,A240 Gr. N08020
+3.1,35Ni-35Fe-20Cr-Cb,2-3.1,B462 Gr. N08020,—,B463 Gr. N08020
+3.2,99.0Ni,2-3.2,B564 Gr. N02200,—,B162 Gr. N02200
+3.3,99.0Ni-Low C,2-3.3,—,—,B162 Gr. N02201
+3.4,67Ni-30Cu,2-3.4,B564 Gr. N04400,A494 Gr. M35-1,B127 Gr. N04400
+3.4,67Ni-30Cu,2-3.4,—,A494 Gr. M35-2,—
+3.5,72Ni-15Cr-8Fe,2-3.5,B564 Gr. N06600,—,B168 Gr. N06600
+3.6,33Ni-42Fe-21Cr,2-3.6,A182 Gr. N08800,—,A182 Gr. N08800
+3.6,33Ni-42Fe-21Cr,2-3.6,B564 Gr. N08800,—,B409 Gr. N08800
+3.7,65Ni-28Mo-2Fe,2-3.7,B462 Gr. N10665,—,B333 Gr. N10665
+3.7,65Ni-28Mo-2Fe,2-3.7,B564 Gr. N10665,—,—
+3.7,64Ni-29.5Mo-2Cr-2Fe-Mn-W,2-3.7,B462 Gr. N10675,—,B333 Gr. N10675
+3.7,64Ni-29.5Mo-2Cr-2Fe-Mn-W,2-3.7,B564 Gr. N10675,—,—
+3.8,54Ni-16Mo-15Cr,2-3.8,B462 Gr. N10276,—,B575 Gr. N10276
+3.8,54Ni-16Mo-15Cr,2-3.8,B564 Gr. N10276,—,—
+3.8,60Ni-22Cr-9Mo-3.5Cb,2-3.8,B564 Gr. N06625,—,B443 Gr. N06625
+3.8,62Ni-28Mo-5Fe,2-3.8,—,—,B333 Gr. N10001
+3.8,70Ni-16Mo-7Cr-5Fe,2-3.8,—,—,B434 Gr. N10003
+3.8,61Ni-16Mo-16Cr,2-3.8,—,—,B575 Gr. N06455
+3.8,42Ni-21.5Cr-3Mo-2.3Cu,2-3.8,B564 Gr. N08825,—,B424 Gr. N08825
+3.8,55Ni-21Cr-13.5Mo,2-3.8,B462 Gr. N06022,—,B575 Gr. N06022
+3.8,55Ni-21Cr-13.5Mo,2-3.8,B564 Gr. N06022,—,—
+3.8,55Ni-23Cr-16Mo-1.6Cu,2-3.8,B462 Gr. N06200,—,B575 Gr. N06200
+3.8,55Ni-23Cr-16Mo-1.6Cu,2-3.8,B564 Gr. N06200,—,—
+3.9,47Ni-22Cr-9Mo-18Fe,2-3.9,B572 Gr. N06002,—,B435 Gr. N06002
+3.9,21Ni-30Fe-22Cr-18Co-3Mo-3W,2-3.9,B572 Gr. R30556,—,B435 Gr. R30556
+3.10,25Ni-47Fe-21Cr-5Mo,2-3.10,—,—,A240 Gr. N08700
+3.10,25Ni-47Fe-21Cr-5Mo,2-3.10,—,—,B599 Gr. N08700
+3.11,44Fe-25Ni-21Cr-Mo,2-3.11,A182 Gr. N08904,—,A240 Gr. N08904
+3.12,26Ni-43Fe-22Cr-5Mo,2-3.12,—,—,B620 Gr. N08320
+3.12,47Ni-22Cr-20Fe-7Mo,2-3.12,—,—,B582 Gr. N06985
+3.12,46Fe-24Ni-21Cr-6Mo-Cu-N,2-3.12,A182 Gr. N08367,A351 Gr. CN3MN,A240 Gr. N08367
+3.12,46Fe-24Ni-21Cr-6Mo-Cu-N,2-3.12,B462 Gr. N08367,—,B688 Gr. N08367
+3.12,46Fe-24Ni-21Cr-6Mo-Cu-N,2-3.12,B564 Gr. N08367,—,—
+3.12,58Ni-33Cr-8Mo,2-3.12,B462 Gr. N06035,—,B574 Gr. N06035
+3.12,58Ni-33Cr-8Mo,2-3.12,B564 Gr. N06035,—,B575 Gr. N06035
+3.13,49Ni-25Cr-18Fe-6Mo,2-3.13,—,—,B582 Gr. N06975
+3.13,Ni-Fe-Cr-Mo-Cu-Low C,2-3.13,B564 Gr. N08031,—,B625 Gr. N08031
+3.13,Ni-Fe-Cr-Mo-Cu-Low C,2-3.13,B462 Gr. N08031,—,—
+3.14,47Ni-22Cr-19Fe-6Mo,2-3.14,—,—,B582 Gr. N06007
+3.14,40Ni-29Cr-15Fe-5Mo,2-3.14,B462 Gr. N06030,—,B582 Gr. N06030
+3.14,58Ni-33Cr-8Mo,2-3.14,B564 Gr. N06035,—,—
+3.15,42Ni-33Ni-21Cr,2-3.15,A182 Gr. N08810,—,A240 Gr. N08810
+3.15,42Ni-33Ni-21Cr,2-3.15,B564 Gr. N08810,—,B409 Gr. N08810
+3.15,62Ni-28Mo-5Fe,2-3.15,—,A494 Gr. N-12MW,—
+3.15,53Ni-17Mo-16Cr-6Fe-5W,2-3.15,—,A494 Gr. CW-12MW,—
+3.16,35Ni-19Cr-1¼Si,2-3.16,B511 Gr. N08330,—,B536 Gr. N08330
+3.17,29Ni-20.5Cr-3.5Cu-2.5Mo,2-3.17,—,A351 Gr. CN7M,—
+3.19,57Ni-22Cr-14W-2Mo-La,2-3.19,B564 Gr. N06230,—,B435 Gr. N06230
+
+# Table 1.1-2 (printed p. 9) — recommended bolting specifications by strength category
+# Note: Specification and grade as printed. Notes are paraphrased from the standard; the numbers in brackets are the note numbers printed against each entry. A dash marks an entry with no grade or no extra note as printed.
+Strength category,ASTM specification,Grade,Notes
+High strength,A193,B7,—
+High strength,A193,B16,—
+High strength,A320,L7,(10)
+High strength,A320,L7A,(10)
+High strength,A320,L7B,(10)
+High strength,A320,L7C,(10)
+High strength,A320,L43,(10)
+High strength,A354,BC,—
+High strength,A354,BD,—
+High strength,A540,B21,—
+High strength,A540,B22,—
+High strength,A540,B23,—
+High strength,A540,B24,—
+Intermediate strength,A193,B5,—
+Intermediate strength,A193,B6,—
+Intermediate strength,A193,B6X,—
+Intermediate strength,A193,B7M,—
+Intermediate strength,A193,B8 Cl. 2,(11)
+Intermediate strength,A193,B8 Cl. 2B,(11)
+Intermediate strength,A193,B8C Cl. 2,(11)
+Intermediate strength,A193,B8M Cl. 2,(11)
+Intermediate strength,A193,B8M Cl. 2B,(11)
+Intermediate strength,A193,B8T Cl. 2,(11)
+Intermediate strength,A320,L7M,(10)
+Intermediate strength,A320,B8 Cl. 2,(11)
+Intermediate strength,A320,B8C Cl. 2,(11)
+Intermediate strength,A320,B8F Cl. 2,(11)
+Intermediate strength,A320,B8M Cl. 2,(11)
+Intermediate strength,A320,B8T Cl. 2,(11)
+Intermediate strength,A449,—,(12)
+Intermediate strength,A453,651,(13)
+Intermediate strength,A453,660,(13)
+Low strength,A193,B8 Cl. 1,(6)
+Low strength,A193,B8C Cl. 1,(6)
+Low strength,A193,B8M Cl. 1,(6)
+Low strength,A193,B8T Cl. 1,(6)
+Low strength,A193,B8A,(6)
+Low strength,A193,B8CA,—
+Low strength,A193,B8MA,—
+Low strength,A193,B8TA,(6)
+Low strength,A307,B,—
+Low strength,A320,B8 Cl. 1,(6)
+Low strength,A320,B8C Cl. 1,(6)
+Low strength,A320,B8M Cl. 1,(6)
+Low strength,A320,B8T Cl. 1,(6)
+Nickel and special alloy,B164,—,(7)–(9)
+Nickel and special alloy,B166,—,(7)–(9)
+Nickel and special alloy,B335,N10665,(7)
+Nickel and special alloy,B335,N10675,(7)
+Nickel and special alloy,B408,—,(7)–(9)
+Nickel and special alloy,B473,—,(7)
+Nickel and special alloy,B511,N08830,(7)
+Nickel and special alloy,B574,—,(7)
+Nickel and special alloy,B572,N06230,(7)
+Nickel and special alloy,B637,N07740,(7)
+Nickel and special alloy,B637,N07718,(7)
+
+# Table 1.1-3 (printed p. 13) — flange bolting dimensional recommendations
+# Note: Reproduced as printed. The table distinguishes carbon steel from alloy steel bolting and gives a separate rule for threads above 1 in.
+Product,Carbon steel,Alloy steel
+Stud bolts,ASME B18.31.2,ASME B18.31.2
+Bolts smaller than ¾ in.,"ASME B18.2.1, square or heavy hex head","ASME B18.2.1, heavy hex head"
+Bolts equal to or larger than ¾ in.,"ASME B18.2.1, square or heavy hex head","ASME B18.2.1, heavy hex head"
+Nuts smaller than ¾ in.,"ASME B18.2.2, heavy hex","ASME B18.2.2, heavy hex"
+Nuts equal to or larger than ¾ in.,"ASME B18.2.2, hex or heavy hex","ASME B18.2.2, heavy hex"
+External threads,"ASME B1.1, Cl. 2A coarse series","ASME B1.1, Cl. 2A coarse series up through 1 in.; eight thread series for larger bolts"
+Internal threads,"ASME B1.1, Cl. 2B coarse series","ASME B1.1, Cl. 2B coarse series up through 1 in.; eight thread series for larger bolts"

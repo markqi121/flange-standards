@@ -1,0 +1,30 @@
+﻿# JIS B2220 material groups and ASTM reference materials
+# Standard: JIS B2220:2012
+# Verified: 2026-11-04
+# Source: JIS B2220:2012, clause 8, Tables 5 and 6 (PDF pp. 10–11; printed pp. 5–6); JIS B2220:2012, clause 9 and Table 11 material group columns (PDF pp. 20–21; printed pp. 15–16)
+# Reference data only. The purchased standard edition governs.
+
+# Table 5 (p. 6) — materials by specified material group No.
+# Note: The same group number covers the rolled, forged and cast grades in that row. A dash means no grade of that product form is listed for the group.
+Group No.,Classification of material,Rolled steel (JIS),Steel forging (JIS),Steel casting (JIS),Notes
+001,Carbon steel,SS 400 (JIS G 3101); S 20 C (JIS G 4051),SF 390A (JIS G 3201); SFVC 1 (JIS G 3202); S 20 C (JIS G 4051),SC 410 (JIS G 5101); SCPH 1 (JIS G 5151),"a), b)"
+002,Carbon steel,S 25 C (JIS G 4051),SF 440A (JIS G 3201); S 25 C (JIS G 4051),SC 480 (JIS G 5101),"a), b)"
+003a,Carbon steel,—,SFVC 2A (JIS G 3202),SCPH 2 (JIS G 5151),—
+013a,Low alloy steel,—,SFVA F1 (JIS G 3203),SCPH 11 (JIS G 5151),—
+015a,Low alloy steel,—,SFVA F11A (JIS G 3203),SCPH 21 (JIS G 5151),—
+021a,Stainless steel,SUS 304 (JIS G 4304 and G 4305),SUS F304 (JIS G 3214),SCS 13A (JIS G 5121),—
+021b,Stainless steel,—,—,SCS 19A (JIS G 5121),—
+022a,Stainless steel,SUS 316 (JIS G 4304 and G 4305),SUS F316 (JIS G 3214),SCS 14A (JIS G 5121),—
+022b,Stainless steel,—,—,SCS 16A (JIS G 5121),—
+023a,Stainless steel,SUS 304L (JIS G 4304 and G 4305),SUS F304L (JIS G 3214),—,—
+023b,Stainless steel,SUS 316L (JIS G 4304 and G 4305),SUS F316L (JIS G 3214),—,—
+
+# Table 6 (p. 6) — ASTM materials (informative)
+# Note: Table 6 is informative. It records ASTM grades that the committee treated as equal to or better than the JIS grades in Table 5, using the reference group numbers that appear in the Table 11 rating rows. The ASTM standards shown are listed in Annex G of JIS B2220:2012.
+Reference group No.,Classification of material,Rolled steel (ASTM),Steel forging (ASTM),Steel casting (ASTM)
+1.1,Carbon steel,A 515 70; A 516 70; A 537 CL1,A 105; A 350 LF2,A 216 WCB
+1.5,Low alloy steel,A 204 A; A 204 B,A 182 F1,A 217 WC1; A 352 LC1
+1.9,Low alloy steel,A 387 11 CL2,A 182 F11 CL2; A 182 F12 CL2,A 217 WC6
+2.1,Stainless steel,A 240 304; A 240 304H,A 182 F304; A 182 F304H,A 351 CF3; A 351 CF8
+2.2,Stainless steel,A 240 316; A 240 316H; A 240 317,A 182 F316; A 182 F316H,A 351 CF3M; A 351 CF8M; A 351 CG8M
+2.3,Stainless steel,A 240 304L; A 240 316L,A 182 F304L; A 182 F316L,—

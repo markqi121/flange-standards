@@ -1,0 +1,76 @@
+﻿# ASME B16.47-2025 material groups (Table 1)
+# Standard: ASME B16.47-2025
+# Verified: 2026-11-04
+# Source: ASME B16.47-2025, Table 1, List of Material Specifications, pp. 11-12 (PDF pp. 26-27); ASME B16.47-2025, para. 5.1(a) and Note 1 of Table 1 (plate restriction), pp. 11 and 4 (PDF pp. 26 and 19); ASME B16.47-2025, Tables 3-29 and 3C-29C, table of contents pp. iv-v (PDF pp. 4-5)
+# Reference data only. The purchased standard edition governs.
+
+# Table 1 (pp. 11-12) — list of material specifications by material group
+# Note: Plate materials are listed only for blind flanges and reducing flanges without hubs (Note 1). Upper temperature limits are in the notes to Tables 3-28; lower temperature limits are discussed in para. 2.5.3.
+Group,Nominal designation,Forgings,Castings,Plates,P/T table
+1.1,C-Si,A105,A216 Gr. WCB,A515 Gr. 70,3 / 3C
+1.1,C-Mn-Si,A350 Gr. LF2,—,A516 Gr. 70,3 / 3C
+1.1,C-Mn-Si,—,—,A537 Cl. 1,3 / 3C
+1.1,C-Mn-Si-V,A350 Gr. LF6 Cl. 1,—,—,3 / 3C
+1.1,3½Ni,A350 Gr. LF3,—,—,3 / 3C
+1.2,C-Mn-Si,—,A216 Gr. WCC,—,4 / 4C
+1.2,C-Mn-Si,—,A352 Gr. LCC,—,4 / 4C
+1.2,C-Mn-Si-V,A350 Gr. LF6 Cl. 2,—,—,4 / 4C
+1.2,2½Ni,—,A352 Gr. LC2,A203 Gr. B,4 / 4C
+1.2,3½Ni,—,A352 Gr. LC3,A203 Gr. E,4 / 4C
+1.3,C-Si,—,A352 Gr. LCB,A515 Gr. 65,5 / 5C
+1.3,C-Mn-Si,—,—,A516 Gr. 65,5 / 5C
+1.3,2½Ni,—,—,A203 Gr. A,5 / 5C
+1.3,3½Ni,—,—,A203 Gr. D,5 / 5C
+1.3,C-½Mo,—,A217 Gr. WC1,—,5 / 5C
+1.3,C-½Mo,—,A352 Gr. LC1,—,5 / 5C
+1.4,C-Si,—,—,A515 Gr. 60,6 / 6C
+1.4,C-Mn-Si,A350 Gr. LF1 Cl. 1,—,A516 Gr. 60,6 / 6C
+1.5,C-½Mo,A182 Gr. F1,—,A204 Gr. A,7 / 7C
+1.5,C-½Mo,—,—,A204 Gr. B,7 / 7C
+1.7,½Cr-½Mo,A182 Gr. F2,—,—,8 / 8C
+1.7,Ni-½Cr-½Mo,—,A217 Gr. WC4,—,8 / 8C
+1.7,¾Ni-¾Cr-1Mo,—,A217 Gr. WC5,—,8 / 8C
+1.9,1¼Cr-½Mo,—,A217 Gr. WC6,—,9 / 9C
+1.9,1¼Cr-½Mo-Si,A182 Gr. F11 Cl. 2,—,A387 Gr. 11 Cl. 2,9 / 9C
+1.10,2¼Cr-1Mo,A182 Gr. F22 Cl. 3,A217 Gr. WC9,A387 Gr. 22 Cl. 2,10 / 10C
+1.11,3Cr-1Mo,A182 F21,—,A387 Gr. 21 Cl. 2,11 / 11C
+1.11,C-½Mo,—,—,A240 Gr. C,11 / 11C
+1.13,5Cr-½Mo,A182 Gr. F5A,A217 Gr. C5,—,12 / 12C
+1.14,9Cr-1Mo,A182 Gr. F9,A217 Gr. C12,—,13 / 13C
+1.15,9Cr-1Mo-V,A182 Gr. F91 Type 1,A217 Gr. C12A,A387 Gr. 91 Cl. 2,14 / 14C
+1.17,1Cr-½Mo,A182 Gr. F12 Cl. 2,—,—,15 / 15C
+1.17,5Cr-½Mo,A182 Gr. F5,—,—,15 / 15C
+1.18,9Cr-2W-V,A182 Gr. F92,—,—,16 / 16C
+2.1,18Cr-8Ni,A182 Gr. F304,A351 Gr. CF3,A240 Gr. 304,17 / 17C
+2.1,18Cr-8Ni,A182 Gr. F304H,A351 Gr. CF8,A240 Gr. 304H,17 / 17C
+2.2,16Cr-12Ni-2Mo,A182 Gr. F316,A351 Gr. CF3M,A240 Gr. 316,18 / 18C
+2.2,16Cr-12Ni-2Mo,A182 Gr. F316H,A351 Gr. CF8M,A240 Gr. 316H,18 / 18C
+2.2,18Cr-13Ni-3Mo,A182 Gr. F317,—,A240 Gr. 317,18 / 18C
+2.2,19Cr-10Ni-3Mo,—,A351 Gr. CG8M,—,18 / 18C
+2.3,18Cr-8Ni,A182 Gr. F304L,—,A240 Gr. 304L,19 / 19C
+2.3,16Cr-12Ni-2Mo,A182 Gr. F316L,—,A240 Gr. 316L,19 / 19C
+2.3,18Cr-13Ni-3Mo,A182 Gr. F317L,—,—,19 / 19C
+2.4,18Cr-10Ni-Ti,A182 Gr. F321,—,A240 Gr. 321,20 / 20C
+2.4,18Cr-10Ni-Ti,A182 Gr. F321H,—,A240 Gr. 321H,20 / 20C
+2.5,18Cr-10Ni-Cb,A182 Gr. F347,—,A240 Gr. 347,21 / 21C
+2.5,18Cr-10Ni-Cb,A182 Gr. F347H,—,A240 Gr. 347H,21 / 21C
+2.5,18Cr-10Ni-Cb,A182 Gr. F348,—,A240 Gr. 348,21 / 21C
+2.5,18Cr-10Ni-Cb,A182 Gr. F348H,—,A240 Gr. 348H,21 / 21C
+2.6,23Cr-12Ni,—,—,A240 Gr. 309H,22 / 22C
+2.7,25Cr-20Ni,A182 Gr. F310H,—,A240 Gr. 310H,23 / 23C
+2.8,20Cr-18Ni-6Mo,A182 Gr. F44,A351 Gr. CK3MCuN,A240 Gr. S31254,24 / 24C
+2.9,23Cr-12Ni,—,—,A240 Gr. 309S,25 / 25C
+2.9,25Cr-20Ni,—,—,A240 Gr. 310S,25 / 25C
+2.10,25Cr-12Ni,—,A351 Gr. CH8,—,26 / 26C
+2.10,25Cr-12Ni,—,A351 Gr. CH20,—,26 / 26C
+2.11,18Cr-10Ni-Cb,—,A351 Gr. CF8C,—,27 / 27C
+2.12,25Cr-20Ni,—,A351 Gr. CK20,—,28 / 28C
+2.13,22Cr-5Ni-3Mo-N,A182 Gr. F51,A995 CD3MN (4A),A240 Gr. S31803,29 / 29C
+2.13,22Cr-5Ni-3Mo-N,A182 Gr. F60,—,—,29 / 29C
+2.13,22Cr-5Ni-3Mo-N,—,—,A240 Gr. S32205,29 / 29C
+2.13,25Cr-5Ni-3Mo-2Cu,—,—,A240 Gr. S32550,29 / 29C
+2.13,25Cr-7Ni-4Mo-N,A182 Gr. F53,—,A240 Gr. S32750,29 / 29C
+2.13,24Cr-10Ni-4Mo-N,—,A995 Gr. CE8MN (2A),—,29 / 29C
+2.13,25Cr-5Ni-3Cu-2Mo-N,—,A995 Gr. CD4MCuN (1B),—,29 / 29C
+2.13,25Cr-7Ni-3.5Mo-W-Cb,—,A995 Gr. CD3MWCuN (6A),—,29 / 29C
+2.13,25Cr-7Ni-3.5Mo-N-Cu-W,A182 Gr. F55,—,A240 Gr. S32760,29 / 29C

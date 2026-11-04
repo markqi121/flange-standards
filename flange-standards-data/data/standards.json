@@ -1,0 +1,284 @@
+{
+  "generatedFrom": "Website src/data/standards/index.ts and reference/index.ts",
+  "standards": [
+    {
+      "id": "asme-b16-5",
+      "slug": "asme-b16-5",
+      "name": "ASME B16.5",
+      "short": "B16.5",
+      "edition": "ASME B16.5-2025",
+      "dimensionEdition": "ASME B16.5-2025",
+      "editionNote": "Dimension values on this page have been checked cell by cell against ASME B16.5-2025, using both the SI and U.S. Customary tables. The 2025 edition revised the bore (B) dimension figures and the minimum hub-height method, neither of which is a field published in these tables; outside diameter, thickness, hub, length, bolt circle and bolt-hole values match the 2025 edition. Raised-face height follows the 2025 rule: 1.5 mm for Classes 150 and 300, 6.4 mm for Classes 400 to 2500.",
+      "region": "North America, Middle East, South-East Asia",
+      "ratingName": "pressure class",
+      "sizeSyntax": "NPS (inch)",
+      "typeNames": {
+        "weld-neck": "Weld Neck",
+        "slip-on": "Slip-On",
+        "blind": "Blind"
+      },
+      "typeNotes": {
+        "weld-neck": "Butt-weld connection with a tapered hub; standard for high pressure, high temperature and cyclic service.",
+        "slip-on": "Fillet-welded both sides over the pipe; economical for low-pressure utility lines and easy alignment.",
+        "blind": "Solid disc bolted over a line end or vessel opening; used for isolation, test points and future tie-ins."
+      },
+      "baseMaterial": "ASTM A105",
+      "materialOptions": [
+        "ASTM A105 / A105N",
+        "ASTM A350 LF2",
+        "ASTM A182 F304/F316L",
+        "ASTM A182 F11/F22/F91",
+        "ASTM A182 F51/F53"
+      ],
+      "ratingNote": "ASME classes are not fixed pressures. For ASTM A105 (material group 1.1) the ASME B16.5-2025 ambient rating is 285 psi (19.6 bar) at Class 150, 740 psi (51.0 bar) at Class 300, 985 psi (68.0 bar) at Class 400, 1,480 psi (102.0 bar) at Class 600, 2,220 psi (153.1 bar) at Class 900, 3,705 psi (255.1 bar) at Class 1500 and 6,170 psi (425.1 bar) at Class 2500 at 38 °C (100 °F), derating as temperature rises. The 2025 edition revised the rating tables (record 23-2509); these are the 2025 values and the full temperature tables are on the ASME B16.5 pressure-ratings page.",
+      "intro": [
+        "ASME B16.5 is the baseline American flange standard for pipe sizes NPS 1/2 to NPS 24 in pressure classes 150 through 2500. It defines outside diameter, flange thickness, raised-face diameter and height, bolt circle, bolt count, bolt hole diameter and hub geometry for weld neck, slip-on, blind, socket-weld, threaded and lap-joint flanges.",
+        "Because B16.5 is organised by nominal pipe size and class, a flange is only interchangeable with another B16.5 flange of the same size, class and facing. Class sets the wall thickness, bolt count and bolt size; the actual allowable pressure is read from the B16.5 pressure–temperature tables for the material group and design temperature. Above NPS 24, ASME B16.47 takes over — the two standards are not interchangeable. Coverage limits are part of the standard: Class 2500 runs only to NPS 12 and has no slip-on flanges, Class 1500 slip-on flanges stop at NPS 2-1/2, and Classes 900, 1500 and 2500 have no NPS 3-1/2."
+      ],
+      "faceNote": "Raised face (RF) is standard: 1.5 mm high for Classes 150 and 300, 6.4 mm for Classes 400 to 2500, added to the minimum flange thickness. Flat face (FF) and ring-type joint (RTJ) faces are available on request.",
+      "reference": {
+        "id": "asme-b16-5",
+        "slug": "asme-b16-5",
+        "name": "ASME B16.5",
+        "short": "B16.5",
+        "edition": "ASME B16.5-2025"
+      },
+      "referenceDocumentId": "asme-b16-5"
+    },
+    {
+      "id": "asme-b16-47-a",
+      "slug": "asme-b16-47-series-a",
+      "name": "ASME B16.47 Series A",
+      "short": "B16.47 A",
+      "edition": "ASME B16.47-2025, Series A",
+      "dimensionEdition": "ASME B16.47-2025",
+      "editionNote": "Dimension values on this page have been checked against ASME B16.47-2025 (SI tables, cross-checked against the U.S. Customary tables). The 2025 edition prints exact metric equivalents of the inch dimensions rather than the old 5 mm-rounded values (for example 36.50 in is printed as 927 mm, not 925 mm), and defines flange thickness as excluding the raised face. Both corrections are reflected here; Series B NPS 38 and above follows Series A per the standard’s General Note (h).",
+      "region": "North America, Middle East",
+      "ratingName": "pressure class",
+      "sizeSyntax": "NPS (inch)",
+      "typeNames": {
+        "weld-neck": "Weld Neck",
+        "slip-on": "Slip-On",
+        "blind": "Blind"
+      },
+      "typeNotes": {
+        "weld-neck": "Butt-weld large-diameter flange with a long tapered hub; used on transmission lines, vessel nozzles and high-integrity large-bore piping.",
+        "slip-on": "Large-diameter slip-on for lower-pressure headers, water and utility piping where alignment matters more than fatigue life.",
+        "blind": "Large blind for isolating lines, sphere and vessel openings, and hydrostatic test ends."
+      },
+      "baseMaterial": "ASTM A105",
+      "materialOptions": [
+        "ASTM A105 / A105N",
+        "ASTM A350 LF2",
+        "ASTM A182 F304/F316L",
+        "ASTM A694 F52/F60/F65",
+        "ASTM A182 F51/F53"
+      ],
+      "ratingNote": "Series A follows the former MSS SP-44 dimensions. Ratings are ASME classes 150, 300, 400, 600 and 900, with allowable pressures read from the B16.47 pressure–temperature tables for the material group and design temperature.",
+      "intro": [
+        "ASME B16.47 covers large-diameter flanges from NPS 26 to NPS 60. Series A preserves the former MSS SP-44 dimensions and is the series most often specified for large-bore oil and gas, water and process piping.",
+        "Series A and Series B use different outside diameters and bolt patterns for the same size and class, so the series must be stated on the purchase order. A Series A flange will not bolt to a Series B flange, and neither will bolt to an ASME B16.5 flange of the same nominal size. B16.47 covers weld-neck and blind flanges only — slip-on flanges above NPS 24 are made to drawing — and Class 900 is published up to NPS 48."
+      ],
+      "faceNote": "Raised face (RF) is standard: 1.5 mm high for Classes 75, 150 and 300; 6.4 mm for Classes 400, 600 and 900. Flat face (FF) and ring-type joint (RTJ) faces are available against the drawing.",
+      "reference": {
+        "id": "asme-b16-47-a",
+        "slug": "asme-b16-47-series-a",
+        "name": "ASME B16.47 Series A",
+        "short": "B16.47 A",
+        "edition": "ASME B16.47-2025, Series A"
+      },
+      "referenceDocumentId": "asme-b16-47"
+    },
+    {
+      "id": "asme-b16-47-b",
+      "slug": "asme-b16-47-series-b",
+      "name": "ASME B16.47 Series B",
+      "short": "B16.47 B",
+      "edition": "ASME B16.47-2025, Series B",
+      "dimensionEdition": "ASME B16.47-2025",
+      "editionNote": "Dimension values on this page have been checked against ASME B16.47-2025 (SI tables, cross-checked against the U.S. Customary tables). The 2025 edition prints exact metric equivalents of the inch dimensions rather than the old 5 mm-rounded values (for example 36.50 in is printed as 927 mm, not 925 mm), and defines flange thickness as excluding the raised face. Both corrections are reflected here; Series B NPS 38 and above follows Series A per the standard’s General Note (h).",
+      "region": "North America, Middle East",
+      "ratingName": "pressure class",
+      "sizeSyntax": "NPS (inch)",
+      "typeNames": {
+        "weld-neck": "Weld Neck",
+        "slip-on": "Slip-On",
+        "blind": "Blind"
+      },
+      "typeNotes": {
+        "weld-neck": "Butt-weld large-diameter flange to the former API 605 outline; compact outside diameter for restricted deck and skid spaces.",
+        "slip-on": "Large-diameter slip-on to the API 605 outline for lower-pressure headers and utility systems.",
+        "blind": "Large blind to the API 605 outline for isolation and test ends."
+      },
+      "baseMaterial": "ASTM A105",
+      "materialOptions": [
+        "ASTM A105 / A105N",
+        "ASTM A350 LF2",
+        "ASTM A182 F304/F316L",
+        "ASTM A694 F52/F60/F65",
+        "ASTM A182 F51/F53"
+      ],
+      "ratingNote": "Series B follows the former API 605 dimensions, with a smaller outside diameter and a different bolt pattern from Series A. Ratings are ASME classes 150, 300, 400, 600 and 900, with allowable pressure from the B16.47 tables.",
+      "intro": [
+        "ASME B16.47 Series B is the former API 605 large-diameter flange standard, covering NPS 26 to NPS 60 in classes 150 to 900. Its outside diameters are smaller than Series A for the same size and class, which makes it attractive where space or weight is constrained.",
+        "Series B is dimensionally different from Series A and from B16.5. Always quote the series explicitly, and check the mating flange before ordering — a Series B flange will not bolt to a Series A flange of the same nominal size. B16.47 covers weld-neck and blind flanges only, and Class 900 is published up to NPS 48."
+      ],
+      "faceNote": "Raised face (RF) is standard: 1.5 mm high for Classes 75, 150 and 300; 6.4 mm for Classes 400, 600 and 900. FF and RTJ faces are available to drawing.",
+      "reference": {
+        "id": "asme-b16-47-b",
+        "slug": "asme-b16-47-series-b",
+        "name": "ASME B16.47 Series B",
+        "short": "B16.47 B",
+        "edition": "ASME B16.47-2025, Series B"
+      },
+      "referenceDocumentId": "asme-b16-47"
+    },
+    {
+      "id": "jis-b2220",
+      "slug": "jis-b2220",
+      "name": "JIS B2220",
+      "short": "JIS B2220",
+      "edition": "JIS B2220:2012",
+      "region": "Japan, Korea, South-East Asia, marine and shipbuilding",
+      "ratingName": "K rating",
+      "sizeSyntax": "A (mm nominal, e.g. 100A)",
+      "typeNames": {
+        "weld-neck": "Weld Neck (WN)",
+        "slip-on": "Slip-On Plate (SOP)",
+        "blind": "Blind (BL)"
+      },
+      "typeNotes": {
+        "weld-neck": "Butt-weld JIS weld neck with a tapered hub, used for high-pressure and cyclic service in Japanese-designed plants and marine systems.",
+        "slip-on": "JIS plate flange (SOP), the most common JIS slip-on type: economical, fillet-welded both sides, for general low-pressure piping.",
+        "blind": "JIS blind flange (BL) for line ends, isolation and test points."
+      },
+      "baseMaterial": "SS400 / S25C",
+      "materialOptions": [
+        "SS400",
+        "S25C",
+        "SUS304",
+        "SUS316",
+        "SCS13 / SCS14 (cast)"
+      ],
+      "ratingNote": "JIS K ratings are kgf/cm² nominal: 5K ≈ 0.5 MPa, 10K ≈ 1.0 MPa, 16K ≈ 1.6 MPa, 20K ≈ 2.0 MPa and 30K ≈ 3.0 MPa. The published maximum working pressure is higher or lower than the nominal figure depending on material group and division — for material group 1.1, Division I, the JIS B2220 Table 11 value at up to 120 °C is 0.7 MPa for 5K, 1.4 MPa for 10K, 2.7 MPa for 16K, 3.4 MPa for 20K, 5.1 MPa for 30K, 6.8 MPa for 40K and 10.7 MPa for 63K. Allowable pressure falls with temperature, and JIS bolt patterns differ from ASME classes of similar pressure.",
+      "intro": [
+        "JIS B2220 is the Japanese steel pipe flange standard, sized in millimetres from 10A to 600A and rated 5K, 10K, 16K, 20K and 30K. It is specified in Japanese-designed plants, shipbuilding, marine equipment and much of South-East Asian industry.",
+        "JIS flanges use metric bolt patterns and their own outside diameters and thicknesses. A JIS 10K flange is often described as roughly equivalent to ASME Class 150, but the bolt circle and outside diameter differ — a JIS flange must be ordered as JIS and matched with JIS bolts and gaskets. The 30K series runs from 10A to 400A, and 16K/20K do not include 175A or 225A."
+      ],
+      "faceNote": "Raised face (RF) is standard for steel JIS flanges; the raised-face height is 2 mm. Flat face is available on request.",
+      "reference": {
+        "id": "jis-b2220",
+        "slug": "jis-b2220",
+        "name": "JIS B2220",
+        "short": "JIS B2220",
+        "edition": "JIS B2220:2012"
+      },
+      "referenceDocumentId": "jis-b2220"
+    },
+    {
+      "id": "en-1092-1",
+      "slug": "en-1092-1",
+      "name": "EN 1092-1",
+      "short": "EN 1092-1",
+      "edition": "EN 1092-1:2018",
+      "region": "Europe, UK, Middle East, Africa, CIS projects",
+      "ratingName": "PN rating",
+      "sizeSyntax": "DN (metric)",
+      "typeNames": {
+        "weld-neck": "Weld Neck (type 11)",
+        "slip-on": "Slip-On (type 12)",
+        "blind": "Blind (type 05)"
+      },
+      "typeNotes": {
+        "weld-neck": "EN 1092-1 type 11 butt-weld flange with a tapered hub; the European default for process and utility piping in PN ratings.",
+        "slip-on": "EN 1092-1 type 12 slip-on with a neck; type 13 (plain hub) and type 01 plate flanges are available on request.",
+        "blind": "EN 1092-1 type 05 blind flange for line ends, vessel openings and test points."
+      },
+      "baseMaterial": "P250GH / S235JR",
+      "materialOptions": [
+        "P250GH",
+        "P265GH",
+        "S235JR",
+        "S355J2",
+        "1.4301 / 1.4404",
+        "1.4571"
+      ],
+      "ratingNote": "EN 1092-1 uses PN (nominal pressure) ratings in bar: PN6, PN10, PN16, PN25 and PN40. PN16 means 16 bar nominal at ambient temperature for EN material group 1, derating with temperature per the EN 1092-1 tables. EN PN ratings are not equivalent to ASME classes in dimensions, even where the pressure looks similar.",
+      "intro": [
+        "EN 1092-1 is the harmonised European standard for steel pipe flanges, gradually replacing the national DIN 2632/2633/2527 tables. It sizes flanges by DN and rates them by PN, and identifies the flange shape by a type number — type 11 weld neck, type 05 blind, type 12 and 13 slip-on and type 01 plate flange.",
+        "For the same DN and PN, EN 1092-1 dimensions are generally compatible with the older DIN tables, but the type, facing and tolerance must still be confirmed. EN flanges are not interchangeable with ASME B16.5 flanges: bolt circles and hole counts differ even where the outside diameter looks the same. The PN6 range starts at DN10 in EN 1092-1, although some 2018 catalogues begin PN6 at DN15."
+      ],
+      "faceNote": "Raised face (RF) with a 2 mm face height is standard; flat face (FF) and groove (tongue) facings are available.",
+      "reference": {
+        "id": "en-1092-1",
+        "slug": "en-1092-1",
+        "name": "EN 1092-1",
+        "short": "EN 1092-1",
+        "edition": "EN 1092-1:2018"
+      },
+      "referenceDocumentId": "en-1092-1"
+    }
+  ],
+  "referenceStandards": [
+    {
+      "id": "asme-b16-5",
+      "slug": "asme-b16-5",
+      "name": "ASME B16.5",
+      "short": "B16.5",
+      "edition": "ASME B16.5-2025"
+    },
+    {
+      "id": "asme-b16-47-a",
+      "slug": "asme-b16-47-series-a",
+      "name": "ASME B16.47 Series A",
+      "short": "B16.47 A",
+      "edition": "ASME B16.47-2025, Series A"
+    },
+    {
+      "id": "asme-b16-47-b",
+      "slug": "asme-b16-47-series-b",
+      "name": "ASME B16.47 Series B",
+      "short": "B16.47 B",
+      "edition": "ASME B16.47-2025, Series B"
+    },
+    {
+      "id": "jis-b2220",
+      "slug": "jis-b2220",
+      "name": "JIS B2220",
+      "short": "JIS B2220",
+      "edition": "JIS B2220:2012"
+    },
+    {
+      "id": "en-1092-1",
+      "slug": "en-1092-1",
+      "name": "EN 1092-1",
+      "short": "EN 1092-1",
+      "edition": "EN 1092-1:2018"
+    },
+    {
+      "id": "asme-b16-47",
+      "slug": "asme-b16-47",
+      "name": "ASME B16.47",
+      "short": "B16.47",
+      "edition": "ASME B16.47-2025"
+    }
+  ],
+  "extraReferenceStandards": [
+    {
+      "id": "asme-b16-47",
+      "slug": "asme-b16-47",
+      "name": "ASME B16.47",
+      "short": "B16.47",
+      "edition": "ASME B16.47-2025"
+    }
+  ],
+  "topicLabels": {
+    "pressure-ratings": "Pressure–temperature ratings",
+    "material-groups": "Material groups",
+    "tolerances": "Tolerances",
+    "marking": "Marking",
+    "changes": "Edition changes",
+    "types": "Flange types",
+    "facings": "Facings & finish"
+  }
+}

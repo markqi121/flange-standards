@@ -1,0 +1,39 @@
+﻿# EN 1092-1 material groups (1E0 to 16E0)
+# Standard: EN 1092-1:2018
+# Verified: 2026-11-04
+# Source: EN 1092-1:2018, Annex B — Material groups (pp. 89–90); EN 1092-1:2018, Table 9 — Material selection for the manufacturing of flanges (pp. 38–43); EN 1092-1:2018, Annex D — Additional materials (pp. 101–102); EN 1092-1:2018, §5.1.1 — Materials (p. 13); EN 1092-1:2018, Table G.1 (p. 112) and Table G.14 (p. 125)
+# Reference data only. The purchased standard edition governs.
+
+# Material groups 1E0 to 9E1 — Annex B definitions with typical EN grades from Table 9 / Annex D (pp. 89–90, 38–40, 101)
+# Note: Descriptions paraphrase informative Annex B. Grade and material-number examples are taken from Table 9 (forgings, flat products, castings and bars) and, for 1E0/1E1, from informative Annex D. One grade is enough to place a flange in a group; always confirm the group from the material certificate.
+Group,What the group covers (Annex B),Typical EN grades (material number),Notes
+1E0,Unalloyed structural steels without guaranteed elevated-temperature properties; application range −10 °C to +100 °C.,"GS-38 casting (1.0432, DIN 1681); VdTÜV C 21/1.0432",Annex D additional material; no Annex G p/T table.
+1E1,Unalloyed structural steels with elevated-temperature properties.,S235JR (1.0038) to EN 10025-2,Annex D additional material; no Annex G p/T table.
+3E0,Unalloyed steels with guaranteed elevated-temperature properties.,"P250GH (1.0460) and P245GH (1.0352), EN 10222-2 forgings; P235GH (1.0345) and P265GH (1.0425), EN 10028-2 flats; GP240GH (1.0619) and GP280GH (1.0625), EN 10213 castings",p/T: Tables G.2–G.13 (calculated for P245GH). Default group for EN 1092-1 carbon-steel flanges.
+3E1,Unalloyed steels with specified properties up to 400 °C and upper yield strength above 265 N/mm².,"P280GH (1.0426), EN 10222-2; P295GH (1.0481), EN 10028-2",p/T: Tables G.2–G.13 (P280GH).
+4E0,"Low-alloyed steels with 0,3 % molybdenum.","16Mo3 (1.5415), EN 10222-2 / EN 10028-2; G20Mo5 (1.5419), EN 10213",p/T: Tables G.2–G.13 (16Mo3).
+5E0,"Low-alloyed steels with 1 % chromium and 0,5 % molybdenum.","13CrMo4-5 (1.7335), EN 10222-2 / EN 10028-2; G17CrMo5-5 (1.7357), EN 10213",p/T: Tables G.2–G.13 (13CrMo4-5).
+6E0,Low-alloyed steels with 2 % chromium and 1 % molybdenum.,"11CrMo9-10 (1.7383), EN 10222-2; 10CrMo9-10 (1.7380) and 12CrMo9-10 (1.7375), EN 10028-2; G17CrMo9-10 (1.7379), EN 10213",p/T: Tables G.2–G.13 (11CrMo9-10).
+6E1,"Alloy steel with 5 % chromium and 0,5 % molybdenum.","X16CrMo5-1+NT (1.7366), EN 10222-2; GX15CrMo5 (1.7365), EN 10213",p/T: Tables G.2–G.13 (X16CrMo5-1+NT).
+7E0,Low-temperature-tough fine-grain steel with minimum yield strength 275 N/mm² at room temperature.,"P275NL1 (1.0488) and P275NL2 (1.1104), EN 10028-3 flats; G17Mn5 (1.1131) and G20Mn5 (1.6220), EN 10213 castings",No separate Annex G p/T table.
+7E1,Low-temperature-tough fine-grain steel with minimum yield strength 355 N/mm² at room temperature.,"P355NL1 (1.0566) and P355NL2 (1.1106), EN 10028-3",No separate Annex G p/T table.
+7E2,Low-temperature nickel-alloyed steel with nickel ≤ 3 %.,"15NiMn6 (1.6228), EN 10222-3; 11MnNi5-3 (1.6212) and 13MnNi6-3 (1.6217), EN 10028-4; G9Ni10 (1.5636), EN 10213",No separate Annex G p/T table.
+7E3,Low-temperature nickel-alloyed steel with nickel > 3 %.,"12Ni14 (1.5637), X12Ni5 (1.5680), X8Ni9 (1.5662), EN 10222-3 / EN 10028-4; G9Ni14 (1.5638), EN 10213",No separate Annex G p/T table.
+8E0,Fine-grain steel with minimum yield strength 225 N/mm² at room temperature.,No grade listed in Table 9 for this group,Defined in Annex B; no grade or p/T table in the 2018 edition.
+8E2,Fine-grain steel with minimum yield strength 285 N/mm² at room temperature.,"P285NH (1.0477) and P285QH (1.0478), EN 10222-4; P275NH (1.0487), EN 10028-3 / EN 10273",p/T: Tables G.2–G.13 (P285NH).
+8E3,Fine-grain steel with minimum yield strength 355 N/mm² at room temperature.,"P355NH (1.0565) and P355QH1 (1.0571), EN 10222-4; P355N (1.0562) and P355NH (1.0565), EN 10028-3; P355QH (1.8867), EN 10273",p/T: Tables G.2–G.13 (P355NH).
+9E0,"High-temperature-tough ferritic steel with 12 % chromium, 1 % molybdenum and 0,5 % vanadium.","X20CrMoV11-1 (1.4922), EN 10222-2; GX23CrMoV12-1 (1.4931), EN 10213",p/T: Tables G.2–G.13 (X20CrMoV11-1).
+9E1,"High-temperature-tough ferritic steel with 9 % chromium, 1 % molybdenum, 0,25 % vanadium and 0,1 % niobium.","X10CrMoVNb9-1 (1.4903), EN 10222-2 / EN 10028-2",p/T: Tables G.2–G.13 (X10CrMoVNb9-1).
+
+# Austenitic and austenitic-ferritic groups 10E0 to 16E0 — Annex B definitions with typical EN grades (pp. 90, 39–40, 43)
+# Note: Descriptions paraphrase informative Annex B. Grades come from Table 9; the material number in brackets in the Notes column is the one used in the Annex G p/T tables (Table G.14, p. 125).
+Group,What the group covers (Annex B),Typical EN grades (material number),Notes
+10E0,LC-steel (low-carbon austenitic).,"X2CrNi18-9 (1.4307), EN 10222-5 forgings; X2CrNi19-11 (1.4306) flat; GX2CrNi19-11 (1.4309), EN 10213",p/T: Tables G.15–G.26 (1.4307).
+10E1,"LC-steel, nitrogen-alloyed.","X2CrNi18-10 (1.4311), EN 10222-5",p/T: Tables G.15–G.26 (1.4311).
+11E0,"Austenitic, standard carbon content.","X5CrNi18-10 (1.4301) and X6CrNi18-10 (1.4948), EN 10222-5; GX5CrNi19-10 (1.4308), EN 10213","p/T: Tables G.15–G.26 (1.4301, 1.4948)."
+12E0,"Austenitic, standard carbon content, stabilised with Ti or Nb.","X6CrNiTi18-10 (1.4541), X6CrNiNb18-10 (1.4550) and X6CrNiTiB18-10 (1.4941), EN 10222-5; GX5CrNiNb19-11 (1.4552), EN 10213","p/T: Tables G.15–G.26 (1.4541, 1.4550, 1.4941)."
+13E0,LC-steel with molybdenum.,"X2CrNiMo17-12-2 (1.4404), X2CrNiMo17-12-3 (1.4432) and X2CrNiMo18-14-3 (1.4435), EN 10222-5; GX2CrNiMo19-11-2 (1.4409), EN 10213",p/T: Tables G.15–G.26 (1.4404).
+13E1,"LC-steel with molybdenum, nitrogen-alloyed.","X2CrNiMoN17-13-3 (1.4429), X2CrNiMoN17-13-5 (1.4439) and X2CrNiMoN17-11-2 (1.4406)",No separate Annex G p/T table in this edition.
+14E0,"Austenitic, standard carbon content, alloyed with molybdenum.","X5CrNiMo17-12-2 (1.4401) and X3CrNiMo17-13-3 (1.4436); GX5CrNiMo19-11-2 (1.4408), EN 10213",p/T: Tables G.15–G.26 (1.4401).
+15E0,"Austenitic, standard carbon content, alloyed with molybdenum, stabilised with Ti or Nb.","X6CrNiMoTi17-12-2 (1.4571) and X6CrNiMoNb17-12-2 (1.4580); GX5CrNiMoNb19-11-2 (1.4581), EN 10213",p/T: Tables G.15–G.26 (1.4571).
+16E0,Austenitic-ferritic (duplex) steel.,"X2CrNiMoN22-5-3 (1.4462), X2CrNiMoN25-7-4 (1.4410) and X2CrNiN23-4 (1.4362), EN 10222-5; GX2CrNiMoN25-6-3-3 (1.4517), EN 10213",p/T: Tables G.15–G.26 (1.4462).

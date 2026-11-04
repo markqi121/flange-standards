@@ -1,0 +1,25 @@
+﻿# JIS B2220 flange types and gasket faces
+# Standard: JIS B2220:2012
+# Verified: 2026-11-04
+# Source: JIS B2220:2012, clause 4 and Table 1 (PDF p. 8; printed p. 3); JIS B2220:2012, clause 4 and Table 2 (PDF p. 9; printed p. 4); JIS B2220:2012, clause 5 and Table 3 (PDF p. 9; printed p. 4); JIS B2220:2012, clause 6 and Table 4 (PDF p. 9; printed p. 4); JIS B2220:2012, clause 14.1 and Tables 9 and 10 (PDF p. 14; printed p. 9)
+# Reference data only. The purchased standard edition governs.
+
+# Table 1 (p. 3) — classification of flanges and their designations
+Classification,Designation,Description
+Welding flange — slip-on welding flange (plate flange),SOP,"Plate flange with a plain bore, fillet-welded to the pipe on both sides; the common low-pressure JIS slip-on."
+Welding flange — slip-on welding flange (hubbed flange),SOH,"Slip-on with a hub; the 20K and 30K versions are split into Types A, B and C by Table 2."
+Welding flange — socket welding flange,SW,Socket-type flange for small-bore socket-welded piping.
+Welding flange — welding neck flange,WN,Butt-weld flange with a tapered hub for higher pressure and cyclic service.
+Lap joint flange,LJ,Loose flange used with a stub end; the LJ itself has no gasket face.
+Threaded flange,TR,Screwed flange; the thread is made to JIS B 0203.
+Integral flange,IT,"Flange integral with the pipe, forging or nozzle."
+Blank flange,BL,Solid disc used to blank off a line end or opening; sold as a blind flange in many catalogues.
+
+# Table 3 (p. 4) — classification of gasket faces and their designations
+Gasket face,Seat,Designation,Description
+Full face (FF),—,FF,Gasket face covering the whole flange face; takes a full-face gasket.
+Raised face (RF),—,RF,Raised ring around the bore; the usual face for general steel-pipe flanges.
+Male-female face (MF),Male seat,MF-M,Male seat; specified as a pair with the female seat MF-F.
+Male-female face (MF),Female seat,MF-F,Female seat; together with MF-M it forms the MF pair.
+Tongue and groove (TG),Tongue seat,TG-T,Tongue seat; specified as a pair with the groove seat TG-G.
+Tongue and groove (TG),Groove seat,TG-G,Groove seat; together with TG-T it forms the TG pair.

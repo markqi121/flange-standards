@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ax-forge.com/schemas/flange-reference.schema.json",
+  "title": "Flange standard reference document",
+  "description": "One document per reference standard: edition metadata plus topics made of sections, tables and FAQ. Table rows are positional arrays of strings.",
+  "type": "object",
+  "required": ["id", "edition", "verifiedOn", "sourceDocument", "topics"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Reference standard id; must match the file name."
+    },
+    "edition": { "type": "string" },
+    "verifiedOn": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "ISO date the transcription was checked."
+    },
+    "sourceDocument": { "type": "string" },
+    "topics": {
+      "type": "object",
+      "propertyNames": {
+        "enum": [
+          "pressure-ratings",
+          "material-groups",
+          "tolerances",
+          "marking",
+          "changes",
+          "types",
+          "facings"
+        ]
+      },
+      "additionalProperties": { "$ref": "#/$defs/topic" }
+    }
+  },
+  "$defs": {
+    "topic": {
+      "type": "object",
+      "required": ["title", "intro", "sections", "sources"],
+      "properties": {
+        "title": { "type": "string" },
+        "metaDescription": { "type": "string" },
+        "intro": { "type": "array", "items": { "type": "string" } },
+        "keyFacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "value"],
+            "properties": {
+              "label": { "type": "string" },
+              "value": { "type": "string" }
+            }
+          }
+        },
+        "sections": { "type": "array", "items": { "$ref": "#/$defs/section" } },
+        "faq": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["q", "a"],
+            "properties": {
+              "q": { "type": "string" },
+              "a": { "type": "string" }
+            }
+          }
+        },
+        "sources": { "type": "array", "items": { "type": "string" } },
+        "related": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "href"],
+            "properties": {
+              "label": { "type": "string" },
+              "href": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "section": {
+      "type": "object",
+      "required": ["heading"],
+      "properties": {
+        "heading": { "type": "string" },
+        "paragraphs": { "type": "array", "items": { "type": "string" } },
+        "bullets": { "type": "array", "items": { "type": "string" } },
+        "table": { "$ref": "#/$defs/table" }
+      }
+    },
+    "table": {
+      "type": "object",
+      "required": ["caption", "columns", "rows"],
+      "properties": {
+        "caption": { "type": "string" },
+        "note": { "type": "string" },
+        "columns": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["key", "label"],
+            "properties": {
+              "key": { "type": "string" },
+              "label": { "type": "string" },
+              "unit": { "type": "string" },
+              "align": { "enum": ["left", "right", "center"] }
+            }
+          }
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "footnotes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["marker", "text"],
+            "properties": {
+              "marker": { "type": "string" },
+              "text": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

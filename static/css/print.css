@@ -1,0 +1,222 @@
+/* ==========================================================================
+   法兰标准库 · A4 规格卡打印样式
+   目标：A4 纵向单页，黑白激光打印机可直接输出
+   ========================================================================== */
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+:root {
+  --ink: #0b1b2b;
+  --steel: #44576b;
+  --muted: #6b7d90;
+  --line: #c9d3de;
+  --line-strong: #0b1b2b;
+  --accent: #c2410c;
+  --font: "Arial Unicode MS", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans SC", sans-serif;
+  --mono: "SF Mono", ui-monospace, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body.print-body {
+  background: #dfe5ec;
+  font-family: var(--font);
+  color: #000;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-size: 9pt;
+  line-height: 1.5;
+}
+
+/* ---------- 屏幕预览工具条 ---------- */
+.print-hint {
+  max-width: 210mm; margin: 0 auto; padding: 8px 12mm 10px;
+  color: #ffd4c2; font-size: 12px; line-height: 1.6;
+}
+.print-toolbar {
+  position: sticky; top: 0; z-index: 20;
+  background: #0b1b2b; color: #fff;
+  box-shadow: 0 2px 14px rgba(11, 27, 43, 0.28);
+}
+.toolbar-inner {
+  max-width: 210mm; margin: 0 auto; padding: 12px 12mm;
+  display: flex; align-items: center; gap: 20px;
+}
+.toolbar-title { font-weight: 700; font-size: 14px; letter-spacing: 0.04em; white-space: nowrap; }
+.toolbar-hint { font-size: 11.5px; color: #9fb2c5; flex: 1; }
+.toolbar-actions { display: flex; gap: 8px; }
+.toolbar-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 8px 14px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.28);
+  background: transparent; color: #fff; font-family: var(--font); font-size: 12.5px;
+  font-weight: 600; cursor: pointer; text-decoration: none; white-space: nowrap;
+}
+.toolbar-btn:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+.toolbar-btn-primary { background: #d2460f; border-color: #d2460f; }
+.toolbar-btn-primary:hover { background: #b03a0b; }
+
+/* ---------- 纸张 ---------- */
+.sheet {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 22px auto 48px;
+  background: #fff;
+  padding: 11mm 12mm 9mm;
+  box-shadow: 0 18px 50px -18px rgba(11, 27, 43, 0.5);
+  display: flex;
+  flex-direction: column;
+  color: #000;
+}
+
+/* ---------- 页眉 ---------- */
+.sheet-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding-bottom: 2.6mm; border-bottom: 0.6mm solid var(--line-strong);
+}
+.sheet-brand { display: flex; align-items: center; gap: 2.4mm; }
+.sheet-logo { color: var(--accent); flex: none; width: 7.4mm; height: 7.4mm; }
+.sheet-brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.sheet-brand-text strong { font-size: 12.5pt; letter-spacing: 0.08em; }
+.sheet-brand-text span { font-size: 6.2pt; letter-spacing: 0.2em; color: var(--muted); font-family: var(--mono); }
+.sheet-doc { text-align: right; line-height: 1.3; }
+.sheet-doc span { display: block; font-size: 6.6pt; letter-spacing: 0.16em; color: var(--muted); font-family: var(--mono); text-transform: uppercase; }
+.sheet-doc strong { font-family: var(--mono); font-size: 10.5pt; }
+
+/* ---------- 标题区 ---------- */
+.sheet-title { padding: 3.4mm 0 3mm; border-bottom: 0.25mm solid var(--line); }
+.sheet-std {
+  font-family: var(--mono); font-size: 7.6pt; letter-spacing: 0.06em; color: var(--steel);
+  text-transform: uppercase; margin-bottom: 1.4mm;
+}
+.sheet-title h1 {
+  margin: 0; font-size: 17.5pt; line-height: 1.2; letter-spacing: -0.01em; font-weight: 800;
+}
+.sheet-sub { display: flex; flex-wrap: wrap; gap: 0 4mm; margin-top: 1.8mm; font-size: 7.6pt; color: var(--steel); }
+.sheet-sub span { position: relative; }
+.sheet-sub span + span::before { content: "·"; position: absolute; left: -2.4mm; color: var(--line); }
+
+/* ---------- 主体：图 + 尺寸 ---------- */
+.sheet-main {
+  display: grid; grid-template-columns: 118mm 64mm; gap: 4mm;
+  padding: 2.4mm 0 1.8mm; align-items: start;
+}
+.sheet-drawing { min-width: 0; }
+.sheet-drawing svg { display: block; width: 100%; height: auto; }
+.sheet-caption { margin: 1.2mm 0 0; font-size: 6.4pt; color: var(--muted); text-align: center; }
+.drawing-missing { padding: 30mm 0; text-align: center; color: var(--muted); border: 0.3mm dashed var(--line); }
+
+.sheet-dim { width: 100%; border: 0.25mm solid var(--line-strong); border-collapse: collapse; }
+.sheet-dim th {
+  background: #f2f5f8; font-size: 6.6pt; font-weight: 600; letter-spacing: 0.06em;
+  color: var(--steel); text-align: left; padding: 1.2mm 2mm; border-bottom: 0.25mm solid var(--line-strong);
+}
+.sheet-dim th.ta-right, .sheet-dim td.value { text-align: right; }
+.sheet-dim td { padding: 1.15mm 2mm; border-bottom: 0.2mm solid #dde4ec; font-size: 8.2pt; }
+.sheet-dim tr:last-child td { border-bottom: 0; }
+.sheet-dim th:nth-child(1) { width: 11mm; white-space: nowrap; }
+.sheet-dim .sym { font-family: var(--mono); font-weight: 700; color: var(--accent); width: 9mm; }
+.sheet-dim .value { font-family: var(--mono); font-weight: 700; font-size: 9pt; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sheet-dim .unit { font-size: 6.4pt; color: var(--muted); font-weight: 400; margin-left: 1mm; }
+
+/* ---------- 下部：p/T + 说明 ---------- */
+.sheet-lower {
+  display: grid; grid-template-columns: 1.32fr 1fr; gap: 4mm;
+  border-top: 0.25mm solid var(--line);
+  padding-top: 2mm;
+}
+.sheet-block h2 {
+  font-size: 7.2pt; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--steel); margin: 0 0 1.6mm; font-weight: 700;
+}
+.sheet-block h2::before {
+  content: ""; display: inline-block; width: 1.6mm; height: 1.6mm;
+  background: var(--accent); margin-right: 1.6mm; vertical-align: 0.2mm;
+}
+.pt-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8mm 1.2mm; }
+.pt-cell {
+  display: flex; flex-direction: column; gap: 0.2mm;
+  border: 0.2mm solid var(--line); border-radius: 0.8mm; padding: 0.8mm 1.4mm;
+  background: #fafbfd;
+}
+.pt-cell b { font-family: var(--mono); font-size: 6.4pt; color: var(--muted); font-weight: 500; }
+.pt-cell em { font-family: var(--mono); font-size: 8pt; font-style: normal; font-weight: 700; }
+.sheet-source { margin: 1.4mm 0 0; font-size: 6.2pt; color: var(--muted); line-height: 1.45; }
+.sheet-text { margin: 0 0 1.4mm; font-size: 7pt; line-height: 1.55; color: #1f2d3d; }
+.sheet-text strong { font-weight: 700; }
+
+/* ---------- 手写备注 ---------- */
+.sheet-blanknotes { margin-top: 3mm; flex: 1; display: flex; flex-direction: column; }
+.sheet-blanknotes h2 {
+  font-size: 7pt; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--steel); margin: 0 0 1.2mm; font-weight: 700;
+}
+.sheet-blanknotes h2::before {
+  content: ""; display: inline-block; width: 1.6mm; height: 1.6mm;
+  background: var(--accent); margin-right: 1.6mm; vertical-align: 0.2mm;
+}
+.blank-lines { flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding-top: 1mm; }
+.blank-lines i { display: block; height: 3mm; border-bottom: 0.2mm solid #cdd6e0; }
+
+/* ---------- 生产签核 ---------- */
+.sheet-signoff {
+  display: flex; align-items: baseline; gap: 8mm;
+  margin-top: 2mm; padding-top: 1.6mm; border-top: 0.2mm dashed var(--line);
+  font-size: 7pt; color: var(--steel);
+}
+.signoff-item { display: inline-flex; align-items: baseline; gap: 1.5mm; }
+.signoff-item i { display: inline-block; width: 26mm; border-bottom: 0.2mm solid var(--line-strong); height: 3.2mm; }
+.signoff-note { margin-left: auto; font-size: 6.2pt; color: var(--muted); }
+
+/* ---------- 页脚 ---------- */
+.sheet-footer {
+  margin-top: auto; padding-top: 2.4mm; border-top: 0.25mm solid var(--line);
+  display: flex; gap: 5mm; align-items: flex-start;
+}
+.sheet-foot-main { flex: 1; }
+.sheet-foot-main p { margin: 0 0 0.8mm; font-size: 6.3pt; line-height: 1.5; color: #2b3a4a; }
+.sheet-foot-main .sheet-disclaimer { color: var(--muted); }
+.sheet-foot-side { text-align: right; flex: none; }
+.sheet-foot-side p { margin: 0 0 0.6mm; font-size: 6.3pt; color: var(--muted); font-family: var(--mono); }
+.sheet-foot-side .sheet-url { max-width: 64mm; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ---------- 打印 ---------- */
+@media print {
+  html, body { background: #fff; }
+  .print-hint { display: none !important; }
+  .print-hint {
+  max-width: 210mm; margin: 0 auto; padding: 8px 12mm 10px;
+  color: #ffd4c2; font-size: 12px; line-height: 1.6;
+}
+.print-toolbar { display: none !important; }
+  .sheet {
+    width: auto; min-height: 277mm; margin: 0; padding: 9mm 11mm 7mm;
+    box-shadow: none; break-inside: avoid;
+  }
+  /* 打印时固定图区高度，避免 Chromium 把内联 SVG 按固有尺寸撑高导致分页 */
+  .sheet-drawing { height: 78mm; overflow: hidden; }
+  .sheet-drawing svg { width: 100%; height: 100%; font-family: var(--font); }
+  .sheet-footer { break-inside: avoid; }
+}
+
+@media screen and (max-width: 820px) {
+  .print-body { overflow-x: hidden; }
+  .sheet { width: 100%; min-height: 0; margin: 0; padding: 16px; box-shadow: none; }
+  .sheet-main, .sheet-lower { grid-template-columns: 1fr; }
+  .sheet-main { gap: 12px; }
+  .toolbar-inner { flex-wrap: wrap; padding: 10px 14px; gap: 8px; }
+  .toolbar-hint { flex-basis: 100%; order: 3; }
+  .toolbar-actions { width: 100%; flex-wrap: wrap; gap: 6px; }
+  .toolbar-btn { flex: 1 1 calc(50% - 3px); justify-content: center; padding: 9px 10px; }
+  .print-hint { padding: 8px 14px 10px; font-size: 11.5px; }
+  .pt-grid { grid-template-columns: repeat(3, 1fr); }
+  .sheet-signoff { flex-wrap: wrap; gap: 4mm 6mm; }
+  .signoff-item i { width: 20mm; }
+  .sheet-footer { flex-direction: column; }
+  .sheet-foot-side { text-align: left; }
+}

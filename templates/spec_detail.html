@@ -1,0 +1,226 @@
+{% extends "base.html" %}
+{% load catalog_extras %}
+
+{% block title %}{{ row.title_zh }} 尺寸 · {{ site_name }}<script>
+  (function () {
+    var link = document.getElementById('download-pdf');
+    if (!link) return;
+    link.addEventListener('click', function () {
+      link.textContent = '正在生成 PDF…';
+      setTimeout(function () { link.textContent = '下载 PDF'; }, 8000);
+    });
+  })();
+</script>
+{% endblock %}
+{% block description %}{{ standard.name }} {{ row.rating.label }} {{ row.size_label }} {{ row.flange_type.name_zh }}：外径 {{ row.od|dim }} mm，厚度 {{ row.th|dim }} mm，中心圆 {{ row.bc|dim }} mm，{{ row.bolts }} × Ø{{ row.bolt_hole|dim }} mm。可打印 A4 规格卡。<script>
+  (function () {
+    var link = document.getElementById('download-pdf');
+    if (!link) return;
+    link.addEventListener('click', function () {
+      link.textContent = '正在生成 PDF…';
+      setTimeout(function () { link.textContent = '下载 PDF'; }, 8000);
+    });
+  })();
+</script>
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+  <div class="wrap">
+    <a href="{% url 'catalog:home' %}">首页</a><span>/</span>
+    <a href="{% url 'catalog:standard_detail' standard.id %}">{{ standard.short }}</a><span>/</span>
+    <span>{{ row.size_label }} · {{ row.rating.label }} · {{ row.flange_type.name_zh }}</span>
+  </div>
+</div>
+<script>
+  (function () {
+    var link = document.getElementById('download-pdf');
+    if (!link) return;
+    link.addEventListener('click', function () {
+      link.textContent = '正在生成 PDF…';
+      setTimeout(function () { link.textContent = '下载 PDF'; }, 8000);
+    });
+  })();
+</script>
+{% endblock %}
+
+{% block content %}
+<section class="page-head page-head-spec">
+  <div class="wrap">
+    <div class="spec-head">
+      <div>
+        <p class="eyebrow">SPECIFICATION · #{{ row.pk }}</p>
+        <h1>{{ row.size_label }} · {{ row.rating.label }} · {{ row.flange_type.name_zh }}</h1>
+        <p class="page-sub">{{ standard.name }} · {{ standard.effective_edition }} · DN{{ row.dn }}</p>
+        <div class="badge-stack">
+          <span class="tag tag-solid">{{ standard.short }}</span>
+          <span class="tag">{{ row.rating.label }}</span>
+          <span class="tag">{{ row.flange_type.name_zh }}</span>
+          <span class="tag">单位 mm / kg</span>
+        </div>
+      </div>
+      <div class="spec-actions">
+        <a class="btn btn-primary" href="{{ row.print_url }}">
+          <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M5 7V3h10v4M5 15H3V9h14v6h-2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="5" y="12" width="10" height="5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          打印规格卡
+        </a>
+        <a class="btn btn-ghost" id="download-pdf" href="{% url 'catalog:spec_pdf' row.pk %}">下载 PDF</a>
+        <a class="btn btn-ghost" href="{% url 'catalog:standard_detail' standard.id %}?type={{ row.flange_type_id }}&amp;rating={{ row.rating.code }}">返回尺寸表</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="spec-main">
+  <div class="wrap spec-grid">
+    <div class="spec-drawing card">
+      <div class="card-head">
+        <h2>尺寸标注图</h2>
+        <span class="card-note">示意图，按表中尺寸绘制</span>
+      </div>
+      {% if svg %}
+        <div class="drawing-canvas">{{ svg|safe }}</div>
+      {% else %}
+        <div class="drawing-empty">该规格的标注图暂未生成。</div>
+      {% endif %}
+      <p class="drawing-foot">D 外径 · K 螺栓孔中心圆 · n×Ød 螺栓孔 · C 厚度 · D2 密封面直径 · f 密封面高度 · A 轮毂直径 · H 长度</p>
+    </div>
+
+    <div class="spec-data card">
+      <div class="card-head">
+        <h2>尺寸数据</h2>
+        <span class="card-note">{{ standard.short }} · {{ row.rating.label }}</span>
+      </div>
+      {% dimension_fields row as fields %}
+      <table class="dim-table">
+        <tbody>
+          {% for field in fields %}
+            <tr>
+              <th><span class="sym">{{ field.symbol }}</span>{{ field.name }}</th>
+              <td class="dim-value">{{ field.value }}<span class="unit">{{ field.unit }}</span></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="spec-data-foot">
+        <span>数据版本 {{ standard.effective_edition }}</span>
+        <span>核对 {{ reference_doc.verified_on|date:"Y-m-d"|default:"—" }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="wrap spec-lower">
+    <div class="card">
+      <div class="card-head">
+        <h2>压力-温度额定值</h2>
+        <span class="card-note">{{ row.rating.label }} · 标准压力-温度表</span>
+      </div>
+      {% if series.available %}
+        <div class="pt-grid-detail">
+          {% for temp, value in series.rows %}
+            <span class="pt-cell-detail">
+              <b>{{ temp }} °C</b>
+              <em>{{ value }} {{ series.unit }}</em>
+            </span>
+          {% endfor %}
+        </div>
+        <p class="source-line">来源：{{ series.caption }}</p>
+        {% if series.note %}<p class="hint">{{ series.note }}</p>{% endif %}
+      {% else %}
+        <p class="empty-inline">该标准的压力-温度表暂未结构化，请查看标准页的参考数据。</p>
+        {% if topics %}
+          <p><a class="text-link" href="{% url 'catalog:reference_topic' standard.id 'pressure-ratings' %}">打开 {{ standard.short }} 压力-温度表 →</a></p>
+        {% endif %}
+      {% endif %}
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h2>材料与标准</h2>
+        <span class="card-note">{{ standard.short }}</span>
+      </div>
+      <dl class="meta-list">
+        <div><dt>标准</dt><dd>{{ standard.name }}（{{ standard.effective_edition }}）</dd></div>
+        <div><dt>基础材料</dt><dd>{{ standard.base_material|default:"—" }}</dd></div>
+        <div><dt>可选材料</dt><dd>{% for option in standard.material_options %}<span class="mini-tag">{{ option }}</span>{% endfor %}</dd></div>
+        <div><dt>适用范围</dt><dd>{{ standard.region }}</dd></div>
+      </dl>
+      <p class="hint">{{ standard.rating_note_zh }}</p>
+      <p class="hint">{{ standard.edition_note_zh }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">RELATED</p>
+        <h2>相关规格</h2>
+      </div>
+      <p class="section-desc">同标准同类型下，按压力等级与相邻口径切换。</p>
+    </div>
+
+    {% if siblings %}
+      <div class="related-block">
+        <h3>同尺寸 · 其他压力等级</h3>
+        <div class="chip-row">
+          {% for item in siblings %}
+            <a class="related-chip" href="{{ item.get_absolute_url }}">{{ item.rating.label }}<span>D {{ item.od|dim }}</span></a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if same_size_types %}
+      <div class="related-block">
+        <h3>同尺寸同等级 · 其他类型</h3>
+        <div class="chip-row">
+          {% for item in same_size_types %}
+            <a class="related-chip" href="{{ item.get_absolute_url }}">{{ item.flange_type.name_zh }}<span>C {{ item.th|dim }}</span></a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="related-block">
+      <h3>相邻口径 · {{ row.rating.label }}</h3>
+      <div class="chip-row">
+        {% if previous_row %}
+          <a class="related-chip" href="{{ previous_row.get_absolute_url }}">← {{ previous_row.size_label }}<span>DN{{ previous_row.dn }}</span></a>
+        {% endif %}
+        <span class="related-current">{{ row.size_label }} · DN{{ row.dn }}</span>
+        {% if next_row %}
+          <a class="related-chip" href="{{ next_row.get_absolute_url }}">{{ next_row.size_label }} →<span>DN{{ next_row.dn }}</span></a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap note-grid">
+    <div class="note-card">
+      <h3>本页数据说明</h3>
+      <p>{{ standard.edition_note_zh }}</p>
+      <p class="hint">规格编号 #{{ row.pk }} · 最后更新 {{ row.updated_at|date:"Y-m-d H:i" }}</p>
+    </div>
+    <div class="note-card">
+      <h3>使用边界</h3>
+      <p>本库是公开标准表格的事实性整理，不含标准正文与图表，不替代标准文本。报价、投标、关键件加工与检验前，请以项目指定的标准版本原文复核。</p>
+    </div>
+  </div>
+</section>
+<script>
+  (function () {
+    var link = document.getElementById('download-pdf');
+    if (!link) return;
+    link.addEventListener('click', function () {
+      link.textContent = '正在生成 PDF…';
+      setTimeout(function () { link.textContent = '下载 PDF'; }, 8000);
+    });
+  })();
+</script>
+{% endblock %}

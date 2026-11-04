@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ax-forge.com/schemas/flange-dimensions.schema.json",
+  "title": "Flange dimension dataset",
+  "description": "One array per standard family. One row = one flange type at one size and one pressure rating. All lengths in millimetres, weight in kilograms.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "std",
+      "type",
+      "size",
+      "size_label",
+      "dn",
+      "rating",
+      "rating_label",
+      "od",
+      "th",
+      "rf",
+      "rf_height",
+      "bc",
+      "bolts",
+      "bolt_hole",
+      "weight"
+    ],
+    "properties": {
+      "std": {
+        "enum": [
+          "asme-b16-5",
+          "asme-b16-47-a",
+          "asme-b16-47-b",
+          "jis-b2220",
+          "en-1092-1"
+        ]
+      },
+      "type": {
+        "enum": ["weld-neck", "slip-on", "blind"]
+      },
+      "size": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Stable URL key, e.g. 1-2, 2-1-2, 26, 10a, dn100."
+      },
+      "size_label": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Display label, e.g. 1/2″, 26″, 10A, DN100."
+      },
+      "dn": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Nominal size in millimetres (ASME: DN equivalent; JIS: A number; EN: DN)."
+      },
+      "rating": {
+        "type": "string",
+        "description": "150|300|400|600|900|1500|2500, 5k|10k|16k|20k|30k, pn6|pn10|pn16|pn25|pn40."
+      },
+      "rating_label": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Display label, e.g. Class 150, 10K, PN16."
+      },
+      "od": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "description": "Outside diameter D, mm."
+      },
+      "th": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "description": "Flange thickness (blind: blind thickness), mm."
+      },
+      "rf": {
+        "type": ["number", "null"],
+        "description": "Raised-face diameter, mm. Null when the published table does not define it."
+      },
+      "rf_height": {
+        "type": ["number", "null"],
+        "description": "Raised-face height, mm."
+      },
+      "bc": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "description": "Bolt circle diameter K, mm."
+      },
+      "bolts": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Number of bolt holes."
+      },
+      "bolt_hole": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "description": "Bolt hole diameter, mm."
+      },
+      "hub": {
+        "type": ["number", "null"],
+        "description": "Hub diameter, mm. Not published for blind flanges."
+      },
+      "length": {
+        "type": ["number", "null"],
+        "description": "Length through hub, mm. Not published for blind flanges."
+      },
+      "hub_weld": {
+        "type": ["number", "null"],
+        "description": "Weld-end diameter, mm. Not published for blind flanges."
+      },
+      "weight": {
+        "type": ["number", "null"],
+        "minimum": 0,
+        "description": "Approximate mass, kg. Null when not published."
+      }
+    }
+  }
+}

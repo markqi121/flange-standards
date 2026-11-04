@@ -1,0 +1,52 @@
+﻿# ASME B16.47-2025 pressure–temperature ratings (Group 1.1)
+# Standard: ASME B16.47-2025
+# Verified: 2026-11-04
+# Source: ASME B16.47-2025, Table 3, Pressure-Temperature Ratings for Group 1.1 Materials — SI Units, p. 14 (PDF p. 29); ASME B16.47-2025, Table 3C, Pressure-Temperature Ratings for Group 1.1 Materials — U.S. Customary Units, p. 15 (PDF p. 30); ASME B16.47-2025, paras. 2.1 and 2.4 (interpolation and ambient floor), p. 2 (PDF p. 17); ASME B16.47-2025, Table 1, List of Material Specifications, pp. 11-12 (PDF pp. 26-27)
+# Reference data only. The purchased standard edition governs.
+
+# Table 3/3C header — Group 1.1 materials (p. 14-15)
+# Note: Product forms shown exactly where the standard lists them; '—' means the standard lists no specification of that form for the row. Note markers correspond to the footnotes on the rating tables.
+Nominal designation,Forgings,Castings,Plates
+C-Si,"A105 [Notes (1), (2)]",A216 Gr. WCB [Note (1)],A515 Gr. 70 [Note (1)]
+C-Mn-Si,A350 Gr. LF2 [Note (1)],—,"A516 Gr. 70 [Notes (1), (2)]"
+C-Mn-Si,—,—,A537 Cl. 1 [Note (3)]
+C-Mn-Si-V,A350 Gr. LF6 Cl. 1 [Note (4)],—,—
+3½Ni,A350 Gr. LF3 [Note (5)],—,—
+
+# Table 3 (p. 14) — pressure–temperature ratings for Group 1.1 materials, SI units
+# Note: Maximum allowable working pressure in bar at the listed metal temperature. Temperatures at or below 38 °C use the 'min. to 38' row. Linear interpolation is permitted between listed temperatures; interpolation between classes is not permitted. '—' records a cell for which the standard prints no rating ('...').
+Temperature,Class 75,Class 150,Class 300,Class 400,Class 600,Class 900
+min. to 38 [Note 6],9.8,19.6,51.0,68.0,102.0,153.1
+50,9.6,19.1,49.8,66.4,99.6,149.3
+100,8.8,17.7,46.7,62.3,93.4,140.1
+150,7.9,15.8,45.1,60.1,90.1,135.2
+200,6.9,13.8,43.8,58.4,87.6,131.5
+250,6.0,12.1,42.0,56.0,83.9,125.9
+300,5.1,10.2,39.9,53.2,79.6,119.7
+325,4.6,9.3,38.7,51.6,77.3,116.0
+350,3.1,8.4,37.6,50.2,75.3,112.9
+375,—,7.4,36.4,48.5,72.8,109.2
+400,—,6.5,34.6,46.2,69.3,103.9
+425,—,5.5,28.7,38.3,57.5,86.2
+450,—,4.6,23.0,30.6,45.9,68.9
+475,—,3.7,17.5,23.3,35.0,52.5
+500,—,2.8,11.5,15.4,23.0,34.6
+538,—,1.4,5.8,7.7,11.6,17.4
+
+# Table 3C (p. 15) — pressure–temperature ratings for Group 1.1 materials, U.S. customary units
+# Note: Maximum allowable working pressure in psig at the listed metal temperature. Temperatures at or below 100 °F use the 'min. to 100' row. Linear interpolation is permitted between listed temperatures; interpolation between classes is not permitted. '—' records a cell for which the standard prints no rating ('...').
+Temperature,Class 75,Class 150,Class 300,Class 400,Class 600,Class 900
+min. to 100 [Note 6],140,285,740,985,"1,480","2,220"
+200,130,260,680,905,"1,360","2,035"
+300,115,230,655,870,"1,310","1,965"
+400,100,200,635,845,"1,265","1,900"
+500,85,170,605,805,"1,205","1,810"
+600,70,140,570,755,"1,135","1,705"
+650,60,125,550,730,"1,100","1,650"
+700,—,110,530,710,"1,060","1,590"
+750,—,95,505,675,"1,015","1,520"
+800,—,80,410,550,825,"1,235"
+850,—,65,320,425,640,955
+900,—,50,230,305,460,690
+950,—,35,135,185,275,410
+"1,000",—,20,85,115,170,255

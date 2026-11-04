@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load catalog_extras %}
+
+{% block title %}DN{{ dn }} 跨标准对照 · {{ site_name }}{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">CROSS-STANDARD</p>
+    <h1>跨标准对照</h1>
+    <p class="page-sub">同一个公称尺寸，在 ASME、EN、JIS 下不是同一个法兰。对照外径、螺栓孔中心圆和螺栓孔，确认能不能装到一起。</p>
+
+    <form class="compare-form" method="get" action="">
+      <div class="field">
+        <label for="compare-dn">公称尺寸</label>
+        <select id="compare-dn" name="dn">
+          {% for value in common_dns %}
+            <option value="{{ value }}" {% if value == dn %}selected{% endif %}>DN{{ value }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="field">
+        <label for="compare-type">法兰类型</label>
+        <select id="compare-type" name="type">
+          {% for slug, info in types.items %}
+            <option value="{{ slug }}" {% if slug == type_slug %}selected{% endif %}>{{ info.name_zh }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button class="btn btn-primary" type="submit">对照</button>
+    </form>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">DN{{ dn }} · {{ type_name }}</p>
+        <h2>{{ type_name }} DN{{ dn }} 的各标准尺寸</h2>
+      </div>
+      <p class="section-desc">按标准列出全部压力等级；点击行进入规格卡。</p>
+    </div>
+
+    {% if rows %}
+      <div class="data-table-wrap">
+        <table class="data-table compare-table">
+          <thead>
+            <tr>
+              <th>标准</th>
+              <th>尺寸写法</th>
+              <th>压力等级</th>
+              <th class="ta-right">外径 D</th>
+              <th class="ta-right">厚度 C</th>
+              <th class="ta-right hide-mobile">密封面 D2</th>
+              <th class="ta-right hide-mobile">中心圆 K</th>
+              <th class="hide-mobile">螺栓孔</th>
+              <th class="ta-right hide-mobile">轮毂 A</th>
+              <th class="ta-right hide-mobile">长度 H</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in rows %}
+              <tr>
+                <td><span class="std-tag">{{ row.standard.short }}</span></td>
+                <td>{{ row.size_label }}</td>
+                <td><span class="rating">{{ row.rating.label }}</span></td>
+                <td class="num">{{ row.od|dim }}</td>
+                <td class="num">{{ row.th|dim }}</td>
+                <td class="num hide-mobile">{{ row.rf|dim|default:"—" }}</td>
+                <td class="num hide-mobile">{{ row.bc|dim }}</td>
+                <td class="num hide-mobile">{{ row.bolts }} × Ø{{ row.bolt_hole|dim }}</td>
+                <td class="num hide-mobile">{{ row.hub|dim|default:"—" }}</td>
+                <td class="num hide-mobile">{{ row.length|dim|default:"—" }}</td>
+                <td class="ta-right"><a class="text-link" href="{{ row.get_absolute_url }}">规格卡</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <strong>不能只看 DN。</strong>
+        同 DN 的 ASME B16.5、EN 1092-1、JIS B2220 法兰，外径和螺栓孔中心圆通常不同，螺栓数量也不同；即使压力等级看起来相近，也未必能配对。
+        成套更换时，法兰、垫片和螺栓应按同一标准订货。跨标准对照只用于识别差异，不作为互换依据。
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <h2>DN{{ dn }} 没有{{ type_name }}数据</h2>
+        <p>换一个公称尺寸，或换一种法兰类型试试。</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

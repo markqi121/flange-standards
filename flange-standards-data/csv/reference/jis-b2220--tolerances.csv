@@ -1,0 +1,58 @@
+﻿# JIS B2220 dimensional tolerances (Table 22)
+# Standard: JIS B2220:2012
+# Verified: 2026-11-04
+# Source: JIS B2220:2012, clause 12.5 and Table 22 (PDF pp. 43–44; printed pp. 38–39); JIS B2220:2012, clause 12.5 thread perpendicularity (PDF p. 13; printed p. 8)
+# Reference data only. The purchased standard edition governs.
+
+# Table 22 (p. 38) — dimensional tolerance on flange, part 1
+# Note: Dimensional divisions and tolerances are in mm. '+ not specified / −2' means that the standard sets only the minus deviation (2 mm) and leaves the plus deviation unspecified. The symbols are shown in the figures above Table 22; d₀ is the inside diameter of SOP, SOH, SW and LJ flanges, while d is the bore of SW and WN flanges.
+Name of dimension,Classification of flange,Gasket face,Dimensional division,Dimensional tolerance
+Outside diameter of flange D,Except IT,—,600 or under,±1.5
+Outside diameter of flange D,Except IT,—,Over 600,±3
+Outside diameter of flange D,IT,—,1 000 or under,+ not specified / −2
+Outside diameter of flange D,IT,—,Over 1 000,+ not specified / −3
+Diameter of bolt hole centre circle C,All,—,950 or under,±0.8
+Diameter of bolt hole centre circle C,All,—,Over 950,±1.5
+Eccentricity of bolt hole centre circle with respect to the inside diameter,All,—,—,Within 0.8
+Pitch of bolt hole,All,—,—,±0.8
+Diameter of bolt hole h,All,—,—,±0.5
+Inside diameter d₀,"SOP, SOH, SW, LJ",—,400 or under,+1 / 0
+Inside diameter d₀,"SOP, SOH, SW, LJ",—,Over 400 up to and incl. 600,+1.5 / 0
+Inside diameter d₀,"SOP, SOH, SW, LJ",—,Over 600 up to and incl. 800,+2 / 0
+Inside diameter d₀,"SOP, SOH, SW, LJ",—,Over 800 up to and incl. 1 000,+2.5 / 0
+Inside diameter d₀,"SOP, SOH, SW, LJ",—,Over 1 000,+3 / 0
+Inside diameter d,"SW, WN",—,100 or under,0 / −0.5
+Inside diameter d,"SW, WN",—,Over 100 up to and incl. 400,0 / −1
+Inside diameter d,"SW, WN",—,Over 400 up to and incl. 600,0 / −1.5
+Inside diameter d,"SW, WN",—,Over 600 up to and incl. 800,0 / −2
+Inside diameter d,"SW, WN",—,Over 800 up to and incl. 1 000,0 / −2.5
+Inside diameter d,"SW, WN",—,Over 1 000,0 / −3
+Diameter of gasket face g,"SOH, SW, TR, WN, IT, BL","RF, MF, TG",700 or under,±0.8
+Diameter of gasket face g,"SOH, SW, TR, WN, IT, BL","RF, MF, TG",Over 700,±1.5
+"Diameter of gasket face C₁, C₂, C₃, C₄",Except LJ,"MF, TG",500 or under,±0.3
+"Diameter of gasket face C₁, C₂, C₃, C₄",Except LJ,"MF, TG",Over 500 up to and incl. 1 000,±0.35
+"Diameter of gasket face C₁, C₂, C₃, C₄",Except LJ,"MF, TG",Over 1 000 up to and incl. 1 500,±0.4
+"Diameter of gasket face C₁, C₂, C₃, C₄",Except LJ,"MF, TG",Over 1 500,±0.5
+"Height of gasket face f₃, f₄",Except LJ,"MF, TG",—,±0.2
+
+# Table 22 (p. 39) — dimensional tolerance on flange, part 2
+# Note: Dimensional divisions and tolerances are in mm. t is the flange thickness and t − f is the thickness under the raised face. The a) and b) markers on the thickness rows are explained in the footnotes.
+Name of dimension,Classification of flange,Gasket face,Dimensional division,Dimensional tolerance
+Thickness of flange t a) b),Except LJ,"FF, MF, TG",20 or under,+1.5 / 0
+Thickness of flange t a) b),Except LJ,"FF, MF, TG",Over 20 up to and incl. 50,+2 / 0
+Thickness of flange t a) b),Except LJ,"FF, MF, TG",Over 50,+3 / 0
+Thickness of flange t a) b),LJ,—,20 or under,+1.5 / 0
+Thickness of flange t a) b),LJ,—,Over 20 up to and incl. 50,+2 / 0
+Thickness of flange t a) b),LJ,—,Over 50,+3 / 0
+Thickness of flange t − f a) b),"SOH, SW, TR, WN, IT, BL",RF,20 or under,+1.5 / 0
+Thickness of flange t − f a) b),"SOH, SW, TR, WN, IT, BL",RF,Over 20 up to and incl. 50,+2 / 0
+Thickness of flange t − f a) b),"SOH, SW, TR, WN, IT, BL",RF,Over 50,+3 / 0
+"Diameter of hub, small diameter side a","SOH, SW, LJ, TR, WN",—,220 or under,+2 / 0
+"Diameter of hub, small diameter side a","SOH, SW, LJ, TR, WN",—,Over 220 up to and incl. 650,+4 / 0
+"Diameter of hub, small diameter side a","SOH, SW, LJ, TR, WN",—,Over 650,+8 / 0
+Total length of flange T,"SOH, SW, LJ, TR",—,—,±2
+Total length of flange T,WN,—,200 or under,+2 / 0
+Total length of flange T,WN,—,Over 200,+3 / 0
+Chamfering c,LJ,—,6 or under,+0.8 / 0
+Chamfering c,LJ,—,Over 6,+1.6 / 0
+Inclination of bolt · nut face with respect to gasket face,Except LJ,All,—,Within 1 degree

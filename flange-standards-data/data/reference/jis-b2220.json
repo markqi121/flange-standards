@@ -1,0 +1,2477 @@
+{
+  "id": "jis-b2220",
+  "edition": "JIS B2220:2012",
+  "verifiedOn": "2026-11-04",
+  "sourceDocument": "JIS B2220:2012 (PDF supplied for this project)",
+  "topics": {
+    "pressure-ratings": {
+      "title": "JIS B2220 pressure–temperature ratings",
+      "metaDescription": "JIS B2220:2012 Table 11 in full: maximum working pressure in MPa for 5K to 63K flanges by material group and Division I–III, from T_L to 510 °C.",
+      "intro": [
+        "Table 11 of JIS B2220:2012 is the rating table that turns a nominal JIS K number into a maximum working pressure at a stated fluid temperature. It covers nominal pressures 5K, 10K, 16K, 20K, 30K, 40K and 63K, the JIS material groups of Table 5 and their ASTM reference groups from Table 6, and three divisions, I, II and III.",
+        "Read each row as nominal pressure, specified material group, reference material group and division. The division is not chosen by the buyer: Table 12 assigns Division I, II or III according to flange classification, nominal size and material group, and Division III is the most restrictive. Values are in MPa. The first temperature column runs from T_L — a minimum working temperature equal to or below the normal temperature — to 120 °C; heat-resistant groups carry values up to 510 °C. A dash means the standard gives no rating for that cell.",
+        "JIS K ratings are nominal labels, not working pressures. For group 1.1, Division I, a 5K flange is rated 0.7 MPa, a 10K flange 1.4 MPa, a 16K flange 2.7 MPa, a 20K flange 3.4 MPa and a 30K flange 5.1 MPa at up to 120 °C; the same flanges fall to 0.5, 1.0, 2.3, 2.9 and 4.3 MPa at 300 °C. Always use the row that matches the actual material and the division that Table 12 assigns to the flange."
+      ],
+      "keyFacts": [
+        {
+          "label": "Standard",
+          "value": "JIS B2220:2012"
+        },
+        {
+          "label": "Table",
+          "value": "Table 11, clause 9"
+        },
+        {
+          "label": "Unit",
+          "value": "MPa"
+        },
+        {
+          "label": "Nominal pressures",
+          "value": "5K–63K"
+        },
+        {
+          "label": "Material groups",
+          "value": "001–023b / 1.1–2.3"
+        },
+        {
+          "label": "Divisions",
+          "value": "I, II, III"
+        },
+        {
+          "label": "Temperature",
+          "value": "T_L to 510 °C"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Table 11 — max working pressure by material group and division",
+          "paragraphs": [
+            "The table keeps the printed order: nominal pressure, specified material group, reference material group, division, then the maximum working pressure at each fluid temperature. Footnotes a) to e) remove named grades from a group, and NOTES 1 to 5 state how the table is applied.",
+            "The 450, 475, 490, 500 and 510 °C columns occur only in the 30K, 40K and 63K rows; for 5K to 20K they are printed as dashes."
+          ],
+          "table": {
+            "caption": "Table 11 (pp. 15–16) — pressure-temperature rating, maximum working pressure in MPa",
+            "note": "Maximum working pressure in MPa. Fluid temperatures are in °C. T_L is a minimum working temperature equal to or below the normal temperature. Interpolate proportionally between tabulated temperatures; do not extrapolate. A dash (—) means the standard gives no rating for that combination. Columns 450 to 510 °C apply to the 30K, 40K and 63K rows only.",
+            "columns": [
+              {
+                "key": "rating",
+                "label": "Nominal pressure",
+                "align": "left"
+              },
+              {
+                "key": "specified",
+                "label": "Specified material group No.",
+                "align": "left"
+              },
+              {
+                "key": "reference",
+                "label": "Reference material group No.",
+                "align": "left"
+              },
+              {
+                "key": "division",
+                "label": "Division",
+                "align": "left"
+              },
+              {
+                "key": "t120",
+                "label": "T_L to 120",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t220",
+                "label": "220",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t300",
+                "label": "300",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t350",
+                "label": "350",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t400",
+                "label": "400",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t425",
+                "label": "425",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t450",
+                "label": "450",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t475",
+                "label": "475",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t490",
+                "label": "490",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t500",
+                "label": "500",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t510",
+                "label": "510",
+                "unit": "°C",
+                "align": "right"
+              }
+            ],
+            "rows": [
+              [
+                "5K",
+                "001, 002, 003a",
+                "1.1",
+                "I",
+                "0.7",
+                "0.6",
+                "0.5",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "5K",
+                "001, 002, 003a",
+                "1.1",
+                "II",
+                "0.5",
+                "0.5",
+                "0.5",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "5K",
+                "001, 002, 003a",
+                "1.1",
+                "III",
+                "0.5",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "5K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "I",
+                "0.7",
+                "0.6",
+                "0.5",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "5K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "II",
+                "0.5",
+                "0.5",
+                "0.5",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "5K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "III",
+                "0.5",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "5K",
+                "023a, 023b",
+                "2.3",
+                "I",
+                "0.7",
+                "0.6",
+                "0.5",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "5K",
+                "023a, 023b",
+                "2.3",
+                "II",
+                "0.5",
+                "0.5",
+                "0.5",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "5K",
+                "023a, 023b",
+                "2.3",
+                "III",
+                "0.5",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "10K",
+                "001, 002, 003a",
+                "1.1",
+                "I",
+                "1.4",
+                "1.2",
+                "1.0",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "10K",
+                "001, 002, 003a",
+                "1.1",
+                "II",
+                "1.0",
+                "1.0",
+                "1.0",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "10K",
+                "001, 002, 003a",
+                "1.1",
+                "III",
+                "1.0",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "10K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "I",
+                "1.4",
+                "1.2",
+                "1.0",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "10K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "II",
+                "1.0",
+                "1.0",
+                "0.9",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "10K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "III",
+                "1.0",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "10K",
+                "023a, 023b",
+                "2.3",
+                "I",
+                "1.4",
+                "1.2",
+                "1.0",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "10K",
+                "023a, 023b",
+                "2.3",
+                "II",
+                "1.0",
+                "0.9",
+                "0.8",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "10K",
+                "023a, 023b",
+                "2.3",
+                "III",
+                "1.0",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "16K",
+                "002, 003a",
+                "1.1",
+                "I",
+                "2.7",
+                "2.5",
+                "2.3",
+                "2.1",
+                "1.8 a)",
+                "1.6 a)",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "16K",
+                "002, 003a",
+                "1.1",
+                "II",
+                "1.6",
+                "1.6",
+                "1.6",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "16K",
+                "002, 003a",
+                "1.1",
+                "III",
+                "1.6",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "16K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "I",
+                "2.7",
+                "2.5",
+                "2.3",
+                "2.1",
+                "1.8",
+                "1.6",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "16K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "II",
+                "1.6",
+                "1.6",
+                "1.6",
+                "1.6",
+                "1.5",
+                "1.5",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "16K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "III",
+                "1.6",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "16K",
+                "023a, 023b",
+                "2.3",
+                "I",
+                "2.7",
+                "2.5",
+                "2.3",
+                "2.1",
+                "1.8",
+                "1.6",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "16K",
+                "023a, 023b",
+                "2.3",
+                "II",
+                "1.6",
+                "1.6",
+                "1.5",
+                "1.4",
+                "1.3",
+                "1.3",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "16K",
+                "023a, 023b",
+                "2.3",
+                "III",
+                "1.6",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "20K",
+                "002, 003a",
+                "1.1",
+                "I",
+                "3.4",
+                "3.1",
+                "2.9",
+                "2.6",
+                "2.3 a)",
+                "2.0 a)",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "20K",
+                "002, 003a",
+                "1.1",
+                "II",
+                "2.0",
+                "2.0",
+                "2.0",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "20K",
+                "002, 003a",
+                "1.1",
+                "III",
+                "2.0",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "20K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "I",
+                "3.4",
+                "3.1",
+                "2.9",
+                "2.6",
+                "2.3",
+                "2.0",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "20K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "II",
+                "2.0",
+                "2.0",
+                "2.0",
+                "2.0",
+                "1.9",
+                "1.9",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "20K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "III",
+                "2.0",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "20K",
+                "023a, 023b",
+                "2.3",
+                "I",
+                "3.4",
+                "3.1",
+                "2.9",
+                "2.6",
+                "2.3",
+                "2.0",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "20K",
+                "023a, 023b",
+                "2.3",
+                "II",
+                "2.0",
+                "2.0",
+                "1.9",
+                "1.7",
+                "1.7",
+                "1.7",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "20K",
+                "023a, 023b",
+                "2.3",
+                "III",
+                "2.0",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "30K",
+                "002, 003a",
+                "1.1",
+                "I",
+                "5.1",
+                "4.6",
+                "4.3",
+                "3.9",
+                "3.4 a)",
+                "3.0 a)",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "30K",
+                "013a",
+                "1.5",
+                "I",
+                "5.1",
+                "4.6",
+                "4.3",
+                "3.9",
+                "3.8 b)",
+                "3.6 b)",
+                "3.4 b)",
+                "3.0 b)",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "30K",
+                "015a",
+                "1.9",
+                "I",
+                "5.1",
+                "4.6",
+                "4.3",
+                "3.9",
+                "3.8",
+                "3.6",
+                "3.4",
+                "3.2",
+                "3.0",
+                "—",
+                "—"
+              ],
+              [
+                "30K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "I",
+                "5.1",
+                "4.6",
+                "4.3",
+                "3.9",
+                "3.8",
+                "3.6",
+                "3.4 c)",
+                "3.2 c) d)",
+                "3.0 c) d)",
+                "—",
+                "—"
+              ],
+              [
+                "30K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "II",
+                "3.9",
+                "3.6",
+                "3.4",
+                "3.0",
+                "2.5",
+                "2.3",
+                "2.3 c)",
+                "2.3 c) d)",
+                "2.3 c) d)",
+                "—",
+                "—"
+              ],
+              [
+                "30K",
+                "023a, 023b",
+                "2.3",
+                "I",
+                "5.1",
+                "4.6",
+                "4.3",
+                "3.9",
+                "3.8",
+                "3.6",
+                "3.4 e)",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "30K",
+                "023a, 023b",
+                "2.3",
+                "II",
+                "3.5",
+                "3.0",
+                "2.9",
+                "2.6",
+                "2.1",
+                "2.0",
+                "2.0 e)",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "40K",
+                "002, 003a",
+                "1.1",
+                "I",
+                "6.8",
+                "6.2",
+                "5.7",
+                "5.2",
+                "4.6 a)",
+                "4.0 a)",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "40K",
+                "013a",
+                "1.5",
+                "I",
+                "6.8",
+                "6.2",
+                "5.7",
+                "5.2",
+                "5.1 b)",
+                "4.8 b)",
+                "4.5 b)",
+                "4.0 b)",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "40K",
+                "015a",
+                "1.9",
+                "I",
+                "6.8",
+                "6.2",
+                "5.7",
+                "5.2",
+                "5.1",
+                "4.8",
+                "4.5",
+                "4.2",
+                "4.0",
+                "3.8",
+                "3.6"
+              ],
+              [
+                "40K",
+                "015a",
+                "1.9",
+                "II",
+                "6.8",
+                "6.2",
+                "5.7",
+                "5.2",
+                "5.1",
+                "4.8",
+                "4.5",
+                "4.2",
+                "4.0",
+                "3.1",
+                "2.7"
+              ],
+              [
+                "40K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "I",
+                "6.8",
+                "6.2",
+                "5.7",
+                "5.2",
+                "5.1",
+                "4.8",
+                "4.5 c)",
+                "4.2 c) d)",
+                "4.0 c) d)",
+                "3.8 c) d)",
+                "3.6 c) d)"
+              ],
+              [
+                "40K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "II",
+                "5.2",
+                "4.8",
+                "4.5",
+                "4.1",
+                "3.4",
+                "3.1",
+                "3.1 c)",
+                "3.1 c) d)",
+                "3.1 c) d)",
+                "3.0 c) d)",
+                "3.0 c) d)"
+              ],
+              [
+                "40K",
+                "023a, 023b",
+                "2.3",
+                "I",
+                "6.8",
+                "6.2",
+                "5.7",
+                "5.2",
+                "5.1",
+                "4.8",
+                "4.5 e)",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "40K",
+                "023a, 023b",
+                "2.3",
+                "II",
+                "4.9",
+                "4.0",
+                "3.9",
+                "3.5",
+                "2.9",
+                "2.7",
+                "2.7 e)",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "63K",
+                "002, 003a",
+                "1.1",
+                "I",
+                "10.7",
+                "9.7",
+                "9.0",
+                "8.1",
+                "7.2 a)",
+                "6.3 a)",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "63K",
+                "013a",
+                "1.5",
+                "I",
+                "10.7",
+                "9.7",
+                "9.0",
+                "8.1",
+                "8.0 b)",
+                "7.6 b)",
+                "7.1 b)",
+                "6.3 b)",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "63K",
+                "015a",
+                "1.9",
+                "I",
+                "10.7",
+                "9.7",
+                "9.0",
+                "8.1",
+                "8.0",
+                "7.6",
+                "7.1",
+                "6.6",
+                "6.3",
+                "5.9",
+                "5.6"
+              ],
+              [
+                "63K",
+                "015a",
+                "1.9",
+                "II",
+                "10.7",
+                "9.7",
+                "9.0",
+                "8.1",
+                "8.0",
+                "7.6",
+                "7.1",
+                "6.6",
+                "6.3",
+                "4.6",
+                "4.0"
+              ],
+              [
+                "63K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "I",
+                "10.7",
+                "9.7",
+                "9.0",
+                "8.1",
+                "8.0",
+                "7.6",
+                "7.1 c)",
+                "6.6 c) d)",
+                "6.3 c) d)",
+                "5.9 c) d)",
+                "5.6 c) d)"
+              ],
+              [
+                "63K",
+                "021a, 021b, 022a, 022b",
+                "2.1, 2.2",
+                "II",
+                "8.1",
+                "7.1",
+                "6.7",
+                "6.2",
+                "5.1",
+                "4.7",
+                "4.6 c)",
+                "4.6 c) d)",
+                "4.6 c) d)",
+                "4.5 c) d)",
+                "4.5 c) d)"
+              ],
+              [
+                "63K",
+                "023a, 023b",
+                "2.3",
+                "I",
+                "10.7",
+                "9.7",
+                "9.0",
+                "8.1",
+                "7.2",
+                "6.6",
+                "6.4 e)",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "63K",
+                "023a, 023b",
+                "2.3",
+                "II",
+                "7.4",
+                "6.0",
+                "5.8",
+                "5.2",
+                "4.3",
+                "4.0",
+                "4.0 e)",
+                "—",
+                "—",
+                "—",
+                "—"
+              ]
+            ],
+            "footnotes": [
+              {
+                "marker": "NOTE 1",
+                "text": "Light flanges (L) at nominal pressure 10K have their own limit in clause 9: steady flow at 120 °C or less and 0.7 MPa or less. Table 7 lists the nominal sizes available in the light type."
+              },
+              {
+                "marker": "NOTE 2",
+                "text": "The specified material column refers to the group numbers of Table 5; the reference material column refers to the ASTM-based groups of Table 6."
+              },
+              {
+                "marker": "NOTE 3",
+                "text": "Division II restricts a flange more than Division I, and Division III more than Division II. Table 12 states which division applies, based on the flange classification and nominal size."
+              },
+              {
+                "marker": "NOTE 4",
+                "text": "T_L is the lowest working temperature considered, at or below the normal temperature. Using a flange below that temperature requires agreement between the buyer and the manufacturer."
+              },
+              {
+                "marker": "NOTE 5",
+                "text": "Pressures between two tabulated temperatures are found by proportional interpolation."
+              },
+              {
+                "marker": "a)",
+                "text": "This rating does not cover SC 480 of JIS G 5101 (group 002) or CL1 of ASTM A 537 (group 1.1)."
+              },
+              {
+                "marker": "b)",
+                "text": "This rating does not cover LC1 of ASTM A 352 (group 1.5)."
+              },
+              {
+                "marker": "c)",
+                "text": "This rating does not cover CF3 of ASTM A 351 (groups 021b and 2.1)."
+              },
+              {
+                "marker": "d)",
+                "text": "This rating does not cover CF3M of ASTM A 351 (groups 022b and 2.2)."
+              },
+              {
+                "marker": "e)",
+                "text": "This rating does not cover 304L of ASTM A 240 (groups 023a and 2.3) or F304L of ASTM A 182."
+              }
+            ]
+          }
+        },
+        {
+          "heading": "How to apply the ratings",
+          "paragraphs": [
+            "A JIS K number is a nominal label, not a working pressure. The allowable pressure depends on the material group, the division and the fluid temperature at the same time."
+          ],
+          "bullets": [
+            "Find the division first. Table 12 assigns Division I, II or III to each flange classification (SOP, SOH, SW, LJ, TR, WN, IT, BL) and nominal size for every material group; Division III is the most restricted and Division II sits between I and III.",
+            "Then find the material. A flange made from a JIS material is rated by the specified group number (001 to 023b, Table 5); a flange made from the ASTM reference material is rated by the reference group number (1.1 to 2.3, Table 6).",
+            "Read across to the design temperature. Between two tabulated temperatures the pressure is obtained by proportional interpolation; outside the tabulated range, or where a dash is printed, the standard gives no rating and extrapolation is not permitted.",
+            "Check the footnotes. Footnotes a) to e) exclude specific grades — for example, at 16K and 20K the 400 °C and 425 °C values for group 1.1 do not apply to SC 480 or to ASTM A 537 CL1.",
+            "Group 001 appears in the 5K and 10K rows only; from 16K upward the carbon-steel rows start at group 002/003a, and the 30K, 40K and 63K rows add the low-alloy groups 013a and 015a.",
+            "Zinc-coated (white) flanges are restricted to 300 °C maximum working temperature, and light 10K flanges to steady flow at 120 °C or less and 0.7 MPa or less (clause 9)."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "What does 10K mean on a JIS flange?",
+          "a": "K is the nominal pressure in kgf/cm², so 10K is nominally 10 kgf/cm² (about 1.0 MPa). It is not the maximum working pressure: Table 11 gives 1.4 MPa at up to 120 °C for a 10K flange in material group 1.1, Division I, falling to 1.0 MPa at 300 °C. The allowable pressure depends on the material and the division."
+        },
+        {
+          "q": "Is JIS 10K the same as ASME Class 150?",
+          "a": "No. Both are loosely described as about 1 MPa or 150 lb nominal, but the outside diameters, bolt circles and bolt sizes differ, so a JIS 10K flange does not bolt to an ASME Class 150 flange. The ratings also differ: ASME B16.5 Class 150 in ASTM A105 allows 19.6 bar at 38 °C, against 1.4 MPa (14 bar) for JIS 10K group 1.1 Division I up to 120 °C."
+        },
+        {
+          "q": "Why does the same 20K flange have three different ratings?",
+          "a": "Because Table 11 gives one rating per division, and Table 12 assigns Division I, II or III according to flange classification, nominal size and material group. For 20K group 002/003a the 120 °C value is 3.4 MPa in Division I but 2.0 MPa in Divisions II and III; Division III is the most restricted."
+        },
+        {
+          "q": "Can I interpolate or extrapolate a JIS B2220 rating?",
+          "a": "Interpolate proportionally between the listed temperatures, but do not extrapolate: where a dash is printed the standard gives no rating. Ratings above 425 °C are published only for the 30K, 40K and 63K rows and only for the material groups whose cells carry values, up to 510 °C."
+        }
+      ],
+      "sources": [
+        "JIS B2220:2012, clause 9 and Table 11 (PDF pp. 20–21; printed pp. 15–16)",
+        "JIS B2220:2012, clause 10 and Table 12 (PDF p. 22; printed p. 17)",
+        "JIS B2220:2012, clause 8, Tables 5 and 6 (PDF pp. 10–11; printed pp. 5–6)",
+        "JIS B2220:2012, clause 9, light-flange and white-flange limits (PDF p. 12; printed p. 7)"
+      ],
+      "related": [
+        {
+          "label": "JIS B2220 material groups",
+          "href": "/standards/jis-b2220/material-groups/"
+        },
+        {
+          "label": "JIS B2220 flange types and gasket faces",
+          "href": "/standards/jis-b2220/types/"
+        },
+        {
+          "label": "JIS B2220 dimension tables",
+          "href": "/standards/jis-b2220/"
+        }
+      ]
+    },
+    "material-groups": {
+      "title": "JIS B2220 material groups and ASTM reference materials",
+      "metaDescription": "JIS B2220:2012 material groups: the JIS steels and castings behind group numbers 001 to 023b, the ASTM reference groups 1.1 to 2.3, and their pairing.",
+      "intro": [
+        "JIS B2220:2012 does not rate flanges by a steel name alone. It sorts materials into numbered groups and then rates each group in Table 11. Table 5 defines the specified material groups — 001 to 023b — and lists the JIS rolled steels, steel forgings and steel castings that belong to each one.",
+        "Table 6 is informative: it lists ASTM materials regarded as equivalent or superior and gives each row a reference material group number, 1.1 to 2.3. Table 11 uses both numbering systems side by side, so the specified column points to Table 5 and the reference column points to Table 6."
+      ],
+      "keyFacts": [
+        {
+          "label": "Standard",
+          "value": "JIS B2220:2012"
+        },
+        {
+          "label": "Specified groups",
+          "value": "001–023b"
+        },
+        {
+          "label": "Reference groups",
+          "value": "1.1–2.3"
+        },
+        {
+          "label": "Table 5",
+          "value": "Normative"
+        },
+        {
+          "label": "Table 6",
+          "value": "Informative"
+        },
+        {
+          "label": "Rating link",
+          "value": "Table 11"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Specified JIS materials by group number (Table 5)",
+          "paragraphs": [
+            "Some group numbers carry an a or b suffix (003a, 021a/021b, 022a/022b, 023a/023b); the suffix separates variants that are rated under the same reference group. Group numbers are three-digit codes, so 001, 002 and 003a are distinct groups even though they share reference group 1.1."
+          ],
+          "table": {
+            "caption": "Table 5 (p. 6) — materials by specified material group No.",
+            "note": "The same group number covers the rolled, forged and cast grades in that row. A dash means no grade of that product form is listed for the group.",
+            "columns": [
+              {
+                "key": "group",
+                "label": "Group No.",
+                "align": "left"
+              },
+              {
+                "key": "class",
+                "label": "Classification of material",
+                "align": "left"
+              },
+              {
+                "key": "rolled",
+                "label": "Rolled steel (JIS)",
+                "align": "left"
+              },
+              {
+                "key": "forged",
+                "label": "Steel forging (JIS)",
+                "align": "left"
+              },
+              {
+                "key": "cast",
+                "label": "Steel casting (JIS)",
+                "align": "left"
+              },
+              {
+                "key": "notes",
+                "label": "Notes",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              [
+                "001",
+                "Carbon steel",
+                "SS 400 (JIS G 3101); S 20 C (JIS G 4051)",
+                "SF 390A (JIS G 3201); SFVC 1 (JIS G 3202); S 20 C (JIS G 4051)",
+                "SC 410 (JIS G 5101); SCPH 1 (JIS G 5151)",
+                "a), b)"
+              ],
+              [
+                "002",
+                "Carbon steel",
+                "S 25 C (JIS G 4051)",
+                "SF 440A (JIS G 3201); S 25 C (JIS G 4051)",
+                "SC 480 (JIS G 5101)",
+                "a), b)"
+              ],
+              [
+                "003a",
+                "Carbon steel",
+                "—",
+                "SFVC 2A (JIS G 3202)",
+                "SCPH 2 (JIS G 5151)",
+                "—"
+              ],
+              [
+                "013a",
+                "Low alloy steel",
+                "—",
+                "SFVA F1 (JIS G 3203)",
+                "SCPH 11 (JIS G 5151)",
+                "—"
+              ],
+              [
+                "015a",
+                "Low alloy steel",
+                "—",
+                "SFVA F11A (JIS G 3203)",
+                "SCPH 21 (JIS G 5151)",
+                "—"
+              ],
+              [
+                "021a",
+                "Stainless steel",
+                "SUS 304 (JIS G 4304 and G 4305)",
+                "SUS F304 (JIS G 3214)",
+                "SCS 13A (JIS G 5121)",
+                "—"
+              ],
+              [
+                "021b",
+                "Stainless steel",
+                "—",
+                "—",
+                "SCS 19A (JIS G 5121)",
+                "—"
+              ],
+              [
+                "022a",
+                "Stainless steel",
+                "SUS 316 (JIS G 4304 and G 4305)",
+                "SUS F316 (JIS G 3214)",
+                "SCS 14A (JIS G 5121)",
+                "—"
+              ],
+              [
+                "022b",
+                "Stainless steel",
+                "—",
+                "—",
+                "SCS 16A (JIS G 5121)",
+                "—"
+              ],
+              [
+                "023a",
+                "Stainless steel",
+                "SUS 304L (JIS G 4304 and G 4305)",
+                "SUS F304L (JIS G 3214)",
+                "—",
+                "—"
+              ],
+              [
+                "023b",
+                "Stainless steel",
+                "SUS 316L (JIS G 4304 and G 4305)",
+                "SUS F316L (JIS G 3214)",
+                "—",
+                "—"
+              ]
+            ],
+            "footnotes": [
+              {
+                "marker": "a)",
+                "text": "SS 400 of JIS G 3101, and SF 390A and SF 440A of JIS G 3201, must have a maximum carbon content of 0.35 %."
+              },
+              {
+                "marker": "b)",
+                "text": "S 20 C and S 25 C of JIS G 4051 are inspected to JIS G 0404; tensile strength must be at least 400 N/mm² for S 20 C and at least 440 N/mm² for S 25 C."
+              }
+            ]
+          }
+        },
+        {
+          "heading": "Reference ASTM materials (Table 6, informative)",
+          "paragraphs": [
+            "The reference groups follow the ASTM pattern: a carbon-steel group 1.1, low-alloy groups 1.5 and 1.9, and austenitic groups 2.1, 2.2 and 2.3. Table 11 gives one set of pressure ratings per reference group."
+          ],
+          "table": {
+            "caption": "Table 6 (p. 6) — ASTM materials (informative)",
+            "note": "Table 6 is informative. It records ASTM grades that the committee treated as equal to or better than the JIS grades in Table 5, using the reference group numbers that appear in the Table 11 rating rows. The ASTM standards shown are listed in Annex G of JIS B2220:2012.",
+            "columns": [
+              {
+                "key": "group",
+                "label": "Reference group No.",
+                "align": "left"
+              },
+              {
+                "key": "class",
+                "label": "Classification of material",
+                "align": "left"
+              },
+              {
+                "key": "rolled",
+                "label": "Rolled steel (ASTM)",
+                "align": "left"
+              },
+              {
+                "key": "forged",
+                "label": "Steel forging (ASTM)",
+                "align": "left"
+              },
+              {
+                "key": "cast",
+                "label": "Steel casting (ASTM)",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              [
+                "1.1",
+                "Carbon steel",
+                "A 515 70; A 516 70; A 537 CL1",
+                "A 105; A 350 LF2",
+                "A 216 WCB"
+              ],
+              [
+                "1.5",
+                "Low alloy steel",
+                "A 204 A; A 204 B",
+                "A 182 F1",
+                "A 217 WC1; A 352 LC1"
+              ],
+              [
+                "1.9",
+                "Low alloy steel",
+                "A 387 11 CL2",
+                "A 182 F11 CL2; A 182 F12 CL2",
+                "A 217 WC6"
+              ],
+              [
+                "2.1",
+                "Stainless steel",
+                "A 240 304; A 240 304H",
+                "A 182 F304; A 182 F304H",
+                "A 351 CF3; A 351 CF8"
+              ],
+              [
+                "2.2",
+                "Stainless steel",
+                "A 240 316; A 240 316H; A 240 317",
+                "A 182 F316; A 182 F316H",
+                "A 351 CF3M; A 351 CF8M; A 351 CG8M"
+              ],
+              [
+                "2.3",
+                "Stainless steel",
+                "A 240 304L; A 240 316L",
+                "A 182 F304L; A 182 F316L",
+                "—"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "How the two numbering systems pair",
+          "paragraphs": [
+            "The pairing below is the one used by the material group columns of Table 11. A flange made from a JIS grade is rated under its specified group; a flange made from an ASTM grade is rated under the equivalent reference group."
+          ],
+          "bullets": [
+            "001, 002 and 003a → reference group 1.1 (carbon steel). Group 001 appears only in the 5K and 10K rating rows; 002 and 003a appear at every nominal pressure from 5K to 63K.",
+            "013a → reference group 1.5 and 015a → reference group 1.9 (low-alloy steel). These groups appear only in the 30K, 40K and 63K rows of Table 11.",
+            "021a and 021b → reference group 2.1; 022a and 022b → reference group 2.2 (304 and 316 families). The a/b suffix separates the wrought/forged grade set (a) from an additional cast grade (b); both share one reference group.",
+            "023a and 023b → reference group 2.3 (304L and 316L). Table 6 lists no cast equivalent for this group."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is the difference between material group 001 and reference group 1.1?",
+          "a": "001 is the JIS specified material group — SS 400, S 20 C, SF 390A, SFVC 1, SC 410 and SCPH 1. Reference group 1.1 is the ASTM-based group used in the Table 11 rating columns for A 515 70, A 516 70, A 537 CL1, A 105, A 350 LF2 and A 216 WCB. A flange made to the JIS grades is rated under 001; a flange made to the ASTM grades is rated under 1.1."
+        },
+        {
+          "q": "Why do some material group numbers have an a or b suffix?",
+          "a": "The suffix separates variants that share a reference group. For example, 021a covers the wrought and forged 304 grades plus cast SCS 13A, while 021b is the cast grade SCS 19A; both are rated under reference group 2.1. Table 5 states exactly which JIS grade belongs to each suffix."
+        },
+        {
+          "q": "Can I substitute an ASTM material for a JIS material?",
+          "a": "Table 6 is informative and lists ASTM materials known to be equivalent or superior, but the purchaser still has to confirm the grade, the mechanical properties and the Table 11 rating. The group numbers are the bridge: check Table 6 rather than assuming that a similar-sounding ASTM grade maps to the same group."
+        },
+        {
+          "q": "Is S 20 C allowed for a 16K flange?",
+          "a": "S 20 C belongs to group 001, and group 001 appears only in the 5K and 10K rows of Table 11. A 16K flange therefore needs a material from group 002 (S 25 C, SF 440A, SC 480 or SCPH 2) or a higher group, subject to the division assigned by Table 12."
+        }
+      ],
+      "sources": [
+        "JIS B2220:2012, clause 8, Tables 5 and 6 (PDF pp. 10–11; printed pp. 5–6)",
+        "JIS B2220:2012, clause 9 and Table 11 material group columns (PDF pp. 20–21; printed pp. 15–16)"
+      ],
+      "related": [
+        {
+          "label": "JIS B2220 pressure–temperature ratings",
+          "href": "/standards/jis-b2220/pressure-ratings/"
+        },
+        {
+          "label": "JIS B2220 flange types and gasket faces",
+          "href": "/standards/jis-b2220/types/"
+        }
+      ]
+    },
+    "tolerances": {
+      "title": "JIS B2220 dimensional tolerances (Table 22)",
+      "metaDescription": "JIS B2220:2012 Table 22 tolerances in mm: outside diameter, bolt circle, bore, gasket face, thickness, hub, length, chamfer and inclined bolt face.",
+      "intro": [
+        "Table 22 of JIS B2220:2012 sets the dimensional tolerances for steel pipe flanges, in millimetres. Clause 12.5 makes the table the reference for flange tolerances and adds a separate perpendicularity limit for threaded flanges.",
+        "The table is organised by dimension, flange classification, gasket face and dimensional division (a size band). Most tolerances are symmetric (±). Thickness, hub, bore and chamfer tolerances are given as plus/zero or zero/minus values, and the outside diameter of an integral flange has no specified plus deviation at all. The figures at the head of the table show where each symbol is measured."
+      ],
+      "keyFacts": [
+        {
+          "label": "Standard",
+          "value": "JIS B2220:2012"
+        },
+        {
+          "label": "Table",
+          "value": "Table 22, clause 12.5"
+        },
+        {
+          "label": "Unit",
+          "value": "mm"
+        },
+        {
+          "label": "Dimensions covered",
+          "value": "16"
+        },
+        {
+          "label": "Size bands",
+          "value": "6 mm to over 1 500 mm"
+        },
+        {
+          "label": "Thread limit",
+          "value": "0.9 mm per 100 mm"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Part 1 — outside diameter, bolt holes, bore and gasket face",
+          "paragraphs": [
+            "Each row is read as dimension, flange classification, gasket face and size band. Where a dimension applies to all flange types, the classification and gasket-face columns are dash. The C₁ to C₄ diameters and the f₃/f₄ heights apply only to the male-female and tongue-and-groove faces."
+          ],
+          "table": {
+            "caption": "Table 22 (p. 38) — dimensional tolerance on flange, part 1",
+            "note": "Dimensional divisions and tolerances are in mm. '+ not specified / −2' means that the standard sets only the minus deviation (2 mm) and leaves the plus deviation unspecified. The symbols are shown in the figures above Table 22; d₀ is the inside diameter of SOP, SOH, SW and LJ flanges, while d is the bore of SW and WN flanges.",
+            "columns": [
+              {
+                "key": "dimension",
+                "label": "Name of dimension",
+                "align": "left"
+              },
+              {
+                "key": "class",
+                "label": "Classification of flange",
+                "align": "left"
+              },
+              {
+                "key": "face",
+                "label": "Gasket face",
+                "align": "left"
+              },
+              {
+                "key": "division",
+                "label": "Dimensional division",
+                "unit": "mm",
+                "align": "left"
+              },
+              {
+                "key": "tolerance",
+                "label": "Dimensional tolerance",
+                "unit": "mm",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              [
+                "Outside diameter of flange D",
+                "Except IT",
+                "—",
+                "600 or under",
+                "±1.5"
+              ],
+              [
+                "Outside diameter of flange D",
+                "Except IT",
+                "—",
+                "Over 600",
+                "±3"
+              ],
+              [
+                "Outside diameter of flange D",
+                "IT",
+                "—",
+                "1 000 or under",
+                "+ not specified / −2"
+              ],
+              [
+                "Outside diameter of flange D",
+                "IT",
+                "—",
+                "Over 1 000",
+                "+ not specified / −3"
+              ],
+              [
+                "Diameter of bolt hole centre circle C",
+                "All",
+                "—",
+                "950 or under",
+                "±0.8"
+              ],
+              [
+                "Diameter of bolt hole centre circle C",
+                "All",
+                "—",
+                "Over 950",
+                "±1.5"
+              ],
+              [
+                "Eccentricity of bolt hole centre circle with respect to the inside diameter",
+                "All",
+                "—",
+                "—",
+                "Within 0.8"
+              ],
+              [
+                "Pitch of bolt hole",
+                "All",
+                "—",
+                "—",
+                "±0.8"
+              ],
+              [
+                "Diameter of bolt hole h",
+                "All",
+                "—",
+                "—",
+                "±0.5"
+              ],
+              [
+                "Inside diameter d₀",
+                "SOP, SOH, SW, LJ",
+                "—",
+                "400 or under",
+                "+1 / 0"
+              ],
+              [
+                "Inside diameter d₀",
+                "SOP, SOH, SW, LJ",
+                "—",
+                "Over 400 up to and incl. 600",
+                "+1.5 / 0"
+              ],
+              [
+                "Inside diameter d₀",
+                "SOP, SOH, SW, LJ",
+                "—",
+                "Over 600 up to and incl. 800",
+                "+2 / 0"
+              ],
+              [
+                "Inside diameter d₀",
+                "SOP, SOH, SW, LJ",
+                "—",
+                "Over 800 up to and incl. 1 000",
+                "+2.5 / 0"
+              ],
+              [
+                "Inside diameter d₀",
+                "SOP, SOH, SW, LJ",
+                "—",
+                "Over 1 000",
+                "+3 / 0"
+              ],
+              [
+                "Inside diameter d",
+                "SW, WN",
+                "—",
+                "100 or under",
+                "0 / −0.5"
+              ],
+              [
+                "Inside diameter d",
+                "SW, WN",
+                "—",
+                "Over 100 up to and incl. 400",
+                "0 / −1"
+              ],
+              [
+                "Inside diameter d",
+                "SW, WN",
+                "—",
+                "Over 400 up to and incl. 600",
+                "0 / −1.5"
+              ],
+              [
+                "Inside diameter d",
+                "SW, WN",
+                "—",
+                "Over 600 up to and incl. 800",
+                "0 / −2"
+              ],
+              [
+                "Inside diameter d",
+                "SW, WN",
+                "—",
+                "Over 800 up to and incl. 1 000",
+                "0 / −2.5"
+              ],
+              [
+                "Inside diameter d",
+                "SW, WN",
+                "—",
+                "Over 1 000",
+                "0 / −3"
+              ],
+              [
+                "Diameter of gasket face g",
+                "SOH, SW, TR, WN, IT, BL",
+                "RF, MF, TG",
+                "700 or under",
+                "±0.8"
+              ],
+              [
+                "Diameter of gasket face g",
+                "SOH, SW, TR, WN, IT, BL",
+                "RF, MF, TG",
+                "Over 700",
+                "±1.5"
+              ],
+              [
+                "Diameter of gasket face C₁, C₂, C₃, C₄",
+                "Except LJ",
+                "MF, TG",
+                "500 or under",
+                "±0.3"
+              ],
+              [
+                "Diameter of gasket face C₁, C₂, C₃, C₄",
+                "Except LJ",
+                "MF, TG",
+                "Over 500 up to and incl. 1 000",
+                "±0.35"
+              ],
+              [
+                "Diameter of gasket face C₁, C₂, C₃, C₄",
+                "Except LJ",
+                "MF, TG",
+                "Over 1 000 up to and incl. 1 500",
+                "±0.4"
+              ],
+              [
+                "Diameter of gasket face C₁, C₂, C₃, C₄",
+                "Except LJ",
+                "MF, TG",
+                "Over 1 500",
+                "±0.5"
+              ],
+              [
+                "Height of gasket face f₃, f₄",
+                "Except LJ",
+                "MF, TG",
+                "—",
+                "±0.2"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Part 2 — thickness, hub, length and chamfer",
+          "paragraphs": [
+            "The thickness tolerances are one-sided (+/0), while total length T is ±2 mm for SOH, SW, LJ and TR flanges and +/0 for WN. The last row controls the squareness of the bolt and nut contact face to the gasket face."
+          ],
+          "table": {
+            "caption": "Table 22 (p. 39) — dimensional tolerance on flange, part 2",
+            "note": "Dimensional divisions and tolerances are in mm. t is the flange thickness and t − f is the thickness under the raised face. The a) and b) markers on the thickness rows are explained in the footnotes.",
+            "columns": [
+              {
+                "key": "dimension",
+                "label": "Name of dimension",
+                "align": "left"
+              },
+              {
+                "key": "class",
+                "label": "Classification of flange",
+                "align": "left"
+              },
+              {
+                "key": "face",
+                "label": "Gasket face",
+                "align": "left"
+              },
+              {
+                "key": "division",
+                "label": "Dimensional division",
+                "unit": "mm",
+                "align": "left"
+              },
+              {
+                "key": "tolerance",
+                "label": "Dimensional tolerance",
+                "unit": "mm",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              [
+                "Thickness of flange t a) b)",
+                "Except LJ",
+                "FF, MF, TG",
+                "20 or under",
+                "+1.5 / 0"
+              ],
+              [
+                "Thickness of flange t a) b)",
+                "Except LJ",
+                "FF, MF, TG",
+                "Over 20 up to and incl. 50",
+                "+2 / 0"
+              ],
+              [
+                "Thickness of flange t a) b)",
+                "Except LJ",
+                "FF, MF, TG",
+                "Over 50",
+                "+3 / 0"
+              ],
+              [
+                "Thickness of flange t a) b)",
+                "LJ",
+                "—",
+                "20 or under",
+                "+1.5 / 0"
+              ],
+              [
+                "Thickness of flange t a) b)",
+                "LJ",
+                "—",
+                "Over 20 up to and incl. 50",
+                "+2 / 0"
+              ],
+              [
+                "Thickness of flange t a) b)",
+                "LJ",
+                "—",
+                "Over 50",
+                "+3 / 0"
+              ],
+              [
+                "Thickness of flange t − f a) b)",
+                "SOH, SW, TR, WN, IT, BL",
+                "RF",
+                "20 or under",
+                "+1.5 / 0"
+              ],
+              [
+                "Thickness of flange t − f a) b)",
+                "SOH, SW, TR, WN, IT, BL",
+                "RF",
+                "Over 20 up to and incl. 50",
+                "+2 / 0"
+              ],
+              [
+                "Thickness of flange t − f a) b)",
+                "SOH, SW, TR, WN, IT, BL",
+                "RF",
+                "Over 50",
+                "+3 / 0"
+              ],
+              [
+                "Diameter of hub, small diameter side a",
+                "SOH, SW, LJ, TR, WN",
+                "—",
+                "220 or under",
+                "+2 / 0"
+              ],
+              [
+                "Diameter of hub, small diameter side a",
+                "SOH, SW, LJ, TR, WN",
+                "—",
+                "Over 220 up to and incl. 650",
+                "+4 / 0"
+              ],
+              [
+                "Diameter of hub, small diameter side a",
+                "SOH, SW, LJ, TR, WN",
+                "—",
+                "Over 650",
+                "+8 / 0"
+              ],
+              [
+                "Total length of flange T",
+                "SOH, SW, LJ, TR",
+                "—",
+                "—",
+                "±2"
+              ],
+              [
+                "Total length of flange T",
+                "WN",
+                "—",
+                "200 or under",
+                "+2 / 0"
+              ],
+              [
+                "Total length of flange T",
+                "WN",
+                "—",
+                "Over 200",
+                "+3 / 0"
+              ],
+              [
+                "Chamfering c",
+                "LJ",
+                "—",
+                "6 or under",
+                "+0.8 / 0"
+              ],
+              [
+                "Chamfering c",
+                "LJ",
+                "—",
+                "Over 6",
+                "+1.6 / 0"
+              ],
+              [
+                "Inclination of bolt · nut face with respect to gasket face",
+                "Except LJ",
+                "All",
+                "—",
+                "Within 1 degree"
+              ]
+            ],
+            "footnotes": [
+              {
+                "marker": "a)",
+                "text": "For integral flanges (IT) of piping parts where the dimension between flange facings is limited to a specific value, the thickness tolerance may be twice the value shown."
+              },
+              {
+                "marker": "b)",
+                "text": "For flanges to be given spot facing, the spot-facing thickness may have a minus-side tolerance of up to 70 % of the tabulated thickness tolerance."
+              }
+            ]
+          }
+        },
+        {
+          "heading": "Thread perpendicularity (clause 12.5)",
+          "paragraphs": [
+            "Table 22 does not cover the thread. Clause 12.5 adds a separate requirement for threaded flanges (TR):"
+          ],
+          "bullets": [
+            "The axis of the thread must be perpendicular to the gasket face within 0.9 mm per 100 mm of the thread axis.",
+            "Perpendicularity is defined in 5.8 of JIS B 0621.",
+            "The thread itself is made to JIS B 0203 (clause 12.4)."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is the tolerance on a JIS flange outside diameter?",
+          "a": "For every flange type except integral flanges (IT): ±1.5 mm up to and including 600 mm outside diameter, and ±3 mm above 600 mm. Integral flanges have no designated plus deviation: −2 mm up to 1 000 mm and −3 mm above 1 000 mm."
+        },
+        {
+          "q": "How much can a JIS B2220 flange thickness vary?",
+          "a": "Thickness t is +1.5/0 mm at 20 mm or less, +2/0 mm above 20 up to and including 50 mm, and +3/0 mm above 50 mm; the t − f thickness under a raised face uses the same bands. Integral flanges in fixed face-to-face piping may use twice the tolerance, and spot-faced flanges may use up to 70 % of the tolerance on the minus side (footnotes a and b)."
+        },
+        {
+          "q": "What tolerance applies to the bolt circle and bolt holes?",
+          "a": "Bolt circle diameter C is ±0.8 mm up to and including 950 mm and ±1.5 mm above 950 mm. Bolt hole pitch is ±0.8 mm and bolt hole diameter h is ±0.5 mm. Eccentricity of the bolt circle with respect to the inside diameter must be within 0.8 mm."
+        },
+        {
+          "q": "Do the same tolerances apply to every flange type?",
+          "a": "No. Table 22 gives different rules for outside diameter (IT vs all other types), inside diameter (d₀ for SOP, SOH, SW and LJ; d for SW and WN) and gasket-face dimensions. Read the classification and gasket-face columns together with the dimension."
+        }
+      ],
+      "sources": [
+        "JIS B2220:2012, clause 12.5 and Table 22 (PDF pp. 43–44; printed pp. 38–39)",
+        "JIS B2220:2012, clause 12.5 thread perpendicularity (PDF p. 13; printed p. 8)"
+      ],
+      "related": [
+        {
+          "label": "JIS B2220 dimension tables",
+          "href": "/standards/jis-b2220/"
+        },
+        {
+          "label": "JIS B2220 flange types and gasket faces",
+          "href": "/standards/jis-b2220/types/"
+        }
+      ]
+    },
+    "marking": {
+      "title": "JIS B2220 marking requirements",
+      "metaDescription": "What JIS B2220:2012 requires on a flange: pressure, size and material, heat number and maker's mark, plus L/H/A/B/C letters and all nine marking examples.",
+      "intro": [
+        "Clause 20 of JIS B2220:2012 defines what a flange must carry: nominal pressure, nominal size and material symbol, a melting or casting number, the manufacturer's name or mark, and any other necessary information. The marking goes on the periphery surface by stamping, die marking, electrolytic etching or spraying, and integral flanges (IT) are exempt.",
+        "The marking is shorter than a full product designation. Clause 19 also names the standard, the flange type and the gasket face; the marking itself is the compact string that goes on the metal, with optional letters inserted after the nominal pressure."
+      ],
+      "keyFacts": [
+        {
+          "label": "Standard",
+          "value": "JIS B2220:2012"
+        },
+        {
+          "label": "Clause",
+          "value": "20 (marking), 19 (designation)"
+        },
+        {
+          "label": "Marked on",
+          "value": "Periphery surface"
+        },
+        {
+          "label": "Methods",
+          "value": "Stamping, die marking, etching, spraying"
+        },
+        {
+          "label": "Optional letters",
+          "value": "L, H, A, B, C"
+        },
+        {
+          "label": "Exempt",
+          "value": "Integral flanges (IT)"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "What must be marked",
+          "paragraphs": [
+            "Clause 20 lists four items. Items a) to c) are mandatory; item d) allows additional information as long as it cannot be confused with the mandatory marking."
+          ],
+          "table": {
+            "caption": "Clause 20 (p. 13) — marking requirements",
+            "note": "The marking is applied to the periphery surface by an indelible method: stamping, die marking, electrolytic etching or spraying.",
+            "columns": [
+              {
+                "key": "clause",
+                "label": "Clause",
+                "align": "left"
+              },
+              {
+                "key": "item",
+                "label": "What is marked",
+                "align": "left"
+              },
+              {
+                "key": "detail",
+                "label": "Detail",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              [
+                "a)",
+                "Nominal pressure, nominal size and material symbol",
+                "The nominal-size letter A is optional."
+              ],
+              [
+                "1)",
+                "Letter L after the nominal pressure",
+                "Marks a light flange for nominal pressure 10K."
+              ],
+              [
+                "2)",
+                "Letter H after the nominal pressure",
+                "Marks a welding neck flange (WN) for 5K or 10K made with alternative dimensions."
+              ],
+              [
+                "3)",
+                "Letter A, B or C after the nominal pressure",
+                "Marks the SOH type at 20K and 30K: Type A, Type B or Type C."
+              ],
+              [
+                "b)",
+                "Melting or casting number",
+                "Alternatively a quality-control number that can be traced back to the heat or cast number."
+              ],
+              [
+                "c)",
+                "Manufacturer's name",
+                "Full name, shortened name or trademark."
+              ],
+              [
+                "d)",
+                "Other necessary information",
+                "Must be distinguishable from the items above."
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Marking examples",
+          "paragraphs": [
+            "Clause 20 gives nine examples. Read them left to right as pressure, optional letter, size and material symbol."
+          ],
+          "table": {
+            "caption": "Clause 20 (p. 13) — marking examples 1 to 9",
+            "note": "The letter A of the nominal size is left out in examples 1, 3, 5, 7 and 9, which clause 20 a) allows. Examples 4, 5, 7 and 8 also carry the optional letter L, H, A or C after the nominal pressure.",
+            "columns": [
+              {
+                "key": "example",
+                "label": "Example",
+                "align": "left"
+              },
+              {
+                "key": "marking",
+                "label": "Marking",
+                "align": "left"
+              },
+              {
+                "key": "meaning",
+                "label": "What it identifies",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              [
+                "1",
+                "5K 300 SS 400",
+                "5K, nominal size 300 (300A), material SS 400"
+              ],
+              [
+                "2",
+                "5K 450A SF 390A",
+                "5K, 450A, material SF 390A"
+              ],
+              [
+                "3",
+                "10K 80 SCS 13A",
+                "10K, nominal size 80 (80A), material SCS 13A"
+              ],
+              [
+                "4",
+                "10K H 1000A SFVC 1",
+                "10K WN with alternative dimensions, 1000A, material SFVC 1"
+              ],
+              [
+                "5",
+                "10K L 150 S 20 C",
+                "10K light flange, nominal size 150 (150A), material S 20 C"
+              ],
+              [
+                "6",
+                "16K 200A S 25 C",
+                "16K, 200A, material S 25 C"
+              ],
+              [
+                "7",
+                "20K A 50 SUS F316L",
+                "20K SOH Type A, nominal size 50 (50A), material SUS F316L"
+              ],
+              [
+                "8",
+                "30K C 65A SFVC 2A",
+                "30K SOH Type C, 65A, material SFVC 2A"
+              ],
+              [
+                "9",
+                "40K 100 SFVA F1",
+                "40K, nominal size 100 (100A), material SFVA F1"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Marking versus product designation",
+          "paragraphs": [
+            "Clause 19 designates a flange by standard number, flange type, gasket face, nominal pressure, nominal size and material symbol, and appends (L), (H) or (A)/(B)/(C) where applicable. The marking on the metal carries the pressure, size and material part of that designation."
+          ],
+          "bullets": [
+            "Example: the designation JIS B 2220 SOP FF 10K L 150A S 20 C corresponds to the marking 10K L 150 S 20 C.",
+            "Zinc-coated white flanges append ZN in the designation; uncoated flanges are black flanges (Table 4).",
+            "The marking does not repeat the flange type or the gasket face — those come from the designation and the order.",
+            "Integral flanges (IT) are exempt from clause 20 marking."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "What has to be stamped on a JIS B2220 flange?",
+          "a": "Nominal pressure, nominal size and material symbol (the A after the size may be omitted), the melting or casting number or a traceable quality-control number, and the manufacturer's name, abbreviation or trademark. Any extra information must not be confusable with these items, and the marking must be on the periphery by an indelible method."
+        },
+        {
+          "q": "What do the letters L, H, A, B and C mean in a JIS flange marking?",
+          "a": "They are inserted after the nominal pressure: L identifies the light flange for nominal pressure 10K, H identifies welding neck flanges (WN) for 5K and 10K with alternative dimensions, and A/B/C identify the SOH type for 20K and 30K. For example, 10K H 1000A SFVC 1 is a 10K WN flange with alternative dimensions."
+        },
+        {
+          "q": "Is the flange marking the same as the product designation?",
+          "a": "No. The designation also carries the standard number, flange type and gasket face — JIS B 2220 SOP FF 10K L 150A S 20 C — while the marking on the metal is the shorter pressure, size and material string, 10K L 150 S 20 C."
+        },
+        {
+          "q": "Are integral flanges marked under clause 20?",
+          "a": "No. Clause 20 applies to all flanges except integral flanges (IT)."
+        }
+      ],
+      "sources": [
+        "JIS B2220:2012, clause 20 and marking examples 1 to 9 (PDF p. 18; printed p. 13)",
+        "JIS B2220:2012, clause 20 b) to d) (PDF p. 19; printed p. 14)",
+        "JIS B2220:2012, clause 19 designation (PDF p. 17; printed p. 12)",
+        "JIS B2220:2012, clause 6 and Table 4, black and white flanges (PDF p. 9; printed p. 4)"
+      ],
+      "related": [
+        {
+          "label": "JIS B2220 flange types and gasket faces",
+          "href": "/standards/jis-b2220/types/"
+        },
+        {
+          "label": "JIS B2220 pressure–temperature ratings",
+          "href": "/standards/jis-b2220/pressure-ratings/"
+        }
+      ]
+    },
+    "types": {
+      "title": "JIS B2220 flange types and gasket faces",
+      "metaDescription": "JIS B2220 flange types and gasket faces: SOP, SOH, SW, WN, LJ, TR, IT and BL from Table 1, SOH Types A/B/C, and FF, RF, MF and TG faces with Ra finish.",
+      "intro": [
+        "JIS B2220:2012 classifies flanges by shape and gives each type a short designation. Table 1 defines eight of them: the plate flange (SOP), the hubbed slip-on (SOH), socket welding (SW), welding neck (WN), lap joint (LJ), threaded (TR), integral (IT) and blank (BL). Table 2 splits the SOH type used at 20K and 30K into Types A, B and C.",
+        "Gasket faces are classified separately in Table 3. There are four families — full face (FF), raised face (RF), male-female (MF) and tongue and groove (TG) — and the last two are supplied as a seat pair, MF-M with MF-F and TG-T with TG-G. The face you specify fixes the gasket and the surface finish: Table 9 gives the Ra limits and Table 10 links them to turning conditions."
+      ],
+      "keyFacts": [
+        {
+          "label": "Standard",
+          "value": "JIS B2220:2012"
+        },
+        {
+          "label": "Flange types",
+          "value": "8 (Table 1)"
+        },
+        {
+          "label": "SOH types",
+          "value": "A, B, C at 20K and 30K"
+        },
+        {
+          "label": "Gasket faces",
+          "value": "4 families, 6 designations"
+        },
+        {
+          "label": "Face finish",
+          "value": "Ra 3.2–6.3 μm (FF/RF)"
+        },
+        {
+          "label": "Coating",
+          "value": "Black / white (ZN)"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Flange types and designations (Table 1)",
+          "paragraphs": [
+            "Table 1 groups the shaped flanges under a parent classification and assigns the two- or three-letter designation. SOP, SOH, SW and WN are all welding flanges; LJ, TR, IT and BL stand alone."
+          ],
+          "table": {
+            "caption": "Table 1 (p. 3) — classification of flanges and their designations",
+            "columns": [
+              {
+                "key": "classification",
+                "label": "Classification",
+                "align": "left"
+              },
+              {
+                "key": "designation",
+                "label": "Designation",
+                "align": "left"
+              },
+              {
+                "key": "description",
+                "label": "Description",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              [
+                "Welding flange — slip-on welding flange (plate flange)",
+                "SOP",
+                "Plate flange with a plain bore, fillet-welded to the pipe on both sides; the common low-pressure JIS slip-on."
+              ],
+              [
+                "Welding flange — slip-on welding flange (hubbed flange)",
+                "SOH",
+                "Slip-on with a hub; the 20K and 30K versions are split into Types A, B and C by Table 2."
+              ],
+              [
+                "Welding flange — socket welding flange",
+                "SW",
+                "Socket-type flange for small-bore socket-welded piping."
+              ],
+              [
+                "Welding flange — welding neck flange",
+                "WN",
+                "Butt-weld flange with a tapered hub for higher pressure and cyclic service."
+              ],
+              [
+                "Lap joint flange",
+                "LJ",
+                "Loose flange used with a stub end; the LJ itself has no gasket face."
+              ],
+              [
+                "Threaded flange",
+                "TR",
+                "Screwed flange; the thread is made to JIS B 0203."
+              ],
+              [
+                "Integral flange",
+                "IT",
+                "Flange integral with the pipe, forging or nozzle."
+              ],
+              [
+                "Blank flange",
+                "BL",
+                "Solid disc used to blank off a line end or opening; sold as a blind flange in many catalogues."
+              ]
+            ]
+          },
+          "bullets": [
+            "Table 2 covers only 20K and 30K: it divides the SOH into Type A, Type B and Type C. The type letter is part of the designation and is marked after the nominal pressure.",
+            "Designation example: JIS B 2220 SOH RF 20K A 50A SUS F316L is an SOH flange, raised face, 20K, Type A, 50A, in SUS F316L (clause 19, Example 7).",
+            "Zinc coating has its own designations: flanges without zinc coating are black flanges, and flanges with hot-dip or electroplated zinc coating are white flanges (ZN) (Table 4)."
+          ]
+        },
+        {
+          "heading": "Gasket faces and surface finish (Tables 3, 9 and 10)",
+          "paragraphs": [
+            "Table 3 defines the face designations. FF and RF are single faces; MF and TG are pairs, so the seat has to be stated: MF-M with MF-F, or TG-T with TG-G."
+          ],
+          "table": {
+            "caption": "Table 3 (p. 4) — classification of gasket faces and their designations",
+            "columns": [
+              {
+                "key": "face",
+                "label": "Gasket face",
+                "align": "left"
+              },
+              {
+                "key": "seat",
+                "label": "Seat",
+                "align": "left"
+              },
+              {
+                "key": "designation",
+                "label": "Designation",
+                "align": "left"
+              },
+              {
+                "key": "description",
+                "label": "Description",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              [
+                "Full face (FF)",
+                "—",
+                "FF",
+                "Gasket face covering the whole flange face; takes a full-face gasket."
+              ],
+              [
+                "Raised face (RF)",
+                "—",
+                "RF",
+                "Raised ring around the bore; the usual face for general steel-pipe flanges."
+              ],
+              [
+                "Male-female face (MF)",
+                "Male seat",
+                "MF-M",
+                "Male seat; specified as a pair with the female seat MF-F."
+              ],
+              [
+                "Male-female face (MF)",
+                "Female seat",
+                "MF-F",
+                "Female seat; together with MF-M it forms the MF pair."
+              ],
+              [
+                "Tongue and groove (TG)",
+                "Tongue seat",
+                "TG-T",
+                "Tongue seat; specified as a pair with the groove seat TG-G."
+              ],
+              [
+                "Tongue and groove (TG)",
+                "Groove seat",
+                "TG-G",
+                "Groove seat; together with TG-T it forms the TG pair."
+              ]
+            ]
+          },
+          "bullets": [
+            "Table 9 finishing: Ra 3.2 to 6.3 μm for full-face and raised-face flanges, and Ra 3.2 μm or under for male-female and tongue-and-groove seats. Ra is defined in JIS B 0601.",
+            "Table 10 turning conditions: with a 0.8 mm blade edge radius the serration pitch is 0.25 to 0.30 mm for Ra 3.2 μm and 0.35 to 0.42 mm for Ra 6.3 μm; with a 1.6 mm radius it is 0.36 to 0.42 mm and 0.52 to 0.60 mm respectively."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is the difference between SOP and SOH?",
+          "a": "Both are slip-on welding flanges. SOP is the plate flange: a flat plate with a bore, fillet-welded to the pipe on both sides. SOH has a hub and is split into Types A, B and C at 20K and 30K by Table 2. SOP is the common low-pressure JIS slip-on."
+        },
+        {
+          "q": "Which gasket face should I specify for a JIS flange?",
+          "a": "RF (raised face) is the usual choice for general steel piping. FF (full face) is used where the gasket must cover the whole flange face, including low-pressure plate and blank flanges. MF and TG locate the gasket in a seat pair and need matching male/female or tongue/groove flanges — state the seat, MF-M/MF-F or TG-T/TG-G."
+        },
+        {
+          "q": "What surface finish does JIS B2220 require on the gasket face?",
+          "a": "Ra 3.2 to 6.3 μm for FF and RF faces, and Ra 3.2 μm or under for MF and TG seats (Table 9). Table 10 correlates the Ra value with turning conditions — blade edge radius and serration pitch."
+        },
+        {
+          "q": "Does JIS B2220 include blind and lap joint flanges?",
+          "a": "Yes. Table 1 includes the blank flange (BL) and the lap joint flange (LJ). The LJ has no gasket face of its own; the sealing face is on the stub end it holds (Note 7 to clause 19)."
+        }
+      ],
+      "sources": [
+        "JIS B2220:2012, clause 4 and Table 1 (PDF p. 8; printed p. 3)",
+        "JIS B2220:2012, clause 4 and Table 2 (PDF p. 9; printed p. 4)",
+        "JIS B2220:2012, clause 5 and Table 3 (PDF p. 9; printed p. 4)",
+        "JIS B2220:2012, clause 6 and Table 4 (PDF p. 9; printed p. 4)",
+        "JIS B2220:2012, clause 14.1 and Tables 9 and 10 (PDF p. 14; printed p. 9)"
+      ],
+      "related": [
+        {
+          "label": "JIS B2220 pressure–temperature ratings",
+          "href": "/standards/jis-b2220/pressure-ratings/"
+        },
+        {
+          "label": "JIS B2220 material groups",
+          "href": "/standards/jis-b2220/material-groups/"
+        },
+        {
+          "label": "JIS B2220 dimension tables",
+          "href": "/standards/jis-b2220/"
+        }
+      ]
+    }
+  }
+}

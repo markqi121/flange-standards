@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load catalog_extras %}
+
+{% block title %}{{ topic.title }} · {{ standard.short }} · {{ site_name }}{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+  <div class="wrap">
+    <a href="{% url 'catalog:home' %}">首页</a><span>/</span>
+    <a href="{% url 'catalog:standard_detail' standard.id %}">{{ standard.short }}</a><span>/</span>
+    <span>{{ topic_key|topic_label }}</span>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">REFERENCE · {{ standard.short }}</p>
+    <h1>{{ topic_key|topic_label }}</h1>
+    <p class="page-sub">{{ topic.title }} · {{ standard.name_zh }} · {{ doc.edition }} · 核对 {{ doc.verified_on|date:"Y-m-d" }}</p>
+
+    <div class="topic-nav">
+      {% for item in topics %}
+        <a class="filter-chip {% if item.key == topic_key %}is-active{% endif %}"
+           href="{% url 'catalog:reference_topic' standard.id item.key %}">{{ item.label }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="wrap reference-body">
+    <p class="source-note">以下内容保留 {{ doc.edition }} 原表的英文表头、表号与数值写法，未做翻译改写；表内单位与脚注以原文为准。</p>
+    {% if topic.intro %}
+      <div class="intro-copy">
+        {% for paragraph in topic.intro %}<p>{{ paragraph }}</p>{% endfor %}
+      </div>
+    {% endif %}
+
+    {% if topic.keyFacts %}
+      <div class="fact-strip">
+        {% for fact in topic.keyFacts %}
+          <div class="fact"><span>{{ fact.label }}</span><strong>{{ fact.value }}</strong></div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% for section in topic.sections %}
+      <article class="ref-section">
+        {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
+        {% for paragraph in section.paragraphs %}<p>{{ paragraph }}</p>{% endfor %}
+        {% if section.bullets %}
+          <ul class="ref-bullets">
+            {% for bullet in section.bullets %}<li>{{ bullet }}</li>{% endfor %}
+          </ul>
+        {% endif %}
+
+        {% if section.table %}
+          <figure class="ref-table-figure">
+            {% if section.table.caption %}<figcaption>{{ section.table.caption }}</figcaption>{% endif %}
+            <div class="ref-table-wrap">
+              <table class="ref-table">
+                <thead>
+                  <tr>
+                    {% for column in section.table.columns %}
+                      <th>{{ column.label }}{% if column.unit %}<span class="unit">{{ column.unit }}</span>{% endif %}</th>
+                    {% endfor %}
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for row in section.table.rows %}
+                    <tr>
+                      {% for cell in row %}<td>{{ cell }}</td>{% endfor %}
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            {% if section.table.note %}<p class="ref-note">{{ section.table.note }}</p>{% endif %}
+            {% if section.table.footnotes %}
+              <ul class="ref-footnotes">
+                {% for footnote in section.table.footnotes %}
+                  <li><span class="marker">{{ footnote.marker }}</span>{{ footnote.text }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </figure>
+        {% endif %}
+      </article>
+    {% endfor %}
+
+    {% if topic.faq %}
+      <section class="ref-section">
+        <h2>常见问题</h2>
+        <dl class="faq-list">
+          {% for item in topic.faq %}
+            <div class="faq-item"><dt>{{ item.q }}</dt><dd>{{ item.a }}</dd></div>
+          {% endfor %}
+        </dl>
+      </section>
+    {% endif %}
+
+    {% if topic.sources %}
+      <section class="ref-section ref-sources">
+        <h2>来源</h2>
+        <ul class="plain-list">
+          {% for source in topic.sources %}<li>{{ source }}</li>{% endfor %}
+        </ul>
+        {% if doc.source_document %}<p class="hint">{{ doc.source_document }}</p>{% endif %}
+      </section>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,3338 @@
+{
+  "id": "en-1092-1",
+  "edition": "EN 1092-1:2018",
+  "verifiedOn": "2026-11-04",
+  "sourceDocument": "EN 1092-1:2018 (PDF supplied for this project)",
+  "topics": {
+    "pressure-ratings": {
+      "title": "EN 1092-1 pressure–temperature ratings",
+      "metaDescription": "EN 1092-1 PN 16 pressure–temperature ratings for carbon, low-alloy and stainless flange materials, plus P245GH values from PN 2,5 to PN 400.",
+      "intro": [
+        "Annex G of EN 1092-1:2018 gives maximum allowable pressures at temperature for a selection of EN flange materials. This page transcribes the parts most often quoted in enquiries: the PN 16 table for non-austenitic groups, the P245GH (group 3E0) row across every PN from 2,5 to 400, and the PN 16 table for austenitic and austenitic-ferritic grades.",
+        "Every value is a maximum allowable pressure PS in bar gauge at the temperature in the column heading. At the reference temperature RT — the band from −10 °C to +50 °C — the value equals the nominal PN. The standard also caps PS at PN, so a table cell can never exceed the flange's PN number. A dash means the published table gives no rating for that group at that temperature.",
+        "The printed annex is a normative selection for common materials, not a limit on ratings or on materials. For a grade outside the selection, Annex F gives the calculation route: PS = PN × f_t / 140 MPa where strength is time-independent, or PS = PN × min(f_t; f_CR) / 140 MPa once creep governs, with the result rounded down to one decimal place. Strength values are interpolated linearly between adjacent temperatures above 50 °C; do not extrapolate past the last printed temperature. At elevated temperature, any additional external loads must be reduced in the same proportion as the allowable pressure."
+      ],
+      "keyFacts": [
+        {
+          "label": "Standard",
+          "value": "EN 1092-1:2018"
+        },
+        {
+          "label": "Tables",
+          "value": "Annex G.5, G.18, G.2–G.13"
+        },
+        {
+          "label": "Unit",
+          "value": "bar(g)"
+        },
+        {
+          "label": "Reference temperature",
+          "value": "−10 °C to +50 °C"
+        },
+        {
+          "label": "Creep basis",
+          "value": "100 000 h (italic cells)"
+        },
+        {
+          "label": "Calculation rule",
+          "value": "Annex F"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "PN 16 — non-austenitic material groups (Table G.5)",
+          "paragraphs": [
+            "Table G.5 on page 116 lists 19 group and thickness-band rows. Values in the shaded cells at 450 °C and above are italic in the printed standard because they rest on 100 000 h creep rupture strength; the remaining cells are time-independent.",
+            "Read across the row that matches both the material group and the vR thickness band of the part being supplied — the same group can have two or three bands with different values."
+          ],
+          "table": {
+            "caption": "Table G.5 (p. 116) — PN 16 maximum allowable pressure, non-austenitic material groups",
+            "note": "Values are maximum allowable pressure PS in bar gauge at the temperature shown. RT is the reference-temperature band, −10 °C to +50 °C, where the value equals the nominal PN. Decimal commas are reproduced exactly as printed (13,3 = 13.3 bar). Cells shown as — have no printed rating for that group and thickness at that temperature. Italic/shaded cells in the standard are based on 100 000 h creep rupture strength.",
+            "columns": [
+              {
+                "key": "group",
+                "label": "Material group · vR",
+                "unit": "mm",
+                "align": "left"
+              },
+              {
+                "key": "rt",
+                "label": "RT",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t100",
+                "label": "100",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t150",
+                "label": "150",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t200",
+                "label": "200",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t250",
+                "label": "250",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t300",
+                "label": "300",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t350",
+                "label": "350",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t400",
+                "label": "400",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t450",
+                "label": "450",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t460",
+                "label": "460",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t470",
+                "label": "470",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t480",
+                "label": "480",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t490",
+                "label": "490",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t500",
+                "label": "500",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t510",
+                "label": "510",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t520",
+                "label": "520",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t530",
+                "label": "530",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t540",
+                "label": "540",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t550",
+                "label": "550",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t560",
+                "label": "560",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t570",
+                "label": "570",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t580",
+                "label": "580",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t590",
+                "label": "590",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t600",
+                "label": "600",
+                "unit": "°C",
+                "align": "right"
+              }
+            ],
+            "rows": [
+              [
+                "3E0 · ≤ 50",
+                "16,0",
+                "14,8",
+                "14",
+                "13,3",
+                "12,1",
+                "11",
+                "10,2",
+                "9,5",
+                "5,2",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "3E0 · 50 < vR ≤ 150",
+                "16,0",
+                "13,7",
+                "13,3",
+                "12,4",
+                "11,3",
+                "10,2",
+                "9,6",
+                "9,1",
+                "5,2",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "3E1 · ≤ 50",
+                "16,0",
+                "16,0",
+                "16",
+                "16",
+                "15,6",
+                "14",
+                "12,9",
+                "11,8",
+                "6,4",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "3E1 · 50 < vR ≤ 150",
+                "16,0",
+                "16,0",
+                "15,2",
+                "14,5",
+                "13,3",
+                "12,2",
+                "11,3",
+                "10,2",
+                "6,4",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "4E0 · ≤ 60",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "15,6",
+                "13,7",
+                "12,9",
+                "11,9",
+                "11,0",
+                "10,2",
+                "9,4",
+                "8,6",
+                "7,8",
+                "7,0",
+                "5,6",
+                "4,4",
+                "3,5",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "4E0 · 60 < vR ≤ 90",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "14,8",
+                "12,9",
+                "12,1",
+                "11,1",
+                "10,2",
+                "9,6",
+                "9,0",
+                "8,3",
+                "7,7",
+                "7,0",
+                "5,6",
+                "4,4",
+                "3,5",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "4E0 · 90 < vR ≤ 150",
+                "16,0",
+                "16,0",
+                "16,0",
+                "14,8",
+                "13,7",
+                "12,1",
+                "11,2",
+                "10,1",
+                "9,4",
+                "8,9",
+                "8,5",
+                "8,0",
+                "7,5",
+                "7,0",
+                "5,6",
+                "4,4",
+                "3,5",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "5E0 · ≤ 60",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "15,2",
+                "14,4",
+                "13,4",
+                "12,8",
+                "12,1",
+                "11,5",
+                "10,8",
+                "10,4",
+                "8,8",
+                "7,1",
+                "5,9",
+                "4,6",
+                "3,7",
+                "3,0",
+                "2,5",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "5E0 · 60 < vR ≤ 90",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "15,6",
+                "14,4",
+                "13,4",
+                "12,5",
+                "12",
+                "11,5",
+                "11",
+                "10,5",
+                "10,4",
+                "8,8",
+                "7,1",
+                "5,9",
+                "4,6",
+                "3,7",
+                "3,0",
+                "2,5",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "5E0 · 90 < vR ≤ 150",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "14,7",
+                "13,5",
+                "12,7",
+                "11,8",
+                "11,4",
+                "11,1",
+                "10,7",
+                "10,4",
+                "10,4",
+                "8,8",
+                "7,1",
+                "5,9",
+                "4,6",
+                "3,7",
+                "3,0",
+                "2,5",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "6E0 · ≤ 150",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "15,6",
+                "14,8",
+                "14,0",
+                "13,3",
+                "12,5",
+                "11,8",
+                "11,0",
+                "10,2",
+                "8,9",
+                "7,8",
+                "6,8",
+                "5,9",
+                "5,1",
+                "4,4",
+                "3,8",
+                "3,3",
+                "2,8",
+                "2,5"
+              ],
+              [
+                "6E1 · ≤ 150",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "13,5",
+                "11,0",
+                "8,6",
+                "7,3",
+                "6,1",
+                "5,3",
+                "4,4",
+                "3,8",
+                "3,2",
+                "2,8",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "8E2 · 35 < vR ≤ 70",
+                "16,0",
+                "16,0",
+                "16,0",
+                "15,0",
+                "13,7",
+                "11,9",
+                "10,4",
+                "8,9",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "8E2 · 70 < vR ≤ 100",
+                "16,0",
+                "16,0",
+                "15,0",
+                "13,8",
+                "12,7",
+                "10,4",
+                "8,9",
+                "7,4",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "8E2 · 100 < vR ≤ 150",
+                "16,0",
+                "15,6",
+                "14,1",
+                "12,7",
+                "11,2",
+                "8,9",
+                "7,4",
+                "5,9",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "8E3 · 50 < vR ≤ 100",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "15,6",
+                "14,4",
+                "12,7",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "8E3 · 100 < vR ≤ 150",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "14,9",
+                "13,4",
+                "11,2",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "9E0 · ≤ 150",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "14,3",
+                "12,7",
+                "11,2",
+                "9,7",
+                "8,4",
+                "7,2",
+                "6,1",
+                "5,2",
+                "4,4"
+              ],
+              [
+                "9E1 · ≤ 130",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "15,3",
+                "13,9",
+                "12,6",
+                "11,4",
+                "10,2",
+                "9,1",
+                "8,0",
+                "7,1"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "P245GH (group 3E0, material 1.0352) — PN 2,5 to PN 400",
+          "paragraphs": [
+            "P245GH is the forging grade used in the standard's own marking example and belongs to group 3E0. Reading one row across Tables G.2 to G.13 shows how the same material derates at each nominal pressure. The row transcribed is the vR ≤ 50 mm band; each source table also prints a separate row for 50 < vR ≤ 150 mm.",
+            "The ambient column reproduces the nominal PN exactly, which makes this a useful sanity check when a datasheet quotes a rating: every value at RT must equal the PN number."
+          ],
+          "table": {
+            "caption": "Tables G.2 to G.13 (pp. 113–124) — group 3E0 / P245GH (1.0352), vR ≤ 50 mm, all PN",
+            "note": "Values are PS in bar gauge for material group 3E0, thickness band vR ≤ 50 mm, taken from the 3E0 row of each PN table. Decimal commas as printed. The 450 °C row is creep-based in the standard (italic) and is the last rated temperature for this group. A separate row for the 50 < vR ≤ 150 mm band is printed in each table and is slightly lower at some temperatures.",
+            "columns": [
+              {
+                "key": "temp",
+                "label": "Temperature",
+                "unit": "°C",
+                "align": "left"
+              },
+              {
+                "key": "pn2_5",
+                "label": "PN 2,5",
+                "unit": "bar",
+                "align": "right"
+              },
+              {
+                "key": "pn6",
+                "label": "PN 6",
+                "unit": "bar",
+                "align": "right"
+              },
+              {
+                "key": "pn10",
+                "label": "PN 10",
+                "unit": "bar",
+                "align": "right"
+              },
+              {
+                "key": "pn16",
+                "label": "PN 16",
+                "unit": "bar",
+                "align": "right"
+              },
+              {
+                "key": "pn25",
+                "label": "PN 25",
+                "unit": "bar",
+                "align": "right"
+              },
+              {
+                "key": "pn40",
+                "label": "PN 40",
+                "unit": "bar",
+                "align": "right"
+              },
+              {
+                "key": "pn63",
+                "label": "PN 63",
+                "unit": "bar",
+                "align": "right"
+              },
+              {
+                "key": "pn100",
+                "label": "PN 100",
+                "unit": "bar",
+                "align": "right"
+              },
+              {
+                "key": "pn160",
+                "label": "PN 160",
+                "unit": "bar",
+                "align": "right"
+              },
+              {
+                "key": "pn250",
+                "label": "PN 250",
+                "unit": "bar",
+                "align": "right"
+              },
+              {
+                "key": "pn320",
+                "label": "PN 320",
+                "unit": "bar",
+                "align": "right"
+              },
+              {
+                "key": "pn400",
+                "label": "PN 400",
+                "unit": "bar",
+                "align": "right"
+              }
+            ],
+            "rows": [
+              [
+                "RT",
+                "2,5",
+                "6,0",
+                "10,0",
+                "16,0",
+                "25,0",
+                "40,0",
+                "63,0",
+                "100,0",
+                "160,0",
+                "250,0",
+                "320,0",
+                "400,0"
+              ],
+              [
+                "100",
+                "2,3",
+                "5,5",
+                "9,2",
+                "14,8",
+                "23,2",
+                "37,1",
+                "58,5",
+                "92,8",
+                "148,5",
+                "232,1",
+                "297,1",
+                "371,4"
+              ],
+              [
+                "150",
+                "2,2",
+                "5,2",
+                "8,8",
+                "14",
+                "22,0",
+                "35,2",
+                "55,5",
+                "88,0",
+                "140,9",
+                "220,2",
+                "281,9",
+                "352,3"
+              ],
+              [
+                "200",
+                "2,0",
+                "5",
+                "8,3",
+                "13,3",
+                "20,8",
+                "33,3",
+                "52,5",
+                "83,3",
+                "133,3",
+                "208,3",
+                "266,6",
+                "333,3"
+              ],
+              [
+                "250",
+                "1,9",
+                "4,5",
+                "7,6",
+                "12,1",
+                "19,0",
+                "30,4",
+                "48,0",
+                "76,1",
+                "121,9",
+                "190,4",
+                "243,8",
+                "304,7"
+              ],
+              [
+                "300",
+                "1,7",
+                "4,1",
+                "6,9",
+                "11",
+                "17,2",
+                "27,6",
+                "43,5",
+                "69,0",
+                "110,4",
+                "172,6",
+                "220,9",
+                "276,1"
+              ],
+              [
+                "350",
+                "1,6",
+                "3,8",
+                "6,4",
+                "10,2",
+                "16,0",
+                "25,7",
+                "40,5",
+                "64,2",
+                "102,8",
+                "160,7",
+                "205,7",
+                "257,1"
+              ],
+              [
+                "400",
+                "1,4",
+                "3,5",
+                "5,9",
+                "9,5",
+                "14,8",
+                "23,8",
+                "37,5",
+                "59,5",
+                "95,2",
+                "148,8",
+                "190,4",
+                "238,0"
+              ],
+              [
+                "450",
+                "0,8",
+                "1,9",
+                "3,2",
+                "5,2",
+                "8,2",
+                "13,1",
+                "20,7",
+                "32,8",
+                "52,5",
+                "82,1",
+                "105,1",
+                "131,4"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "PN 16 — austenitic and austenitic-ferritic stainless steels (Table G.18)",
+          "paragraphs": [
+            "The stainless tables in Annex G.3 are also built per PN, but with one row per material number rather than per group. Table G.18 covers 1.4307, 1.4311, 1.4301, 1.4541, 1.4550, 1.4404, 1.4401, 1.4571, 1.4462, 1.4948 and 1.4941 at PN 16.",
+            "Austenitic grades hold their strength better than carbon steels at moderate temperature, but most cannot sustain the full PN much above 500 °C; duplex 1.4462 keeps the full PN 16 only to 250 °C in this table. Read down the material number actually offered, not the generic group label."
+          ],
+          "table": {
+            "caption": "Table G.18 (p. 129) — PN 16 maximum allowable pressure, austenitic and austenitic-ferritic materials",
+            "note": "Values are PS in bar gauge at PN 16. RT is the reference-temperature band, −10 °C to +50 °C. Decimal commas are reproduced exactly as printed. Cells shown as — have no printed rating at that temperature. Italic/shaded cells in the standard rest on 100 000 h creep rupture strength.",
+            "columns": [
+              {
+                "key": "group",
+                "label": "Group",
+                "align": "left"
+              },
+              {
+                "key": "mat",
+                "label": "Material No.",
+                "align": "left"
+              },
+              {
+                "key": "rt",
+                "label": "RT",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t100",
+                "label": "100",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t150",
+                "label": "150",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t200",
+                "label": "200",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t250",
+                "label": "250",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t300",
+                "label": "300",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t350",
+                "label": "350",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t400",
+                "label": "400",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t450",
+                "label": "450",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t500",
+                "label": "500",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t550",
+                "label": "550",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t560",
+                "label": "560",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t570",
+                "label": "570",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t580",
+                "label": "580",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t590",
+                "label": "590",
+                "unit": "°C",
+                "align": "right"
+              },
+              {
+                "key": "t600",
+                "label": "600",
+                "unit": "°C",
+                "align": "right"
+              }
+            ],
+            "rows": [
+              [
+                "10E0",
+                "1.4307",
+                "16,0",
+                "13,7",
+                "12,3",
+                "11,2",
+                "10,4",
+                "9,6",
+                "9,2",
+                "8,8",
+                "8,5",
+                "8,3",
+                "7,0",
+                "6,4",
+                "5,9",
+                "5,4",
+                "4,9",
+                "4,4"
+              ],
+              [
+                "10E1",
+                "1.4311",
+                "16,0",
+                "16",
+                "16",
+                "14,2",
+                "13,3",
+                "12,7",
+                "12,2",
+                "11,8",
+                "11,6",
+                "11,3",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "11E0",
+                "1.4301",
+                "16,0",
+                "14,5",
+                "13,1",
+                "11,9",
+                "11",
+                "10,2",
+                "9,8",
+                "9,5",
+                "9,3",
+                "9,1",
+                "7,0",
+                "6,4",
+                "5,9",
+                "5,4",
+                "4,9",
+                "4,4"
+              ],
+              [
+                "12E0",
+                "1.4541",
+                "16,0",
+                "15,8",
+                "14,9",
+                "14,1",
+                "13,4",
+                "12,7",
+                "12,2",
+                "11,8",
+                "11,6",
+                "11,3",
+                "10,8",
+                "9,8",
+                "8,9",
+                "8,1",
+                "7,3",
+                "6,5"
+              ],
+              [
+                "12E0",
+                "1.4550",
+                "16,0",
+                "16,0",
+                "14,9",
+                "14,1",
+                "13,4",
+                "12,7",
+                "12,2",
+                "11,8",
+                "11,6",
+                "11,3",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "13E0",
+                "1.4404",
+                "16,0",
+                "15,1",
+                "13,7",
+                "12,7",
+                "11,9",
+                "11",
+                "10,5",
+                "10,2",
+                "10",
+                "9,7",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "14E0",
+                "1.4401",
+                "16,0",
+                "16,0",
+                "14,5",
+                "13,4",
+                "12,7",
+                "11,8",
+                "11,4",
+                "10,9",
+                "10,7",
+                "10,5",
+                "10,4",
+                "10,3",
+                "10,1",
+                "10,0",
+                "9,9",
+                "8,9"
+              ],
+              [
+                "15E0",
+                "1.4571",
+                "16,0",
+                "16,0",
+                "15,6",
+                "14,9",
+                "14,1",
+                "13,3",
+                "12,8",
+                "12,4",
+                "12,2",
+                "12",
+                "11,9",
+                "11,8",
+                "11,7",
+                "10,7",
+                "9,7",
+                "8,8"
+              ],
+              [
+                "16E0",
+                "1.4462",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "16,0",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "11E0",
+                "1.4948",
+                "16,0",
+                "14,5",
+                "13,1",
+                "11,9",
+                "11,2",
+                "10,4",
+                "10,0",
+                "9,6",
+                "9,3",
+                "8,9",
+                "8,6",
+                "8,4",
+                "8,2",
+                "8,1",
+                "7,4",
+                "6,7"
+              ],
+              [
+                "12E0",
+                "1.4941",
+                "16,0",
+                "15,3",
+                "14,5",
+                "13,7",
+                "13,4",
+                "13,1",
+                "12,7",
+                "12,3",
+                "11,9",
+                "11,5",
+                "11,2",
+                "10,8",
+                "10,6",
+                "9,6",
+                "8,6",
+                "7,7"
+              ]
+            ]
+          }
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is the maximum pressure of a PN 16 flange at 200 °C?",
+          "a": "It depends on the material. For PN 16 and the common P245GH (group 3E0) forging in the vR ≤ 50 mm band, Table G.5 gives 13,3 bar at 200 °C; the 50–150 mm band gives 12,4 bar. Austenitic 1.4301 (11E0) is rated 11,9 bar and 1.4404 (13E0) 12,7 bar at the same temperature."
+        },
+        {
+          "q": "Which material group is P250GH?",
+          "a": "P250GH (material number 1.0460, EN 10222-2) belongs to group 3E0 — unalloyed steel with guaranteed elevated-temperature properties. P245GH (1.0352) is the same group; P280GH (1.0426) is group 3E1."
+        },
+        {
+          "q": "Why does the allowable pressure fall with temperature?",
+          "a": "The rating scales the nominal pressure by the material's nominal design stress at temperature. Annex F uses PS = PN × f_t / 140 MPa, or PS = PN × min(f_t; f_CR) / 140 MPa once creep governs, rounded down to one decimal place. That is why a PN 16 P245GH flange is 16 bar at RT but 5,2 bar at 450 °C."
+        },
+        {
+          "q": "Can I interpolate between the listed temperatures?",
+          "a": "Yes. The standard interpolates the strength values linearly between adjacent temperatures above 50 °C, which is why the Annex G columns switch to 10 °C steps above 450 °C. Do not extrapolate past the last printed temperature, and do not apply a group's rating to a grade that is not in that group."
+        }
+      ],
+      "sources": [
+        "EN 1092-1:2018, Annex G, Table G.5 — PN 16, non-austenitic (p. 116)",
+        "EN 1092-1:2018, Annex G, Tables G.2 to G.13 — PN 2,5 to PN 400 (pp. 113–124)",
+        "EN 1092-1:2018, Annex G, Table G.18 — PN 16, austenitic (p. 129)",
+        "EN 1092-1:2018, Annex G, §G.1.3 and §G.2.1 (pp. 110–111)",
+        "EN 1092-1:2018, Annex F, §F.2.5 and §F.2.7 (pp. 108–109)",
+        "EN 1092-1:2018, Table 9 and Annex B (pp. 38–43, 89–90)"
+      ],
+      "related": [
+        {
+          "label": "EN 1092-1 flange dimensions",
+          "href": "/standards/en-1092-1/"
+        },
+        {
+          "label": "EN 1092-1 material groups",
+          "href": "/standards/en-1092-1/material-groups/"
+        },
+        {
+          "label": "EN 1092-1 flange types and facings",
+          "href": "/standards/en-1092-1/types/"
+        }
+      ]
+    },
+    "material-groups": {
+      "title": "EN 1092-1 material groups (1E0 to 16E0)",
+      "metaDescription": "EN 1092-1 material groups 1E0 to 16E0: what each group covers, typical EN grades and material numbers, and which groups have Annex G p/T ratings.",
+      "intro": [
+        "EN 1092-1 sorts flange steels into material groups rather than individual grades. A group collects materials with similar chemical and mechanical properties and similar corrosion resistance, so one pressure–temperature rating can be applied to any member of the group. The definitions are in informative Annex B, and the material selection table (Table 9) maps each group to EN forging, flat-product, casting and bar grades.",
+        "Group codes combine a family number, the letter E and a sub-index — 3E0, 6E1, 13E0 and so on. The numbering broadly follows the steel family described in Annex B (carbon, low-alloy, low-temperature, fine-grain, high-temperature ferritic or austenitic), and the trailing digit separates variants within that family. Confirm the group from the grade actually certified: an offered 1.4404 flange is group 13E0, not 14E0, even though both are molybdenum-bearing austenitic steels.",
+        "Two caveats matter for procurement. Table 9 is a selection for flange manufacture, not a list of every acceptable steel; Annex D adds materials, including ASME grades, that are widely used but not listed in EN standards, and those carry no presumption of conformity under the Pressure Equipment Directive. And a p/T rating quoted for a group is valid only for materials that genuinely belong to it — the certificate or material test report is the evidence."
+      ],
+      "keyFacts": [
+        {
+          "label": "Groups",
+          "value": "1E0 to 16E0"
+        },
+        {
+          "label": "Group definitions",
+          "value": "Annex B (informative)"
+        },
+        {
+          "label": "Material selection",
+          "value": "Table 9 (pp. 38–43)"
+        },
+        {
+          "label": "Additional materials",
+          "value": "Annex D (pp. 101–102)"
+        },
+        {
+          "label": "p/T ratings",
+          "value": "Annex G (selected groups)"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Non-austenitic groups 1E0 to 9E1",
+          "paragraphs": [
+            "The carbon, low-alloy, low-temperature, fine-grain and high-temperature ferritic groups as defined in Annex B, with representative EN grades from Table 9."
+          ],
+          "table": {
+            "caption": "Material groups 1E0 to 9E1 — Annex B definitions with typical EN grades from Table 9 / Annex D (pp. 89–90, 38–40, 101)",
+            "note": "Descriptions paraphrase informative Annex B. Grade and material-number examples are taken from Table 9 (forgings, flat products, castings and bars) and, for 1E0/1E1, from informative Annex D. One grade is enough to place a flange in a group; always confirm the group from the material certificate.",
+            "columns": [
+              {
+                "key": "group",
+                "label": "Group",
+                "align": "left"
+              },
+              {
+                "key": "covers",
+                "label": "What the group covers (Annex B)",
+                "align": "left"
+              },
+              {
+                "key": "grades",
+                "label": "Typical EN grades (material number)",
+                "align": "left"
+              },
+              {
+                "key": "notes",
+                "label": "Notes",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              [
+                "1E0",
+                "Unalloyed structural steels without guaranteed elevated-temperature properties; application range −10 °C to +100 °C.",
+                "GS-38 casting (1.0432, DIN 1681); VdTÜV C 21/1.0432",
+                "Annex D additional material; no Annex G p/T table."
+              ],
+              [
+                "1E1",
+                "Unalloyed structural steels with elevated-temperature properties.",
+                "S235JR (1.0038) to EN 10025-2",
+                "Annex D additional material; no Annex G p/T table."
+              ],
+              [
+                "3E0",
+                "Unalloyed steels with guaranteed elevated-temperature properties.",
+                "P250GH (1.0460) and P245GH (1.0352), EN 10222-2 forgings; P235GH (1.0345) and P265GH (1.0425), EN 10028-2 flats; GP240GH (1.0619) and GP280GH (1.0625), EN 10213 castings",
+                "p/T: Tables G.2–G.13 (calculated for P245GH). Default group for EN 1092-1 carbon-steel flanges."
+              ],
+              [
+                "3E1",
+                "Unalloyed steels with specified properties up to 400 °C and upper yield strength above 265 N/mm².",
+                "P280GH (1.0426), EN 10222-2; P295GH (1.0481), EN 10028-2",
+                "p/T: Tables G.2–G.13 (P280GH)."
+              ],
+              [
+                "4E0",
+                "Low-alloyed steels with 0,3 % molybdenum.",
+                "16Mo3 (1.5415), EN 10222-2 / EN 10028-2; G20Mo5 (1.5419), EN 10213",
+                "p/T: Tables G.2–G.13 (16Mo3)."
+              ],
+              [
+                "5E0",
+                "Low-alloyed steels with 1 % chromium and 0,5 % molybdenum.",
+                "13CrMo4-5 (1.7335), EN 10222-2 / EN 10028-2; G17CrMo5-5 (1.7357), EN 10213",
+                "p/T: Tables G.2–G.13 (13CrMo4-5)."
+              ],
+              [
+                "6E0",
+                "Low-alloyed steels with 2 % chromium and 1 % molybdenum.",
+                "11CrMo9-10 (1.7383), EN 10222-2; 10CrMo9-10 (1.7380) and 12CrMo9-10 (1.7375), EN 10028-2; G17CrMo9-10 (1.7379), EN 10213",
+                "p/T: Tables G.2–G.13 (11CrMo9-10)."
+              ],
+              [
+                "6E1",
+                "Alloy steel with 5 % chromium and 0,5 % molybdenum.",
+                "X16CrMo5-1+NT (1.7366), EN 10222-2; GX15CrMo5 (1.7365), EN 10213",
+                "p/T: Tables G.2–G.13 (X16CrMo5-1+NT)."
+              ],
+              [
+                "7E0",
+                "Low-temperature-tough fine-grain steel with minimum yield strength 275 N/mm² at room temperature.",
+                "P275NL1 (1.0488) and P275NL2 (1.1104), EN 10028-3 flats; G17Mn5 (1.1131) and G20Mn5 (1.6220), EN 10213 castings",
+                "No separate Annex G p/T table."
+              ],
+              [
+                "7E1",
+                "Low-temperature-tough fine-grain steel with minimum yield strength 355 N/mm² at room temperature.",
+                "P355NL1 (1.0566) and P355NL2 (1.1106), EN 10028-3",
+                "No separate Annex G p/T table."
+              ],
+              [
+                "7E2",
+                "Low-temperature nickel-alloyed steel with nickel ≤ 3 %.",
+                "15NiMn6 (1.6228), EN 10222-3; 11MnNi5-3 (1.6212) and 13MnNi6-3 (1.6217), EN 10028-4; G9Ni10 (1.5636), EN 10213",
+                "No separate Annex G p/T table."
+              ],
+              [
+                "7E3",
+                "Low-temperature nickel-alloyed steel with nickel > 3 %.",
+                "12Ni14 (1.5637), X12Ni5 (1.5680), X8Ni9 (1.5662), EN 10222-3 / EN 10028-4; G9Ni14 (1.5638), EN 10213",
+                "No separate Annex G p/T table."
+              ],
+              [
+                "8E0",
+                "Fine-grain steel with minimum yield strength 225 N/mm² at room temperature.",
+                "No grade listed in Table 9 for this group",
+                "Defined in Annex B; no grade or p/T table in the 2018 edition."
+              ],
+              [
+                "8E2",
+                "Fine-grain steel with minimum yield strength 285 N/mm² at room temperature.",
+                "P285NH (1.0477) and P285QH (1.0478), EN 10222-4; P275NH (1.0487), EN 10028-3 / EN 10273",
+                "p/T: Tables G.2–G.13 (P285NH)."
+              ],
+              [
+                "8E3",
+                "Fine-grain steel with minimum yield strength 355 N/mm² at room temperature.",
+                "P355NH (1.0565) and P355QH1 (1.0571), EN 10222-4; P355N (1.0562) and P355NH (1.0565), EN 10028-3; P355QH (1.8867), EN 10273",
+                "p/T: Tables G.2–G.13 (P355NH)."
+              ],
+              [
+                "9E0",
+                "High-temperature-tough ferritic steel with 12 % chromium, 1 % molybdenum and 0,5 % vanadium.",
+                "X20CrMoV11-1 (1.4922), EN 10222-2; GX23CrMoV12-1 (1.4931), EN 10213",
+                "p/T: Tables G.2–G.13 (X20CrMoV11-1)."
+              ],
+              [
+                "9E1",
+                "High-temperature-tough ferritic steel with 9 % chromium, 1 % molybdenum, 0,25 % vanadium and 0,1 % niobium.",
+                "X10CrMoVNb9-1 (1.4903), EN 10222-2 / EN 10028-2",
+                "p/T: Tables G.2–G.13 (X10CrMoVNb9-1)."
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Austenitic and austenitic-ferritic groups 10E0 to 16E0",
+          "paragraphs": [
+            "Annex B notes that groups 10E0 to 12E0 are not alloyed with molybdenum, while 13E0 to 15E0 are; 16E0 is the austenitic-ferritic (duplex) family."
+          ],
+          "table": {
+            "caption": "Austenitic and austenitic-ferritic groups 10E0 to 16E0 — Annex B definitions with typical EN grades (pp. 90, 39–40, 43)",
+            "note": "Descriptions paraphrase informative Annex B. Grades come from Table 9; the material number in brackets in the Notes column is the one used in the Annex G p/T tables (Table G.14, p. 125).",
+            "columns": [
+              {
+                "key": "group",
+                "label": "Group",
+                "align": "left"
+              },
+              {
+                "key": "covers",
+                "label": "What the group covers (Annex B)",
+                "align": "left"
+              },
+              {
+                "key": "grades",
+                "label": "Typical EN grades (material number)",
+                "align": "left"
+              },
+              {
+                "key": "notes",
+                "label": "Notes",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              [
+                "10E0",
+                "LC-steel (low-carbon austenitic).",
+                "X2CrNi18-9 (1.4307), EN 10222-5 forgings; X2CrNi19-11 (1.4306) flat; GX2CrNi19-11 (1.4309), EN 10213",
+                "p/T: Tables G.15–G.26 (1.4307)."
+              ],
+              [
+                "10E1",
+                "LC-steel, nitrogen-alloyed.",
+                "X2CrNi18-10 (1.4311), EN 10222-5",
+                "p/T: Tables G.15–G.26 (1.4311)."
+              ],
+              [
+                "11E0",
+                "Austenitic, standard carbon content.",
+                "X5CrNi18-10 (1.4301) and X6CrNi18-10 (1.4948), EN 10222-5; GX5CrNi19-10 (1.4308), EN 10213",
+                "p/T: Tables G.15–G.26 (1.4301, 1.4948)."
+              ],
+              [
+                "12E0",
+                "Austenitic, standard carbon content, stabilised with Ti or Nb.",
+                "X6CrNiTi18-10 (1.4541), X6CrNiNb18-10 (1.4550) and X6CrNiTiB18-10 (1.4941), EN 10222-5; GX5CrNiNb19-11 (1.4552), EN 10213",
+                "p/T: Tables G.15–G.26 (1.4541, 1.4550, 1.4941)."
+              ],
+              [
+                "13E0",
+                "LC-steel with molybdenum.",
+                "X2CrNiMo17-12-2 (1.4404), X2CrNiMo17-12-3 (1.4432) and X2CrNiMo18-14-3 (1.4435), EN 10222-5; GX2CrNiMo19-11-2 (1.4409), EN 10213",
+                "p/T: Tables G.15–G.26 (1.4404)."
+              ],
+              [
+                "13E1",
+                "LC-steel with molybdenum, nitrogen-alloyed.",
+                "X2CrNiMoN17-13-3 (1.4429), X2CrNiMoN17-13-5 (1.4439) and X2CrNiMoN17-11-2 (1.4406)",
+                "No separate Annex G p/T table in this edition."
+              ],
+              [
+                "14E0",
+                "Austenitic, standard carbon content, alloyed with molybdenum.",
+                "X5CrNiMo17-12-2 (1.4401) and X3CrNiMo17-13-3 (1.4436); GX5CrNiMo19-11-2 (1.4408), EN 10213",
+                "p/T: Tables G.15–G.26 (1.4401)."
+              ],
+              [
+                "15E0",
+                "Austenitic, standard carbon content, alloyed with molybdenum, stabilised with Ti or Nb.",
+                "X6CrNiMoTi17-12-2 (1.4571) and X6CrNiMoNb17-12-2 (1.4580); GX5CrNiMoNb19-11-2 (1.4581), EN 10213",
+                "p/T: Tables G.15–G.26 (1.4571)."
+              ],
+              [
+                "16E0",
+                "Austenitic-ferritic (duplex) steel.",
+                "X2CrNiMoN22-5-3 (1.4462), X2CrNiMoN25-7-4 (1.4410) and X2CrNiN23-4 (1.4362), EN 10222-5; GX2CrNiMoN25-6-3-3 (1.4517), EN 10213",
+                "p/T: Tables G.15–G.26 (1.4462)."
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Which groups have pressure–temperature ratings?",
+          "paragraphs": [
+            "Not every group in Annex B appears in the Annex G rating tables. The coverage is:"
+          ],
+          "bullets": [
+            "Non-austenitic: 3E0, 3E1, 4E0, 5E0, 6E0, 6E1, 8E2, 8E3, 9E0 and 9E1, in Tables G.2 to G.13.",
+            "Austenitic: the eleven materials listed in Table G.14 — 1.4307, 1.4311, 1.4301, 1.4541, 1.4550, 1.4404, 1.4401, 1.4571, 1.4462, 1.4948 and 1.4941 — in Tables G.15 to G.26.",
+            "1E0 and 1E1 appear only as additional materials in Annex D and have no Annex G p/T table.",
+            "The 7E0 to 7E3 low-temperature groups are defined in Annex B but are not assigned separate p/T tables.",
+            "8E0 is defined in Annex B, but Table 9 lists no grade for it in the 2018 edition."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Which material group is P250GH?",
+          "a": "P250GH (1.0460, EN 10222-2) is group 3E0, the unalloyed steel group with guaranteed elevated-temperature properties. P245GH (1.0352) is also 3E0; P280GH (1.0426) is group 3E1."
+        },
+        {
+          "q": "Which group is 1.4301?",
+          "a": "1.4301 (X5CrNi18-10) is group 11E0 — austenitic steel with standard carbon content and no molybdenum. The low-carbon variant 1.4307 (X2CrNi18-9) is group 10E0."
+        },
+        {
+          "q": "Which group is 1.4404?",
+          "a": "1.4404 (X2CrNiMo17-12-2) is group 13E0 — low-carbon austenitic steel with molybdenum. The standard-carbon 1.4401 (X5CrNiMo17-12-2) is group 14E0."
+        },
+        {
+          "q": "Can I substitute one grade for another in the same group?",
+          "a": "The grouping exists so that materials with similar properties can be treated equivalently for pressure, temperature and fluid service, and a group-level p/T rating is intended to cover its members. It does not make grades interchangeable in every detail — corrosion resistance, impact toughness and elevated-temperature strength can still differ. The material certificate and the project specification decide."
+        }
+      ],
+      "sources": [
+        "EN 1092-1:2018, Annex B — Material groups (pp. 89–90)",
+        "EN 1092-1:2018, Table 9 — Material selection for the manufacturing of flanges (pp. 38–43)",
+        "EN 1092-1:2018, Annex D — Additional materials (pp. 101–102)",
+        "EN 1092-1:2018, §5.1.1 — Materials (p. 13)",
+        "EN 1092-1:2018, Table G.1 (p. 112) and Table G.14 (p. 125)"
+      ],
+      "related": [
+        {
+          "label": "EN 1092-1 pressure–temperature ratings",
+          "href": "/standards/en-1092-1/pressure-ratings/"
+        },
+        {
+          "label": "EN 1092-1 flange types and facings",
+          "href": "/standards/en-1092-1/types/"
+        }
+      ]
+    },
+    "tolerances": {
+      "title": "EN 1092-1 flange tolerances (Table 22)",
+      "metaDescription": "Full EN 1092-1 Table 22 tolerances for flange and collar dimensions: neck, bore, wall thickness, facing, bolt circle and bolt hole values in mm.",
+      "intro": [
+        "Clause 5.9 of EN 1092-1:2018 refers all flange and collar dimensional tolerances to Table 22, and sends any dimension without a stated tolerance to the general tolerances of EN 22768-1:1993. Table 22 runs across six pages (77 to 82) and is reproduced here in full.",
+        "The table is organised the way the dimensions are: neck and bore first, then wall thickness and weld bevel, outside diameter, hub length, neck diameters, collar and flange thickness, facing geometry, and finally eccentricity and parallelism. Many tolerances depend on the flange type group and on whether a surface is machined, so read the flange-type cell together with the size band before taking the tolerance.",
+        "Tolerances in Table 22 are given as an upper and lower limit, as plus-only limits for bores and holes, or as a percentage of the outside diameter or wall thickness. Dimensions for which Table 22 states no tolerance fall back to EN 22768-1:1993."
+      ],
+      "keyFacts": [
+        {
+          "label": "Standard",
+          "value": "EN 1092-1:2018"
+        },
+        {
+          "label": "Source table",
+          "value": "Table 22 (pp. 77–82)"
+        },
+        {
+          "label": "Clause",
+          "value": "§5.9 (p. 18)"
+        },
+        {
+          "label": "Units",
+          "value": "mm, %, degrees"
+        },
+        {
+          "label": "General tolerances",
+          "value": "EN 22768-1:1993"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Neck outside diameter, bore, wall thickness and bevel (p. 77)",
+          "paragraphs": [
+            "Wall thickness S has two tolerance regimes: a neck machined on both faces, and a neck machined on one face only or left unmachined."
+          ],
+          "table": {
+            "caption": "Table 22 (p. 77) — tolerances on neck outside diameter, bore, wall thickness and bevel",
+            "note": "Tolerance is given as upper / lower limit in mm unless a percentage is shown. Dimension letters follow the standard's dimension symbols. Wall thickness S has two regimes: a neck machined on both faces, and a neck machined on one face only or unmachined; the second value is in the right-hand column.",
+            "columns": [
+              {
+                "key": "dim",
+                "label": "Dimension",
+                "align": "left"
+              },
+              {
+                "key": "types",
+                "label": "Flange types",
+                "align": "left"
+              },
+              {
+                "key": "size",
+                "label": "Size",
+                "align": "left"
+              },
+              {
+                "key": "tol",
+                "label": "Tolerance",
+                "unit": "mm",
+                "align": "right"
+              },
+              {
+                "key": "tol2",
+                "label": "Neck one face machined, or un-machined",
+                "unit": "mm",
+                "align": "right"
+              }
+            ],
+            "rows": [
+              [
+                "Outside diameter of neck A",
+                "11, 21, 34",
+                "≤ DN 125",
+                "+3,0 / 0",
+                "—"
+              ],
+              [
+                "Outside diameter of neck A",
+                "11, 21, 34",
+                "> DN 125 ≤ DN 1200",
+                "+4,5 / 0",
+                "—"
+              ],
+              [
+                "Outside diameter of neck A",
+                "11, 21, 34",
+                "> DN 1200",
+                "+6,0 / 0",
+                "—"
+              ],
+              [
+                "Outside diameter of neck A",
+                "35, 36, 37",
+                "≤ DN 150",
+                "±0,75 % a, min. ±0,3 mm",
+                "—"
+              ],
+              [
+                "Outside diameter of neck A",
+                "35, 36, 37",
+                "> DN 150",
+                "±1 % a, max. ±3,0 mm",
+                "—"
+              ],
+              [
+                "Bore diameter B1, B2, B3",
+                "01, 02, 04, 12, 32",
+                "≤ DN 100",
+                "+0,5 / 0",
+                "—"
+              ],
+              [
+                "Bore diameter B1, B2, B3",
+                "01, 02, 04, 12, 32",
+                "> DN 100 ≤ DN 400",
+                "+1,0 / 0",
+                "—"
+              ],
+              [
+                "Bore diameter B1, B2, B3",
+                "01, 02, 04, 12, 32",
+                "> DN 400 ≤ DN 600",
+                "+1,5 / 0",
+                "—"
+              ],
+              [
+                "Bore diameter B1, B2, B3",
+                "01, 02, 04, 12, 32",
+                "> DN 600",
+                "+3,0 / 0",
+                "—"
+              ],
+              [
+                "Wall thickness S c",
+                "11, 34 b",
+                "≤ DN 100",
+                "+1,0 / 0",
+                "+2,0 / 0"
+              ],
+              [
+                "Wall thickness S c",
+                "11, 34 b",
+                "> DN 100 ≤ DN 400",
+                "+1,5 / 0",
+                "+2,5 / 0"
+              ],
+              [
+                "Wall thickness S c",
+                "11, 34 b",
+                "> DN 400",
+                "+2,0 / 0",
+                "+3,5 / 0"
+              ],
+              [
+                "Wall thickness S c",
+                "35",
+                "S ≤ 8",
+                "+15 % / −10 %",
+                "—"
+              ],
+              [
+                "Wall thickness S c",
+                "35",
+                "S > 8",
+                "+15 % / −5 %",
+                "—"
+              ],
+              [
+                "Wall thickness S c",
+                "36, 37",
+                "≤ DN 600",
+                "−12,5 % a / +15 %",
+                "—"
+              ],
+              [
+                "Wall thickness S c",
+                "36, 37",
+                "> DN 600",
+                "−0,5 mm a / +15 %",
+                "—"
+              ],
+              [
+                "Bevelled wall thickness Sp",
+                "35, 36, 37",
+                "S ≤ 6",
+                "+1,0 / 0",
+                "—"
+              ],
+              [
+                "Bevelled wall thickness Sp",
+                "35, 36, 37",
+                "S > 6",
+                "+2,0 / 0",
+                "—"
+              ]
+            ],
+            "footnotes": [
+              {
+                "marker": "a",
+                "text": "Tolerance in % of the outside diameter or of the wall thickness, as applicable."
+              },
+              {
+                "marker": "b",
+                "text": "Bore tolerance not applicable."
+              },
+              {
+                "marker": "c",
+                "text": "Preparation of ends, see Annex A."
+              }
+            ]
+          }
+        },
+        {
+          "heading": "Outside diameter D, hub length and neck diameter N1 (p. 78)",
+          "table": {
+            "caption": "Table 22 (p. 78) — tolerances on outside diameter D, hub length and neck diameter N1",
+            "note": "Tolerance is given as upper / lower limit in mm. Neck diameter N1 is toleranced differently depending on whether the bolting bearing surface is machined.",
+            "columns": [
+              {
+                "key": "dim",
+                "label": "Dimension",
+                "align": "left"
+              },
+              {
+                "key": "types",
+                "label": "Flange types",
+                "align": "left"
+              },
+              {
+                "key": "size",
+                "label": "Size",
+                "align": "left"
+              },
+              {
+                "key": "tol",
+                "label": "Tolerance",
+                "unit": "mm",
+                "align": "right"
+              }
+            ],
+            "rows": [
+              [
+                "Outside diameter D",
+                "21",
+                "≤ DN 250",
+                "±4,0"
+              ],
+              [
+                "Outside diameter D",
+                "21",
+                "> DN 250 ≤ DN 500",
+                "±5,0"
+              ],
+              [
+                "Outside diameter D",
+                "21",
+                "> DN 500 ≤ DN 800",
+                "±6,0"
+              ],
+              [
+                "Outside diameter D",
+                "21",
+                "> DN 800 ≤ DN 1200",
+                "±7,0"
+              ],
+              [
+                "Outside diameter D",
+                "21",
+                "> DN 1200 ≤ DN 1600",
+                "±8,0"
+              ],
+              [
+                "Outside diameter D",
+                "21",
+                "> DN 1600 ≤ DN 2000",
+                "±10,0"
+              ],
+              [
+                "Outside diameter D",
+                "All other types",
+                "≤ DN 150",
+                "±2,0"
+              ],
+              [
+                "Outside diameter D",
+                "All other types",
+                "> DN 150 ≤ DN 500",
+                "±3,0"
+              ],
+              [
+                "Outside diameter D",
+                "All other types",
+                "> DN 500 ≤ DN 1200",
+                "±5,0"
+              ],
+              [
+                "Outside diameter D",
+                "All other types",
+                "> DN 1200 ≤ DN 1800",
+                "±7,0"
+              ],
+              [
+                "Outside diameter D",
+                "All other types",
+                "> DN 1800",
+                "±10,0"
+              ],
+              [
+                "Length through hub H1, H2, H3, H4, H5",
+                "11, 12, 13, 34, 35, 36, 37",
+                "≤ DN 80",
+                "±1,5"
+              ],
+              [
+                "Length through hub H1, H2, H3, H4, H5",
+                "11, 12, 13, 34, 35, 36, 37",
+                "> DN 80 ≤ DN 250",
+                "±2,0"
+              ],
+              [
+                "Length through hub H1, H2, H3, H4, H5",
+                "11, 12, 13, 34, 35, 36, 37",
+                "> DN 250",
+                "±3,0"
+              ],
+              [
+                "Neck diameter N1",
+                "11 (machined bearing surface)",
+                "N1 ≤ 120",
+                "0 / −1,0"
+              ],
+              [
+                "Neck diameter N1",
+                "11 (machined bearing surface)",
+                "N1 > 120 ≤ 400",
+                "0 / −1,2"
+              ],
+              [
+                "Neck diameter N1",
+                "11 (machined bearing surface)",
+                "N1 > 400 ≤ 1000",
+                "+1,6 / 0"
+              ],
+              [
+                "Neck diameter N1",
+                "11 (machined bearing surface)",
+                "N1 > 1000 ≤ 2000",
+                "+2,5 / 0"
+              ],
+              [
+                "Neck diameter N1",
+                "11 (machined bearing surface)",
+                "N1 > 2000",
+                "+4,0 / 0"
+              ],
+              [
+                "Neck diameter N1",
+                "11 (un-machined bearing surface)",
+                "N1 ≤ 120",
+                "0 / −1,0"
+              ],
+              [
+                "Neck diameter N1",
+                "11 (un-machined bearing surface)",
+                "N1 > 120 ≤ 400",
+                "0 / −2,0"
+              ],
+              [
+                "Neck diameter N1",
+                "11 (un-machined bearing surface)",
+                "N1 > 400 ≤ 1000",
+                "+4,0 / 0"
+              ],
+              [
+                "Neck diameter N1",
+                "11 (un-machined bearing surface)",
+                "N1 > 1000 ≤ 2000",
+                "+6,0 / 0"
+              ],
+              [
+                "Neck diameter N1",
+                "11 (un-machined bearing surface)",
+                "N1 > 2000",
+                "+8,0 / 0"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Neck diameters N1, N2 and N3 (p. 79)",
+          "table": {
+            "caption": "Table 22 (p. 79) — tolerances on neck diameters N1, N2 and N3",
+            "note": "Tolerance is given as upper / lower limit in mm.",
+            "columns": [
+              {
+                "key": "dim",
+                "label": "Dimension",
+                "align": "left"
+              },
+              {
+                "key": "types",
+                "label": "Flange types",
+                "align": "left"
+              },
+              {
+                "key": "size",
+                "label": "Size",
+                "align": "left"
+              },
+              {
+                "key": "tol",
+                "label": "Tolerance",
+                "unit": "mm",
+                "align": "right"
+              }
+            ],
+            "rows": [
+              [
+                "Neck diameter N1, N2, N3",
+                "21, 34 (un-machined bearing surface)",
+                "≤ DN 50",
+                "0 / −2,0"
+              ],
+              [
+                "Neck diameter N1, N2, N3",
+                "21, 34 (un-machined bearing surface)",
+                "> DN 50 ≤ DN 150",
+                "0 / −4,0"
+              ],
+              [
+                "Neck diameter N1, N2, N3",
+                "21, 34 (un-machined bearing surface)",
+                "> DN 150 ≤ DN 300",
+                "0 / −6,0"
+              ],
+              [
+                "Neck diameter N1, N2, N3",
+                "21, 34 (un-machined bearing surface)",
+                "> DN 300 ≤ DN 600",
+                "0 / −8,0"
+              ],
+              [
+                "Neck diameter N1, N2, N3",
+                "21, 34 (un-machined bearing surface)",
+                "> DN 600 ≤ DN 4000",
+                "0 / −10,0"
+              ],
+              [
+                "Neck diameter N1, N2, N3",
+                "21, 34 (machined bearing surface)",
+                "≤ DN 50",
+                "+1,0 / 0"
+              ],
+              [
+                "Neck diameter N1, N2, N3",
+                "21, 34 (machined bearing surface)",
+                "> DN 50 ≤ DN 150",
+                "+1,5 / 0"
+              ],
+              [
+                "Neck diameter N1, N2, N3",
+                "21, 34 (machined bearing surface)",
+                "> DN 150 ≤ DN 300",
+                "+2,0 / 0"
+              ],
+              [
+                "Neck diameter N1, N2, N3",
+                "21, 34 (machined bearing surface)",
+                "> DN 300 ≤ DN 600",
+                "+2,5 / 0"
+              ],
+              [
+                "Neck diameter N1, N2, N3",
+                "21, 34 (machined bearing surface)",
+                "> DN 600 ≤ DN 4000",
+                "+3,0 / 0"
+              ],
+              [
+                "Neck diameter N2, N3",
+                "12, 13",
+                "≤ DN 50",
+                "+1,0 / 0"
+              ],
+              [
+                "Neck diameter N2, N3",
+                "12, 13",
+                "> DN 50 ≤ DN 150",
+                "+2,0 / 0"
+              ],
+              [
+                "Neck diameter N2, N3",
+                "12, 13",
+                "> DN 150 ≤ DN 300",
+                "+4,0 / 0"
+              ],
+              [
+                "Neck diameter N2, N3",
+                "12, 13",
+                "> DN 300 ≤ DN 600",
+                "+8,0 / 0"
+              ],
+              [
+                "Neck diameter N2, N3",
+                "12, 13",
+                "> DN 600 ≤ DN 1200",
+                "+12,0 / 0"
+              ],
+              [
+                "Neck diameter N2, N3",
+                "12, 13",
+                "> DN 1200 ≤ DN 1800",
+                "+16,0 / 0"
+              ],
+              [
+                "Neck diameter N2, N3",
+                "12, 13",
+                "> DN 1800",
+                "+20,0 / 0"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Collar thickness, flange thickness and facing diameter (p. 80)",
+          "table": {
+            "caption": "Table 22 (p. 80) — tolerances on collar thickness, flange thickness and facing diameter",
+            "note": "Tolerance is given as upper / lower limit in mm unless a percentage is shown.",
+            "columns": [
+              {
+                "key": "dim",
+                "label": "Dimension",
+                "align": "left"
+              },
+              {
+                "key": "types",
+                "label": "Flange types",
+                "align": "left"
+              },
+              {
+                "key": "size",
+                "label": "Size",
+                "align": "left"
+              },
+              {
+                "key": "tol",
+                "label": "Tolerance",
+                "unit": "mm",
+                "align": "right"
+              }
+            ],
+            "rows": [
+              [
+                "Collar thickness F",
+                "35 (machined on both facings)",
+                "≤ 18 mm thickness",
+                "±1,0"
+              ],
+              [
+                "Collar thickness F",
+                "35 (machined on both facings)",
+                "> 18 mm ≤ 50 mm thickness",
+                "±1,5"
+              ],
+              [
+                "Collar thickness F",
+                "35 (machined on front face only, or un-machined)",
+                "≤ 18 mm thickness",
+                "+2,0 / −1,3"
+              ],
+              [
+                "Collar thickness F",
+                "35 (machined on front face only, or un-machined)",
+                "> 18 mm ≤ 50 mm thickness",
+                "+4,0 / −1,5"
+              ],
+              [
+                "Collar thickness F",
+                "36 (machined on front face only, or un-machined)",
+                "≤ 18 mm thickness",
+                "±10 %"
+              ],
+              [
+                "Collar thickness F",
+                "37 (un-machined)",
+                "≤ 5 mm thickness",
+                "±0,20"
+              ],
+              [
+                "Collar thickness F",
+                "37 (un-machined)",
+                "> 5 mm thickness",
+                "±0,30"
+              ],
+              [
+                "Collar thickness F",
+                "32, 34 (machined on both faces)",
+                "≤ 18 mm thickness",
+                "+1,0 / −1,3"
+              ],
+              [
+                "Collar thickness F",
+                "32, 34 (machined on both faces)",
+                "> 18 mm thickness",
+                "±1,5"
+              ],
+              [
+                "Collar thickness F",
+                "32, 34 (machined on front side only)",
+                "≤ 18 mm thickness",
+                "+2,0 / −1,3"
+              ],
+              [
+                "Collar thickness F",
+                "32, 34 (machined on front side only)",
+                "> 18 mm ≤ 30 mm thickness",
+                "+3,0 / −1,5"
+              ],
+              [
+                "Collar thickness F",
+                "32, 34 (machined on front side only)",
+                "> 30 mm thickness",
+                "+4,0 / −1,5"
+              ],
+              [
+                "Flange thickness C1, C2, C3, C4",
+                "All types (machined on both faces)",
+                "≤ 18 mm thickness",
+                "+1,0 / −1,3"
+              ],
+              [
+                "Flange thickness C1, C2, C3, C4",
+                "All types (machined on both faces)",
+                "> 18 mm ≤ 50 mm thickness",
+                "±1,5"
+              ],
+              [
+                "Flange thickness C1, C2, C3, C4",
+                "All types (machined on both faces)",
+                "> 50 mm thickness",
+                "±2,0"
+              ],
+              [
+                "Flange thickness C1, C2, C3, C4",
+                "All types (machined on front side only); Type 02 and 04 (un-machined)",
+                "≤ 18 mm thickness",
+                "+2,0 / −1,3"
+              ],
+              [
+                "Flange thickness C1, C2, C3, C4",
+                "All types (machined on front side only); Type 02 and 04 (un-machined)",
+                "> 18 mm ≤ 50 mm thickness",
+                "+4,0 / −1,5"
+              ],
+              [
+                "Flange thickness C1, C2, C3, C4",
+                "All types (machined on front side only); Type 02 and 04 (un-machined)",
+                "> 50 mm thickness",
+                "+7,0 / −2,0"
+              ],
+              [
+                "Facing diameter d1",
+                "All types",
+                "≤ DN 250",
+                "+2,0 / −1,0"
+              ],
+              [
+                "Facing diameter d1",
+                "All types",
+                "> DN 250",
+                "+3,0 / −1,0"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Facing heights, facing dimensions and bolting (p. 81)",
+          "table": {
+            "caption": "Table 22 (p. 81) — tolerances on facing heights, facing dimensions and bolting",
+            "note": "Tolerance is given as upper / lower limit in mm. Facing heights f1 to f4 correspond to the facing dimensions in Figure 4; W, X, Y and Z are facing dimensions of the tongue, groove, spigot and recess types.",
+            "columns": [
+              {
+                "key": "dim",
+                "label": "Dimension",
+                "align": "left"
+              },
+              {
+                "key": "types",
+                "label": "Flange types",
+                "align": "left"
+              },
+              {
+                "key": "size",
+                "label": "Size",
+                "align": "left"
+              },
+              {
+                "key": "tol",
+                "label": "Tolerance",
+                "unit": "mm",
+                "align": "right"
+              }
+            ],
+            "rows": [
+              [
+                "Facing height f1",
+                "All types (facing type B, D, F and G)",
+                "≤ DN 32 (2 mm)",
+                "0 / −1,0"
+              ],
+              [
+                "Facing height f1",
+                "All types (facing type B, D, F and G)",
+                "> DN 32 to DN 250 (3 mm)",
+                "0 / −2,0"
+              ],
+              [
+                "Facing height f1",
+                "All types (facing type B, D, F and G)",
+                "> DN 250 to DN 500 (4 mm)",
+                "0 / −3,0"
+              ],
+              [
+                "Facing height f1",
+                "All types (facing type B, D, F and G)",
+                "> DN 500 (5 mm)",
+                "0 / −4,0"
+              ],
+              [
+                "Facing height f2",
+                "All types (facing type C, E and G)",
+                "All DN",
+                "+0,5 / 0"
+              ],
+              [
+                "Facing height f3",
+                "All types (facing type D and F)",
+                "All DN",
+                "+0,5 / 0"
+              ],
+              [
+                "Facing height f3",
+                "All types (facing type H)",
+                "All DN",
+                "+0,2 / 0"
+              ],
+              [
+                "Facing height f4",
+                "All types (facing type H)",
+                "All DN",
+                "+0,5 / 0"
+              ],
+              [
+                "Facing dimension W",
+                "All types",
+                "All DN",
+                "+0,5 / 0"
+              ],
+              [
+                "Facing dimension X",
+                "All types",
+                "All DN",
+                "0 / −0,5"
+              ],
+              [
+                "Facing dimension Y",
+                "All types",
+                "All DN",
+                "+0,5 / 0"
+              ],
+              [
+                "Facing dimension Z",
+                "All types",
+                "All DN",
+                "0 / −0,5"
+              ],
+              [
+                "Diameter of bolt circle K",
+                "All types",
+                "Bolt size M10 to M24",
+                "±1,0"
+              ],
+              [
+                "Diameter of bolt circle K",
+                "All types",
+                "Bolt size M27 to M45",
+                "±1,5"
+              ],
+              [
+                "Diameter of bolt circle K",
+                "All types",
+                "Bolt size > M45",
+                "±2,0"
+              ],
+              [
+                "Diameter of bolt holes L",
+                "All types",
+                "Bolt size M10 to M24",
+                "+1,0 / 0"
+              ],
+              [
+                "Diameter of bolt holes L",
+                "All types",
+                "Bolt size M27 to M45",
+                "+2,5 / 0"
+              ],
+              [
+                "Diameter of bolt holes L",
+                "All types",
+                "Bolt size > M45",
+                "+4,0 / 0"
+              ],
+              [
+                "Centre-to-centre of adjacent bolt holes",
+                "All types",
+                "Bolt size M10 to M24",
+                "±1,0"
+              ],
+              [
+                "Centre-to-centre of adjacent bolt holes",
+                "All types",
+                "Bolt size M27 to M45",
+                "±1,5"
+              ],
+              [
+                "Centre-to-centre of adjacent bolt holes",
+                "All types",
+                "Bolt size > M45",
+                "±2,0"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Eccentricity and parallelism (p. 82)",
+          "table": {
+            "caption": "Table 22 (p. 82) — eccentricity of facing diameters and parallelism of bearing surface",
+            "note": "Eccentricity is a maximum in mm; parallelism is an angle. Footnote d applies to both dimensions.",
+            "columns": [
+              {
+                "key": "dim",
+                "label": "Dimension",
+                "align": "left"
+              },
+              {
+                "key": "types",
+                "label": "Flange types",
+                "align": "left"
+              },
+              {
+                "key": "size",
+                "label": "Size",
+                "align": "left"
+              },
+              {
+                "key": "tol",
+                "label": "Tolerance",
+                "unit": "mm",
+                "align": "right"
+              }
+            ],
+            "rows": [
+              [
+                "Eccentricity of machined facing diameters d",
+                "All types",
+                "≤ DN 65",
+                "1,0"
+              ],
+              [
+                "Eccentricity of machined facing diameters d",
+                "All types",
+                "> DN 65",
+                "2,0"
+              ],
+              [
+                "Parallelism between bolting bearing surface and flange jointing faces",
+                "All types (machined bearing surface)",
+                "All DN",
+                "1°"
+              ],
+              [
+                "Parallelism between bolting bearing surface and flange jointing faces",
+                "All types (un-machined bearing surface)",
+                "All DN",
+                "2°"
+              ]
+            ],
+            "footnotes": [
+              {
+                "marker": "d",
+                "text": "Between bolt circle and facing, and also between bore diameter and facing."
+              }
+            ]
+          }
+        },
+        {
+          "heading": "Corner radii and hub radius after back facing (Table 23, p. 82)",
+          "table": {
+            "caption": "Table 23 (p. 82) — corner radii R1 and hub radius R2 after back facing",
+            "note": "R1 minimum and maximum apply to types 33 and 35 to 37; for types 11, 12, 13, 21 and 34 see the dimension tables (Tables 10 to 21).",
+            "columns": [
+              {
+                "key": "size",
+                "label": "Flange size",
+                "align": "left"
+              },
+              {
+                "key": "r1min",
+                "label": "R1 min.",
+                "unit": "mm",
+                "align": "right"
+              },
+              {
+                "key": "r1max",
+                "label": "R1 max.",
+                "unit": "mm",
+                "align": "right"
+              },
+              {
+                "key": "r2min",
+                "label": "R2 min.",
+                "unit": "mm",
+                "align": "right"
+              }
+            ],
+            "rows": [
+              [
+                "Up to and including DN 50",
+                "3",
+                "5",
+                "1,6"
+              ],
+              [
+                "Over DN 50 and up to and including DN 350",
+                "3",
+                "6",
+                "2,4"
+              ],
+              [
+                "Over DN 350",
+                "5",
+                "8",
+                "3,2"
+              ]
+            ]
+          }
+        }
+      ],
+      "faq": [
+        {
+          "q": "What tolerance applies to an EN 1092-1 flange outside diameter?",
+          "a": "It depends on the type. For type 21 the tolerance is ±4,0 mm up to DN 250, widening to ±10,0 mm above DN 1600 to DN 2000. For all other types it is ±2,0 mm up to DN 150, ±3,0 mm to DN 500, ±5,0 mm to DN 1200, ±7,0 mm to DN 1800 and ±10,0 mm above that."
+        },
+        {
+          "q": "What is the wall thickness tolerance for a type 11 flange?",
+          "a": "With the neck machined on both faces the tolerance is +1,0 / 0 mm up to DN 100, +1,5 / 0 mm over DN 100 to DN 400 and +2,0 / 0 mm above DN 400. If only one face is machined or the neck is unmachined, the corresponding values are +2,0 / 0, +2,5 / 0 and +3,5 / 0 mm."
+        },
+        {
+          "q": "Is the bore diameter tolerance plus or minus?",
+          "a": "It is plus-only: +0,5 / 0 mm up to DN 100, +1,0 / 0 mm over DN 100 to DN 400, +1,5 / 0 mm over DN 400 to DN 600 and +3,0 / 0 mm above DN 600, for types 01, 02, 04, 12 and 32."
+        },
+        {
+          "q": "What applies to dimensions not listed in Table 22?",
+          "a": "Clause 5.9 sends dimensions without a specified tolerance to EN 22768-1:1993. Table 22 tolerances are mandatory only for the dimensions it covers."
+        }
+      ],
+      "sources": [
+        "EN 1092-1:2018, §5.9 — Tolerances (p. 18)",
+        "EN 1092-1:2018, Table 22 — Tolerances (pp. 77–82)",
+        "EN 1092-1:2018, Table 23 — Corner radii R1 and hub radius R2 after back facing (p. 82)",
+        "EN 22768-1:1993, referred to by §5.9"
+      ],
+      "related": [
+        {
+          "label": "EN 1092-1 flange dimensions",
+          "href": "/standards/en-1092-1/"
+        },
+        {
+          "label": "EN 1092-1 flange types and facings",
+          "href": "/standards/en-1092-1/types/"
+        }
+      ]
+    },
+    "marking": {
+      "title": "EN 1092-1 flange marking (§5.10)",
+      "metaDescription": "What EN 1092-1 §5.10 requires on a flange: the marks a to i, the example designation, minimum marking for small parts and the stamping rules.",
+      "intro": [
+        "Clause 5.10 of EN 1092-1:2018 defines what has to appear on a steel flange, lapped end or collar. The full marking is a fixed sequence that identifies the manufacturer, the standard, the type, the size, the rating, the material and — where certification is required — the heat. Type 21 integral flanges are excluded from this general marking requirement.",
+        "The clause also covers the case where the part is too small to carry everything: a shortened minimum marking is then allowed. Marking must be visible and durable, and the standard treats the EN 1092-1 mark plus the manufacturer's name or trademark as the manufacturer's declaration of compliance."
+      ],
+      "keyFacts": [
+        {
+          "label": "Standard",
+          "value": "EN 1092-1:2018"
+        },
+        {
+          "label": "Clause",
+          "value": "§5.10 (p. 19)"
+        },
+        {
+          "label": "Required marks",
+          "value": "a to i"
+        },
+        {
+          "label": "Example",
+          "value": "XXX/EN 1092-1/11/DN 150/PN 40/P265GH/A2345"
+        },
+        {
+          "label": "Exempt type",
+          "value": "21 (integral flange)"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Marks required on flanges, lapped ends and collars",
+          "table": {
+            "caption": "§5.10.1 — general marking requirements (p. 19)",
+            "note": "The marks are applied in this order and separated by slashes. Type 21 flanges are excluded from the general marking requirement.",
+            "columns": [
+              {
+                "key": "item",
+                "label": "Item",
+                "align": "left"
+              },
+              {
+                "key": "mark",
+                "label": "What must be marked",
+                "align": "left"
+              },
+              {
+                "key": "example",
+                "label": "Example / note",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              [
+                "a",
+                "Flange/collar manufacturer's name or trade mark",
+                "XXX"
+              ],
+              [
+                "b",
+                "Number of the European Standard",
+                "EN 1092-1"
+              ],
+              [
+                "c",
+                "Flange/collar type number",
+                "11, 05, 34 …"
+              ],
+              [
+                "d",
+                "DN, nominal size",
+                "DN 150"
+              ],
+              [
+                "e",
+                "PN designation",
+                "PN 40; a lower PN may be marked where the dimensions are identical"
+              ],
+              [
+                "f",
+                "Wall thickness S, only if it is not according to this standard",
+                "S = 9 mm"
+              ],
+              [
+                "g",
+                "Name, number or grade of the material",
+                "P245GH, 1.0352 …"
+              ],
+              [
+                "h",
+                "Heat number of the melt and/or a suitable identification code for traceability, where test certification is required",
+                "A2345"
+              ],
+              [
+                "i",
+                "Additional marking (M) for flanges according to Annex I",
+                "34M"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Designation examples",
+          "paragraphs": [
+            "The standard gives one worked example of the full marking: XXX/EN 1092-1/11/DN 150/PN 40/P265GH/A2345. Reading it left to right: XXX is the manufacturer, EN 1092-1 is the standard, 11 is the weld-neck flange type, DN 150 is the nominal size, PN 40 the rating, P265GH the material and A2345 the heat or identification code.",
+            "The second example, XXX/EN 1092-1/34M/…, adds the letter M to the type number for a flange made to the fixed-inner-diameter rules of informative Annex I."
+          ]
+        },
+        {
+          "heading": "Minimum marking for small parts",
+          "paragraphs": [
+            "Where a part is too small to carry the full marking, §5.10.1 allows this shortened set:"
+          ],
+          "bullets": [
+            "Flange/collar manufacturer's name or trade mark.",
+            "The letters EN.",
+            "PN designation, for example PN 40.",
+            "Name, number or grade of the material.",
+            "Heat number of the melt and/or a suitable identification code for traceability."
+          ]
+        },
+        {
+          "heading": "Stamping and declaration of compliance",
+          "bullets": [
+            "Marking must be visible and durable.",
+            "Hard stamping is positioned on the outer rim of the part and must not be liable to start cracks in the flange material.",
+            "The marking EN 1092-1 together with the manufacturer's name or trademark, on or in relation to the product, is the manufacturer's declaration that the product meets the standard.",
+            "That declaration is a claim by or on behalf of the manufacturer, not a third-party certificate; a separate inspection certificate to EN 10204 can still be required by the purchaser (§5.13)."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "What must be marked on an EN 1092-1 flange?",
+          "a": "The manufacturer's name or trade mark, EN 1092-1, the type number, DN, PN, the wall thickness if it is non-standard, the material name/number/grade, the heat number or identification code where test certification is required, and any Annex I additional mark. The marks are separated by slashes in the order a to i."
+        },
+        {
+          "q": "What does XXX/EN 1092-1/11/DN 150/PN 40/P265GH/A2345 mean?",
+          "a": "XXX is the manufacturer, EN 1092-1 the standard, 11 a weld-neck flange, DN 150 the nominal size, PN 40 the nominal pressure, P265GH the material grade and A2345 the heat number or traceability code."
+        },
+        {
+          "q": "What is the minimum marking if the flange is too small?",
+          "a": "The manufacturer's name or trade mark, the letters EN, the PN designation, the material name/number/grade and the heat number or identification code. The type, DN and wall thickness may be omitted in that case."
+        },
+        {
+          "q": "Does the marking certify compliance?",
+          "a": "Yes, in the standard's terms: the EN 1092-1 mark together with the manufacturer's name or trademark on or in relation to the product represents the manufacturer's declaration of compliance with EN 1092-1. It is not a substitute for a material certificate or a third-party inspection certificate."
+        }
+      ],
+      "sources": [
+        "EN 1092-1:2018, §5.10.1 — General marking requirements (p. 19)",
+        "EN 1092-1:2018, §5.10.2 — Stamping (p. 19)",
+        "EN 1092-1:2018, §5.10.3 — Declaration of compliance (p. 19)",
+        "EN 1092-1:2018, §5.13 — Certificates (p. 24)"
+      ],
+      "related": [
+        {
+          "label": "EN 1092-1 flange types and facings",
+          "href": "/standards/en-1092-1/types/"
+        },
+        {
+          "label": "EN 1092-1 material groups",
+          "href": "/standards/en-1092-1/material-groups/"
+        }
+      ]
+    },
+    "types": {
+      "title": "EN 1092-1 flange types and facings",
+      "metaDescription": "EN 1092-1 flange and collar types 01 to 37, their descriptions, permitted manufacturing routes, facing types A to H and jointing-face surface finish.",
+      "intro": [
+        "EN 1092-1 identifies the shape of a flange or collar with a two-digit type number, from 01 to 37. Table 6 lists the 14 types covered: eight flanges (01, 02, 04, 05, 11, 12, 13 and 21) and six collars (32, 33, 34, 35, 36 and 37) that are used with the loose plate flanges type 02 and type 04. The numbers are not consecutive, which leaves room for future additions.",
+        "Which DN and PN combinations exist for each type is set out in the synoptic Table 7 (pp. 28–33); dimensions then come from Table 8 and Tables 10 to 21, with the calculation basis in Annexes E and F. Table 1 shows which manufacturing routes the standard permits for each type — forged, cast, machined from bar, from flat product, bent and electric welded, or pressed.",
+        "The second half of the topic covers facings. Figure 3 defines eight facing types (A to H), Table 8 carries their dimensions, and Table 2 specifies the jointing-face surface finish as Ra and Rz ranges matched to reference specimens. Unless the purchaser agrees otherwise, most flanges are supplied with a B1 raised face, while type 01 and blind flanges up to PN 40 and all collars (except types 33, 36 and 37) get a type A flat face."
+      ],
+      "keyFacts": [
+        {
+          "label": "Type numbers",
+          "value": "01 to 37 (14 types)"
+        },
+        {
+          "label": "Flange types",
+          "value": "01, 02, 04, 05, 11, 12, 13, 21"
+        },
+        {
+          "label": "Collar types",
+          "value": "32, 33, 34, 35, 36, 37"
+        },
+        {
+          "label": "Facing types",
+          "value": "A to H"
+        },
+        {
+          "label": "Default facing",
+          "value": "B1 raised face (type A for 01/05 ≤ PN 40)"
+        },
+        {
+          "label": "Dimensions",
+          "value": "Table 8, Tables 10–21"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Type numbers and descriptions (Table 6, p. 26)",
+          "table": {
+            "caption": "Table 6 (p. 26) — types of steel flanges and collars",
+            "note": "Type numbers are deliberately non-consecutive so that future types can be added. Types 32, 33, 35, 36 and 37 are collars used with type 02 loose plate flanges; type 34 is a collar used with type 04.",
+            "columns": [
+              {
+                "key": "type",
+                "label": "Type No.",
+                "align": "left"
+              },
+              {
+                "key": "desc",
+                "label": "Description",
+                "align": "left"
+              },
+              {
+                "key": "kind",
+                "label": "Kind",
+                "align": "left"
+              },
+              {
+                "key": "note",
+                "label": "Use / note",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              [
+                "01",
+                "Plate flange for welding",
+                "Flange",
+                "—"
+              ],
+              [
+                "02",
+                "Loose plate flange with weld-on plate collar or for lapped pipe end",
+                "Flange",
+                "Used with collars 32, 33, 35, 36 or 37"
+              ],
+              [
+                "04",
+                "Loose plate flange with weld-neck collar",
+                "Flange",
+                "Used with collar 34"
+              ],
+              [
+                "05",
+                "Blind flange",
+                "Flange",
+                "—"
+              ],
+              [
+                "11",
+                "Weld-neck flange",
+                "Flange",
+                "—"
+              ],
+              [
+                "12",
+                "Hubbed slip-on flange for welding",
+                "Flange",
+                "—"
+              ],
+              [
+                "13",
+                "Hubbed threaded flange",
+                "Flange",
+                "—"
+              ],
+              [
+                "21",
+                "Integral flange",
+                "Flange",
+                "Part of pressure equipment or a component (footnote a)"
+              ],
+              [
+                "32",
+                "Weld-on plate collar",
+                "Collar",
+                "For type 02 flanges (footnote b)"
+              ],
+              [
+                "33",
+                "Lapped pipe end",
+                "Collar",
+                "For type 02 flanges (footnote b)"
+              ],
+              [
+                "34",
+                "Weld-neck collar",
+                "Collar",
+                "For type 04 flanges (footnote b)"
+              ],
+              [
+                "35",
+                "Welding neck",
+                "Collar",
+                "For type 02 flanges (footnote b)"
+              ],
+              [
+                "36",
+                "Pressed collar with long neck",
+                "Collar",
+                "For type 02 flanges (footnote b)"
+              ],
+              [
+                "37",
+                "Pressed collar",
+                "Collar",
+                "For type 02 flanges (footnote b)"
+              ]
+            ],
+            "footnotes": [
+              {
+                "marker": "a",
+                "text": "An integral flange is part of the pressure equipment or component itself."
+              },
+              {
+                "marker": "b",
+                "text": "Collar types are used together with the loose plate flange stated."
+              }
+            ]
+          }
+        },
+        {
+          "heading": "Permitted methods of manufacture (Table 1, p. 14)",
+          "paragraphs": [
+            "Not every type may be made every way. Table 1 is the reference used when a purchase order specifies forging, casting, plate or welded construction."
+          ],
+          "table": {
+            "caption": "Table 1 (p. 14) — permitted methods of manufacture by flange and collar type",
+            "note": "yes / no as printed in the standard. The type 11 entry for bent and electric welded manufacture is limited to DN 700 and above.",
+            "columns": [
+              {
+                "key": "type",
+                "label": "Type No.",
+                "align": "left"
+              },
+              {
+                "key": "forged",
+                "label": "Forged a",
+                "align": "left"
+              },
+              {
+                "key": "cast",
+                "label": "Cast",
+                "align": "left"
+              },
+              {
+                "key": "flat",
+                "label": "Made from flat products (plates)",
+                "align": "left"
+              },
+              {
+                "key": "bar",
+                "label": "Machined from rolled or forged bars and forged sectional steel",
+                "align": "left"
+              },
+              {
+                "key": "bent",
+                "label": "Bent and electric welded form bars, sectional steel or strip",
+                "align": "left"
+              },
+              {
+                "key": "pressed",
+                "label": "Pressed from welded or seamless pipes or flat products",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              [
+                "01",
+                "yes",
+                "no",
+                "yes",
+                "yes",
+                "yes",
+                "no"
+              ],
+              [
+                "02",
+                "yes",
+                "no",
+                "yes",
+                "yes",
+                "yes",
+                "no"
+              ],
+              [
+                "04",
+                "yes",
+                "no",
+                "yes",
+                "yes",
+                "yes",
+                "no"
+              ],
+              [
+                "05",
+                "yes",
+                "no",
+                "yes",
+                "yes",
+                "no",
+                "no"
+              ],
+              [
+                "11",
+                "yes",
+                "no",
+                "no",
+                "yes",
+                "yes, for ≥ DN 700",
+                "no"
+              ],
+              [
+                "12",
+                "yes",
+                "no",
+                "no",
+                "yes",
+                "no",
+                "no"
+              ],
+              [
+                "13",
+                "yes",
+                "no",
+                "no",
+                "yes",
+                "no",
+                "no"
+              ],
+              [
+                "21",
+                "yes",
+                "yes",
+                "no",
+                "yes",
+                "no",
+                "no"
+              ],
+              [
+                "32",
+                "yes",
+                "no",
+                "yes",
+                "yes",
+                "yes",
+                "no"
+              ],
+              [
+                "33",
+                "yes",
+                "no",
+                "yes",
+                "no",
+                "yes",
+                "yes"
+              ],
+              [
+                "34",
+                "yes",
+                "yes",
+                "no",
+                "yes",
+                "yes",
+                "no"
+              ],
+              [
+                "35",
+                "yes",
+                "no",
+                "yes",
+                "yes",
+                "yes",
+                "no"
+              ],
+              [
+                "36",
+                "yes",
+                "no",
+                "no",
+                "no",
+                "yes",
+                "yes"
+              ],
+              [
+                "37",
+                "yes",
+                "no",
+                "yes",
+                "yes",
+                "yes",
+                "yes"
+              ]
+            ],
+            "footnotes": [
+              {
+                "marker": "a",
+                "text": "Seamless rolled, pressed or forged."
+              },
+              {
+                "marker": "b",
+                "text": "Only one radial weld is permitted below DN 1800; strip grain direction rules apply to types 11 and 34."
+              },
+              {
+                "marker": "c",
+                "text": "For welding, see §5.11."
+              },
+              {
+                "marker": "d",
+                "text": "Welded flanges are permitted only up to 370 °C under EN 13480-3:2002, D.4.4."
+              },
+              {
+                "marker": "e",
+                "text": "Cold forming can reduce elongation and impact energy unless the part is subsequently heat treated."
+              }
+            ]
+          }
+        },
+        {
+          "heading": "Facing types (Figure 3, p. 27)",
+          "table": {
+            "caption": "Figure 3 (p. 27) — flange facing types",
+            "note": "Facing dimensions are given in Figure 4 and Table 8. For facing types B, D, F and G the transition from the edge of the raised face to the flange face may be a radius or a chamfer, at the manufacturer's choice.",
+            "columns": [
+              {
+                "key": "f",
+                "label": "Facing",
+                "align": "left"
+              },
+              {
+                "key": "desc",
+                "label": "Description",
+                "align": "left"
+              },
+              {
+                "key": "note",
+                "label": "Note",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              [
+                "A",
+                "Flat face",
+                "—"
+              ],
+              [
+                "B",
+                "Raised face",
+                "Two variants, B1 and B2, with different specified surface roughness (see Table 2)"
+              ],
+              [
+                "C",
+                "Tongue",
+                "—"
+              ],
+              [
+                "D",
+                "Groove",
+                "—"
+              ],
+              [
+                "E",
+                "Spigot",
+                "—"
+              ],
+              [
+                "F",
+                "Recess",
+                "—"
+              ],
+              [
+                "G",
+                "O-ring spigot",
+                "—"
+              ],
+              [
+                "H",
+                "O-ring groove",
+                "—"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Jointing-face surface finish (Table 2, p. 17)",
+          "paragraphs": [
+            "Facing types A, B1, E and F are turned with a round-nosed tool of at least 1,0 mm radius and finish in the Ra 3,2–12,5 µm / Rz 12,5–50 µm band. Facing types B2, C, D, G and H take the finer Ra 0,8–3,2 µm / Rz 3,2–12,5 µm band; B2 is available only by agreement.",
+            "Unless otherwise agreed, type 01 and type 05 flanges up to PN 40, and collars other than types 33, 36 and 37, are supplied with type A flat facing; all other flanges are supplied with the standard B1 raised facing for every PN."
+          ],
+          "table": {
+            "caption": "Table 2 (p. 17) — surface finish for jointing faces",
+            "note": "Ra and Rz are in µm. The facing types are compared with reference specimens by visual or tactile means rather than by instrument measurement on the face itself.",
+            "columns": [
+              {
+                "key": "faces",
+                "label": "Facing types",
+                "align": "left"
+              },
+              {
+                "key": "mach",
+                "label": "Method of machining",
+                "align": "left"
+              },
+              {
+                "key": "radius",
+                "label": "Radius of round-nosed tool min.",
+                "unit": "mm",
+                "align": "right"
+              },
+              {
+                "key": "ra_min",
+                "label": "Ra min.",
+                "unit": "µm",
+                "align": "right"
+              },
+              {
+                "key": "ra_max",
+                "label": "Ra max.",
+                "unit": "µm",
+                "align": "right"
+              },
+              {
+                "key": "rz_min",
+                "label": "Rz min.",
+                "unit": "µm",
+                "align": "right"
+              },
+              {
+                "key": "rz_max",
+                "label": "Rz max.",
+                "unit": "µm",
+                "align": "right"
+              }
+            ],
+            "rows": [
+              [
+                "A, B1, E, F",
+                "Turning c",
+                "1,0",
+                "3,2",
+                "12,5",
+                "12,5",
+                "50"
+              ],
+              [
+                "B2, C, D, G, H",
+                "Turning c",
+                "—",
+                "0,8",
+                "3,2",
+                "3,2",
+                "12,5"
+              ]
+            ],
+            "footnotes": [
+              {
+                "marker": "a",
+                "text": "Ra and Rz are defined in EN ISO 4287."
+              },
+              {
+                "marker": "b",
+                "text": "B1 and B2 are both raised face (type B) but with different specified roughness: B1 is the standard facing for all PN numbers; B2 only if agreed between purchaser and manufacturer."
+              },
+              {
+                "marker": "c",
+                "text": "Turning includes any machining method producing serrated concentric or serrated spiral grooves."
+              }
+            ]
+          }
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is an EN 1092-1 type 11 flange?",
+          "a": "Type 11 is the weld-neck flange: a flange with a tapered hub and a butt-weld end for connection to pipe. It is the standard European choice for process and utility piping and is made in PN 2,5 to PN 400."
+        },
+        {
+          "q": "What are EN 1092-1 types 32 to 37?",
+          "a": "They are collars, not flanges. Types 32, 33, 35, 36 and 37 are used with type 02 loose plate flanges, and type 34 with type 04. The plate flange is bolted and the collar forms the hub or the lapped pipe end behind it."
+        },
+        {
+          "q": "Which facing is standard on an EN 1092-1 flange?",
+          "a": "B1 raised face is standard for most flanges at all PN numbers. Type 01 plate flanges and type 05 blind flanges up to PN 40, and collars other than types 33, 36 and 37, are supplied with a type A flat face unless the purchaser agrees otherwise."
+        },
+        {
+          "q": "What is the difference between B1 and B2 facing?",
+          "a": "Both are raised face (type B), but Table 2 gives them different roughness bands: B1 uses Ra 3,2–12,5 µm / Rz 12,5–50 µm and is the standard facing, while B2 uses the finer Ra 0,8–3,2 µm / Rz 3,2–12,5 µm and is supplied only if agreed between purchaser and manufacturer."
+        }
+      ],
+      "sources": [
+        "EN 1092-1:2018, Table 1 — Methods of manufacture (p. 14)",
+        "EN 1092-1:2018, §5.6 — Dimensions (pp. 15–16)",
+        "EN 1092-1:2018, Table 6 — Types of steel flanges and collars (p. 26)",
+        "EN 1092-1:2018, §5.7 — Facings (pp. 16–17)",
+        "EN 1092-1:2018, Figure 3 — Flange facing types (p. 27)",
+        "EN 1092-1:2018, Table 2 — Surface finish for jointing faces (p. 17)",
+        "EN 1092-1:2018, Table 7 — Synoptic table (pp. 28–33)"
+      ],
+      "related": [
+        {
+          "label": "EN 1092-1 flange dimensions",
+          "href": "/standards/en-1092-1/"
+        },
+        {
+          "label": "EN 1092-1 tolerances",
+          "href": "/standards/en-1092-1/tolerances/"
+        },
+        {
+          "label": "EN 1092-1 marking",
+          "href": "/standards/en-1092-1/marking/"
+        }
+      ]
+    }
+  }
+}

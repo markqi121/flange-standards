@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ax-forge.com/schemas/flange-standards-meta.schema.json",
+  "title": "Flange standards metadata",
+  "description": "Metadata exported from the Website for the five dimension datasets and the four reference documents.",
+  "type": "object",
+  "required": ["generatedFrom", "standards", "referenceStandards", "topicLabels"],
+  "properties": {
+    "generatedFrom": { "type": "string" },
+    "standards": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "slug",
+          "name",
+          "short",
+          "edition",
+          "typeNames",
+          "reference"
+        ],
+        "properties": {
+          "id": {
+            "enum": [
+              "asme-b16-5",
+              "asme-b16-47-a",
+              "asme-b16-47-b",
+              "jis-b2220",
+              "en-1092-1"
+            ]
+          },
+          "slug": { "type": "string" },
+          "name": { "type": "string" },
+          "short": { "type": "string" },
+          "edition": { "type": "string" },
+          "dimensionEdition": { "type": "string" },
+          "referenceDocumentId": {
+            "enum": ["asme-b16-5", "asme-b16-47", "jis-b2220", "en-1092-1"],
+            "description": "Reference document this dimension dataset belongs to; ASME B16.47 Series A/B share asme-b16-47."
+          },
+          "editionNote": { "type": "string" },
+          "region": { "type": "string" },
+          "ratingName": { "type": "string" },
+          "sizeSyntax": { "type": "string" },
+          "typeNames": {
+            "type": "object",
+            "required": ["weld-neck", "slip-on", "blind"],
+            "additionalProperties": { "type": "string" }
+          },
+          "typeNotes": {
+            "type": "object",
+            "additionalProperties": { "type": "string" }
+          },
+          "baseMaterial": { "type": "string" },
+          "materialOptions": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "ratingNote": { "type": "string" },
+          "intro": { "type": "array", "items": { "type": "string" } },
+          "faceNote": { "type": "string" },
+          "reference": {
+            "type": "object",
+            "required": ["id", "slug", "name", "short", "edition"]
+          }
+        }
+      }
+    },
+    "referenceStandards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "slug", "name", "short", "edition"]
+      }
+    },
+    "extraReferenceStandards": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "topicLabels": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    }
+  }
+}

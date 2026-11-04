@@ -1,0 +1,347 @@
+{
+  "name": "flange-standards-data",
+  "version": "2026-11-04",
+  "generatedAt": "2026-11-04T09:37:49+00:00",
+  "generatedFrom": "Website src/data/standards/index.ts and reference/index.ts",
+  "editions": {
+    "asme-b16-47": {
+      "edition": "ASME B16.47-2025",
+      "verifiedOn": "2026-11-04",
+      "sourceDocument": "ASME B16.47-2025 (PDF supplied for this project)"
+    },
+    "asme-b16-5": {
+      "edition": "ASME B16.5-2025",
+      "verifiedOn": "2026-11-04",
+      "sourceDocument": "ASME B16.5-2025, Pipe Flanges and Flanged Fittings, NPS ½ Through NPS 24, Metric/Inch Standard (full 274-page PDF edition supplied for this project)"
+    },
+    "en-1092-1": {
+      "edition": "EN 1092-1:2018",
+      "verifiedOn": "2026-11-04",
+      "sourceDocument": "EN 1092-1:2018 (PDF supplied for this project)"
+    },
+    "jis-b2220": {
+      "edition": "JIS B2220:2012",
+      "verifiedOn": "2026-11-04",
+      "sourceDocument": "JIS B2220:2012 (PDF supplied for this project)"
+    }
+  },
+  "counts": {
+    "standards": 5,
+    "referenceDocuments": 4,
+    "dimensionRows": 1348,
+    "dimensionRowsByStandard": {
+      "asme-b16-47-a": {
+        "rows": 168,
+        "types": [
+          "blind",
+          "weld-neck"
+        ],
+        "ratings": [
+          "150",
+          "300",
+          "400",
+          "600",
+          "900"
+        ],
+        "sizes": 18
+      },
+      "asme-b16-47-b": {
+        "rows": 168,
+        "types": [
+          "blind",
+          "weld-neck"
+        ],
+        "ratings": [
+          "150",
+          "300",
+          "400",
+          "600",
+          "900"
+        ],
+        "sizes": 18
+      },
+      "asme-b16-5": {
+        "rows": 382,
+        "types": [
+          "weld-neck",
+          "slip-on",
+          "blind"
+        ],
+        "ratings": [
+          "150",
+          "300",
+          "400",
+          "600",
+          "900",
+          "1500",
+          "2500"
+        ],
+        "sizes": 21
+      },
+      "en-1092-1": {
+        "rows": 300,
+        "types": [
+          "weld-neck",
+          "slip-on",
+          "blind"
+        ],
+        "ratings": [
+          "pn6",
+          "pn10",
+          "pn16",
+          "pn25",
+          "pn40"
+        ],
+        "sizes": 20
+      },
+      "jis-b2220": {
+        "rows": 330,
+        "types": [
+          "weld-neck",
+          "slip-on",
+          "blind"
+        ],
+        "ratings": [
+          "5k",
+          "10k",
+          "16k",
+          "20k",
+          "30k"
+        ],
+        "sizes": 24
+      }
+    },
+    "distinctTypes": [
+      "blind",
+      "slip-on",
+      "weld-neck"
+    ],
+    "distinctRatings": [
+      "10k",
+      "150",
+      "1500",
+      "16k",
+      "20k",
+      "2500",
+      "300",
+      "30k",
+      "400",
+      "5k",
+      "600",
+      "900",
+      "pn10",
+      "pn16",
+      "pn25",
+      "pn40",
+      "pn6"
+    ],
+    "referenceTopics": 20,
+    "referenceTopicsByStandard": {
+      "asme-b16-47": [
+        "pressure-ratings",
+        "material-groups",
+        "tolerances",
+        "marking",
+        "changes"
+      ],
+      "asme-b16-5": [
+        "pressure-ratings",
+        "material-groups",
+        "tolerances",
+        "marking",
+        "changes"
+      ],
+      "en-1092-1": [
+        "pressure-ratings",
+        "material-groups",
+        "tolerances",
+        "marking",
+        "types"
+      ],
+      "jis-b2220": [
+        "pressure-ratings",
+        "material-groups",
+        "tolerances",
+        "marking",
+        "types"
+      ]
+    },
+    "referenceTables": 60,
+    "referenceTableRows": 1091,
+    "referenceCells": 7345,
+    "referenceFootnotes": 106,
+    "referenceFaq": 82
+  },
+  "files": [
+    {
+      "path": "data/dimensions/asme-b16-47-a.json",
+      "bytes": 58808,
+      "sha256": "6f626163532abfb92a6727b5523e977c216bed0e6cff21ed0821e31f141c88b0"
+    },
+    {
+      "path": "data/dimensions/asme-b16-47-b.json",
+      "bytes": 58806,
+      "sha256": "426bcf612908fe78b3395214ad8db84810678d4a9f10dd6e9f5733ba42c78626"
+    },
+    {
+      "path": "data/dimensions/asme-b16-5.json",
+      "bytes": 129204,
+      "sha256": "3aa1f496529bda2ab17e9b1a5ccd28a78b163416f08f0af4923fe1537d0d85e1"
+    },
+    {
+      "path": "data/dimensions/en-1092-1.json",
+      "bytes": 96779,
+      "sha256": "c810fc34172787bc2d06b76f4ef995f9af44668b91adc27a808e34a200b963da"
+    },
+    {
+      "path": "data/dimensions/jis-b2220.json",
+      "bytes": 109308,
+      "sha256": "52f5e3e479882c49ad9a1a01b9ed4562a5b3b0abc1aa6a7e236bb345d9e2860b"
+    },
+    {
+      "path": "data/reference/asme-b16-47.json",
+      "bytes": 52511,
+      "sha256": "0d9195c0ffb29323acddedd079b744a4bf6b49efe2e1acaaf3f6f826d66b664f"
+    },
+    {
+      "path": "data/reference/asme-b16-5.json",
+      "bytes": 234303,
+      "sha256": "4cbb34933c2e06ea2dabd11201ee077fb92f02b99983e160a739e96fc49206a8"
+    },
+    {
+      "path": "data/reference/en-1092-1.json",
+      "bytes": 111211,
+      "sha256": "f637a63c52a48cbc0b86f57ba8969b32409fdac14d181b1117491c9a832192ca"
+    },
+    {
+      "path": "data/reference/jis-b2220.json",
+      "bytes": 83406,
+      "sha256": "edc19295d3574f0c65b6acf03f2a4c87b6ec308d246406201434f4f74fb4751b"
+    },
+    {
+      "path": "data/standards.json",
+      "bytes": 16332,
+      "sha256": "755526e5e358996daa98f77c4026e3b3a64171b8985fef95b6d9d4afdc50bedf"
+    },
+    {
+      "path": "csv/dimension-summary.csv",
+      "bytes": 626,
+      "sha256": "11f0913fa992a24b6f629879aa9b2d75db216699151e441c6321c2429ed260ae"
+    },
+    {
+      "path": "csv/dimensions.csv",
+      "bytes": 185493,
+      "sha256": "c1f43c8c70902be83e657a9f9a9615f7d5e84237c485b1ca2e2bead073617c61"
+    },
+    {
+      "path": "csv/reference/asme-b16-47--changes.csv",
+      "bytes": 4920,
+      "sha256": "c14be474094418e4454c2f5de848a9883a30e0ca35ca3af2cc46caf89f87c876"
+    },
+    {
+      "path": "csv/reference/asme-b16-47--marking.csv",
+      "bytes": 2008,
+      "sha256": "a4c90d6007b6575e528e15d6ee8868a4329dafb55cd20341530ad77545c7c87d"
+    },
+    {
+      "path": "csv/reference/asme-b16-47--material-groups.csv",
+      "bytes": 4253,
+      "sha256": "eedb8419ec06afb216dcd164bffd5ba6e13cac82ef2b88b2a3c6c4cbc33add17"
+    },
+    {
+      "path": "csv/reference/asme-b16-47--pressure-ratings.csv",
+      "bytes": 3178,
+      "sha256": "e5c2ea2753b63ee0b68cd3b428604256b967eae85564b9c37be2daa86bf7fc43"
+    },
+    {
+      "path": "csv/reference/asme-b16-47--tolerances.csv",
+      "bytes": 2095,
+      "sha256": "ea249f68a9a6e76ec1dc3cba25cc30b19544c40a613837395f78e76d4188201e"
+    },
+    {
+      "path": "csv/reference/asme-b16-5--changes.csv",
+      "bytes": 8452,
+      "sha256": "f9fec91c0e2b44c9fba9ed01b631efe9a64bea9ca6c0b98b952d841bf864df40"
+    },
+    {
+      "path": "csv/reference/asme-b16-5--marking.csv",
+      "bytes": 2620,
+      "sha256": "ca4881acd66e9e65742c9330eac7974aadddcb9b5fe0116ff91e0b39663d0dc5"
+    },
+    {
+      "path": "csv/reference/asme-b16-5--material-groups.csv",
+      "bytes": 11912,
+      "sha256": "661f2b67d7e1ae20db9131656ffd64fefbf7c4485f2b1fabaee15a4938c15718"
+    },
+    {
+      "path": "csv/reference/asme-b16-5--pressure-ratings.csv",
+      "bytes": 24940,
+      "sha256": "f390e9033b0a95f99e506c01c4fb9ac430f48a2fe95affbcb0d4f8303eebb70d"
+    },
+    {
+      "path": "csv/reference/asme-b16-5--tolerances.csv",
+      "bytes": 4853,
+      "sha256": "844622b11dab9749830cbe9a405390834d91088e513c2924e80c25c219d98063"
+    },
+    {
+      "path": "csv/reference/en-1092-1--marking.csv",
+      "bytes": 1201,
+      "sha256": "1f957b8bfeafb33847e7d545fe2c42c245f221cab2da8168b1d119e547ca2530"
+    },
+    {
+      "path": "csv/reference/en-1092-1--material-groups.csv",
+      "bytes": 6631,
+      "sha256": "d465e88214bdc7b785c59c062216c1e79c6bd87d32b30a612ce2edb7c0cf75f7"
+    },
+    {
+      "path": "csv/reference/en-1092-1--pressure-ratings.csv",
+      "bytes": 7177,
+      "sha256": "dffabb4693766d00f926a5ad30d3a52af31997a7b4fdd5928ddc19dd5faf48e7"
+    },
+    {
+      "path": "csv/reference/en-1092-1--tolerances.csv",
+      "bytes": 10406,
+      "sha256": "8dba9abda5664bf79e9a27a7aa9d503cdda98b81449fe78278dc32828fe35573"
+    },
+    {
+      "path": "csv/reference/en-1092-1--types.csv",
+      "bytes": 3449,
+      "sha256": "00802209e3c173243128452c0e816d778f3e2fb18283b0e9cc176d7dcbe4df5d"
+    },
+    {
+      "path": "csv/reference/jis-b2220--marking.csv",
+      "bytes": 2224,
+      "sha256": "eb1c07f75376a6380bf88124fdc1d0283703bdc6b4420904b9c55ee051401f23"
+    },
+    {
+      "path": "csv/reference/jis-b2220--material-groups.csv",
+      "bytes": 2570,
+      "sha256": "79e334e0344217e6b86b7f7342ee6fb00e1aa0b15352f8363bfb446c937b14d1"
+    },
+    {
+      "path": "csv/reference/jis-b2220--pressure-ratings.csv",
+      "bytes": 5581,
+      "sha256": "ecc6f37ef0ac8f6c5e8ddbf5a59203ec4fa713bdfdbbb82dd542b9989ae29860"
+    },
+    {
+      "path": "csv/reference/jis-b2220--tolerances.csv",
+      "bytes": 4399,
+      "sha256": "6f4851eb041deb235437fd8cc1948fa545553a3568da4f51fa0940f772687087"
+    },
+    {
+      "path": "csv/reference/jis-b2220--types.csv",
+      "bytes": 2179,
+      "sha256": "966ba3d541a4c436b6d3f361df5ca67f4ee0509fa4d4972911ab226941e172c6"
+    },
+    {
+      "path": "csv/reference-index.csv",
+      "bytes": 71660,
+      "sha256": "7053ad866162e1890e6aac6cb6058d505e4bbbc5503ff59fc95d55cc79fe07b9"
+    },
+    {
+      "path": "sqlite/flange-standards.sqlite",
+      "bytes": 1404928,
+      "sha256": "ee95002721950b9f486e886e0dbc64736e3a39c759ad52772d9df0a2bdb0e748"
+    }
+  ]
+}

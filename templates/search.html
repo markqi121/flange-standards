@@ -34,6 +34,38 @@
     {% endif %}
 
     {% if total %}
+      {% if facet_standards|length > 1 or facet_types|length > 1 or facet_ratings|length > 1 %}
+        <div class="result-filters">
+          {% if facet_standards|length > 1 %}
+            <div class="filter-row">
+              <span class="filter-label">标准</span>
+              <a class="filter-chip {% if not std_filter %}is-active{% endif %}" href="?q={{ query|urlencode }}{% if type_filter %}&amp;type={{ type_filter }}{% endif %}{% if rating_filter %}&amp;rating={{ rating_filter }}{% endif %}">全部</a>
+              {% for f in facet_standards %}
+                <a class="filter-chip {% if f.standard_id == std_filter %}is-active{% endif %}" href="?q={{ query|urlencode }}&amp;std={{ f.standard_id }}{% if type_filter %}&amp;type={{ type_filter }}{% endif %}{% if rating_filter %}&amp;rating={{ rating_filter }}{% endif %}">{{ f.standard__short }}<span>{{ f.count }}</span></a>
+              {% endfor %}
+            </div>
+          {% endif %}
+          {% if facet_types|length > 1 %}
+            <div class="filter-row">
+              <span class="filter-label">类型</span>
+              <a class="filter-chip {% if not type_filter %}is-active{% endif %}" href="?q={{ query|urlencode }}{% if std_filter %}&amp;std={{ std_filter }}{% endif %}{% if rating_filter %}&amp;rating={{ rating_filter }}{% endif %}">全部</a>
+              {% for f in facet_types %}
+                <a class="filter-chip {% if f.code == type_filter %}is-active{% endif %}" href="?q={{ query|urlencode }}&amp;type={{ f.code }}{% if std_filter %}&amp;std={{ std_filter }}{% endif %}{% if rating_filter %}&amp;rating={{ rating_filter }}{% endif %}">{{ f.label }}<span>{{ f.count }}</span></a>
+              {% endfor %}
+            </div>
+          {% endif %}
+          {% if facet_ratings|length > 1 %}
+            <div class="filter-row">
+              <span class="filter-label">等级</span>
+              <a class="filter-chip {% if not rating_filter %}is-active{% endif %}" href="?q={{ query|urlencode }}{% if std_filter %}&amp;std={{ std_filter }}{% endif %}{% if type_filter %}&amp;type={{ type_filter }}{% endif %}">全部</a>
+              {% for f in facet_ratings %}
+                <a class="filter-chip {% if f.rating__code == rating_filter %}is-active{% endif %}" href="?q={{ query|urlencode }}&amp;rating={{ f.rating__code }}{% if std_filter %}&amp;std={{ std_filter }}{% endif %}{% if type_filter %}&amp;type={{ type_filter }}{% endif %}">{{ f.rating__label }}<span>{{ f.count }}</span></a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
       <div class="data-table-wrap">
         <table class="data-table">
           <thead>
@@ -72,13 +104,13 @@
       {% if page_obj.has_other_pages %}
         <nav class="pagination" aria-label="分页">
           {% if page_obj.has_previous %}
-            <a href="?q={{ query|urlencode }}&amp;page={{ page_obj.previous_page_number }}">上一页</a>
+            <a href="?q={{ query|urlencode }}{% if std_filter %}&amp;std={{ std_filter }}{% endif %}{% if type_filter %}&amp;type={{ type_filter }}{% endif %}{% if rating_filter %}&amp;rating={{ rating_filter }}{% endif %}&amp;page={{ page_obj.previous_page_number }}">上一页</a>
           {% else %}
             <span class="is-disabled">上一页</span>
           {% endif %}
           <span class="page-info">第 {{ page_obj.number }} / {{ page_obj.paginator.num_pages }} 页</span>
           {% if page_obj.has_next %}
-            <a href="?q={{ query|urlencode }}&amp;page={{ page_obj.next_page_number }}">下一页</a>
+            <a href="?q={{ query|urlencode }}{% if std_filter %}&amp;std={{ std_filter }}{% endif %}{% if type_filter %}&amp;type={{ type_filter }}{% endif %}{% if rating_filter %}&amp;rating={{ rating_filter }}{% endif %}&amp;page={{ page_obj.next_page_number }}">下一页</a>
           {% else %}
             <span class="is-disabled">下一页</span>
           {% endif %}

@@ -1,0 +1,47 @@
+{% extends "quote/base.html" %}
+{% load static %}
+
+{% block quote_title %}无权限{% endblock %}
+{% block quote_crumb %}无权限{% endblock %}
+
+{% block quote_content %}
+<section class="page-head quote-head">
+  <div class="wrap page-head-main">
+    <div>
+      <p class="eyebrow">403 · FORBIDDEN</p>
+      <h1>无权限</h1>
+      <p class="page-sub">{{ message }}</p>
+      <div class="badge-stack">
+        <span class="tag tag-warn">角色：{{ role_label }}</span>
+        <span class="tag">数据范围：{{ scope_label }}</span>
+      </div>
+    </div>
+    <div class="page-head-side quote-head-actions">
+      <a class="btn btn-ghost" href="{% url 'quote:index' %}">返回工作台</a>
+      <a class="btn btn-ghost" href="{% url 'quote:list' %}">报价单列表</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap quote-wrap">
+  {% if quote %}
+    <div class="notice-bar notice-bar-bad">
+      <strong>无法访问 {{ quote.number }}</strong>
+      <span>{{ message }}</span>
+    </div>
+  {% endif %}
+  <div class="detail-grid">
+    <section class="cost-card detail-card">
+      <h4>需要访问权限？</h4>
+      <p class="small muted">报价系统按角色控制：销售仅看本人报价；技术 / 财务 / 经理 / 管理员可看全部；成本明细仅技术 / 财务 / 经理 / 管理员可见。</p>
+      <p class="small muted">如角色不正确，请联系管理员在 Django Admin 中调整 Groups。</p>
+      <p class="small muted">管理员可执行 <code>python manage.py seed_roles</code> 初始化 5 个角色组。</p>
+    </section>
+    <section class="cost-card detail-card">
+      <h4>你可以做什么</h4>
+      <p class="small muted">返回工作台重新选择规格；或返回列表查看当前账号可见的报价单。</p>
+      <p><a class="btn btn-primary" href="{% url 'quote:index' %}">去工作台</a></p>
+    </section>
+  </div>
+</div>
+{% endblock %}

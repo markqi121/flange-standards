@@ -1,0 +1,2 @@
+﻿code,label,unit,rate,tiers,effective_from
+machining,加工费,per_piece,200,"{""50"": 12, ""100"": 18, ""200"": 28, ""350"": 45, ""600"": 75, ""1000"": 120}",2026-01-01

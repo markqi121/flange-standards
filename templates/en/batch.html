@@ -1,0 +1,28 @@
+{% extends "en/base.html" %}
+{% load catalog_extras %}
+
+{% block title %}Batch print flange spec sheets | AX Forge{% endblock %}
+{% block description %}Select standard, type, rating and size range to generate a multi-page A4 PDF of flange specification sheets.{% endblock %}
+
+{% block content %}
+<section class="page-head"><div class="wrap"><p class="eyebrow">BATCH PRINT</p><h1>Batch print specification sheets</h1><p class="page-sub">Filter by standard, type, pressure class and size. One A4 page per specification, combined into one PDF.</p></div></section>
+<section class="section section-tight"><div class="wrap">
+  <form class="batch-form" method="get" action="{% url 'catalog:batch' %}">
+    <div class="field"><label for="batch-std">Standard</label><select id="batch-std" name="std"><option value="">All standards</option>{% for std in standards %}<option value="{{ std.id }}" {% if filters.std == std.id %}selected{% endif %}>{{ std.short }}</option>{% endfor %}</select></div>
+    <div class="field"><label for="batch-type">Flange type</label><select id="batch-type" name="type"><option value="">All types</option>{% for slug, info in types.items %}<option value="{{ slug }}" {% if filters.type == slug %}selected{% endif %}>{{ info.name_en }}</option>{% endfor %}</select></div>
+    <div class="field"><label for="batch-rating">Pressure class</label><select id="batch-rating" name="rating"><option value="">All ratings</option>{% for rating in ratings %}<option value="{{ rating.code }}" data-std="{{ rating.standard_id }}" {% if filters.rating == rating.code %}selected{% endif %}>{{ rating.standard.short }} · {{ rating.label }}</option>{% endfor %}</select></div>
+    <div class="field"><label for="batch-dn-min">Size DN from</label><input id="batch-dn-min" type="number" name="dn_min" min="1" max="2000" value="{{ filters.dn_min }}" placeholder="e.g. 50"></div>
+    <div class="field"><label for="batch-dn-max">to</label><input id="batch-dn-max" type="number" name="dn_max" min="1" max="2000" value="{{ filters.dn_max }}" placeholder="e.g. 300"></div>
+    <div class="batch-actions"><button class="btn btn-ghost" type="submit">Preview</button><button class="btn btn-primary" type="submit" formaction="{% url 'catalog:batch_pdf' %}">Download combined PDF</button></div>
+  </form>
+  <script>
+    (function () {
+      var std = document.getElementById('batch-std'); var rating = document.getElementById('batch-rating'); if (!std || !rating) return;
+      function filterRatings() { Array.prototype.forEach.call(rating.options, function (o) { if (!o.value) return; o.hidden = !!std.value && o.getAttribute('data-std') !== std.value; o.disabled = o.hidden; }); if (rating.selectedOptions[0] && rating.selectedOptions[0].hidden) { var first = Array.prototype.find.call(rating.options, function (o) { return o.value && !o.hidden; }); rating.value = first ? first.value : ''; } }
+      std.addEventListener('change', filterRatings); filterRatings();
+    })();
+  </script>
+  <p class="hint">Up to {{ max_rows }} sheets per PDF; {{ total }} specifications match{% if total > max_rows %}, the PDF will contain the first {{ max_rows }}{% endif %}. First generation usually takes 10–30 seconds.</p>
+  {% if rows %}<div class="data-table-wrap" style="margin-top:18px"><table class="data-table"><thead><tr><th>Standard</th><th>Type</th><th>Size</th><th>Rating</th><th class="ta-right">Outside Ø D</th><th class="ta-right">Thickness C</th></tr></thead><tbody>{% for row in rows %}<tr><td><span class="std-tag">{{ row.standard.short }}</span></td><td>{{ row.flange_type.name_en }}</td><td class="strong">{{ row.size_label }}<span class="sub">DN{{ row.dn }}</span></td><td><span class="rating">{{ row.rating.label }}</span></td><td class="num">{{ row.od|dim }}</td><td class="num">{{ row.th|dim }}</td></tr>{% endfor %}</tbody></table></div><p class="hint">Showing the first 10 of {{ total }} matching specifications.</p>{% else %}<p class="empty">No specifications match this filter.</p>{% endif %}
+</div></section>
+{% endblock %}

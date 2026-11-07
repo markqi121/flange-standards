@@ -1,0 +1,62 @@
+{% load catalog_extras %}
+  <div class="sheet">
+    <header class="sheet-header">
+      <div class="sheet-brand">
+        <svg class="sheet-logo" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
+          <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="16" cy="16" r="8" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          <circle cx="16" cy="16" r="2.6" fill="currentColor"/>
+          <g fill="currentColor"><circle cx="16" cy="5.6" r="1.7"/><circle cx="16" cy="26.4" r="1.7"/><circle cx="5.6" cy="16" r="1.7"/><circle cx="26.4" cy="16" r="1.7"/><circle cx="8.6" cy="8.6" r="1.7"/><circle cx="23.4" cy="23.4" r="1.7"/><circle cx="8.6" cy="23.4" r="1.7"/><circle cx="23.4" cy="8.6" r="1.7"/></g>
+        </svg>
+        <div class="sheet-brand-text"><strong>FLANGE STANDARD LIBRARY</strong><span>AX FORGE · SPEC SHEET</span></div>
+      </div>
+      <div class="sheet-doc"><span>SPEC SHEET</span><strong>No. {{ row.pk }}</strong></div>
+    </header>
+
+    <div class="sheet-title">
+      <div class="sheet-std">{{ standard.name }} · {{ standard.effective_edition }}</div>
+      <h1>{{ row.title_en }}</h1>
+      <div class="sheet-sub"><span>DN{{ row.dn }}</span><span>{{ row.flange_type.name_en }}</span><span>Dimensions mm</span><span>Weight kg</span></div>
+    </div>
+
+    <div class="sheet-main">
+      <div class="sheet-drawing">{% if svg %}{{ svg|safe }}{% else %}<div class="drawing-missing">Drawing unavailable</div>{% endif %}<p class="sheet-caption">Schematic — drawn from the table, not to scale for inspection.</p></div>
+      {% dimension_fields row 'en' as fields %}
+      <table class="sheet-dim">
+        <thead><tr><th>Symbol</th><th>Item</th><th class="ta-right">Value</th></tr></thead>
+        <tbody>{% for field in fields %}<tr><td class="sym">{{ field.symbol|default:"—" }}</td><td>{{ field.name }}</td><td class="value">{{ field.value }}<span class="unit">{{ field.unit }}</span></td></tr>{% endfor %}</tbody>
+      </table>
+    </div>
+
+    <div class="sheet-lower">
+      <section class="sheet-block sheet-pt">
+        <h2>Pressure–temperature ratings · {{ row.rating.label }} · {{ series.group_label }}</h2>
+        {% if series.available %}
+          <div class="pt-grid">{% for temp, value in series.rows %}<span class="pt-cell"><b>{{ temp }} °C</b><em>{{ value }} {{ series.unit }}</em></span>{% endfor %}</div>
+          <p class="sheet-source">Source: {{ series.caption }}; {{ series.group_label }}.</p>
+        {% else %}
+          <p class="sheet-text">Pressure–temperature ratings: see {{ standard.effective_edition }}.</p>
+          <p class="sheet-source">{{ standard.rating_note_en|truncatechars:230 }}</p>
+        {% endif %}
+      </section>
+      <section class="sheet-block sheet-notes">
+        <h2>Material and notes</h2>
+        <p class="sheet-text"><strong>Base material:</strong> {{ standard.base_material|default:"—" }} ({{ standard.region_en }})</p>
+        <p class="sheet-text"><strong>Rating:</strong> {{ standard.rating_note_en|truncatechars:250 }}</p>
+        <p class="sheet-text"><strong>Tolerances / marking:</strong> {{ notes }}</p>
+      </section>
+    </div>
+
+    <div class="sheet-blanknotes"><h2>Notes / special requirements</h2><div class="blank-lines"><i></i><i></i><i></i><i></i></div></div>
+
+    <div class="sheet-signoff"><span class="signoff-item">Work order <i></i></span><span class="signoff-item">Inspector <i></i></span><span class="signoff-item">Date <i></i></span><span class="signoff-note">Travels with the part; file after inspection</span></div>
+
+    <footer class="sheet-footer">
+      <div class="sheet-foot-main">
+        <p><strong>Source:</strong> {{ standard.edition }}; dimensions transcribed from {{ standard.effective_edition }}, verified {{ reference_doc.verified_on|date:"Y-m-d"|default:"—" }}. Sheet #{{ row.pk }}.</p>
+        <p class="sheet-disclaimer">{{ disclaimer }}</p>
+      </div>
+      <div class="sheet-foot-qr">{{ qr_svg|safe }}<span>Scan to open</span></div>
+      <div class="sheet-foot-side"><p>Printed {{ generated_at|date:"Y-m-d H:i" }}</p><p class="sheet-url">{{ print_absolute_url }}</p><p>Page 1 / 1</p></div>
+    </footer>
+  </div>

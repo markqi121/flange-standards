@@ -1,0 +1,11 @@
+std,type,dn,rating,c_includes_f,export
+asme-b16-5,weld-neck,100,150,0,1
+asme-b16-5,weld-neck,100,300,0,0
+asme-b16-5,weld-neck,200,150,0,0
+asme-b16-5,slip-on,100,150,0,0
+asme-b16-5,blind,100,150,0,0
+asme-b16-47-a,weld-neck,650,150,0,0
+en-1092-1,weld-neck,100,pn16,0,0
+en-1092-1,slip-on,100,pn16,0,0
+jis-b2220,weld-neck,100,10k,0,0
+jis-b2220,blind,100,10k,0,0

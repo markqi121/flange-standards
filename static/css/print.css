@@ -35,6 +35,17 @@ body.print-body {
 }
 
 /* ---------- 屏幕预览工具条 ---------- */
+.toolbar-group {
+  display: flex; align-items: center; gap: 6px; flex: none;
+}
+.toolbar-group label { font-size: 11.5px; color: #9fb2c5; white-space: nowrap; }
+.toolbar-group select {
+  font-family: var(--font); font-size: 12px; padding: 6px 8px;
+  border-radius: 6px; border: 1px solid rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.08); color: #fff;
+}
+.toolbar-group select option { color: #0b1b2b; background: #fff; }
+
 .print-hint {
   max-width: 210mm; margin: 0 auto; padding: 8px 12mm 10px;
   color: #ffd4c2; font-size: 12px; line-height: 1.6;
@@ -181,15 +192,46 @@ body.print-body {
 .sheet-foot-main { flex: 1; }
 .sheet-foot-main p { margin: 0 0 0.8mm; font-size: 6.3pt; line-height: 1.5; color: #2b3a4a; }
 .sheet-foot-main .sheet-disclaimer { color: var(--muted); }
+.sheet-foot-qr { flex: none; width: 18mm; text-align: center; }
+.sheet-foot-qr .qr-svg { display: block; width: 16mm; height: 16mm; margin: 0 auto 0.8mm; }
+.sheet-foot-qr span { display: block; font-size: 6pt; color: var(--muted); }
 .sheet-foot-side { text-align: right; flex: none; }
 .sheet-foot-side p { margin: 0 0 0.6mm; font-size: 6.3pt; color: var(--muted); font-family: var(--mono); }
 .sheet-foot-side .sheet-url { max-width: 64mm; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* ---------- 打印 ---------- */
+/* 批量打印：每张规格卡一页 */
+.batch-body { background: #dfe5ec; }
+.batch-body .sheet { margin: 18px auto; }
+
 @media print {
   html, body { background: #fff; }
-  .print-hint { display: none !important; }
-  .print-hint {
+  .batch-body .sheet { break-after: page; page-break-after: always; margin: 0; }
+  .batch-body .sheet:last-child { break-after: auto; page-break-after: auto; }
+  .toolbar-group {
+  display: flex; align-items: center; gap: 6px; flex: none;
+}
+.toolbar-group label { font-size: 11.5px; color: #9fb2c5; white-space: nowrap; }
+.toolbar-group select {
+  font-family: var(--font); font-size: 12px; padding: 6px 8px;
+  border-radius: 6px; border: 1px solid rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.08); color: #fff;
+}
+.toolbar-group select option { color: #0b1b2b; background: #fff; }
+
+.print-hint { display: none !important; }
+  .toolbar-group {
+  display: flex; align-items: center; gap: 6px; flex: none;
+}
+.toolbar-group label { font-size: 11.5px; color: #9fb2c5; white-space: nowrap; }
+.toolbar-group select {
+  font-family: var(--font); font-size: 12px; padding: 6px 8px;
+  border-radius: 6px; border: 1px solid rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.08); color: #fff;
+}
+.toolbar-group select option { color: #0b1b2b; background: #fff; }
+
+.print-hint {
   max-width: 210mm; margin: 0 auto; padding: 8px 12mm 10px;
   color: #ffd4c2; font-size: 12px; line-height: 1.6;
 }
@@ -213,7 +255,18 @@ body.print-body {
   .toolbar-hint { flex-basis: 100%; order: 3; }
   .toolbar-actions { width: 100%; flex-wrap: wrap; gap: 6px; }
   .toolbar-btn { flex: 1 1 calc(50% - 3px); justify-content: center; padding: 9px 10px; }
-  .print-hint { padding: 8px 14px 10px; font-size: 11.5px; }
+  .toolbar-group {
+  display: flex; align-items: center; gap: 6px; flex: none;
+}
+.toolbar-group label { font-size: 11.5px; color: #9fb2c5; white-space: nowrap; }
+.toolbar-group select {
+  font-family: var(--font); font-size: 12px; padding: 6px 8px;
+  border-radius: 6px; border: 1px solid rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.08); color: #fff;
+}
+.toolbar-group select option { color: #0b1b2b; background: #fff; }
+
+.print-hint { padding: 8px 14px 10px; font-size: 11.5px; }
   .pt-grid { grid-template-columns: repeat(3, 1fr); }
   .sheet-signoff { flex-wrap: wrap; gap: 4mm 6mm; }
   .signoff-item i { width: 20mm; }

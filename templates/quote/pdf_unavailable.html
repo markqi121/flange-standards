@@ -1,0 +1,48 @@
+{% extends "quote/base.html" %}
+{% load static %}
+
+{% block quote_title %}PDF 生成暂不可用{% endblock %}
+{% block quote_crumb %}PDF{% endblock %}
+
+{% block quote_content %}
+<section class="page-head quote-head">
+  <div class="wrap page-head-main">
+    <div>
+      <p class="eyebrow">PDF UNAVAILABLE</p>
+      <h1>PDF 生成暂不可用</h1>
+      <p class="page-sub">报价单 {{ quote.number }} 的 A4 PDF 未能生成。浏览器打印仍可正常使用。</p>
+    </div>
+    <div class="page-head-side quote-head-actions">
+      <a class="btn btn-ghost" href="{{ back_url }}">返回详情</a>
+      <a class="btn btn-primary" href="{{ print_url }}">打开 A4 打印页</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap quote-wrap">
+  <div class="notice-bar notice-bar-bad">
+    <strong>服务端 PDF 依赖未就绪</strong>
+    <span>{{ message|default:"Playwright / Chromium 未安装或渲染失败。" }}</span>
+  </div>
+  <div class="detail-grid">
+    <section class="cost-card detail-card">
+      <h4>推荐操作</h4>
+      <ol class="plain-steps">
+        <li>打开 <a class="text-link" href="{{ print_url }}">A4 打印页</a>，使用浏览器「打印 → 另存为 PDF」。</li>
+        <li>打印设置：A4 · 纵向 · 边距“无/默认” · 关闭页眉页脚 · 缩放 100%。</li>
+        <li>手机端如无法打印，可将打印页链接发到电脑后保存。</li>
+      </ol>
+      <p class="small muted">部署侧：安装 <code>playwright</code> 与 Chromium，并设置 <code>PDF_RENDER_BASE_URL</code>、<code>PDF_CACHE_DIR</code> 后即可启用服务端 PDF。</p>
+    </section>
+    <section class="cost-card detail-card">
+      <h4>报价单</h4>
+      <dl class="meta-dl">
+        <div><dt>单号</dt><dd class="mono">{{ quote.number }}</dd></div>
+        <div><dt>客户</dt><dd>{{ quote.customer|default:"—" }}</dd></div>
+        <div><dt>含税合计</dt><dd>{{ quote.symbol|default:"¥" }}{{ quote.total_display|floatformat:2 }}</dd></div>
+        <div><dt>状态</dt><dd>{{ quote.status_label }}</dd></div>
+      </dl>
+    </section>
+  </div>
+</div>
+{% endblock %}

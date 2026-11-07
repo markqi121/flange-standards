@@ -1,0 +1,179 @@
+{% extends "quote/base.html" %}
+{% load static %}
+
+{% block quote_title %}{{ quote.number }} · 报价单详情{% endblock %}
+{% block quote_crumb %}报价单详情{% endblock %}
+
+{% block quote_content %}
+<section class="page-head quote-head">
+  <div class="wrap page-head-main">
+    <div>
+      <p class="eyebrow">QUOTATION DETAIL</p>
+      <h1>{{ quote.number }} <span class="status-badge tone-{{ quote.status_tone }}">{{ quote.status_label }}</span></h1>
+      <p class="page-sub">V{{ quote.version }} · {{ quote.customer }} · 报价日期 {{ quote.quote_date|date:"Y-m-d"|default:"—" }} · 有效期至 {{ quote.valid_until|date:"Y-m-d"|default:"—" }}</p>
+      {% if quote.demo %}<p class="page-sub demo-flag">示例样张：T1 报价单模型/迁移未就绪，金额与状态为静态演示数据。</p>{% endif %}
+      <div class="badge-stack">
+        <span class="tag">角色：{{ role_label }}</span>
+        {% if not can_view_cost %}<span class="tag tag-warn">成本明细不可见</span>{% endif %}
+        {% if quote.customer_code %}<span class="tag">{{ quote.customer_code }}</span>{% endif %}
+      </div>
+    </div>
+    <div class="page-head-side quote-head-actions">
+      <a class="btn btn-ghost" href="{% url 'quote:list' %}{% if quote.demo %}?demo=1{% endif %}">返回列表</a>
+      <a class="btn btn-ghost" href="{% url 'quote:excel' quote.number %}{% if quote.demo %}?demo=1{% endif %}">导出 Excel</a>
+      <a class="btn btn-ghost" href="{% url 'quote:print' quote.number %}{% if quote.demo %}?demo=1{% endif %}" target="_blank" rel="noopener">A4 打印</a>
+      <a class="btn btn-primary" href="{% url 'quote:pdf' quote.number %}{% if quote.demo %}?demo=1{% endif %}">下载 PDF</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap quote-wrap">
+  {% if quote.demo %}
+    <div class="notice-bar">
+      <strong>示例样张</strong>
+      <span>样张不落库，状态流转按钮不可用；请在工作台保存正式报价后操作。</span>
+    </div>
+  {% endif %}
+
+  <div class="status-action-bar no-print">
+    <span class="status-action-title">状态动作</span>
+    {% if quote.actions %}
+      {% for action in quote.actions %}
+        <button class="btn btn-sm {{ action.css }}" type="button"
+                data-status-action="{{ action.action }}"
+                data-action-label="{{ action.label }}"
+                data-quote-number="{{ quote.number }}"
+                data-status-url="{% url 'quote:api_status' quote.number %}"
+                data-confirm="{% if action.confirm %}1{% else %}0{% endif %}"
+                data-comment="{% if action.comment %}1{% else %}0{% endif %}">{{ action.label }}</button>
+      {% endfor %}
+    {% else %}
+      <span class="status-action-empty">当前状态「{{ quote.status_label }}」没有可执行动作；若状态本身可流转，则可能是当前角色只读或非本人报价。</span>
+    {% endif %}
+    <span class="status-action-note">动作调用 <code>/quote/&lt;no&gt;/status/</code>，按契约状态机校验；失败原样显示错误 JSON。</span>
+  </div>
+  <div class="form-error" id="statusError" hidden></div>
+
+  <div class="detail-grid">
+    <section class="cost-card detail-card">
+      <h4>基本信息</h4>
+      <dl class="meta-dl">
+        <div><dt>报价单号</dt><dd class="mono">{{ quote.number }}</dd></div>
+        <div><dt>版本</dt><dd>V{{ quote.version }}</dd></div>
+        <div><dt>客户</dt><dd>{{ quote.customer|default:"—" }}{% if quote.customer_code %} <span class="tag">{{ quote.customer_code }}</span>{% endif %}</dd></div>
+        <div><dt>项目 / 询价号</dt><dd>{{ quote.project|default:"—" }}</dd></div>
+        <div><dt>报价日期</dt><dd>{{ quote.quote_date|date:"Y-m-d"|default:"—" }}</dd></div>
+        <div><dt>有效期至</dt><dd>{{ quote.valid_until|date:"Y-m-d"|default:"—" }}</dd></div>
+        <div><dt>币种 / 汇率</dt><dd>{{ quote.currency|default:"CNY" }} · 1 USD = {{ quote.fx_rate|floatformat:2 }} CNY</dd></div>
+        <div><dt>贸易条款</dt><dd>{{ quote.incoterm|default:"—" }}</dd></div>
+        <div><dt>付款条件</dt><dd>{{ quote.payment_terms|default:"—" }}</dd></div>
+        <div><dt>报价人</dt><dd>{{ quote.created_by|default:"—" }}</dd></div>
+      </dl>
+      {% if quote.notes %}<p class="detail-note">{{ quote.notes }}</p>{% endif %}
+    </section>
+
+    <section class="cost-card detail-card">
+      <h4>金额概览</h4>
+      <dl class="total-dl">
+        <div><dt>不含税金额</dt><dd>{{ quote.symbol }}{{ quote.subtotal_display|floatformat:2 }}</dd></div>
+        <div><dt>税额（{{ quote.tax_pct|floatformat:0 }}%）</dt><dd>{{ quote.symbol }}{{ quote.tax_amount_display|floatformat:2 }}</dd></div>
+        <div class="grand"><dt>含税合计</dt><dd>{{ quote.symbol }}{{ quote.total_display|floatformat:2 }}</dd></div>
+        <div><dt>合计大写</dt><dd class="upper">{{ upper }}</dd></div>
+      </dl>
+      <p class="small muted">金额四舍五入到 2 位；报价单金额 = 明细 × 数量 + 税。
+        {% if quote.currency == 'USD' %}展示按报价日汇率折算：1 USD = {{ quote.fx_rate|floatformat:2 }} CNY；成本明细仍以 CNY 计。{% endif %}</p>
+    </section>
+  </div>
+
+  <section class="cost-card detail-card">
+    <h4>明细 <span class="tag">{{ quote.items|length }} 项</span></h4>
+    <div class="tbl-wrap">
+      <table class="tbl quote-table detail-table">
+        <thead>
+          <tr>
+            <th class="sh-seq">#</th><th>产品描述</th><th class="r">数量</th><th class="r">单重</th>
+            <th class="r">含税单价</th><th class="r">金额（不含税）</th><th class="r">交期</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in quote.items %}
+            <tr>
+              <td class="num sh-seq">{{ item.line_no }}</td>
+              <td>
+                <b>{{ item.description }}</b>
+                <span class="sub">{{ item.material }}{% if item.standard_edition %} · {{ item.standard_edition }}{% endif %} · 快照 {{ item.snapshot_label }}</span>
+                <span class="sub">{{ item.process_summary }}{% if item.weight_source_label %} · {{ item.weight_source_label }}{% endif %}</span>
+              </td>
+              <td class="r num">{{ item.qty }}</td>
+              <td class="r num">{{ item.net_weight|floatformat:2 }} kg</td>
+              <td class="r num">{{ quote.symbol }}{{ item.unit_gross_display|floatformat:2 }}</td>
+              <td class="r num">{{ quote.symbol }}{{ item.amount_net_display|floatformat:2 }}</td>
+              <td class="r num">{{ item.lead_time_days|default:"—" }} 天</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="detail-grid">
+    <section class="cost-card detail-card">
+      <h4>成本快照 <span class="tag accent">版本固化</span></h4>
+      <dl class="meta-dl">
+        <div><dt>快照</dt><dd class="mono">{{ quote.snapshot_label|default:"—" }}</dd></div>
+        <div><dt>重量规则</dt><dd>{{ quote.weight_rule|default:"w0.3" }}</dd></div>
+        <div><dt>汇率 / 税率</dt><dd>{{ quote.fx_rate|floatformat:2 }} / {{ quote.tax_pct|floatformat:0 }}%</dd></div>
+        <div><dt>标准版本</dt><dd>{{ quote.items.0.standard_edition|default:"—" }}</dd></div>
+        {% if can_view_cost and quote.snapshot_meta %}
+          <div><dt>材料价（本次 / 基准）</dt><dd>
+            {% if quote.snapshot_meta.material_price %}¥{{ quote.snapshot_meta.material_price|floatformat:2 }} / kg{% else %}—{% endif %}
+            /
+            {% if quote.snapshot_meta.material_price_base %}¥{{ quote.snapshot_meta.material_price_base|floatformat:2 }} / kg{% else %}—{% endif %}
+          </dd></div>
+          <div><dt>材料价来源</dt><dd>
+            {% if quote.snapshot_meta.material_price_source == 'manual' %}本次覆盖
+            {% elif quote.snapshot_meta.material_price_source %}价格库（{{ quote.snapshot_meta.material_price_source }}）
+            {% else %}价格库{% endif %}
+            {% if quote.snapshot_meta.material_price_effective_from %} · 生效 {{ quote.snapshot_meta.material_price_effective_from }}{% endif %}
+          </dd></div>
+          <div><dt>工资率（本次）</dt><dd>{% if quote.snapshot_meta.machining_rate %}¥{{ quote.snapshot_meta.machining_rate|floatformat:2 }} 元/件{% else %}按价格库 / 档位{% endif %}</dd></div>
+          <div><dt>工资率来源</dt><dd>{% if quote.snapshot_meta.machining_rate_source == 'manual' %}本次覆盖{% elif quote.snapshot_meta.machining_rate_source == 'process' %}价格库（工艺费率）{% elif quote.snapshot_meta.machining_rate_source == 'default' %}默认档位{% else %}—{% endif %}</dd></div>
+          <div><dt>数量优惠</dt><dd>{{ quote.snapshot_meta.quantity_discount_pct|floatformat:1 }}%</dd></div>
+          <div><dt>费率来源</dt><dd>{% if quote.snapshot_meta.demo_rates %}演示默认费率{% else %}价格库（按生效日期）{% endif %}</dd></div>
+          <div><dt>设计温度 / 压力</dt><dd>{{ quote.snapshot_meta.design_temp_c|default:"—" }} °C / {{ quote.snapshot_meta.design_pressure_bar|default:"—" }} bar</dd></div>
+        {% endif %}
+      </dl>
+      {% if quote.cost_breakdown and can_view_cost %}
+        <div class="cost-list compact">
+          <div class="cost-row"><span>材料</span><b>¥{{ quote.cost_breakdown.material|floatformat:2 }}</b></div>
+          <div class="cost-row"><span>加工</span><b>¥{{ quote.cost_breakdown.machining|floatformat:2 }}</b></div>
+          <div class="cost-row"><span>表面处理</span><b>¥{{ quote.cost_breakdown.surface|floatformat:2 }}</b></div>
+          <div class="cost-row"><span>检测</span><b>¥{{ quote.cost_breakdown.inspection|floatformat:2 }}</b></div>
+          <div class="cost-row"><span>包装</span><b>¥{{ quote.cost_breakdown.packaging|floatformat:2 }}</b></div>
+          <div class="cost-row"><span>运费</span><b>¥{{ quote.cost_breakdown.freight|floatformat:2 }}</b></div>
+          <div class="cost-row"><span>管理费</span><b>¥{{ quote.cost_breakdown.management|floatformat:2 }}</b></div>
+          <div class="cost-row sum"><span>单件成本合计（CNY）</span><b>¥{{ quote.cost_breakdown.total|floatformat:2 }}</b></div>
+        </div>
+      {% else %}
+        <p class="small muted">{% if can_view_cost %}该报价单未保存成本明细。{% else %}成本明细已按角色隐藏：当前角色「{{ role_label }}」不可见材料价 / 加工费等成本数据。{% endif %}</p>
+      {% endif %}
+    </section>
+
+    <section class="cost-card detail-card">
+      <h4>审批与版本</h4>
+      <ul class="timeline">
+        <li><b>创建</b><span>{{ quote.created_by|default:"—" }} · {{ quote.quote_date|date:"Y-m-d"|default:"—" }}</span></li>
+        <li><b>当前状态</b><span>{{ quote.status_label }}</span></li>
+        <li><b>版本</b><span>V{{ quote.version }}（修改已发送单将生成新版本）</span></li>
+      </ul>
+      <p class="small muted">状态动作在页面上方「状态动作」区执行，服务端按契约 §4 状态机校验并写入审批日志；无权限或非法动作会按契约 §8 返回错误 JSON。</p>
+    </section>
+  </div>
+
+  <div class="detail-foot-actions no-print">
+    <a class="btn btn-ghost" href="{% url 'quote:list' %}{% if quote.demo %}?demo=1{% endif %}">返回列表</a>
+    <a class="btn btn-ghost" href="{% url 'quote:excel' quote.number %}{% if quote.demo %}?demo=1{% endif %}">导出 Excel</a>
+    <a class="btn btn-primary" href="{% url 'quote:print' quote.number %}{% if quote.demo %}?demo=1{% endif %}">打开 A4 打印页</a>
+  </div>
+</div>
+{% endblock %}

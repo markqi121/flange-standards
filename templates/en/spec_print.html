@@ -1,0 +1,44 @@
+{% load static catalog_extras %}<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ row.title_en }} — A4 spec sheet</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="{% static 'css/print.css' %}?v=20261105b">
+</head>
+<body class="print-body">
+  <div class="print-toolbar">
+    <div class="toolbar-inner">
+      <span class="toolbar-title">A4 spec sheet preview</span>
+      <span class="toolbar-hint">Print: A4 · portrait · margins none/default · browser headers off · scale 100%</span>
+      <div class="toolbar-actions">
+        <a class="toolbar-btn" href="{{ row.get_absolute_url }}">Back to details</a>
+        <a class="toolbar-btn toolbar-btn-primary" id="pdf-link" href="{{ pdf_url }}">Download PDF</a>
+        <button class="toolbar-btn" id="print-button" type="button">Print</button>
+        <button class="toolbar-btn" id="copy-link" type="button">Copy link</button>
+      </div>
+      {% if series.groups|length > 1 %}
+        <form class="toolbar-group" method="get" action=""><label for="print-group">Material group</label><select id="print-group" name="group" onchange="this.form.submit()">{% for g in series.groups %}<option value="{{ g.code }}" {% if g.code == series.group %}selected{% endif %} title="{{ g.materials }}">{{ g.code }}</option>{% endfor %}</select></form>
+      {% endif %}
+    </div>
+    <p class="print-hint" id="print-hint" hidden>iPhone / iPad does not support printing from the page. Use “Download PDF” above, then share or print it from the Files app. You can also copy the link and open it on a desktop.</p>
+  </div>
+
+  {% include "en/partials/print_sheet.html" %}
+
+  <script>
+    (function () {
+      var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      var hint = document.getElementById('print-hint');
+      var printButton = document.getElementById('print-button');
+      var copyButton = document.getElementById('copy-link');
+      var pdfLink = document.getElementById('pdf-link');
+      if (hint && isIOS) hint.hidden = false;
+      if (printButton) printButton.addEventListener('click', function () { if (isIOS || typeof window.print !== 'function') { if (hint) { hint.hidden = false; hint.scrollIntoView({behavior: 'smooth', block: 'nearest'}); } return; } window.print(); });
+      if (pdfLink) pdfLink.addEventListener('click', function () { pdfLink.textContent = 'Generating…'; setTimeout(function () { pdfLink.textContent = 'Download PDF'; }, 8000); });
+      if (copyButton) copyButton.addEventListener('click', function () { var text = location.href; var done = function () { copyButton.textContent = 'Copied'; setTimeout(function () { copyButton.textContent = 'Copy link'; }, 1800); }; if (navigator.clipboard) navigator.clipboard.writeText(text).then(done).catch(function () { prompt('Copy link', text); }); else prompt('Copy link', text); });
+    })();
+  </script>
+</body>
+</html>

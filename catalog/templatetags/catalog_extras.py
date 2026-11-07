@@ -1,6 +1,6 @@
 from django import template
 
-from catalog import zh_content
+from catalog import en_content, zh_content
 from catalog.formatting import fmt_dim, fmt_weight
 
 register = template.Library()
@@ -34,10 +34,12 @@ def get_item(mapping, key):
 
 
 @register.simple_tag
-def dimension_fields(row):
+def dimension_fields(row, lang='zh'):
     """返回规格行里所有有值的尺寸字段，供表格统一渲染。"""
     output = []
-    for key, symbol, name, unit, show in zh_content.FIELDS:
+    fields = en_content.FIELDS if lang == 'en' else zh_content.FIELDS
+    for field in fields:
+        key, symbol, name, unit = field[:4]
         value = getattr(row, key, None)
         if value is None or value == '':
             continue

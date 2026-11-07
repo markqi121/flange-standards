@@ -7,7 +7,7 @@ import pathlib
 import sqlite3
 
 SOURCE = os.environ.get('DJANGO_DB_PATH', '/var/lib/flange-std/db.sqlite3')
-BACKUP_DIR = pathlib.Path('/var/lib/flange-std/backups')
+BACKUP_DIR = pathlib.Path(os.environ.get('BACKUP_DIR', '/var/lib/flange-std/backups'))
 KEEP = 14
 
 

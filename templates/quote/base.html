@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{% block quote_title %}法兰报价{% endblock %} · {{ site_name }}{% endblock %}
+
+{% block description %}法兰报价工作台：按标准、类型、压力等级与口径选型，计算成本、单价、毛利并生成 A4 报价单。{% endblock %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/quote.css' %}?v=20261106b">
+  <meta name="csrf-token" content="{{ csrf_token }}">
+{% endblock %}
+
+{% block breadcrumbs %}
+  <nav class="breadcrumbs" aria-label="面包屑">
+    <div class="wrap">
+      <a href="{% url 'catalog:home' %}">标准库</a>
+      <span aria-hidden="true">/</span>
+      <a href="{% url 'quote:index' %}">报价</a>
+      <span aria-hidden="true">/</span>
+      <span>{% block quote_crumb %}工作台{% endblock %}</span>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block content %}
+  <div class="quote-app" data-page="{{ page|default:'quote' }}" data-csrf="{{ csrf_token }}">
+    {% block quote_content %}{% endblock %}
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+{% endblock %}
+
+{% block extra_scripts %}
+  {% if page == 'workbench' or page == 'list' or page == 'detail' %}
+    <script src="{% static 'js/quote.js' %}?v=20261106b" defer></script>
+  {% endif %}
+{% endblock %}

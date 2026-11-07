@@ -2,10 +2,15 @@
 
 按标准 / 类型 / 尺寸 / 压力等级查询法兰规格，查看尺寸标注图，打印 A4 规格卡的生产查询站。
 
-**线上：https://ax-forge.com/std/**（2026-11-04 部署，部署记录见 [docs/部署记录.md](docs/部署记录.md)）
+**线上：中文 https://std.ax-forge.com/ · English https://std.ax-forge.com/en/**（2026-11-05 从 ax-forge.com/std/ 迁移，旧地址 301；部署记录见 [docs/部署记录.md](docs/部署记录.md)）
 
 - **数据范围**：ASME B16.5-2025、ASME B16.47-2025（Series A/B）、EN 1092-1:2018、JIS B2220:2012，
   共 5 个标准/系列、1,348 条尺寸规格、4 份参考数据（压力-温度、材料组、公差、标记、版本变更）。
+- **P1 能力**：参考数据中文化、压力-温度按材料组切换、批量打印（多规格合并 PDF）、
+  打印卡二维码、搜索结果筛选、最近查看/热门规格、后台 CSV 导入导出与修改日志。
+- **英文版 /en/**：英文界面、英文标注图、英文打印卡/PDF；`/en/` 与中文页 hreflang 互指；
+  英文规格页暂用 `noindex, follow`，SEO 主页面仍由 ax-forge.com 现有英文规格页承担；
+  提供 `sitemap.xml`、`robots.txt`、canonical、Open Graph 和 JSON-LD。
 - **技术栈**：Django 4.2 + SQLite（可切 PostgreSQL）+ 服务端渲染 + 原生 CSS。
 - **打印**：A4 纵向单页，浏览器打印 / 保存 PDF；含标注图、尺寸表、压力-温度额定值、来源与免责声明。
 - **PDF 下载**：`/spec/<id>/pdf/` 服务端生成，手机点一下即可保存或分享。
@@ -30,13 +35,17 @@ python3 -m venv .venv                      # 首次
 |---|---|
 | 查询首页 | `/` |
 | 搜索结果 | `/search/?q=DN100+PN16` |
-| 标准尺寸表 | `/std/asme-b16-5/` |
-| 规格卡 | `/spec/348/` |
+| 标准尺寸表 | `/asme-b16-5/` |
+| 规格卡 | `/spec/asme-b16-5-class-150-nps-6-weld-neck-flange/` |
 | A4 打印页 | `/spec/348/print/` |
 | PDF 下载（手机可用） | `/spec/348/pdf/` |
+| 批量打印 | `/batch/` |
 | 跨标准对照 | `/compare/?dn=100` |
-| 参考数据（p/T、公差、标记） | `/std/asme-b16-5/ref/pressure-ratings/` |
+| 参考数据（p/T、公差、标记） | `/asme-b16-5/ref/pressure-ratings/` |
 | 后台录入 | `/admin/` |
+| English home | `/en/` |
+| English spec | `/en/spec/asme-b16-5-class-150-nps-6-weld-neck-flange/` |
+| 英文 sitemap | `/sitemap.xml` |
 
 截图与样例：`docs/images/`（首页、标准页、规格卡、打印页、对照、参考数据、标注图）；
 A4 单页打印样例：`docs/样例-规格卡-A4.pdf`；完整设计说明：`docs/设计方案.md`。
@@ -47,17 +56,19 @@ A4 单页打印样例：`docs/样例-规格卡-A4.pdf`；完整设计说明：`d
 
 ```
 标准库/
-├── catalog/                       Django 应用
+├── catalog/                       Django 应用（中英双语）
 │   ├── models.py                  Standard / FlangeType / Rating / DimensionRow / ReferenceDoc
 │   ├── views.py                   查询、标准页、规格卡、打印页、对照页
 │   ├── search.py                  中文/英文混合查询解析
 │   ├── drawings.py                服务端 SVG 尺寸标注图生成器
 │   ├── pt.py                      压力-温度表结构化读取
 │   ├── zh_content.py              中文文案与字段名
+│   ├── en_content.py              英文 UI 文案与字段名
+│   ├── i18n_utils.py              /en/ 语言选择
 │   ├── admin.py                   后台
 │   └── management/commands/import_standards.py
 ├── stdlib_site/                  Django 配置与路由
-├── templates/                    页面模板
+├── templates/                    页面模板（templates/en/ 为英文模板）
 ├── static/css/site.css           屏幕样式
 ├── static/css/print.css          A4 打印样式
 ├── flange-standards-data/        标准数据包（尺寸 JSON / CSV / SQLite / 参考数据）
@@ -78,6 +89,9 @@ A4 单页打印样例：`docs/样例-规格卡-A4.pdf`；完整设计说明：`d
 # 标准说明、中文简介、材料选项：/admin/catalog/standard/
 ```
 
+后台支持 CSV 导入/导出（尺寸规格列表右上角「导入 CSV」，列表动作「导出所选规格为 CSV」），
+所有修改会进入 Django 的修改日志（`/admin/admin/logentry/`），尺寸字段在保存前做范围校验。
+
 数据包本身的校验在 `flange-standards-data/` 内完成：
 
 ```bash
@@ -87,7 +101,7 @@ cd flange-standards-data && python3 scripts/validate.py
 ## 部署（单机 Nginx + Gunicorn）
 
 完整步骤、服务器配置和检查清单见 **[docs/部署指南.md](docs/部署指南.md)**；
-本次实际部署（路径 `/std/`、服务器、备份、验证结果）见 **[docs/部署记录.md](docs/部署记录.md)**。最简流程：
+本次实际部署（`std.ax-forge.com` 子域名、服务器、备份、验证结果）见 **[docs/部署记录.md](docs/部署记录.md)**。最简流程：
 
 ```bash
 # 1) 服务器初始化（Ubuntu 22.04/24.04，root）

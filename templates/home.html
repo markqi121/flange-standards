@@ -155,6 +155,67 @@
   </div>
 </section>
 
+{% if popular_specs %}
+<section class="section section-tint" id="popular">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">POPULAR</p>
+        <h2>热门规格</h2>
+      </div>
+      <p class="section-desc">按规格卡访问次数统计，随使用自动更新。</p>
+    </div>
+    <div class="quick-table">
+      <table>
+        <thead><tr><th>规格</th><th class="ta-right">外径 D</th><th class="ta-right">厚度 C</th><th>查看</th></tr></thead>
+        <tbody>
+          {% for row in popular_specs %}
+            <tr>
+              <td><span class="quick-std">{{ row.standard.short }}</span><a class="quick-name" href="{{ row.get_absolute_url }}">{{ row.size_label }} · {{ row.rating.label }} · {{ row.flange_type.name_zh }}</a></td>
+              <td class="num ta-right">{{ row.od|dim }}</td>
+              <td class="num ta-right">{{ row.th|dim }}</td>
+              <td class="ta-right"><a class="text-link" href="{{ row.get_absolute_url }}">查看</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section" id="recent-section" hidden>
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">RECENT</p>
+        <h2>最近查看</h2>
+      </div>
+      <p class="section-desc">只保存在本机浏览器里，不上传服务器。</p>
+    </div>
+    <div class="chip-row" id="recent-grid"></div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    try {
+      var items = JSON.parse(localStorage.getItem('flangeRecent') || '[]');
+      if (!items.length) return;
+      var section = document.getElementById('recent-section');
+      var grid = document.getElementById('recent-grid');
+      section.hidden = false;
+      items.slice(0, 6).forEach(function (item) {
+        var link = document.createElement('a');
+        link.className = 'related-chip';
+        link.href = item.url;
+        link.textContent = item.title;
+        grid.appendChild(link);
+      });
+    } catch (e) {}
+  })();
+</script>
+
 <section class="notice-strip">
   <div class="wrap notice-inner">
     <div>

@@ -1,0 +1,107 @@
+{% extends "en/base.html" %}
+{% load catalog_extras %}
+
+{% block title %}{{ row.title_en }} — dimensions, drawing & printable spec sheet | AX Forge{% endblock %}
+{% block description %}{{ standard.name }} {{ row.rating.label }} {{ row.size_label }} {{ row.flange_type.name_en }}: OD {{ row.od|dim }} mm, thickness {{ row.th|dim }} mm, bolt circle {{ row.bc|dim }} mm, {{ row.bolts }} × Ø{{ row.bolt_hole|dim }} mm. Drawing and A4 spec sheet.{% endblock %}
+{% block robots %}<meta name="robots" content="noindex, follow">{% endblock %}
+
+{% block content %}
+<section class="page-head page-head-spec" data-spec-id="{{ row.pk }}" data-spec-title="{{ row.title_en }}" data-spec-url="{{ row.get_absolute_url }}">
+  <div class="wrap">
+    <div class="spec-head">
+      <div>
+        <p class="eyebrow">SPECIFICATION · #{{ row.pk }}</p>
+        <h1>{{ row.title_en }}</h1>
+        <p class="page-sub">{{ standard.name }} · {{ standard.effective_edition }} · DN{{ row.dn }}</p>
+        <div class="badge-stack"><span class="tag tag-solid">{{ standard.short }}</span><span class="tag">{{ row.rating.label }}</span><span class="tag">{{ row.flange_type.name_en }}</span><span class="tag">Units mm / kg</span></div>
+      </div>
+      <div class="spec-actions">
+        <a class="btn btn-primary" href="{{ print_url }}">Print spec sheet</a>
+        <a class="btn btn-ghost" id="download-pdf" href="{{ pdf_url }}">Download PDF</a>
+        <a class="btn btn-ghost" href="{% url 'catalog:standard_detail' standard.id %}?type={{ row.flange_type_id }}&amp;rating={{ row.rating.code }}">Back to table</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="spec-main">
+  <div class="wrap spec-grid">
+    <div class="spec-drawing card">
+      <div class="card-head"><h2>Dimension drawing</h2><span class="card-note">Schematic, drawn from the table values</span></div>
+      {% if svg %}<div class="drawing-canvas">{{ svg|safe }}</div>{% else %}<div class="drawing-empty">Drawing not available.</div>{% endif %}
+      <p class="drawing-foot">D outside diameter · K bolt circle · n×Ød bolt holes · C thickness · D2 raised face · f raised-face height · A hub diameter · H length</p>
+    </div>
+    <div class="spec-data card">
+      <div class="card-head"><h2>Dimensions</h2><span class="card-note">{{ standard.short }} · {{ row.rating.label }}</span></div>
+      {% dimension_fields row 'en' as fields %}
+      <table class="dim-table"><tbody>{% for field in fields %}<tr><th><span class="sym">{{ field.symbol }}</span>{{ field.name }}</th><td class="dim-value">{{ field.value }}<span class="unit">{{ field.unit }}</span></td></tr>{% endfor %}</tbody></table>
+      <div class="spec-data-foot"><span>Data edition {{ standard.effective_edition }}</span><span>Verified {{ reference_doc.verified_on|date:"Y-m-d"|default:"—" }}</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="wrap spec-lower">
+    <div class="card">
+      <div class="card-head">
+        <h2>Pressure–temperature ratings</h2>
+        {% if series.groups|length > 1 %}
+          <form class="group-switch" method="get" action="">
+            <label for="group-select">Material group</label>
+            <select id="group-select" name="group" onchange="this.form.submit()">{% for g in series.groups %}<option value="{{ g.code }}" {% if g.code == series.group %}selected{% endif %} title="{{ g.materials }}">{{ g.code }}</option>{% endfor %}</select>
+            <noscript><button type="submit">Apply</button></noscript>
+          </form>
+        {% else %}<span class="card-note">{{ series.group_label }}</span>{% endif %}
+      </div>
+      {% if series.available %}
+        <div class="pt-grid-detail">{% for temp, value in series.rows %}<span class="pt-cell-detail"><b>{{ temp }} °C</b><em>{{ value }} {{ series.unit }}</em></span>{% endfor %}</div>
+        <p class="hint">Current material group: {{ series.group_label }}{% if series.materials %} · {{ series.materials|truncatechars:90 }}{% endif %}</p>
+        <p class="source-line">Source: {{ series.caption }}</p>
+        {% if series.note %}<p class="hint">{{ series.note }}</p>{% endif %}
+      {% else %}
+        <p class="empty-inline">The pressure–temperature table is not structured for this standard yet.</p>
+        {% if topics %}<p><a class="text-link" href="{% url 'catalog:reference_topic' standard.id 'pressure-ratings' %}">Open the {{ standard.short }} pressure–temperature table →</a></p>{% endif %}
+      {% endif %}
+    </div>
+    <div class="card">
+      <div class="card-head"><h2>Material & standard</h2><span class="card-note">{{ standard.short }}</span></div>
+      <dl class="meta-list">
+        <div><dt>Standard</dt><dd>{{ standard.name }} ({{ standard.effective_edition }})</dd></div>
+        <div><dt>Base material</dt><dd>{{ standard.base_material|default:"—" }}</dd></div>
+        <div><dt>Material options</dt><dd>{% for option in standard.material_options %}<span class="mini-tag">{{ option }}</span>{% endfor %}</dd></div>
+        <div><dt>Region</dt><dd>{{ standard.region_en }}</dd></div>
+      </dl>
+      <p class="hint">{{ standard.rating_note_en }}</p>
+      <p class="hint">{{ standard.edition_note_en }}</p>
+      <p><a class="text-link" href="https://ax-forge.com/contact/" target="_blank" rel="noopener">Request a quote for this flange →</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="wrap">
+    <div class="section-head"><div><p class="eyebrow">RELATED</p><h2>Related specifications</h2></div></div>
+    {% if siblings %}<div class="related-block"><h3>Same size · other pressure classes</h3><div class="chip-row">{% for item in siblings %}<a class="related-chip" href="{{ item.get_absolute_url }}">{{ item.rating.label }}<span>D {{ item.od|dim }}</span></a>{% endfor %}</div></div>{% endif %}
+    {% if same_size_types %}<div class="related-block"><h3>Same size and rating · other types</h3><div class="chip-row">{% for item in same_size_types %}<a class="related-chip" href="{{ item.get_absolute_url }}">{{ item.flange_type.name_en }}<span>C {{ item.th|dim }}</span></a>{% endfor %}</div></div>{% endif %}
+    <div class="related-block"><h3>Adjacent sizes · {{ row.rating.label }}</h3><div class="chip-row">{% if previous_row %}<a class="related-chip" href="{{ previous_row.get_absolute_url }}">← {{ previous_row.size_label }}<span>DN{{ previous_row.dn }}</span></a>{% endif %}<span class="related-current">{{ row.size_label }} · DN{{ row.dn }}</span>{% if next_row %}<a class="related-chip" href="{{ next_row.get_absolute_url }}">{{ next_row.size_label }} →<span>DN{{ next_row.dn }}</span></a>{% endif %}</div></div>
+  </div>
+</section>
+
+<section class="section"><div class="wrap note-grid"><div class="note-card"><h3>Data note</h3><p>{{ standard.edition_note_en }}</p><p class="hint">Specification #{{ row.pk }} · last updated {{ row.updated_at|date:"Y-m-d H:i" }}</p></div><div class="note-card"><h3>Use limits</h3><p>This library is a factual compilation of published standards tables. It does not replace the standard text. Verify against the edition in your purchase specification before quoting, manufacturing or inspecting a critical part.</p></div></div></section>
+
+<script>
+  (function () {
+    var link = document.getElementById('download-pdf');
+    if (link) link.addEventListener('click', function () { link.textContent = 'Generating PDF…'; setTimeout(function () { link.textContent = 'Download PDF'; }, 8000); });
+    try {
+      var root = document.querySelector('[data-spec-id]');
+      if (!root) return;
+      var item = { id: root.getAttribute('data-spec-id'), title: root.getAttribute('data-spec-title'), url: root.getAttribute('data-spec-url') };
+      var items = JSON.parse(localStorage.getItem('flangeRecentEn') || '[]');
+      items = items.filter(function (x) { return String(x.id) !== String(item.id); });
+      items.unshift(item);
+      localStorage.setItem('flangeRecentEn', JSON.stringify(items.slice(0, 8)));
+    } catch (e) {}
+  })();
+</script>
+{% endblock %}

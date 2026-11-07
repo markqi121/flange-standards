@@ -1,28 +1,8 @@
 {% extends "base.html" %}
 {% load catalog_extras %}
 
-{% block title %}{{ row.title_zh }} 尺寸 · {{ site_name }}<script>
-  (function () {
-    var link = document.getElementById('download-pdf');
-    if (!link) return;
-    link.addEventListener('click', function () {
-      link.textContent = '正在生成 PDF…';
-      setTimeout(function () { link.textContent = '下载 PDF'; }, 8000);
-    });
-  })();
-</script>
-{% endblock %}
-{% block description %}{{ standard.name }} {{ row.rating.label }} {{ row.size_label }} {{ row.flange_type.name_zh }}：外径 {{ row.od|dim }} mm，厚度 {{ row.th|dim }} mm，中心圆 {{ row.bc|dim }} mm，{{ row.bolts }} × Ø{{ row.bolt_hole|dim }} mm。可打印 A4 规格卡。<script>
-  (function () {
-    var link = document.getElementById('download-pdf');
-    if (!link) return;
-    link.addEventListener('click', function () {
-      link.textContent = '正在生成 PDF…';
-      setTimeout(function () { link.textContent = '下载 PDF'; }, 8000);
-    });
-  })();
-</script>
-{% endblock %}
+{% block title %}{{ row.title_zh }} 尺寸 · {{ site_name }}{% endblock %}
+{% block description %}{{ standard.name }} {{ row.rating.label }} {{ row.size_label }} {{ row.flange_type.name_zh }}：外径 {{ row.od|dim }} mm，厚度 {{ row.th|dim }} mm，中心圆 {{ row.bc|dim }} mm，{{ row.bolts }} × Ø{{ row.bolt_hole|dim }} mm。可打印 A4 规格卡。{% endblock %}
 
 {% block breadcrumbs %}
 <div class="breadcrumbs">
@@ -32,20 +12,10 @@
     <span>{{ row.size_label }} · {{ row.rating.label }} · {{ row.flange_type.name_zh }}</span>
   </div>
 </div>
-<script>
-  (function () {
-    var link = document.getElementById('download-pdf');
-    if (!link) return;
-    link.addEventListener('click', function () {
-      link.textContent = '正在生成 PDF…';
-      setTimeout(function () { link.textContent = '下载 PDF'; }, 8000);
-    });
-  })();
-</script>
 {% endblock %}
 
 {% block content %}
-<section class="page-head page-head-spec">
+<section class="page-head page-head-spec" data-spec-id="{{ row.pk }}" data-spec-title="{{ row.title_zh }}" data-spec-url="{{ row.get_absolute_url }}">
   <div class="wrap">
     <div class="spec-head">
       <div>
@@ -60,11 +30,11 @@
         </div>
       </div>
       <div class="spec-actions">
-        <a class="btn btn-primary" href="{{ row.print_url }}">
+        <a class="btn btn-primary" href="{{ print_url }}">
           <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M5 7V3h10v4M5 15H3V9h14v6h-2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="5" y="12" width="10" height="5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
           打印规格卡
         </a>
-        <a class="btn btn-ghost" id="download-pdf" href="{% url 'catalog:spec_pdf' row.pk %}">下载 PDF</a>
+        <a class="btn btn-ghost" id="download-pdf" href="{{ pdf_url }}">下载 PDF</a>
         <a class="btn btn-ghost" href="{% url 'catalog:standard_detail' standard.id %}?type={{ row.flange_type_id }}&amp;rating={{ row.rating.code }}">返回尺寸表</a>
       </div>
     </div>
@@ -115,7 +85,19 @@
     <div class="card">
       <div class="card-head">
         <h2>压力-温度额定值</h2>
-        <span class="card-note">{{ row.rating.label }} · 标准压力-温度表</span>
+        {% if series.groups|length > 1 %}
+          <form class="group-switch" method="get" action="">
+            <label for="group-select">材料组</label>
+            <select id="group-select" name="group" onchange="this.form.submit()">
+              {% for g in series.groups %}
+                <option value="{{ g.code }}" {% if g.code == series.group %}selected{% endif %} title="{{ g.materials }}">{{ g.code }}</option>
+              {% endfor %}
+            </select>
+            <noscript><button type="submit">切换</button></noscript>
+          </form>
+        {% else %}
+          <span class="card-note">{{ series.group_label }}</span>
+        {% endif %}
       </div>
       {% if series.available %}
         <div class="pt-grid-detail">
@@ -126,6 +108,7 @@
             </span>
           {% endfor %}
         </div>
+        <p class="hint">当前材料组：{{ series.group_label }}{% if series.materials %} · {{ series.materials|truncatechars:90 }}{% endif %}</p>
         <p class="source-line">来源：{{ series.caption }}</p>
         {% if series.note %}<p class="hint">{{ series.note }}</p>{% endif %}
       {% else %}
@@ -221,6 +204,23 @@
       link.textContent = '正在生成 PDF…';
       setTimeout(function () { link.textContent = '下载 PDF'; }, 8000);
     });
+  })();
+
+  (function () {
+    try {
+      var root = document.querySelector('[data-spec-id]');
+      if (!root) return;
+      var item = {
+        id: root.getAttribute('data-spec-id'),
+        title: root.getAttribute('data-spec-title'),
+        url: root.getAttribute('data-spec-url')
+      };
+      var key = 'flangeRecent';
+      var items = JSON.parse(localStorage.getItem(key) || '[]');
+      items = items.filter(function (x) { return String(x.id) !== String(item.id); });
+      items.unshift(item);
+      localStorage.setItem(key, JSON.stringify(items.slice(0, 8)));
+    } catch (e) {}
   })();
 </script>
 {% endblock %}

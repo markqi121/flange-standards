@@ -1,0 +1,365 @@
+{% extends "quote/base.html" %}
+{% load static %}
+
+{% block quote_title %}报价工作台{% endblock %}
+{% block quote_crumb %}工作台{% endblock %}
+
+{% block quote_content %}
+<section class="page-head quote-head">
+  <div class="wrap page-head-main">
+    <div>
+      <p class="eyebrow">QUOTATION WORKBENCH · 单条报价</p>
+      <h1>报价工作台</h1>
+      <p class="page-sub">选型 → 材质 / 数量 → 工艺 / 检测 → 定价。成本、单价、毛利与 p/T 校验由后端计算引擎返回，本页只负责录入与呈现。</p>
+      <div class="badge-stack">
+        <span class="tag tag-solid">1,348 条标准规格</span>
+        <span class="tag">成本逐项可解释</span>
+        <span class="tag">A4 一页打印</span>
+        <span class="tag tag-warn">示例价格参数</span>
+      </div>
+    </div>
+    <div class="page-head-side quote-head-actions">
+      <a class="btn btn-ghost" href="{% url 'quote:list' %}">报价单列表</a>
+      <a class="btn btn-ghost" href="{% url 'quote:prices' %}">价格库</a>
+      <a class="btn btn-ghost" href="{% url 'quote:customers' %}">客户</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap quote-wrap">
+  <div class="demo-note no-print">
+    <span><span class="tag ok">真实标准数据</span> 尺寸与标准重量来自标准库数据包</span>
+    <span><span class="tag warn">示例价格</span> 材料价、费率、利润与折扣仅为演示参数，不是对外报价</span>
+    <span><span class="tag">T1 已接入</span> 成本 / 价格 / p/T 由 <code>POST /quote/calc/</code> 返回；接口不可达时会明确标注离线样例</span>
+    <span class="demo-note-right">
+      <button class="btn btn-ghost btn-sm" id="resetBtn" type="button">恢复默认参数</button>
+    </span>
+  </div>
+
+  <div class="demo-shell">
+    <div class="demo-top no-print">
+      <div class="stepper" aria-label="报价步骤">
+        <span class="on"><b>01</b> 选型</span>
+        <span><b>02</b> 材质 / 数量</span>
+        <span><b>03</b> 工艺 / 检测</span>
+        <span><b>04</b> 定价</span>
+      </div>
+      <div class="legend">
+        <span class="std"><i></i>标准值</span>
+        <span class="est"><i></i>估算值</span>
+        <span><i class="accent-dot"></i>示例价格参数</span>
+      </div>
+    </div>
+
+    <div class="wb">
+      <aside class="wb-side" aria-label="报价输入">
+        <div class="fieldset">
+          <div class="fset-title"><b>01 · 选型</b><span>标准 → 类型 → 等级 → 口径</span></div>
+          <div class="fields">
+            <div class="field">
+              <label for="stdSel">标准 / 系列</label>
+              <select id="stdSel" class="select">
+                {% for std in bootstrap.standards %}
+                  <option value="{{ std.id }}" {% if std.id == default_quote.std %}selected{% endif %}>{{ std.name }}（{{ std.short }}）</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="field">
+              <label for="typeSel">法兰类型</label>
+              <select id="typeSel" class="select">
+                {% for t in default_types %}
+                  <option value="{{ t.code }}" {% if t.code == default_quote.type %}selected{% endif %}>{{ t.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="field">
+              <label for="ratingSel">压力等级</label>
+              <select id="ratingSel" class="select">
+                {% for pair in default_ratings %}
+                  <option value="{{ pair.0 }}" {% if pair.0 == default_quote.rating %}selected{% endif %}>{{ pair.1 }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="field">
+              <label for="sizeSel">公称尺寸 / 口径</label>
+              <select id="sizeSel" class="select">
+                {% for row in default_sizes %}
+                  <option value="{{ row.2 }}" {% if row.2 == default_quote.size %}selected{% endif %}>{{ row.3 }} · DN{{ row.4 }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <p class="field-note">产品：<span id="selectionHint">ASME B16.5 · Class 150 · 4″ · 对焊法兰</span></p>
+        </div>
+
+        <div class="fieldset">
+          <div class="fset-title"><b>02 · 材质 / 数量</b><span id="matHint">{{ default_material.label|default:"ASTM A105 / A105N" }}</span></div>
+          <div class="fields">
+            <div class="field wide">
+              <label for="matSel">材质牌号</label>
+              <select id="matSel" class="select">
+                {% for m in default_materials %}
+                  <option value="{{ m.code }}" {% if m.code == default_quote.material %}selected{% endif %}>{{ m.label }} · {{ m.family }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="field">
+              <label for="matPriceIn">材料单价 <b id="matPriceSource">{% if can_view_cost %}价格库{% if default_material.price_source_label %} · {{ default_material.price_source_label }}{% endif %}{% else %}无权限{% endif %}</b></label>
+              <div class="unit-input"><input id="matPriceIn" class="input" type="number" step="0.1" min="0" value="{{ default_material.demo_price|default:'—' }}" readonly><em>元/kg</em></div>
+            </div>
+            {% if can_view_cost %}
+              <div class="field wide">
+                <div class="checks" style="grid-template-columns:1fr auto">
+                  <label class="chk"><input type="checkbox" id="matPriceOverride"><span>本次覆盖材料价 <small>不勾选则按价格库生效价</small></span></label>
+                  <button class="btn btn-ghost btn-sm" id="matPriceResetBtn" type="button">重置回库价</button>
+                </div>
+              </div>
+            {% endif %}
+            <div class="field">
+              <label for="qtyIn">数量</label>
+              <input id="qtyIn" class="input" type="number" step="1" min="1" max="9999" value="{{ default_quote.qty }}">
+            </div>
+            <div class="field">
+              <label for="tempIn">设计温度</label>
+              <div class="unit-input"><input id="tempIn" class="input" type="number" step="1" min="-50" max="900" value="{{ default_quote.design_temp_c }}"><em>°C</em></div>
+            </div>
+            <div class="field">
+              <label for="pressIn">设计压力</label>
+              <div class="unit-input"><input id="pressIn" class="input" type="number" step="0.1" min="0" value="{{ default_quote.design_pressure_bar }}"><em>bar</em></div>
+            </div>
+          </div>
+          <p class="field-note" id="matPriceNote">{% if not can_view_cost %}当前角色不可查看材料价；成本明细与材料价仅技术 / 财务 / 经理 / 管理员可见。{% elif default_material.price_effective_from %}价格库生效 {{ default_material.price_effective_from|date:"Y-m-d" }}{% if default_material.price_is_demo %} · 演示价{% endif %}{% else %}价格库无生效价时 /quote/calc/ 会返回 price_unavailable{% endif %}</p>
+        </div>
+
+        <div class="fieldset">
+          <div class="fset-title"><b>03 · 工艺 / 检测</b><span>可选</span></div>
+          <div class="fields">
+            <div class="field">
+              <label for="surfaceSel">表面处理</label>
+              <select id="surfaceSel" class="select">
+                <option value="none" selected>不做处理</option>
+                <option value="rust">防锈油（1.2 元/kg）</option>
+                <option value="zinc">热镀锌（3.0 元/kg）</option>
+                <option value="paint">喷涂（3.8 元/kg）</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="packSel">包装</label>
+              <select id="packSel" class="select">
+                <option value="carton">纸箱（8 元/件）</option>
+                <option value="wood" selected>木箱（35 元/件）</option>
+                <option value="fumigated">熏蒸木箱（55 元/件）</option>
+                <option value="none">不包装</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="freightIn">运费</label>
+              <div class="unit-input"><input id="freightIn" class="input" type="number" step="0.1" min="0" value="{{ default_quote.freight_per_kg }}"><em>元/kg</em></div>
+            </div>
+            <div class="field">
+              <label for="currencySel">报价币种</label>
+              <select id="currencySel" class="select">
+                <option value="CNY" selected>CNY 人民币</option>
+                <option value="USD">USD 美元</option>
+              </select>
+            </div>
+          </div>
+          <div class="checks">
+            <label class="chk"><input type="checkbox" id="inspPMI"><span>PMI 光谱 <small>+25</small></span></label>
+            <label class="chk"><input type="checkbox" id="inspUT"><span>UT 探伤 <small>+80</small></span></label>
+            <label class="chk"><input type="checkbox" id="inspHydro"><span>水压试验 <small>+40</small></span></label>
+            <label class="chk"><input type="checkbox" id="inspHardness"><span>硬度检测 <small>+12</small></span></label>
+            <label class="chk"><input type="checkbox" id="inspThird"><span>第三方见证 <small>+3.5%</small></span></label>
+          </div>
+        </div>
+
+        <div class="fieldset">
+          <div class="fset-title"><b>04 · 定价参数</b><span>仅示例</span></div>
+          <div class="fields">
+            {% if can_view_cost %}
+              <div class="field">
+                <label for="yieldIn">材料利用率</label>
+                <input id="yieldIn" class="input" type="number" step="0.01" min="0.3" max="1" value="{{ default_params.yield }}">
+              </div>
+              <div class="field">
+                <label for="machIn">加工费系数</label>
+                <input id="machIn" class="input" type="number" step="0.05" min="0.5" max="3" value="{{ default_params.machining_factor }}">
+              </div>
+              <div class="field">
+                <label for="machiningRateIn">工资率 / 加工费（元/件）<span class="sub" id="machiningRateSource">默认：价格库/档位</span></label>
+                <input id="machiningRateIn" class="input" type="number" step="0.01" min="0" placeholder="留空=价格库/档位">
+              </div>
+              <div class="field">
+                <label for="mgmtIn">管理费率</label>
+                <div class="unit-input"><input id="mgmtIn" class="input" type="number" step="0.5" min="0" value="{{ default_params.management_pct }}"><em>%</em></div>
+              </div>
+            {% else %}
+              <div class="field wide">
+                <p class="field-note accent">材料利用率 / 加工费系数 / 管理费率属于成本参数，当前角色不可见；计算使用财务默认值。</p>
+              </div>
+            {% endif %}
+            <div class="field">
+              <label for="profitIn">利润率</label>
+              <div class="unit-input"><input id="profitIn" class="input" type="number" step="0.5" min="0" value="{{ default_params.profit_pct }}"><em>%</em></div>
+            </div>
+            <div class="field">
+              <label for="discountIn">客户折扣</label>
+              <div class="unit-input"><input id="discountIn" class="input" type="number" step="0.5" min="0" max="30" value="{{ default_quote.discount_pct }}"><em>%</em></div>
+            </div>
+            <div class="field">
+              <label for="taxIn">税率</label>
+              <div class="unit-input"><input id="taxIn" class="input" type="number" step="0.5" min="0" value="{{ default_params.tax_pct }}"><em>%</em></div>
+            </div>
+            <div class="field">
+              <label for="fxIn">汇率 USD/CNY</label>
+              <input id="fxIn" class="input" type="number" step="0.01" min="1" value="{{ default_quote.fx_rate }}">
+            </div>
+            <div class="field">
+              <label>数量优惠（后端返回）</label>
+              <input id="qtyDiscOut" class="input" type="text" value="—" readonly>
+            </div>
+          </div>
+          <p class="field-note accent">演示参数，禁止用于生产；上线前由财务在价格库维护。</p>
+        </div>
+      </aside>
+
+      <div class="wb-main">
+        <div class="wb-col">
+          <div class="cost-card">
+            <h4>规格与尺寸 <span class="tag" id="weightTag">标准值</span></h4>
+            <div class="spec-line" id="specBadges"></div>
+            <div class="dim-grid" id="dimGrid"></div>
+            <div class="weight-line">
+              <div>
+                <span class="small muted">单件净重</span>
+                <div class="w" id="weightValue">—<small>kg</small></div>
+              </div>
+              <div class="small muted" id="weightHint" style="text-align:right;max-width:210px">—</div>
+            </div>
+            <div class="weight-check" id="weightCheck"></div>
+            <details class="wbreak">
+              <summary>重量口径与来源 <span class="small muted">查看说明</span></summary>
+              <div class="wbreak-body">
+                <p>标准库有参考重量的规格：按材质密度 / 7.85 修正，来源标记 B 级；无参考重量时由 T1 重量引擎按几何模型估算并标记 C 级。本页不计算重量。</p>
+                <p>报价单会固化重量来源、置信度与规则版本 <code>w0.3</code>，便于复算与复核。</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="cost-card">
+            <h4>成本构成 <span class="small muted">单件 · CNY · 含管理费</span></h4>
+            <div class="cost-list" id="costList">
+              <div class="calc-placeholder" id="calcPlaceholder">
+                <b>正在等待 /quote/calc/ …</b>
+                <p>若后端接口未就绪，将使用《接口契约》§9 的示例夹具（仅 4″ Class 150 WN A105、数量 10、默认参数）。</p>
+              </div>
+            </div>
+            <p class="calc-source" id="calcSource">数据源：—</p>
+          </div>
+        </div>
+
+        <div class="wb-col">
+          <div class="price-card">
+            <div class="pc-head"><span>QUOTE / 单件报价</span><span id="pcTag">CNY · 含税</span></div>
+            <div class="pc-main"><b id="pcUnit">—</b><span>元 / 件</span></div>
+            <div class="pc-sub"><span>不含税单价 <b id="pcNet">—</b></span><span>总价 <b id="pcTotal">—</b></span></div>
+            <div class="pc-lines">
+              <div class="pc-line"><span>材料价来源</span><b id="pcMatSource">价格库</b></div>
+              <div class="pc-line"><span>工资率（本次）</span><b id="pcMachRate">价格库/档位</b></div>
+              <div class="pc-line"><span>毛利率（实算）</span><b id="pcMargin">—</b></div>
+              <div class="pc-line"><span>元 / kg（含税）</span><b id="pcPerKg">—</b></div>
+              <div class="pc-line"><span>交期</span><b id="pcLead">—</b></div>
+              <div class="pc-line"><span>报价有效期</span><b id="pcValid">15 天</b></div>
+              <div class="pc-line"><span>数量优惠</span><b id="pcQtyDisc">—</b></div>
+              <div class="pc-line"><span>审批</span><b id="pcApproval">—</b></div>
+            </div>
+            <div class="gauge" aria-hidden="true"><i class="c" id="gaugeC"></i><i class="p" id="gaugeP"></i><i class="t" id="gaugeT"></i></div>
+            <div class="pc-check na" id="ptCheck">压力–温度校验：等待计算</div>
+            <div class="pc-actions">
+              <button class="btn btn-primary btn-block" id="addBtn" type="button" disabled>加入报价单</button>
+            </div>
+          </div>
+
+          <div class="cost-card">
+            <h4>成本快照 <span class="tag accent">固化到报价单</span></h4>
+            <div class="snap-grid" id="snapGrid">
+              <div class="snap-item"><span>标准版本</span><b>ASME B16.5-2025</b></div>
+              <div class="snap-item"><span>重量规则</span><b>w0.3</b></div>
+              <div class="snap-item"><span>材料价</span><b>示例</b></div>
+              <div class="snap-item"><span>汇率 / 税率</span><b>7.10 / 13%</b></div>
+            </div>
+            <p class="small muted snap-note">报价单会写入材料价、材料利用率、利润率、折扣、税率、汇率与标准版本；半年后仍可原样复算这张单。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-panel no-print">
+    <div class="qp-head">
+      <b>报价清单</b>
+      <span class="tag" id="quoteCount">0 项</span>
+      <span class="spacer"></span>
+      <span class="small muted">单号 <span class="mono" id="quoteNo">保存后由后端生成</span></span>
+    </div>
+    <div class="qp-body">
+      <div class="qp-meta">
+        <div class="field"><label for="qCustomer">客户</label>
+          <select id="qCustomer" class="select">
+            <option value="">— 不指定客户（手工折扣） —</option>
+            {% for c in customers %}
+              <option value="{{ c.code }}" data-discount="{{ c.discount_pct|floatformat:2 }}" data-currency="{{ c.currency }}" data-payment="{{ c.payment_terms }}" data-name="{{ c.name }}">{{ c.name }} · {{ c.level }} 级 · 折扣 {{ c.discount_pct|floatformat:1 }}%</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="field"><label for="qProject">项目 / 询价号</label><input id="qProject" class="input" value="P-2026-118" placeholder="项目名称或询价单号"></div>
+        <div class="field"><label for="qIncoterm">贸易条款</label>
+          <select id="qIncoterm" class="select"><option>EXW</option><option selected>FOB</option><option>CIF</option><option>CFR</option><option>DDP</option></select>
+        </div>
+        <div class="field"><label for="qPayment">付款条件</label><input id="qPayment" class="input" value="30% 预付，余款发货前" placeholder="付款条件"></div>
+      </div>
+      <p class="field-note" id="customerHint">选择客户后自动带入默认折扣、币种与账期；折扣仍可手填覆盖。未选客户时按手填折扣报价。</p>
+      <div id="quoteEmpty" class="quote-empty">还没有报价项。选择左侧规格与参数，点「加入报价单」，这里会生成明细和合计。</div>
+      <div class="tbl-wrap" id="quoteTableWrap" hidden>
+        <table class="tbl quote-table">
+          <thead>
+            <tr>
+              <th class="sh-seq">#</th><th>产品描述</th>
+              <th class="r">数量</th><th class="r">单重 (kg)</th>
+              <th class="r">含税单价</th><th class="r">金额（不含税）</th>
+              <th class="c">操作</th>
+            </tr>
+          </thead>
+          <tbody id="quoteItems"></tbody>
+          <tfoot id="quoteFoot"></tfoot>
+        </table>
+      </div>
+      <div id="quoteCards" class="quote-cards"></div>
+      <div id="quoteMobileFoot" class="quote-mfoot"></div>
+      <div class="form-error" id="createError" hidden></div>
+      <div class="q-actions">
+        <button class="btn btn-ghost" id="clearBtn" type="button">清空清单</button>
+        <button class="btn btn-ghost" id="csvBtn" type="button" disabled>导出 CSV · Excel 可开</button>
+        <button class="btn btn-primary" id="saveBtn" type="button" disabled{% if not can_create_quote %} title="当前角色无建单权限"{% endif %}>保存报价单</button>
+        <button class="btn btn-ghost" id="printBtn" type="button" disabled>打印 / 保存 PDF</button>
+      </div>
+      <p class="q-actions-note" id="saveHint">
+        {% if can_create_quote %}保存后由后端生成单号、版本与成本快照，并跳转详情页。{% else %}当前角色「{{ role_label }}」只读，不能保存报价；可继续查看成本 / 价格与明细。{% endif %}
+      </p>
+    </div>
+  </div>
+
+  <div class="sheet-head-actions no-print">
+    <b>报价单预览（A4）</b>
+    <span class="small muted">点「打印 / 保存 PDF」只输出这一页 · 浏览器打印设置选 A4 · 手机端为简化预览</span>
+  </div>
+  <div class="sheet-wrap" id="sheetWrap">
+    <div id="quotePreview" class="quote-preview">
+      {% include "quote/_quote_sheet.html" with quote=sample_quote upper=sample_upper is_sample=True only %}
+    </div>
+  </div>
+  <p class="sheet-print-hint no-print">样张仅为版式预览；正式保存、版本与状态流转由 T1 服务接入后启用。</p>
+</div>
+
+{{ bootstrap|json_script:"quote-bootstrap" }}
+{% endblock %}

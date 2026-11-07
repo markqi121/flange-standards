@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}{{ site_name }} · {{ site_tagline }}{% endblock %}</title>
   <meta name="description" content="{% block description %}法兰标准库：按标准、尺寸和压力等级查询法兰尺寸，查看标注图，打印 A4 规格卡。覆盖 ASME B16.5、ASME B16.47、EN 1092-1、JIS B2220。{% endblock %}">
+  {% block robots %}{% endblock %}
+  <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="alternate" hreflang="zh-Hans" href="{{ alternate_zh }}">
+  <link rel="alternate" hreflang="en" href="{{ alternate_en }}">
+  <link rel="alternate" hreflang="x-default" href="{{ x_default }}">
   <link rel="icon" type="image/svg+xml" href="{% static 'favicon.svg' %}">
-  <link rel="stylesheet" href="{% static 'css/site.css' %}?v=20261104b">
+  <link rel="stylesheet" href="{% static 'css/site.css' %}?v=20261105b">
+  {% block extra_head %}{% endblock %}
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -36,6 +42,8 @@
       <nav class="site-nav" aria-label="主导航">
         <a href="{% url 'catalog:home' %}">规格查询</a>
         <a href="{% url 'catalog:compare' %}">跨标准对照</a>
+        <a href="{% url 'catalog:batch' %}">批量打印</a>
+        <a href="{% url 'quote:index' %}" class="nav-quote">报价</a>
         <a href="{% url 'catalog:home' %}#standards">标准目录</a>
         <a href="{% url 'admin:index' %}" class="nav-admin">后台录入</a>
       </nav>
@@ -50,6 +58,7 @@
         </button>
       </form>
     </div>
+    <div class="wrap lang-switch"><strong>中文</strong><span aria-hidden="true">/</span><a href="{{ alternate_en }}" hreflang="en" lang="en">English</a></div>
   </header>
 
   {% block breadcrumbs %}{% endblock %}
@@ -67,6 +76,9 @@
           数据版本 {{ data_import.source_version|default:'—' }} ·
           尺寸规格 {{ total_specs }} 条 ·
           参考文档 {{ total_reference_docs }} 个
+        </p>
+        <p class="footer-link-row">
+          <a href="https://ax-forge.com/" target="_blank" rel="noopener">公司官网 · AX Forge</a>
         </p>
       </div>
       <div class="footer-col">
@@ -88,5 +100,6 @@
       <span>查询页 → 规格卡 → A4 打印，三步完成</span>
     </div>
   </footer>
+  {% block extra_scripts %}{% endblock %}
 </body>
 </html>

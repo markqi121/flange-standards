@@ -1,0 +1,31 @@
+{% extends "en/base.html" %}
+{% load catalog_extras %}
+
+{% block title %}ASME vs EN vs JIS flange dimensions at DN{{ dn }} | AX Forge{% endblock %}
+{% block description %}Compare outside diameter, thickness, bolt circle and bolting for DN{{ dn }} {{ type_name }} flanges across ASME, EN and JIS standards.{% endblock %}
+
+{% block content %}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "ASME vs EN vs JIS flange dimensions at DN{{ dn }}",
+    "url": "{{ canonical_url|escapejs }}"
+  }
+</script>
+<section class="page-head"><div class="wrap"><p class="eyebrow">CROSS-STANDARD</p><h1>Compare flange standards</h1><p class="page-sub">The same nominal size is not the same flange. Compare outside diameter, bolt circle and bolting before assuming two flanges will mate.</p>
+  <form class="compare-form" method="get" action="">
+    <div class="field"><label for="compare-dn">Nominal size</label><select id="compare-dn" name="dn">{% for value in common_dns %}<option value="{{ value }}" {% if value == dn %}selected{% endif %}>DN{{ value }}</option>{% endfor %}</select></div>
+    <div class="field"><label for="compare-type">Flange type</label><select id="compare-type" name="type">{% for slug, info in types.items %}<option value="{{ slug }}" {% if slug == type_slug %}selected{% endif %}>{{ info.name_en }}</option>{% endfor %}</select></div>
+    <button class="btn btn-primary" type="submit">Compare</button>
+  </form>
+</div></section>
+
+<section class="section section-tight"><div class="wrap">
+  <div class="section-head"><div><p class="eyebrow">DN{{ dn }} · {{ type_name }}</p><h2>{{ type_name }} DN{{ dn }} across standards</h2></div><p class="section-desc">All pressure classes for this size.</p></div>
+  {% if rows %}
+    <div class="data-table-wrap"><table class="data-table compare-table"><thead><tr><th>Standard</th><th>Size notation</th><th>Rating</th><th class="ta-right">Outside Ø D</th><th class="ta-right">Thickness C</th><th class="ta-right">Raised face D2</th><th class="ta-right">Bolt circle K</th><th>Bolting</th><th class="ta-right">Hub A</th><th class="ta-right">Length H</th><th></th></tr></thead><tbody>{% for row in rows %}<tr><td><span class="std-tag">{{ row.standard.short }}</span></td><td>{{ row.size_label }}</td><td><span class="rating">{{ row.rating.label }}</span></td><td class="num">{{ row.od|dim }}</td><td class="num">{{ row.th|dim }}</td><td class="num">{{ row.rf|dim|default:"—" }}</td><td class="num">{{ row.bc|dim }}</td><td class="num">{{ row.bolts }} × Ø{{ row.bolt_hole|dim }}</td><td class="num">{{ row.hub|dim|default:"—" }}</td><td class="num">{{ row.length|dim|default:"—" }}</td><td class="ta-right"><a class="text-link" href="{{ row.get_absolute_url }}">Spec sheet</a></td></tr>{% endfor %}</tbody></table></div>
+    <div class="callout"><strong>Do not compare DN alone.</strong> ASME B16.5, EN 1092-1 and JIS B2220 flanges of the same DN generally have different outside diameters, bolt circles and bolt counts. Even similar pressure ratings do not guarantee interchangeability. Order flange, gasket and bolting to the same standard.</div>
+  {% else %}<div class="empty-state"><h2>No DN{{ dn }} {{ type_name }} data</h2><p>Try another size or flange type.</p></div>{% endif %}
+</div></section>
+{% endblock %}

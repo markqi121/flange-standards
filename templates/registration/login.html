@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}登录 · 法兰报价{% endblock %}
+{% block robots %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+{% block content %}
+<div class="wrap" style="max-width:520px;padding-top:56px;padding-bottom:80px">
+  <div style="background:#fff;border:1px solid #dbe3ec;border-radius:16px;padding:28px 30px;box-shadow:0 18px 40px -30px rgba(11,27,43,.45)">
+    <p style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:#d2460f;margin:0 0 8px">QUOTE / SIGN IN</p>
+    <h1 style="font-size:26px;margin:0 0 6px">登录法兰报价</h1>
+    <p style="font-size:13px;color:#56697d;margin:0 0 20px">使用你的销售 / 技术 / 财务账号登录；没有账号请联系管理员。</p>
+    {% if form.errors %}
+      <div style="background:#fdeceb;color:#b42318;border:1px solid #f5c6c2;border-radius:8px;padding:10px 12px;font-size:12px;margin-bottom:14px">用户名或密码不正确，请重试。</div>
+    {% endif %}
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ next|default:'/quote/' }}">
+      <label style="display:block;font-size:12px;color:#56697d;margin-bottom:6px" for="id_username">用户名</label>
+      <input id="id_username" name="username" type="text" autocomplete="username" required
+             style="width:100%;height:40px;border:1px solid #c9d4e1;border-radius:8px;padding:0 11px;font-size:14px;margin-bottom:14px">
+      <label style="display:block;font-size:12px;color:#56697d;margin-bottom:6px" for="id_password">密码</label>
+      <div style="position:relative;margin-bottom:18px">
+        <input id="id_password" name="password" type="password" autocomplete="current-password" required
+               style="width:100%;height:40px;border:1px solid #c9d4e1;border-radius:8px;padding:0 64px 0 11px;font-size:14px">
+        <button type="button" id="togglePassword" aria-label="显示密码"
+                style="position:absolute;right:6px;top:5px;height:30px;padding:0 9px;border:0;border-radius:6px;background:#eef3f8;color:#56697d;font-size:12px;cursor:pointer">显示</button>
+      </div>
+      <button type="submit" style="width:100%;height:42px;border:0;border-radius:9px;background:#d2460f;color:#fff;font-size:14px;font-weight:600;cursor:pointer">登录</button>
+    </form>
+    {% if demo_login_hint %}
+      <div style="margin-top:18px;padding:12px 14px;background:#f6f8fb;border:1px dashed #c9d4e1;border-radius:9px;font-size:12px;color:#56697d;line-height:1.7">
+        <b style="color:#0b1b2b">演示账号（仅用于评审）</b><br>
+        <code>demo-manager</code> / <code>demo12345</code>　可建单/审批/看成本<br>
+        <code>demo-eng</code> / <code>demo12345</code>　看成本/改本次价<br>
+        <code>demo-sales</code> / <code>demo12345</code>　销售视角<br>
+        <button type="button" id="fillDemoManager" style="margin-top:6px;border:0;background:none;color:#d2460f;padding:0;font-size:12px;cursor:pointer">一键填入 demo-manager</button>
+      </div>
+    {% endif %}
+    <p style="font-size:11px;color:#7b8ea1;margin:16px 0 0">后台管理员请使用 <a href="{% url 'admin:index' %}" style="color:#d2460f">Django Admin</a> 登录。</p>
+    <script>
+      (function(){
+        var pwd = document.getElementById('id_password');
+        var btn = document.getElementById('togglePassword');
+        if (pwd && btn) {
+          btn.addEventListener('click', function(){
+            var show = pwd.type === 'password';
+            pwd.type = show ? 'text' : 'password';
+            btn.textContent = show ? '隐藏' : '显示';
+            btn.setAttribute('aria-label', show ? '隐藏密码' : '显示密码');
+          });
+        }
+        var fill = document.getElementById('fillDemoManager');
+        var user = document.getElementById('id_username');
+        if (fill && user && pwd) {
+          fill.addEventListener('click', function(){
+            user.value = 'demo-manager';
+            pwd.value = 'demo12345';
+            pwd.type = 'text';
+            if (btn) { btn.textContent = '隐藏'; }
+          });
+        }
+      })();
+    </script>
+  </div>
+</div>
+{% endblock %}

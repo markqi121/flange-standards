@@ -8,7 +8,7 @@
 - playwright install chromium（浏览器放 PLAYWRIGHT_BROWSERS_PATH）
 - 系统依赖：playwright install-deps chromium
 
-渲染地址默认走本机 Nginx 的 /std/ 打印页，这样 CSS/静态文件与线上完全一致；
+渲染地址走本机 Nginx 的打印页（生产为 https://std.ax-forge.com），这样 CSS/静态文件与线上完全一致；
 可用 PDF_RENDER_BASE_URL 覆盖。
 """
 
@@ -16,6 +16,7 @@ import fcntl
 import logging
 import os
 import pathlib
+import re
 import tempfile
 
 logger = logging.getLogger(__name__)
@@ -25,8 +26,12 @@ RENDER_BASE = os.environ.get('PDF_RENDER_BASE_URL', 'https://127.0.0.1/std').rst
 LAYOUT_VERSION = os.environ.get('PDF_LAYOUT_VERSION', '1')
 
 
-def _cached_path(row):
-    return CACHE_DIR / f'spec-{row.pk}-v{LAYOUT_VERSION}.pdf'
+def _group_token(group):
+    return re.sub(r'[^0-9A-Za-z._-]', '_', group or 'default')
+
+
+def _cached_path(row, group=None, lang='zh'):
+    return CACHE_DIR / f'spec-{row.pk}-{lang}-g{_group_token(group)}-v{LAYOUT_VERSION}.pdf'
 
 
 def _is_fresh(path, row):
@@ -36,13 +41,15 @@ def _is_fresh(path, row):
         return False
 
 
-def _generate(target, row):
+def _generate(target, row, group=None, lang='zh'):
     try:
         from playwright.sync_api import sync_playwright
     except Exception as exc:  # pragma: no cover - 依赖缺失时的降级
         raise RuntimeError('Playwright 未安装，无法生成 PDF') from exc
 
-    url = f'{RENDER_BASE}/spec/{row.pk}/print/'
+    prefix = '/en' if lang == 'en' else ''
+    query = f'?group={group}' if group else ''
+    url = f'{RENDER_BASE}{prefix}/spec/{row.pk}/print/{query}'
     tmp_path = None
     try:
         fd, tmp_name = tempfile.mkstemp(prefix=f'spec-{row.pk}-', suffix='.pdf', dir=target.parent)
@@ -83,10 +90,53 @@ def _generate(target, row):
                 pass
 
 
-def render_spec_pdf(row, force=False):
+def render_batch_pdf(query, lang='zh'):
+    """渲染 /batch/print/ 的多页 A4 PDF，返回临时文件路径。"""
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    try:
+        from playwright.sync_api import sync_playwright
+    except Exception as exc:  # pragma: no cover
+        raise RuntimeError('Playwright 未安装，无法生成 PDF') from exc
+
+    prefix = '/en' if lang == 'en' else ''
+    url = f'{RENDER_BASE}{prefix}/batch/print/?{query}'
+    fd, tmp_name = tempfile.mkstemp(prefix='batch-', suffix='.pdf', dir=CACHE_DIR)
+    os.close(fd)
+    target = pathlib.Path(tmp_name)
+    try:
+        with open(CACHE_DIR / '.render.lock', 'w') as global_lock:
+            fcntl.flock(global_lock, fcntl.LOCK_EX)
+            with sync_playwright() as playwright:
+                browser = playwright.chromium.launch(args=['--no-sandbox', '--disable-dev-shm-usage'])
+                try:
+                    context = browser.new_context(
+                        ignore_https_errors=True,
+                        viewport={'width': 1240, 'height': 1754},
+                    )
+                    page = context.new_page()
+                    page.emulate_media(media='print')
+                    page.goto(url, wait_until='networkidle', timeout=60000)
+                    page.pdf(
+                        path=str(target),
+                        format='A4',
+                        print_background=True,
+                        prefer_css_page_size=True,
+                    )
+                finally:
+                    browser.close()
+        if target.stat().st_size < 1000:
+            raise RuntimeError('生成的批量 PDF 过小')
+        return target
+    except Exception:
+        if target.exists():
+            target.unlink()
+        raise
+
+
+def render_spec_pdf(row, group=None, force=False, lang='zh'):
     """返回 PDF 文件路径；成功后才移动为最终文件，避免半成品被读到。"""
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
-    target = _cached_path(row)
+    target = _cached_path(row, group, lang)
     if not force and _is_fresh(target, row):
         return target
 
@@ -101,4 +151,4 @@ def render_spec_pdf(row, force=False):
             fcntl.flock(global_lock, fcntl.LOCK_EX)
             if not force and _is_fresh(target, row):
                 return target
-            return _generate(target, row)
+            return _generate(target, row, group, lang)

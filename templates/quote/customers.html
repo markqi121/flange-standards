@@ -1,0 +1,59 @@
+{% extends "quote/base.html" %}
+{% load static %}
+
+{% block quote_title %}客户{% endblock %}
+{% block quote_crumb %}客户{% endblock %}
+
+{% block quote_content %}
+<section class="page-head quote-head">
+  <div class="wrap page-head-main">
+    <div>
+      <p class="eyebrow">CUSTOMERS</p>
+      <h1>客户</h1>
+      <p class="page-sub">客户等级、默认折扣、币种与账期。客户主数据的录入与维护由 T3 / Django Admin 负责，本页只读。</p>
+      <div class="badge-stack">
+        <span class="tag">折扣按客户等级</span>
+        <span class="tag">币种 CNY / USD</span>
+        <span class="tag tag-warn">只读预览</span>
+      </div>
+    </div>
+    <div class="page-head-side quote-head-actions">
+      <a class="btn btn-ghost" href="{% url 'quote:index' %}">返回工作台</a>
+      <a class="btn btn-ghost" href="{% url 'quote:list' %}">报价单列表</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap quote-wrap">
+  {% if not has_customers %}
+    <div class="notice-bar notice-bar-bad">
+      <strong>暂无客户数据</strong>
+      <span>请先在 Django Admin 维护客户；工作台客户下拉会自动同步（客户折扣会带入报价，仍可手改）。</span>
+    </div>
+  {% endif %}
+
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr><th>客户编码</th><th>客户名称</th><th>等级</th><th class="r">默认折扣</th><th>币种</th><th>账期</th><th>状态</th></tr>
+      </thead>
+      <tbody>
+        {% for customer in customers %}
+          <tr>
+            <td class="mono strong">{{ customer.code }}</td>
+            <td>{{ customer.name }}</td>
+            <td><span class="tag">{{ customer.level }}</span></td>
+            <td class="r num">{{ customer.discount_pct|floatformat:1 }}%</td>
+            <td class="num">{{ customer.currency }}</td>
+            <td>{{ customer.payment_terms }}</td>
+            <td><span class="status-badge {% if customer.is_demo %}tone-warn{% else %}tone-ok{% endif %}">{% if customer.is_demo %}演示{% else %}启用{% endif %}</span></td>
+          </tr>
+        {% empty %}
+          <tr><td colspan="7" class="empty">暂无客户。</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p class="sheet-print-hint">新增/编辑客户请进入 Django Admin；客户折扣会在 /quote/calc/ 与创建报价时生效。</p>
+</div>
+{% endblock %}

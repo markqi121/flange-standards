@@ -1,0 +1,2 @@
+﻿code,name,level,discount_pct,currency,payment_terms,active
+demo-a,示例客户 A（演示）,A,8.00,CNY,30% 预付，余款发货前,true

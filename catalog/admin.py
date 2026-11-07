@@ -4,7 +4,16 @@
 参考数据（p/T、公差、标记等）保留标准原表的 JSON 结构，后台只读，避免误改。
 """
 
-from django.contrib import admin
+import csv
+import io
+
+from django.contrib import admin, messages
+from django.contrib.admin.models import LogEntry
+from django.core.exceptions import ValidationError
+from django.db import transaction
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.urls import path
 
 from .models import (
     DataImport,
@@ -67,7 +76,7 @@ class RatingAdmin(admin.ModelAdmin):
 class DimensionRowAdmin(admin.ModelAdmin):
     list_display = (
         'standard', 'flange_type', 'size_label', 'dn', 'rating',
-        'od', 'th', 'bc', 'bolts', 'bolt_hole', 'weight',
+        'od', 'th', 'bc', 'bolts', 'bolt_hole', 'weight', 'view_count',
     )
     list_filter = ('standard', 'flange_type', 'rating')
     search_fields = ('size', 'size_label', 'standard__name', 'standard__short', 'rating__label')
@@ -88,8 +97,115 @@ class DimensionRowAdmin(admin.ModelAdmin):
         ('审计', {'fields': ('updated_at',)}),
     )
 
+    actions = ['export_csv']
+
     def get_queryset(self, request):
         return super().get_queryset(request).select_related('standard', 'flange_type', 'rating')
+
+    @admin.action(description='导出所选规格为 CSV（Excel 可直接打开）')
+    def export_csv(self, request, queryset):
+        response = HttpResponse(content_type='text/csv; charset=utf-8-sig')
+        response['Content-Disposition'] = 'attachment; filename="flange-dimensions.csv"'
+        writer = csv.writer(response)
+        writer.writerow([
+            'standard', 'type', 'size', 'size_label', 'dn', 'rating',
+            'od', 'th', 'rf', 'rf_height', 'bc', 'bolts', 'bolt_hole',
+            'hub', 'length', 'hub_weld', 'weight', 'note',
+        ])
+        for row in queryset.select_related('standard', 'flange_type', 'rating').order_by('pk'):
+            writer.writerow([
+                row.standard_id, row.flange_type_id, row.size, row.size_label, row.dn,
+                row.rating.code, row.od, row.th, row.rf, row.rf_height, row.bc,
+                row.bolts, row.bolt_hole, row.hub, row.length, row.hub_weld,
+                row.weight, row.note,
+            ])
+        return response
+
+    def get_urls(self):
+        urls = super().get_urls()
+        custom = [
+            path('import-csv/', self.admin_site.admin_view(self.import_csv_view),
+                 name='catalog_dimensionrow_import_csv'),
+        ]
+        return custom + urls
+
+    def import_csv_view(self, request):
+        errors = []
+        imported = 0
+        if request.method == 'POST':
+            upload = request.FILES.get('csv_file')
+            update = request.POST.get('update') == 'on'
+            if not upload:
+                errors.append('请选择 CSV 文件')
+            elif upload.size > 5 * 1024 * 1024:
+                errors.append('文件太大（上限 5 MB）')
+            else:
+                try:
+                    text = upload.read().decode('utf-8-sig')
+                    reader = csv.DictReader(io.StringIO(text))
+                    required = {'standard', 'type', 'size', 'dn', 'rating', 'od', 'th', 'bc', 'bolts', 'bolt_hole'}
+                    missing = required - set(reader.fieldnames or [])
+                    if missing:
+                        errors.append('缺少表头：' + ', '.join(sorted(missing)))
+                    else:
+                        rows = []
+                        with transaction.atomic():
+                            for index, record in enumerate(reader, start=2):
+                                try:
+                                    rows.append(self._import_record(record, update))
+                                except Exception as exc:
+                                    errors.append(f'第 {index} 行：{exc}')
+                                    raise
+                        imported = len(rows)
+                except Exception:
+                    # 具体错误已经在上面记入 errors；事务已回滚
+                    pass
+        context = {
+            **self.admin_site.each_context(request),
+            'title': '导入尺寸 CSV',
+            'opts': self.model._meta,
+            'errors': errors,
+            'imported': imported,
+        }
+        return render(request, 'admin/catalog/import_csv.html', context)
+
+    def _import_record(self, record, update):
+        from .models import DimensionRow, Rating, Standard
+        standard = Standard.objects.get(pk=(record.get('standard') or '').strip())
+        rating = Rating.objects.get(standard=standard, code=(record.get('rating') or '').strip())
+        type_slug = (record.get('type') or '').strip()
+        size = (record.get('size') or '').strip()
+        if not size:
+            raise ValueError('size 不能为空')
+
+        def value(name):
+            raw = (record.get(name) or '').strip()
+            if raw == '':
+                return None
+            return float(raw)
+
+        defaults = {
+            'size_label': (record.get('size_label') or size).strip(),
+            'dn': int(float(record.get('dn') or 0)),
+            'od': value('od'), 'th': value('th'), 'rf': value('rf'),
+            'rf_height': value('rf_height'), 'bc': value('bc'),
+            'bolts': int(float(record.get('bolts') or 0)), 'bolt_hole': value('bolt_hole'),
+            'hub': value('hub'), 'length': value('length'), 'hub_weld': value('hub_weld'),
+            'weight': value('weight'), 'note': (record.get('note') or '').strip(),
+        }
+        if not update:
+            existing = DimensionRow.objects.filter(
+                standard=standard, flange_type_id=type_slug, size=size, rating=rating
+            ).first()
+            if existing:
+                raise ValueError('记录已存在，勾选“已存在则更新”后再导入')
+        row, _ = DimensionRow.objects.update_or_create(
+            standard=standard, flange_type_id=type_slug, size=size, rating=rating,
+            defaults=defaults,
+        )
+        row.full_clean()
+        row.save()
+        return row
 
 
 @admin.register(ReferenceDoc)
@@ -129,4 +245,23 @@ class DataImportAdmin(admin.ModelAdmin):
         return False
 
     def has_change_permission(self, request, obj=None):
+        return False
+
+
+@admin.register(LogEntry)
+class LogEntryAdmin(admin.ModelAdmin):
+    list_display = ('action_time', 'user', 'content_type', 'object_repr', 'action_flag')
+    list_filter = ('action_flag', 'content_type', 'user')
+    search_fields = ('object_repr', 'change_message')
+    readonly_fields = ('action_time', 'user', 'content_type', 'object_id', 'object_repr',
+                       'action_flag', 'change_message')
+    date_hierarchy = 'action_time'
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
         return False

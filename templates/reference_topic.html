@@ -17,8 +17,8 @@
 <section class="page-head">
   <div class="wrap">
     <p class="eyebrow">REFERENCE · {{ standard.short }}</p>
-    <h1>{{ topic_key|topic_label }}</h1>
-    <p class="page-sub">{{ topic.title }} · {{ standard.name_zh }} · {{ doc.edition }} · 核对 {{ doc.verified_on|date:"Y-m-d" }}</p>
+    <h1>{{ topic.title }}</h1>
+    <p class="page-sub">{% if topic.has_zh %}{{ topic.title_en }} · {% endif %}{{ standard.name_zh }} · {{ doc.edition }} · 核对 {{ doc.verified_on|date:"Y-m-d" }}</p>
 
     <div class="topic-nav">
       {% for item in topics %}
@@ -31,7 +31,7 @@
 
 <section class="section section-tight">
   <div class="wrap reference-body">
-    <p class="source-note">以下内容保留 {{ doc.edition }} 原表的英文表头、表号与数值写法，未做翻译改写；表内单位与脚注以原文为准。</p>
+    <p class="source-note">{% if topic.has_zh %}以下为 {{ doc.edition }} 的中文整理：文字说明、标题与表头已翻译；表格正文（特征、条款等）与数值、表号、页码保留原文写法；表内单位与脚注以原文为准。{% else %}以下内容保留 {{ doc.edition }} 原表的英文表头、表号与数值写法，未做翻译改写；表内单位与脚注以原文为准。{% endif %}</p>
     {% if topic.intro %}
       <div class="intro-copy">
         {% for paragraph in topic.intro %}<p>{{ paragraph }}</p>{% endfor %}

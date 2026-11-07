@@ -1,0 +1,134 @@
+{% extends "quote/base.html" %}
+{% load static %}
+
+{% block quote_title %}报价单列表{% endblock %}
+{% block quote_crumb %}报价单列表{% endblock %}
+
+{% block quote_content %}
+<section class="page-head quote-head">
+  <div class="wrap page-head-main">
+    <div>
+      <p class="eyebrow">QUOTATION LIST</p>
+      <h1>报价单列表</h1>
+      <p class="page-sub">按单号、客户与状态筛选；报价金额、版本与状态以服务端记录为准。</p>
+    </div>
+    <div class="page-head-side quote-head-actions">
+      <a class="btn btn-primary" href="{% url 'quote:index' %}">新建报价</a>
+      <a class="btn btn-ghost" href="{% url 'quote:export' %}?status={{ status|urlencode }}&amp;q={{ keyword|urlencode }}{% if is_mock %}&amp;demo=1{% endif %}">导出 Excel</a>
+      <a class="btn btn-ghost" href="{% url 'quote:prices' %}">价格库</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap quote-wrap">
+  {% if scope_label == 'own' %}
+    <div class="notice-bar">
+      <strong>数据范围：仅本人</strong>
+      <span>当前角色「{{ role_label }}」只能查看本人创建的报价单；技术 / 财务 / 经理 / 管理员可查看全部。</span>
+    </div>
+  {% elif scope_label == 'none' and not is_mock %}
+    <div class="notice-bar notice-bar-bad">
+      <strong>无可见数据</strong>
+      <span>当前账号「{{ role_label }}」未分配角色或没有可见报价单；请联系管理员配置角色组。</span>
+    </div>
+  {% endif %}
+
+  {% if is_mock %}
+    <div class="notice-bar">
+      <strong>示例数据</strong>
+      <span>T1 报价单模型/迁移未就绪，当前展示静态样张；接入后本页自动读取真实报价单。也可在 URL 加 <code>?demo=1</code> 强制预览样张。</span>
+    </div>
+  {% endif %}
+
+  <form class="quote-filter" method="get" action="">
+    <div class="field">
+      <label for="q">搜索</label>
+      <input id="q" class="input" type="search" name="q" value="{{ keyword }}" placeholder="单号或客户名称">
+    </div>
+    <div class="field">
+      <label for="status">状态</label>
+      <select id="status" class="select" name="status">
+        <option value="">全部状态</option>
+        {% for code, label in status_choices %}
+          <option value="{{ code }}" {% if status == code %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="filter-actions">
+      <button class="btn btn-primary" type="submit">筛选</button>
+      <a class="btn btn-ghost" href="{% url 'quote:list' %}{% if is_mock %}?demo=1{% endif %}">重置</a>
+    </div>
+  </form>
+
+  <div class="form-error" id="statusError" hidden></div>
+
+  {% if quotes %}
+    <div class="data-table-wrap quote-list-wrap">
+      <table class="data-table quote-list-table">
+        <thead>
+          <tr>
+            <th>单号</th>
+            <th>客户</th>
+            <th>状态</th>
+            <th class="r">版本</th>
+            <th class="r">含税合计</th>
+            <th>报价日期</th>
+            <th>有效期至</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for quote in quotes %}
+            <tr>
+              <td class="strong">
+                <a href="{% url 'quote:detail' quote.number %}{% if is_mock %}?demo=1{% endif %}">{{ quote.number }}</a>
+              </td>
+              <td>{{ quote.customer }}</td>
+              <td><span class="status-badge tone-{{ quote.status_tone }}">{{ quote.status_label }}</span></td>
+              <td class="r num">V{{ quote.version }}</td>
+              <td class="r num">{{ quote.currency }} {{ quote.total_display|floatformat:2 }}</td>
+              <td class="num">{{ quote.quote_date|date:"Y-m-d"|default:"—" }}</td>
+              <td class="num">{{ quote.valid_until|date:"Y-m-d"|default:"—" }}</td>
+              <td class="row-actions">
+                {% for action in quote.actions %}
+                  <button class="action-btn {{ action.css }}" type="button"
+                          data-status-action="{{ action.action }}"
+                          data-action-label="{{ action.label }}"
+                          data-quote-number="{{ quote.number }}"
+                          data-status-url="{% url 'quote:api_status' quote.number %}"
+                          data-confirm="{% if action.confirm %}1{% else %}0{% endif %}"
+                          data-comment="{% if action.comment %}1{% else %}0{% endif %}">{{ action.label }}</button>
+                {% endfor %}
+                <a class="text-link" href="{% url 'quote:excel' quote.number %}{% if is_mock %}?demo=1{% endif %}">Excel</a>
+                <a class="text-link" href="{% url 'quote:print' quote.number %}{% if is_mock %}?demo=1{% endif %}" target="_blank" rel="noopener">A4</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {% if page_obj.paginator.num_pages > 1 %}
+      <nav class="pagination" aria-label="分页">
+        {% if page_obj.has_previous %}
+          <a href="?page={{ page_obj.previous_page_number }}{% if status %}&amp;status={{ status|urlencode }}{% endif %}{% if keyword %}&amp;q={{ keyword|urlencode }}{% endif %}{% if is_mock %}&amp;demo=1{% endif %}">上一页</a>
+        {% else %}
+          <span class="is-disabled">上一页</span>
+        {% endif %}
+        <span class="page-info">第 {{ page_obj.number }} / {{ page_obj.paginator.num_pages }} 页 · 共 {{ page_obj.paginator.count }} 张</span>
+        {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}{% if status %}&amp;status={{ status|urlencode }}{% endif %}{% if keyword %}&amp;q={{ keyword|urlencode }}{% endif %}{% if is_mock %}&amp;demo=1{% endif %}">下一页</a>
+        {% else %}
+          <span class="is-disabled">下一页</span>
+        {% endif %}
+      </nav>
+    {% endif %}
+  {% else %}
+    <div class="empty-state">
+      <h2>没有符合条件的报价单</h2>
+      <p>调整筛选条件，或从工作台新建一张报价。</p>
+      <p><a class="btn btn-primary" href="{% url 'quote:index' %}">去工作台</a></p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,159 @@
+{% extends "quote/base.html" %}
+{% load static %}
+
+{% block quote_title %}价格库{% endblock %}
+{% block quote_crumb %}价格库{% endblock %}
+
+{% block quote_content %}
+<section class="page-head quote-head">
+  <div class="wrap page-head-main">
+    <div>
+      <p class="eyebrow">PRICE LIBRARY</p>
+      <h1>价格库</h1>
+      <p class="page-sub">材料价、工艺费率、汇率与客户折扣。数据来自价格库（T3），按生效日期取价；历史报价通过成本快照复算，不被新价格改写。</p>
+      <div class="badge-stack">
+        {% if has_demo %}
+          <span class="tag tag-warn">含演示数据</span>
+        {% else %}
+          <span class="tag ok">价格库数据</span>
+        {% endif %}
+        <span class="tag">生效日期取值</span>
+        <span class="tag">只读</span>
+      </div>
+    </div>
+    <div class="page-head-side quote-head-actions">
+      <a class="btn btn-ghost" href="{% url 'quote:index' %}">返回工作台</a>
+      <a class="btn btn-ghost" href="{% url 'quote:list' %}">报价单列表</a>
+      <a class="btn btn-ghost" href="{% url 'quote:customers' %}">客户</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap quote-wrap">
+  {% if db_error %}
+    <div class="notice-bar notice-bar-bad">
+      <strong>价格库读取失败</strong>
+      <span>{{ db_error }}</span>
+    </div>
+  {% elif has_demo %}
+    <div class="notice-bar">
+      <strong>演示数据警示</strong>
+      <span>以下价格包含 <code>source=demo</code> 的演示数据，仅用于界面联调、UAT 与测试，<b>禁止</b>作为正式报价依据。上线前请由财务在后台替换为采购 / 市场 / 手工价。</span>
+    </div>
+  {% endif %}
+
+  {% if not has_data %}
+    <div class="empty-state">
+      <h2>价格库还没有数据</h2>
+      <p>请先在 Django Admin 维护材质、材料价、工艺费率与客户；价格库为空时 <code>/quote/calc/</code> 会返回 <code>price_unavailable</code>。</p>
+      <p><a class="btn btn-primary" href="{% url 'admin:index' %}">进入后台维护</a></p>
+    </div>
+  {% else %}
+
+    <section class="cost-card detail-card">
+      <h4>材料价格 <span class="tag">{{ materials|length }} 个牌号</span></h4>
+      {% if materials %}
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>牌号</th><th>展示名</th><th>类别</th><th class="r">密度 g/cm³</th>
+                <th class="r">单价</th><th>币种</th><th>生效日期</th><th>来源</th><th>备注</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for m in materials %}
+                <tr>
+                  <td class="mono strong">{{ m.code }}</td>
+                  <td>{{ m.label }}</td>
+                  <td>{{ m.family }}</td>
+                  <td class="r num">{{ m.density|floatformat:2 }}</td>
+                  <td class="r num">{% if m.price %}{{ m.price|floatformat:2 }}{% else %}<span class="text-bad">无生效价</span>{% endif %}</td>
+                  <td class="num">{{ m.currency }}</td>
+                  <td class="num">{{ m.effective_from|date:"Y-m-d"|default:"—" }}</td>
+                  <td><span class="status-badge {% if m.is_demo %}tone-warn{% else %}tone-ok{% endif %}">{{ m.source_label }}</span></td>
+                  <td class="muted">{{ m.note|default:"—" }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p class="empty">还没有材质主数据。</p>
+      {% endif %}
+    </section>
+
+    <div class="detail-grid">
+      <section class="cost-card detail-card">
+        <h4>工艺费率 <span class="tag">{{ rates|length }} 项</span></h4>
+        {% if rates %}
+          <div class="tbl-wrap">
+            <table class="tbl quote-table">
+              <thead><tr><th>项目</th><th>单位</th><th class="r">基础费率</th><th>档位 / 覆盖</th><th>生效</th><th>来源</th></tr></thead>
+              <tbody>
+                {% for rate in rates %}
+                  <tr>
+                    <td><b>{{ rate.label }}</b><span class="sub">{{ rate.code }}</span></td>
+                    <td>{{ rate.unit_label }}</td>
+                    <td class="r num">{{ rate.rate|floatformat:2 }}</td>
+                    <td class="muted">{{ rate.tiers_text|default:"—" }}</td>
+                    <td class="num">{{ rate.effective_from|date:"Y-m-d"|default:"—" }}</td>
+                    <td><span class="status-badge {% if rate.is_demo %}tone-warn{% else %}tone-ok{% endif %}">{{ rate.source_label }}</span></td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% else %}
+          <p class="empty">还没有工艺费率；未配置时后端使用演示默认费率并写入快照 <code>demo_rates=true</code>。</p>
+        {% endif %}
+      </section>
+
+      <section class="cost-card detail-card">
+        <h4>默认定价参数 <span class="tag accent">契约 §7</span></h4>
+        <dl class="meta-dl">
+          <div><dt>材料利用率</dt><dd>{{ default_params.yield|floatformat:2 }}</dd></div>
+          <div><dt>加工费系数</dt><dd>{{ default_params.machining_factor|floatformat:2 }}</dd></div>
+          <div><dt>管理费率</dt><dd>{{ default_params.management_pct|floatformat:1 }}%</dd></div>
+          <div><dt>利润率</dt><dd>{{ default_params.profit_pct|floatformat:1 }}%</dd></div>
+          <div><dt>税率</dt><dd>{{ default_params.tax_pct|floatformat:1 }}%</dd></div>
+          <div><dt>汇率</dt><dd>1 USD = 7.10 CNY</dd></div>
+        </dl>
+        <p class="small muted">价格库中的费率 / 材料价优先于默认参数；演示参数不得进入生产环境。</p>
+        <div class="locked-actions">
+          <button class="btn btn-ghost" type="button" disabled>新增材料价</button>
+          <button class="btn btn-ghost" type="button" disabled>导入 CSV</button>
+          <button class="btn btn-ghost" type="button" disabled>费率调整</button>
+        </div>
+        <p class="small muted">维护入口在 Django Admin（价格库由 T3 / 财务负责）；本页只读。</p>
+      </section>
+    </div>
+
+    <section class="cost-card detail-card">
+      <h4>客户与默认折扣 <span class="tag">{{ customers|length }} 个客户</span></h4>
+      {% if customers %}
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead><tr><th>客户编码</th><th>客户名称</th><th>等级</th><th class="r">默认折扣</th><th>币种</th><th>账期</th><th>数据来源</th></tr></thead>
+            <tbody>
+              {% for customer in customers %}
+                <tr>
+                  <td class="mono strong">{{ customer.code }}</td>
+                  <td>{{ customer.name }}</td>
+                  <td><span class="tag">{{ customer.level }}</span></td>
+                  <td class="r num">{{ customer.discount_pct|floatformat:1 }}%</td>
+                  <td class="num">{{ customer.currency }}</td>
+                  <td>{{ customer.payment_terms|default:"—" }}</td>
+                  <td><span class="status-badge {% if customer.is_demo %}tone-warn{% else %}tone-ok{% endif %}">{% if customer.is_demo %}演示{% else %}价格库{% endif %}</span></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p class="empty">还没有客户主数据；工作台客户下拉将为空。</p>
+      {% endif %}
+    </section>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% load static %}<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Flange Standard Library · Dimensions, Drawings & Printable Spec Sheets{% endblock %}</title>
+  <meta name="description" content="{% block description %}ASME B16.5, ASME B16.47, EN 1092-1 and JIS B2220 flange dimensions, drawings, pressure-temperature ratings and printable A4 specification sheets.{% endblock %}">
+  {% block robots %}{% endblock %}
+  <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="alternate" hreflang="zh-Hans" href="{{ alternate_zh }}">
+  <link rel="alternate" hreflang="en" href="{{ alternate_en }}">
+  <link rel="alternate" hreflang="x-default" href="{{ x_default }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{% block og_title %}Flange Standard Library{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}Flange dimensions, drawings and printable specification sheets for ASME, EN and JIS standards.{% endblock %}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:site_name" content="AX Forge · Flange Standard Library">
+  <link rel="icon" type="image/svg+xml" href="{% static 'favicon.svg' %}">
+  <link rel="stylesheet" href="{% static 'css/site.css' %}?v=20261105b">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "AX Forge Flange Standard Library",
+      "url": "{{ site_url }}/en/",
+      "publisher": {"@type": "Organization", "name": "AX Forge", "url": "https://ax-forge.com/"}
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a class="brand" href="{% url 'catalog:home' %}">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="16" cy="16" r="8" fill="none" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="16" cy="16" r="2.6" fill="currentColor"/>
+            <g fill="currentColor">
+              <circle cx="16" cy="5.6" r="1.7"/><circle cx="16" cy="26.4" r="1.7"/>
+              <circle cx="5.6" cy="16" r="1.7"/><circle cx="26.4" cy="16" r="1.7"/>
+              <circle cx="8.6" cy="8.6" r="1.7"/><circle cx="23.4" cy="23.4" r="1.7"/>
+              <circle cx="8.6" cy="23.4" r="1.7"/><circle cx="23.4" cy="8.6" r="1.7"/>
+            </g>
+          </svg>
+        </span>
+        <span class="brand-copy">
+          <strong>FLANGE STANDARD LIBRARY</strong>
+          <span>DIMENSIONS · DRAWINGS · SPEC SHEETS</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Main">
+        <a href="{% url 'catalog:home' %}">Search</a>
+        <a href="{% url 'catalog:home' %}#standards">Standards</a>
+        <a href="{% url 'catalog:compare' %}">Compare</a>
+        <a href="{% url 'catalog:batch' %}">Batch print</a>
+        <a href="{% url 'admin:index' %}" class="nav-admin">Admin</a>
+      </nav>
+
+      <form class="header-search" action="{% url 'catalog:search' %}" method="get" role="search">
+        <input type="search" name="q" value="{{ request.GET.q|default:'' }}" placeholder="Search DN100 PN16 …" aria-label="Search specifications">
+        <button type="submit" aria-label="Search">
+          <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true">
+            <circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M13 13l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+    <div class="wrap lang-switch"><a href="{{ alternate_zh }}" hreflang="zh-Hans" lang="zh-Hans">中文</a><span aria-hidden="true">/</span><strong>English</strong></div>
+  </header>
+
+  <main id="main">{% block content %}{% endblock %}</main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <strong>FLANGE STANDARD LIBRARY</strong>
+        <p>Dimensions, drawings, pressure ratings and printable A4 spec sheets for ASME, EN and JIS flanges.</p>
+        <p class="footer-meta">Data version {{ data_import.source_version|default:'—' }} · {{ total_specs }} specifications · {{ total_reference_docs }} reference documents</p>
+        <p class="footer-link-row"><a href="https://ax-forge.com/" target="_blank" rel="noopener">AX Forge company website</a></p>
+      </div>
+      <div class="footer-col">
+        <h2>Standards</h2>
+        <ul>
+          {% for std in nav_standards %}<li><a href="{% url 'catalog:standard_detail' std.id %}">{{ std.name }} ({{ std.short }})</a></li>{% endfor %}
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>About this data</h2>
+        <p class="footer-note">Factual compilation of published standards tables, not a substitute for the standard itself. Verify against the edition named in your purchase specification before quoting or manufacturing.</p>
+        <p class="footer-note">Public pages are read-only; the admin area is for data maintenance.</p>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© {% now "Y" %} AX Forge</span>
+      <span>Search → specification → A4 print / PDF</span>
+    </div>
+  </footer>
+</body>
+</html>

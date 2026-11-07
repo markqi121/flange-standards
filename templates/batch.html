@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load catalog_extras %}
+
+{% block title %}批量打印 · {{ site_name }}{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">BATCH PRINT</p>
+    <h1>批量打印规格卡</h1>
+    <p class="page-sub">按标准、类型、压力等级和口径筛选，一次生成多张 A4 规格卡（每页一张，合并成一个 PDF）。</p>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="wrap">
+    <form class="batch-form" method="get" action="{% url 'catalog:batch' %}">
+      <div class="field">
+        <label for="batch-std">标准</label>
+        <select id="batch-std" name="std">
+          <option value="">全部标准</option>
+          {% for std in standards %}
+            <option value="{{ std.id }}" {% if filters.std == std.id %}selected{% endif %}>{{ std.short }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="field">
+        <label for="batch-type">法兰类型</label>
+        <select id="batch-type" name="type">
+          <option value="">全部类型</option>
+          {% for slug, info in types.items %}
+            <option value="{{ slug }}" {% if filters.type == slug %}selected{% endif %}>{{ info.name_zh }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="field">
+        <label for="batch-rating">压力等级</label>
+        <select id="batch-rating" name="rating">
+          <option value="">全部等级</option>
+          {% for rating in ratings %}
+            <option value="{{ rating.code }}" data-std="{{ rating.standard_id }}" {% if filters.rating == rating.code %}selected{% endif %}>{{ rating.standard.short }} · {{ rating.label }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="field">
+        <label for="batch-dn-min">口径 DN 从</label>
+        <input id="batch-dn-min" type="number" name="dn_min" min="1" max="2000" value="{{ filters.dn_min }}" placeholder="如 50">
+      </div>
+      <div class="field">
+        <label for="batch-dn-max">到</label>
+        <input id="batch-dn-max" type="number" name="dn_max" min="1" max="2000" value="{{ filters.dn_max }}" placeholder="如 300">
+      </div>
+      <div class="batch-actions">
+        <button class="btn btn-ghost" type="submit">预览</button>
+        <button class="btn btn-primary" type="submit" formaction="{% url 'catalog:batch_pdf' %}">下载合并 PDF</button>
+      </div>
+    </form>
+
+    <script>
+      (function () {
+        var std = document.getElementById('batch-std');
+        var rating = document.getElementById('batch-rating');
+        if (!std || !rating) return;
+        function filterRatings() {
+          var selected = rating.value;
+          Array.prototype.forEach.call(rating.options, function (option) {
+            if (!option.value) return;
+            option.hidden = !!std.value && option.getAttribute('data-std') !== std.value;
+            option.disabled = option.hidden;
+          });
+          if (rating.selectedOptions[0] && rating.selectedOptions[0].hidden) {
+            var first = Array.prototype.find.call(rating.options, function (option) {
+              return option.value && !option.hidden;
+            });
+            rating.value = first ? first.value : '';
+          }
+        }
+        std.addEventListener('change', filterRatings);
+        filterRatings();
+      })();
+    </script>
+
+    <p class="hint">单次最多 {{ max_rows }} 张；筛选结果 {{ total }} 条{% if total > max_rows %}，本次只打印前 {{ max_rows }} 条{% endif %}。批量 PDF 首次生成约 10–30 秒。</p>
+
+    {% if rows %}
+      <div class="data-table-wrap" style="margin-top:18px">
+        <table class="data-table">
+          <thead><tr><th>标准</th><th>类型</th><th>尺寸</th><th>等级</th><th class="ta-right">外径 D</th><th class="ta-right">厚度 C</th></tr></thead>
+          <tbody>
+            {% for row in rows %}
+              <tr>
+                <td><span class="std-tag">{{ row.standard.short }}</span></td>
+                <td>{{ row.flange_type.name_zh }}</td>
+                <td class="strong">{{ row.size_label }}<span class="sub">DN{{ row.dn }}</span></td>
+                <td><span class="rating">{{ row.rating.label }}</span></td>
+                <td class="num">{{ row.od|dim }}</td>
+                <td class="num">{{ row.th|dim }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <p class="hint">下面是前 10 条预览；下载 PDF 会包含全部 {{ total }} 条（最多 {{ max_rows }} 条）。</p>
+    {% else %}
+      <p class="empty">当前筛选没有匹配规格。</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

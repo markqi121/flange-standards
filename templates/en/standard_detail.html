@@ -1,0 +1,94 @@
+{% extends "en/base.html" %}
+{% load catalog_extras %}
+
+{% block title %}{{ standard.name }} Flange Dimensions · {{ standard.effective_edition }} | AX Forge{% endblock %}
+{% block description %}{{ standard.name }} flange dimension tables: {{ standard.intro_en.0|default:standard.name }} Browse sizes, pressure ratings, outside diameter, thickness, bolt circle and printable spec sheets.{% endblock %}
+
+{% block content %}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "{{ standard.name|escapejs }} flange dimensions",
+    "description": "{{ standard.effective_edition|escapejs }} flange dimension tables and reference data.",
+    "url": "{{ canonical_url|escapejs }}"
+  }
+</script>
+<section class="page-head page-head-std">
+  <div class="wrap">
+    <div class="page-head-main">
+      <div><p class="eyebrow">STANDARD · {{ standard.id|upper }}</p><h1>{{ standard.name }} Flange Dimensions</h1><p class="page-sub">{{ standard.effective_edition }} · {{ standard.name }}</p></div>
+      <div class="page-head-side"><div class="badge-stack"><span class="tag tag-solid">{{ standard.effective_edition }}</span><span class="tag">{{ standard.region_en }}</span><span class="tag">{{ standard.rating_name_en }}</span></div></div>
+    </div>
+    <div class="intro-copy">
+      {% for paragraph in standard.intro_en %}<p>{{ paragraph }}</p>{% empty %}<p>{{ standard.name }} flange dimensions and reference data.</p>{% endfor %}
+    </div>
+    <div class="fact-strip">
+      <div class="fact"><span>Base material</span><strong>{{ standard.base_material|default:"—" }}</strong></div>
+      <div class="fact"><span>Size notation</span><strong>{{ standard.size_syntax|default:"—" }}</strong></div>
+      <div class="fact"><span>Material options</span><strong>{{ standard.material_options|length }} groups</strong></div>
+      <div class="fact"><span>Reference data</span><strong>{{ topics|length }} topics</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="wrap">
+    <div class="section-head"><div><p class="eyebrow">DIMENSIONS</p><h2>Dimension tables</h2></div><p class="section-desc">One row per specification. Open a size for the drawing, pressure ratings and printable A4 sheet.</p></div>
+
+    <div class="type-tabs" role="tablist" aria-label="Flange type">
+      {% for item in type_stats %}
+        <a class="type-tab {% if item.flange_type_id == type_slug %}is-active{% endif %}" href="?type={{ item.flange_type_id }}" role="tab" aria-selected="{% if item.flange_type_id == type_slug %}true{% else %}false{% endif %}">{{ item.flange_type__name_en }} <span class="type-count">{{ item.count }}</span></a>
+      {% endfor %}
+    </div>
+    {% if type_note %}<p class="type-note"><strong>{% if type_row %}{{ type_row.flange_type__name_en }}{% endif %}:</strong> {{ type_note }} {{ type_row.count }} specifications.</p>{% endif %}
+
+    <div class="filter-bar">
+      <div class="filter-group"><span class="filter-label">Pressure class</span><a class="filter-chip {% if not rating_code %}is-active{% endif %}" href="?type={{ type_slug }}{% if size_dn %}&amp;size={{ size_dn }}{% endif %}">All</a>{% for item in rating_stats %}<a class="filter-chip {% if item.rating__code == rating_code %}is-active{% endif %}" href="?type={{ type_slug }}&amp;rating={{ item.rating__code }}{% if size_dn %}&amp;size={{ size_dn }}{% endif %}">{{ item.rating__label }}<span>{{ item.count }}</span></a>{% endfor %}</div>
+      <form class="filter-size" method="get" action="">
+        <input type="hidden" name="type" value="{{ type_slug }}">
+        {% if rating_code %}<input type="hidden" name="rating" value="{{ rating_code }}">{% endif %}
+        <label for="size-select">Size</label>
+        <select id="size-select" name="size" onchange="this.form.submit()"><option value="">All sizes</option>{% for size in sizes %}<option value="{{ size.dn }}" {% if size.dn|stringformat:"s" == size_dn %}selected{% endif %}>DN{{ size.dn }} · {{ size.size_label }}</option>{% endfor %}</select>
+      </form>
+      <span class="filter-total">{{ total_filtered }} specifications</span>
+    </div>
+
+    {% if page_obj %}
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Size</th><th>Rating</th><th class="ta-right">Outside Ø D</th><th class="ta-right">Thickness C</th><th class="ta-right">Raised face D2</th><th class="ta-right">Bolt circle K</th><th>Bolting</th><th class="ta-right">Hub A</th><th class="ta-right">Length H</th><th class="ta-right">Weight</th><th></th></tr></thead>
+          <tbody>
+            {% for row in page_obj %}
+              <tr>
+                <td class="strong"><a href="{{ row.get_absolute_url }}">{{ row.size_label }}</a><span class="sub">DN{{ row.dn }}</span></td>
+                <td><span class="rating">{{ row.rating.label }}</span></td>
+                <td class="num">{{ row.od|dim }}</td><td class="num">{{ row.th|dim }}</td><td class="num">{{ row.rf|dim|default:"—" }}</td><td class="num">{{ row.bc|dim }}</td>
+                <td class="num">{{ row.bolts }} × Ø{{ row.bolt_hole|dim }}</td><td class="num">{{ row.hub|dim|default:"—" }}</td><td class="num">{{ row.length|dim|default:"—" }}</td>
+                <td class="num">{% if row.weight %}{{ row.weight|weight }} kg{% else %}—{% endif %}</td>
+                <td class="ta-right"><a class="text-link" href="{{ row.get_absolute_url }}">Spec sheet</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% if page_obj.has_other_pages %}
+        <nav class="pagination">{% if page_obj.has_previous %}<a href="?type={{ type_slug }}{% if rating_code %}&amp;rating={{ rating_code }}{% endif %}{% if size_dn %}&amp;size={{ size_dn }}{% endif %}&amp;page={{ page_obj.previous_page_number }}">Previous</a>{% else %}<span class="is-disabled">Previous</span>{% endif %}<span class="page-info">Page {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>{% if page_obj.has_next %}<a href="?type={{ type_slug }}{% if rating_code %}&amp;rating={{ rating_code }}{% endif %}{% if size_dn %}&amp;size={{ size_dn }}{% endif %}&amp;page={{ page_obj.next_page_number }}">Next</a>{% else %}<span class="is-disabled">Next</span>{% endif %}</nav>
+      {% endif %}
+    {% else %}<p class="empty">No specifications for this filter.</p>{% endif %}
+  </div>
+</section>
+
+{% if topics %}
+<section class="section section-tint">
+  <div class="wrap">
+    <div class="section-head"><div><p class="eyebrow">REFERENCE</p><h2>Pressure ratings, materials and tolerances</h2></div><p class="section-desc">Transcribed from {{ standard.effective_edition }} with table and page references.</p></div>
+    <div class="topic-grid">
+      {% for topic in topics %}<a class="topic-card" href="{% url 'catalog:reference_topic' standard.id topic.key %}"><span class="topic-label">{{ topic.label }}</span><h3>{{ topic.title }}</h3><p>{{ topic.intro|truncatechars:110 }}</p><span class="card-link">Open reference <span aria-hidden="true">→</span></span></a>{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section"><div class="wrap note-grid"><div class="note-card"><h3>How to read the pressure class</h3><p>{{ standard.rating_note_en }}</p></div><div class="note-card"><h3>Edition and verification</h3><p>{{ standard.edition_note_en }}</p><p class="hint">Data imported {{ data_import.imported_at|date:"Y-m-d H:i"|default:"—" }}.</p></div></div></section>
+{% endblock %}

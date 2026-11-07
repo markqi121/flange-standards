@@ -1,0 +1,9 @@
+{% load static catalog_extras %}<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Batch specification sheets</title><meta name="robots" content="noindex, nofollow"><link rel="stylesheet" href="{% static 'css/print.css' %}?v=20261105b"></head>
+<body class="print-body batch-body">
+  {% for item in items %}
+    {% include "en/partials/print_sheet.html" with row=item.row standard=item.standard series=item.series svg=item.svg qr_svg=item.qr_svg notes=item.notes disclaimer=item.disclaimer generated_at=generated_at print_absolute_url=item.print_absolute_url detail_absolute_url=item.detail_absolute_url reference_doc=item.reference_doc %}
+  {% endfor %}
+</body>
+</html>

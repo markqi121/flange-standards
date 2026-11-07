@@ -1,0 +1,82 @@
+{% extends "en/base.html" %}
+{% load catalog_extras %}
+
+{% block title %}{% if query %}“{{ query }}” — search results{% else %}Search specifications{% endif %} · Flange Standard Library{% endblock %}
+{% block description %}Search flange specifications by standard, type, size and pressure class.{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">SEARCH</p>
+    <h1>{% if query %}Search results{% else %}Search specifications{% endif %}</h1>
+    <form class="page-search" action="{% url 'catalog:search' %}" method="get" role="search">
+      <input type="search" name="q" value="{{ query }}" placeholder="DN100 PN16 / 6&quot; Class 150 / B16.5 4 inch 300 lb" aria-label="Search specifications">
+      <button type="submit">Search</button>
+    </form>
+    {% if parsed and parsed.chips %}
+      <div class="parsed-chips"><span class="parsed-label">Recognised:</span>{% for chip in parsed.chips %}<span class="chip chip-solid">{{ chip }}</span>{% endfor %}</div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="wrap">
+    {% if query %}
+      <div class="result-summary"><span><strong>{{ total }}</strong> specifications{% if total > 40 %}, showing {{ page_obj.start_index }}–{{ page_obj.end_index }}{% endif %}</span><a class="text-link" href="{% url 'catalog:compare' %}?dn={{ parsed.dn|default:100 }}">Compare standards at DN{{ parsed.dn|default:100 }} →</a></div>
+    {% endif %}
+
+    {% if total %}
+      {% if facet_standards|length > 1 or facet_types|length > 1 or facet_ratings|length > 1 %}
+        <div class="result-filters">
+          {% if facet_standards|length > 1 %}
+            <div class="filter-row"><span class="filter-label">Standard</span><a class="filter-chip {% if not std_filter %}is-active{% endif %}" href="?q={{ query|urlencode }}{% if type_filter %}&amp;type={{ type_filter }}{% endif %}{% if rating_filter %}&amp;rating={{ rating_filter }}{% endif %}">All</a>{% for f in facet_standards %}<a class="filter-chip {% if f.standard_id == std_filter %}is-active{% endif %}" href="?q={{ query|urlencode }}&amp;std={{ f.standard_id }}{% if type_filter %}&amp;type={{ type_filter }}{% endif %}{% if rating_filter %}&amp;rating={{ rating_filter }}{% endif %}">{{ f.standard__short }}<span>{{ f.count }}</span></a>{% endfor %}</div>
+          {% endif %}
+          {% if facet_types|length > 1 %}
+            <div class="filter-row"><span class="filter-label">Type</span><a class="filter-chip {% if not type_filter %}is-active{% endif %}" href="?q={{ query|urlencode }}{% if std_filter %}&amp;std={{ std_filter }}{% endif %}{% if rating_filter %}&amp;rating={{ rating_filter }}{% endif %}">All</a>{% for f in facet_types %}<a class="filter-chip {% if f.code == type_filter %}is-active{% endif %}" href="?q={{ query|urlencode }}&amp;type={{ f.code }}{% if std_filter %}&amp;std={{ std_filter }}{% endif %}{% if rating_filter %}&amp;rating={{ rating_filter }}{% endif %}">{{ f.label }}<span>{{ f.count }}</span></a>{% endfor %}</div>
+          {% endif %}
+          {% if facet_ratings|length > 1 %}
+            <div class="filter-row"><span class="filter-label">Rating</span><a class="filter-chip {% if not rating_filter %}is-active{% endif %}" href="?q={{ query|urlencode }}{% if std_filter %}&amp;std={{ std_filter }}{% endif %}{% if type_filter %}&amp;type={{ type_filter }}{% endif %}">All</a>{% for f in facet_ratings %}<a class="filter-chip {% if f.rating__code == rating_filter %}is-active{% endif %}" href="?q={{ query|urlencode }}&amp;rating={{ f.rating__code }}{% if std_filter %}&amp;std={{ std_filter }}{% endif %}{% if type_filter %}&amp;type={{ type_filter }}{% endif %}">{{ f.rating__label }}<span>{{ f.count }}</span></a>{% endfor %}</div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Standard</th><th>Type</th><th>Size</th><th>Rating</th><th class="ta-right">Outside Ø D</th><th class="ta-right">Thickness C</th><th class="ta-right">Bolt circle K</th><th>Bolting</th><th class="ta-right">Weight</th><th></th></tr></thead>
+          <tbody>
+            {% for row in page_obj %}
+              <tr>
+                <td><span class="std-tag">{{ row.standard.short }}</span></td>
+                <td>{{ row.flange_type.name_en }}</td>
+                <td class="strong"><a href="{{ row.get_absolute_url }}">{{ row.size_label }}</a><span class="sub">DN{{ row.dn }}</span></td>
+                <td><span class="rating">{{ row.rating.label }}</span></td>
+                <td class="num">{{ row.od|dim }}</td>
+                <td class="num">{{ row.th|dim }}</td>
+                <td class="num">{{ row.bc|dim }}</td>
+                <td class="num">{{ row.bolts }} × Ø{{ row.bolt_hole|dim }}</td>
+                <td class="num">{% if row.weight %}{{ row.weight|weight }} kg{% else %}—{% endif %}</td>
+                <td class="ta-right"><a class="text-link" href="{{ row.get_absolute_url }}">Spec sheet</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      {% if page_obj.has_other_pages %}
+        <nav class="pagination">
+          {% if page_obj.has_previous %}<a href="?q={{ query|urlencode }}{% if std_filter %}&amp;std={{ std_filter }}{% endif %}{% if type_filter %}&amp;type={{ type_filter }}{% endif %}{% if rating_filter %}&amp;rating={{ rating_filter }}{% endif %}&amp;page={{ page_obj.previous_page_number }}">Previous</a>{% else %}<span class="is-disabled">Previous</span>{% endif %}
+          <span class="page-info">Page {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+          {% if page_obj.has_next %}<a href="?q={{ query|urlencode }}{% if std_filter %}&amp;std={{ std_filter }}{% endif %}{% if type_filter %}&amp;type={{ type_filter }}{% endif %}{% if rating_filter %}&amp;rating={{ rating_filter }}{% endif %}&amp;page={{ page_obj.next_page_number }}">Next</a>{% else %}<span class="is-disabled">Next</span>{% endif %}
+        </nav>
+      {% endif %}
+    {% elif query %}
+      <div class="empty-state"><h2>No matching specifications</h2><p>Try a different combination of standard, size and rating.</p><div class="empty-examples">{% for example in search_examples %}<a class="chip" href="{% url 'catalog:search' %}?q={{ example|urlencode }}">{{ example }}</a>{% endfor %}</div><p class="hint">Examples: DN100 PN16, 6&quot; Class 150, B16.5 4 inch 300 lb, 100A 10K slip-on.</p></div>
+    {% else %}
+      <div class="search-start">
+        <div class="search-start-card"><h2>Type a specification</h2><ul class="plain-list"><li><code>DN100 PN16</code> — metric size and pressure</li><li><code>6&quot; Class 150</code> — ASME size and class</li><li><code>B16.5 4 inch 300 lb</code> — standard + size + class</li><li><code>100A 10K slip-on</code> — JIS notation</li></ul></div>
+        <div class="search-start-card"><h2>Or browse by standard</h2><ul class="plain-list">{% for std in nav_standards %}<li><a href="{% url 'catalog:standard_detail' std.id %}">{{ std.name }} — {{ std.region_en }}</a></li>{% endfor %}</ul></div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

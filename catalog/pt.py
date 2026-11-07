@@ -1,32 +1,37 @@
-"""从参考数据里提取某个压力等级的压力-温度（p/T）序列。
+"""从参考数据里提取压力-温度（p/T）序列，并按材料组提供选择。
 
 不同标准的表结构不一样：
-- ASME：行是温度、列是 Class（c150…），SI 表单位 bar；
-- EN：行是温度（RT、100…）、列是 PN（pn6…），单位 bar；
-- JIS：行是压力等级（5K…），列是温度（t120…），单位 MPa。
+- ASME：行是温度、列是 Class（c150…），每个材料组一张 SI 表；
+- EN：主表是 group 3E0 的「行温度、列 PN」；PN16 另有按材料组排列的表；
+- JIS：行是压力等级 + 材料组 + 分级（division），列是温度，单位 MPa。
 
-这里只做“把表读成序列”，不做插值，也不改写标准给出的数值。
+这里只做「把表读成序列」，不做插值，也不改写标准给出的数值。
 """
 
+import re
+
 from .formatting import normalize_decimal, temp_label
+
+GROUP_RE = re.compile(r'Group\s+([0-9]+(?:\.[0-9]+)?)', re.I)
 
 
 def _columns(table):
     return table.get('columns') or []
 
 
-def _col_index(columns, predicate):
-    for index, column in enumerate(columns):
-        if predicate(column):
-            return index
+def _index(columns, key):
+    for i, column in enumerate(columns):
+        if (column.get('key') or '') == key:
+            return i
     return None
 
 
-def _temperature_rows(columns, rows, value_index):
-    temp_index = _col_index(
-        columns,
-        lambda c: (c.get('unit') or '').upper() == '°C' or c.get('key') == 'temp',
-    )
+def _temp_index(columns):
+    return _index(columns, 'temp')
+
+
+def _temperature_rows(columns, rows, value_index, temp_key='temp'):
+    temp_index = _index(columns, temp_key)
     if temp_index is None:
         return []
     output = []
@@ -41,121 +46,209 @@ def _temperature_rows(columns, rows, value_index):
     return output
 
 
-def _asme_series(topic, rating_code):
+def _asme_groups(topic, rating_code):
+    columns = {}
     for section in topic.get('sections', []):
         table = section.get('table')
         if not table:
             continue
-        columns = _columns(table)
-        value_index = _col_index(
-            columns,
-            lambda c: (c.get('key') or '') == f'c{rating_code}'
-            and (c.get('unit') or '').lower() == 'bar',
+        keys = [c.get('key') for c in _columns(table)]
+        if {'group', 'materials', 'table'} <= set(keys):
+            gi, mi = keys.index('group'), keys.index('materials')
+            for row in table.get('rows') or []:
+                if gi < len(row) and mi < len(row):
+                    columns[row[gi].strip()] = row[mi]
+
+    groups = []
+    seen = set()
+    for section in topic.get('sections', []):
+        table = section.get('table')
+        if not table:
+            continue
+        keys = [c.get('key') for c in _columns(table)]
+        value_key = f'c{rating_code}'
+        if 'temp' not in keys or value_key not in keys:
+            continue
+        caption = table.get('caption') or section.get('heading') or ''
+        match = GROUP_RE.search(caption)
+        if not match:
+            continue
+        code = match.group(1)
+        if code in seen:
+            continue
+        series = _temperature_rows(
+            _columns(table), table.get('rows') or [], keys.index(value_key)
         )
-        if value_index is None:
+        if not series:
             continue
-        rows = _temperature_rows(columns, table.get('rows') or [], value_index)
-        if rows:
-            return {
-                'available': True,
-                'unit': 'bar',
-                'rows': rows,
-                'caption': table.get('caption', ''),
-                'note': table.get('note', ''),
-            }
-    return None
+        seen.add(code)
+        groups.append({
+            'code': code,
+            'label': f'材料组 {code}',
+            'materials': columns.get(code, ''),
+            'caption': table.get('caption', ''),
+            'note': table.get('note', ''),
+            'rows': series,
+        })
+    groups.sort(key=lambda g: tuple(int(p) for p in g['code'].split('.')))
+    return groups
 
 
-def _en_series(topic, rating_code):
+def _en_groups(topic, rating_code):
+    groups = []
+    seen = set()
+
+    # 1) 主表：group 3E0，列是 PN
     for section in topic.get('sections', []):
         table = section.get('table')
         if not table:
             continue
-        columns = _columns(table)
-        value_index = _col_index(
-            columns,
-            lambda c: (c.get('key') or '') == rating_code
-            and (c.get('unit') or '').lower() == 'bar',
+        keys = [c.get('key') for c in _columns(table)]
+        if 'temp' not in keys or rating_code not in keys:
+            continue
+        caption = table.get('caption', '')
+        match = re.search(r'group\s+([0-9A-Z]+)', caption, re.I)
+        if not match:
+            continue
+        code = match.group(1)
+        series = _temperature_rows(
+            _columns(table), table.get('rows') or [], keys.index(rating_code)
         )
-        if value_index is None:
-            continue
-        rows = _temperature_rows(columns, table.get('rows') or [], value_index)
-        if rows:
-            return {
-                'available': True,
-                'unit': 'bar',
-                'rows': rows,
-                'caption': table.get('caption', ''),
+        if series and code not in seen:
+            seen.add(code)
+            groups.append({
+                'code': code,
+                'label': f'材料组 {code}',
+                'materials': '',
+                'caption': caption,
                 'note': table.get('note', ''),
-            }
-    return None
+                'rows': series,
+            })
 
-
-def _jis_series(topic, rating_label):
-    for section in topic.get('sections', []):
-        table = section.get('table')
-        if not table:
-            continue
-        columns = _columns(table)
-        rating_index = _col_index(columns, lambda c: (c.get('key') or '') == 'rating')
-        if rating_index is None:
-            continue
-        temp_indexes = [
-            (i, c)
-            for i, c in enumerate(columns)
-            if (c.get('unit') or '').upper() == '°C'
-        ]
-        if not temp_indexes:
-            continue
-        wanted = rating_label.strip().upper()
-        for row in table.get('rows') or []:
-            if rating_index >= len(row):
+    # 2) PN16 的「按材料组」表（非奥氏体 / 奥氏体）：行是材料组、列是温度
+    if rating_code == 'pn16':
+        for section in topic.get('sections', []):
+            table = section.get('table')
+            if not table:
                 continue
-            if str(row[rating_index]).strip().upper() != wanted:
+            keys = [c.get('key') for c in _columns(table)]
+            if 'group' not in keys:
                 continue
-            output = []
-            for index, column in temp_indexes:
-                if index >= len(row):
+            group_index = keys.index('group')
+            temp_columns = [
+                (i, c) for i, c in enumerate(_columns(table))
+                if (c.get('unit') or '').upper() == '°C'
+            ]
+            if not temp_columns:
+                continue
+            mat_index = keys.index('mat') if 'mat' in keys else None
+            for row in table.get('rows') or []:
+                if group_index >= len(row):
                     continue
-                value = row[index]
-                if value in ('', '—', '-', None):
+                code = row[group_index].split('·')[0].strip()
+                if not code or code in seen:
                     continue
-                output.append((temp_label(column.get('label', '')), normalize_decimal(value)))
-            if output:
-                return {
-                    'available': True,
-                    'unit': 'MPa',
-                    'rows': output,
+                series = []
+                for i, column in temp_columns:
+                    if i < len(row) and row[i] not in ('', '—', '-', None):
+                        series.append((temp_label(column.get('label', '')), normalize_decimal(row[i])))
+                if not series:
+                    continue
+                seen.add(code)
+                groups.append({
+                    'code': code,
+                    'label': f'材料组 {code}',
+                    'materials': row[mat_index] if mat_index is not None and mat_index < len(row) else '',
                     'caption': table.get('caption', ''),
                     'note': table.get('note', ''),
-                }
-    return None
+                    'rows': series,
+                })
+    return groups
 
 
-def rating_series(doc, standard_id, rating_code, rating_label):
-    """返回 {'available': bool, 'unit': str, 'rows': [(温度, 值)], 'caption', 'note'}。"""
+def _jis_groups(topic, rating_label):
+    groups = []
+    seen = set()
+    for section in topic.get('sections', []):
+        table = section.get('table')
+        if not table:
+            continue
+        keys = [c.get('key') for c in _columns(table)]
+        if 'rating' not in keys or 'reference' not in keys:
+            continue
+        rating_i = keys.index('rating')
+        ref_i = keys.index('reference')
+        spec_i = keys.index('specified') if 'specified' in keys else None
+        temp_columns = [
+            (i, c) for i, c in enumerate(_columns(table))
+            if (c.get('unit') or '').upper() == '°C'
+        ]
+        wanted = rating_label.strip().upper()
+        for row in table.get('rows') or []:
+            if rating_i >= len(row) or str(row[rating_i]).strip().upper() != wanted:
+                continue
+            code = str(row[ref_i]).strip() if ref_i < len(row) else ''
+            if not code or code in seen:
+                continue
+            series = []
+            for i, column in temp_columns:
+                if i < len(row) and row[i] not in ('', '—', '-', None):
+                    series.append((temp_label(column.get('label', '')), normalize_decimal(row[i])))
+            if not series:
+                continue
+            seen.add(code)
+            groups.append({
+                'code': code,
+                'label': f'材料组 {code}',
+                'materials': row[spec_i] if spec_i is not None and spec_i < len(row) else '',
+                'caption': table.get('caption', ''),
+                'note': table.get('note', ''),
+                'rows': series,
+            })
+    return groups
+
+
+def available_groups(doc, standard_id, rating_code, rating_label):
     if doc is None:
-        return {'available': False, 'rows': []}
+        return []
     topic = (doc.payload or {}).get('topics', {}).get('pressure-ratings')
     if not topic:
-        return {'available': False, 'rows': []}
-
+        return []
     try:
         if standard_id.startswith('asme'):
-            series = _asme_series(topic, rating_code)
-        elif standard_id.startswith('en'):
-            series = _en_series(topic, rating_code)
-        elif standard_id.startswith('jis'):
-            series = _jis_series(topic, rating_label)
-        else:
-            series = None
-    except (TypeError, ValueError):
-        series = None
+            return _asme_groups(topic, rating_code)
+        if standard_id.startswith('en'):
+            return _en_groups(topic, rating_code)
+        if standard_id.startswith('jis'):
+            return _jis_groups(topic, rating_label)
+    except (TypeError, ValueError, IndexError):
+        return []
+    return []
 
-    if not series:
-        return {'available': False, 'rows': []}
 
-    series['rating_label'] = rating_label
-    first = series['rows'][0]
-    series['ambient'] = f'{first[1]} {series["unit"]} @ {first[0]}'
-    return series
+def rating_series(doc, standard_id, rating_code, rating_label, group=None, lang='zh'):
+    """返回 {'available', 'unit', 'rows', 'group', 'group_label', 'groups', ...}。"""
+    groups = available_groups(doc, standard_id, rating_code, rating_label)
+    if lang == 'en':
+        for item in groups:
+            item['label'] = item['label'].replace('材料组', 'Group')
+    if not groups:
+        return {'available': False, 'rows': [], 'groups': [], 'group': '', 'group_label': ''}
+
+    default_code = '3E0' if standard_id.startswith('en') else '1.1'
+    selected = next((g for g in groups if g['code'] == (group or default_code)), None)
+    if selected is None:
+        selected = groups[0]
+
+    result = dict(selected)
+    result.update({
+        'available': True,
+        'unit': 'MPa' if standard_id.startswith('jis') else 'bar',
+        'group': selected['code'],
+        'group_label': selected['label'],
+        'groups': groups,
+        'rating_label': rating_label,
+    })
+    first = result['rows'][0]
+    result['ambient'] = f'{first[1]} {result["unit"]} @ {first[0]}'
+    return result

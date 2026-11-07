@@ -1,0 +1,22 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+  <h1>导入尺寸 CSV</h1>
+  <p>表头（英文，逗号分隔）：<code>standard,type,size,size_label,dn,rating,od,th,rf,rf_height,bc,bolts,bolt_hole,hub,length,hub_weld,weight,note</code></p>
+  <p>示例：<code>asme-b16-5,weld-neck,6,6″,150,150,279.4,23.9,215.9,1.5,241.3,8,22.2,192,87.4,168.4,10.9,</code></p>
+  {% if errors %}
+    <ul class="errorlist">
+      {% for error in errors %}<li>{{ error }}</li>{% endfor %}
+    </ul>
+    <p>事务已回滚，没有任何记录被写入。</p>
+  {% endif %}
+  {% if imported %}
+    <p class="success">成功导入 {{ imported }} 行。</p>
+  {% endif %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p><input type="file" name="csv_file" accept=".csv"></p>
+    <p><label><input type="checkbox" name="update" checked> 已存在则更新</label></p>
+    <p><button type="submit" class="button">导入</button>
+       <a href="../" class="button">返回列表</a></p>
+  </form>
+{% endblock %}

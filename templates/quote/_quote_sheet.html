@@ -1,0 +1,118 @@
+{% comment %}
+A4 报价单公共片段（服务端渲染：详情页 / 打印页 / 工作台初始样张）。
+工作台在加入清单后用 JS 生成同结构的报价单；两处样式统一由 static/css/quote.css 控制。
+{% endcomment %}
+<div class="quote-sheet{% if is_sample %} is-sample{% endif %}">
+  {% if is_sample %}<span class="sheet-stamp">样张</span>{% endif %}
+
+  <div class="sh-top">
+    <div class="sh-co">
+      <b>示例法兰制造有限公司</b>
+      <span>中国 · 江苏 · 示例工业园区 · 0510-0000 0000 · quote@example.com</span>
+      <span>报价单样张 · 演示主体（上线前替换为真实公司抬头）</span>
+    </div>
+    <div class="sh-title">
+      <b>报 价 单</b>
+      <span>QUOTATION · {{ quote.number }} · V{{ quote.version|default:"1" }}</span>
+    </div>
+  </div>
+
+  <div class="sh-meta">
+    <div><span>客户</span><b>{{ quote.customer|default:"—" }}</b></div>
+    <div><span>项目 / 询价号</span><b>{{ quote.project|default:"—" }}</b></div>
+    <div><span>报价日期</span><b>{{ quote.quote_date|date:"Y-m-d"|default:"—" }}</b></div>
+    <div><span>有效期至</span><b>{{ quote.valid_until|date:"Y-m-d"|default:"—" }}</b></div>
+    <div><span>币种</span><b>{{ quote.currency|default:"CNY" }}</b></div>
+    <div><span>贸易条款</span><b>{{ quote.incoterm|default:"—" }}</b></div>
+    <div><span>付款条件</span><b>{{ quote.payment_terms|default:"—" }}</b></div>
+    <div><span>报价人 / 版本</span><b>{{ quote.created_by|default:"—" }} · V{{ quote.version|default:"1" }}</b></div>
+  </div>
+
+  <table class="sh-table">
+    <thead>
+      <tr>
+        <th class="sh-seq">#</th>
+        <th>产品描述</th>
+        <th class="r">数量</th>
+        <th class="r">单重 kg</th>
+        <th class="r">含税单价</th>
+        <th class="r">金额（不含税）</th>
+        <th class="r">交期</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in quote.items %}
+        <tr>
+          <td class="r sh-seq">{{ item.line_no }}</td>
+          <td class="sh-desc">
+            <b>{{ item.description }}</b>
+            <span>
+              {{ item.material }}{% if item.standard_edition %} · {{ item.standard_edition }}{% endif %}
+              {% if item.weight_source_label %} · {{ item.weight_source_label }}{% endif %}
+              {% if item.process_summary %} · {{ item.process_summary }}{% endif %}
+              · 快照 {{ item.snapshot_label }}
+            </span>
+          </td>
+          <td class="r" data-label="数量">{{ item.qty }}</td>
+          <td class="r" data-label="单重">{{ item.net_weight|floatformat:2 }} kg</td>
+          <td class="r" data-label="含税单价">{{ quote.symbol }}{{ item.unit_gross_display|floatformat:2 }}</td>
+          <td class="r" data-label="金额（不含税）">{{ quote.symbol }}{{ item.amount_net_display|floatformat:2 }}</td>
+          <td class="r" data-label="交期">{{ item.lead_time_days|default:"—" }} 天</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="7" class="sheet-empty-row">还没有报价明细。</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="sh-totals">
+    <table>
+      <tr><td>不含税金额</td><td>{{ quote.symbol }}{{ quote.subtotal_display|floatformat:2 }}</td></tr>
+      <tr><td>税额（{{ quote.tax_pct|floatformat:0 }}%）</td><td>{{ quote.symbol }}{{ quote.tax_amount_display|floatformat:2 }}</td></tr>
+      <tr class="grand"><td>含税合计</td><td>{{ quote.symbol }}{{ quote.total_display|floatformat:2 }}</td></tr>
+      <tr><td>合计大写</td><td class="upper">{{ upper }}</td></tr>
+    </table>
+  </div>
+
+  <div class="sh-terms">
+    <div class="cols">
+      <div>
+        <b>技术要求</b>：执行标准 {{ quote.items.0.standard_edition|default:"—" }}；材质 {{ quote.items.0.material|default:"—" }}；
+        压力等级 {{ quote.items.0.rating_label|default:"—" }}；重量来源 {{ quote.items.0.weight_source_label|default:"—" }}；
+        工艺 / 检测见明细行。
+      </div>
+      <div>
+        <b>商务条款</b>：交期见明细行；报价有效期至 {{ quote.valid_until|date:"Y-m-d"|default:"—" }}；
+        付款 {{ quote.payment_terms|default:"—" }}；运输 {{ quote.incoterm|default:"—" }}；质保 12 个月；
+        报价含税 {{ quote.tax_pct|floatformat:0 }}%。{% if quote.currency == 'USD' %}汇率基准 1 USD = {{ quote.fx_rate|floatformat:2 }} CNY。{% endif %}
+      </div>
+    </div>
+    <div class="sh-note">
+      <b>说明</b>：{% if quote.demo %}本报价单为系统样张，材料单价、加工费、利润率、折扣与汇率为演示参数，不构成正式报价或合同承诺。{% endif %}
+      {{ quote.notes|default:"尺寸与标准数据版本见标准库；正式报价以双方合同、项目指定标准版本与最终图纸 / 称重为准。" }}
+    </div>
+    {% if quote.snapshot_meta and not quote.demo %}
+      {% if quote.cost_breakdown or quote.snapshot_meta.material_price_source == 'manual' or quote.snapshot_meta.machining_rate_source == 'manual' %}
+      <div class="sh-note">
+        <b>成本参数</b>：
+        材料价 本次 ¥{% if quote.snapshot_meta.material_price %}{{ quote.snapshot_meta.material_price|floatformat:2 }}{% else %}—{% endif %} / 基准 ¥{% if quote.snapshot_meta.material_price_base %}{{ quote.snapshot_meta.material_price_base|floatformat:2 }}{% else %}—{% endif %} CNY/kg；
+        来源 {% if quote.snapshot_meta.material_price_source == 'manual' %}本次覆盖{% elif quote.snapshot_meta.material_price_source %}价格库（{{ quote.snapshot_meta.material_price_source }}）{% else %}价格库{% endif %}{% if quote.snapshot_meta.material_price_effective_from %}（生效 {{ quote.snapshot_meta.material_price_effective_from }}）{% endif %}；
+        工资率 {% if quote.snapshot_meta.machining_rate %}¥{{ quote.snapshot_meta.machining_rate|floatformat:2 }} 元/件{% else %}按价格库 / 档位{% endif %}（来源 {% if quote.snapshot_meta.machining_rate_source == 'manual' %}本次覆盖{% elif quote.snapshot_meta.machining_rate_source == 'process' %}价格库/档位{% elif quote.snapshot_meta.machining_rate_source == 'default' %}默认档位{% else %}—{% endif %}）。
+      </div>
+      {% endif %}
+    {% endif %}
+  </div>
+
+  <div class="sh-sign">
+    <div>报价人：____________________</div>
+    <div>审批：____________________</div>
+    <div>客户确认：____________________</div>
+    <div>日期：____________________</div>
+  </div>
+
+  <div class="sh-foot">
+    数据来源：法兰标准库（ASME B16.5 / B16.47 / EN 1092-1 / JIS B2220，事实性表格整理）·
+    成本快照 {{ quote.snapshot_label|default:"—" }} · 重量规则 {{ quote.weight_rule|default:"w0.3" }} ·
+    第 1 页 / 共 1 页
+  </div>
+</div>

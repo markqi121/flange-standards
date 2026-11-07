@@ -52,11 +52,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalog',
+    'quote',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -104,6 +106,9 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': Path(os.environ.get('DJANGO_DB_PATH', BASE_DIR / 'db.sqlite3')),
+            # 多人录单：WAL + busy_timeout 由 quote.apps 在连接建立时设置；
+            # 这里兜底等待 20 秒，避免瞬时写锁直接 500。
+            'OPTIONS': {'timeout': 20},
         }
     }
 
@@ -116,6 +121,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # 中文界面 + 中国时区（打印页的生成时间按此显示）
 LANGUAGE_CODE = 'zh-hans'
+LANGUAGES = [
+    ('zh-hans', '中文'),
+    ('en', 'English'),
+]
 TIME_ZONE = 'Asia/Shanghai'
 USE_I18N = True
 USE_TZ = True
@@ -137,3 +146,12 @@ SITE_URL = os.environ.get('SITE_URL', 'http://127.0.0.1:8000').rstrip('/')
 # PDF 生成：Playwright 浏览器路径 / 内部渲染地址（生产环境在 env 中覆盖）
 PDF_RENDER_BASE_URL = os.environ.get('PDF_RENDER_BASE_URL', 'https://127.0.0.1/std').rstrip('/')
 PDF_CACHE_DIR = os.environ.get('PDF_CACHE_DIR', '/var/lib/flange-std/pdf')
+
+
+# 报价功能登录（非 staff 销售也能登录；不要复用 Django admin 登录）
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/quote/'
+LOGOUT_REDIRECT_URL = '/'
+
+# 演示登录提示：只有评审环境打开，正式生产保持 0
+DEMO_LOGIN_HINT = os.environ.get('DEMO_LOGIN_HINT', '0') == '1'

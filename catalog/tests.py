@@ -43,7 +43,7 @@ class ImportedDataTest(TestCase):
         for url in [
             reverse('catalog:home'),
             reverse('catalog:standard_detail', args=['asme-b16-5']),
-            reverse('catalog:spec_detail', args=[row.pk]),
+            reverse('catalog:spec_detail', args=[row.slug]),
             reverse('catalog:spec_print', args=[row.pk]),
             reverse('catalog:compare') + '?dn=100',
             reverse('catalog:reference_topic', args=['asme-b16-5', 'pressure-ratings']),
@@ -51,6 +51,47 @@ class ImportedDataTest(TestCase):
         ]:
             response = self.client.get(url)
             self.assertEqual(response.status_code, 200, msg=url)
+
+        response = self.client.get(f'/spec/{row.pk}/')
+        self.assertEqual(response.status_code, 301)
+        self.assertIn(row.slug, response['Location'])
+
+    def test_english_pages(self):
+        row = DimensionRow.objects.get(
+            standard_id='asme-b16-5', flange_type_id='weld-neck', size='6', rating__code='150'
+        )
+        pages = [
+            '/en/',
+            '/en/asme-b16-5/',
+            f'/en/spec/{row.slug}/',
+            f'/en/spec/{row.pk}/print/',
+            '/en/compare/?dn=100',
+            '/en/batch/',
+            '/en/search/?q=DN100',
+            '/en/asme-b16-5/ref/tolerances/',
+        ]
+        for url in pages:
+            response = self.client.get(url)
+            self.assertEqual(response.status_code, 200, msg=url)
+        response = self.client.get(f'/en/spec/{row.slug}/')
+        self.assertContains(response, 'lang="en"')
+        self.assertContains(response, 'hreflang="zh-Hans"')
+        self.assertContains(response, 'name="robots" content="noindex, follow"')
+        self.assertContains(response, row.title_en)
+        self.assertContains(response, 'Download PDF')
+        response = self.client.get(f'/en/spec/{row.pk}/print/')
+        self.assertContains(response, 'SPEC SHEET')
+        self.assertContains(response, 'qr-svg')
+
+    def test_sitemap_and_robots(self):
+        response = self.client.get('/sitemap.xml')
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, '<urlset')
+        self.assertContains(response, '/en/')
+        self.assertContains(response, 'hreflang="en"')
+        response = self.client.get('/robots.txt')
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Sitemap:')
 
     def test_print_page_has_svg_and_source(self):
         row = DimensionRow.objects.get(
@@ -78,6 +119,64 @@ class ImportedDataTest(TestCase):
         jis = series('jis-b2220', '10k', '10K')
         self.assertTrue(jis['available'])
         self.assertEqual(jis['unit'], 'MPa')
+
+    def test_material_groups(self):
+        from catalog import pt
+
+        standard = Standard.objects.get(pk='asme-b16-5')
+        doc = ReferenceDoc.objects.get(pk=standard.reference_doc_id)
+        series = pt.rating_series(doc, 'asme-b16-5', '150', 'Class 150', group='1.5')
+        self.assertTrue(series['available'])
+        self.assertEqual(series['group'], '1.5')
+        self.assertEqual(series['rows'][0][1], '18.4')
+        self.assertGreater(len(series['groups']), 10)
+
+        default = pt.rating_series(doc, 'asme-b16-5', '150', 'Class 150')
+        self.assertEqual(default['group'], '1.1')
+        self.assertNotEqual(default['rows'][0][1], series['rows'][0][1])
+
+        en_std = Standard.objects.get(pk='en-1092-1')
+        en_doc = ReferenceDoc.objects.get(pk=en_std.reference_doc_id)
+        en = pt.rating_series(en_doc, 'en-1092-1', 'pn16', 'PN16', group='10E0')
+        self.assertTrue(en['available'])
+        self.assertEqual(en['group'], '10E0')
+        self.assertGreaterEqual(len(en['groups']), 3)
+
+    def test_search_facets(self):
+        response = self.client.get(reverse('catalog:search'), {'q': 'DN100'})
+        self.assertContains(response, 'result-filters')
+        self.assertContains(response, 'filter-row')
+
+    def test_batch_pages(self):
+        url = reverse('catalog:batch')
+        response = self.client.get(url, {
+            'std': 'asme-b16-5', 'type': 'weld-neck', 'rating': '150',
+            'dn_min': '50', 'dn_max': '150',
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, '下载合并 PDF')
+        response = self.client.get(reverse('catalog:batch_print'), {
+            'std': 'asme-b16-5', 'type': 'weld-neck', 'rating': '150',
+            'dn_min': '50', 'dn_max': '150',
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertGreaterEqual(response.content.count(b'class="sheet"'), 2)
+
+    def test_qr_on_print(self):
+        row = DimensionRow.objects.get(
+            standard_id='asme-b16-5', flange_type_id='weld-neck', size='6', rating__code='150'
+        )
+        response = self.client.get(row.print_url())
+        self.assertContains(response, 'qr-svg')
+
+    def test_view_count_increments(self):
+        row = DimensionRow.objects.get(
+            standard_id='asme-b16-5', flange_type_id='weld-neck', size='6', rating__code='150'
+        )
+        before = row.view_count
+        self.client.get(row.get_absolute_url())
+        row.refresh_from_db()
+        self.assertEqual(row.view_count, before + 1)
 
     def test_admin_requires_login(self):
         response = self.client.get('/admin/catalog/dimensionrow/')

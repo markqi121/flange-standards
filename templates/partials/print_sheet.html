@@ -1,0 +1,116 @@
+{% load catalog_extras %}
+  <div class="sheet">
+    <header class="sheet-header">
+      <div class="sheet-brand">
+        <svg class="sheet-logo" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
+          <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="16" cy="16" r="8" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          <circle cx="16" cy="16" r="2.6" fill="currentColor"/>
+          <g fill="currentColor">
+            <circle cx="16" cy="5.6" r="1.7"/><circle cx="16" cy="26.4" r="1.7"/>
+            <circle cx="5.6" cy="16" r="1.7"/><circle cx="26.4" cy="16" r="1.7"/>
+            <circle cx="8.6" cy="8.6" r="1.7"/><circle cx="23.4" cy="23.4" r="1.7"/>
+            <circle cx="8.6" cy="23.4" r="1.7"/><circle cx="23.4" cy="8.6" r="1.7"/>
+          </g>
+        </svg>
+        <div class="sheet-brand-text">
+          <strong>法兰标准库</strong>
+          <span>FLANGE STANDARD LIBRARY</span>
+        </div>
+      </div>
+      <div class="sheet-doc">
+        <span>规格卡 · SPEC SHEET</span>
+        <strong>No. {{ row.pk }}</strong>
+      </div>
+    </header>
+
+    <div class="sheet-title">
+      <div class="sheet-std">{{ standard.name }} · {{ standard.effective_edition }}</div>
+      <h1>{{ row.size_label }} · {{ row.rating.label }} · {{ row.flange_type.name_zh }}</h1>
+      <div class="sheet-sub">
+        <span>DN{{ row.dn }}</span>
+        <span>{{ row.flange_type.name_en }}</span>
+        <span>尺寸单位 mm</span>
+        <span>重量单位 kg</span>
+      </div>
+    </div>
+
+    <div class="sheet-main">
+      <div class="sheet-drawing">
+        {% if svg %}
+          {{ svg|safe }}
+        {% else %}
+          <div class="drawing-missing">图暂缺</div>
+        {% endif %}
+        <p class="sheet-caption">示意图：按右表尺寸绘制，不按比例用于检验。</p>
+      </div>
+
+      {% dimension_fields row as fields %}
+      <table class="sheet-dim">
+        <thead>
+          <tr><th>符号</th><th>项目</th><th class="ta-right">数值</th></tr>
+        </thead>
+        <tbody>
+          {% for field in fields %}
+            <tr>
+              <td class="sym">{{ field.symbol|default:"—" }}</td>
+              <td>{{ field.name }}</td>
+              <td class="value">{{ field.value }}<span class="unit">{{ field.unit }}</span></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sheet-lower">
+      <section class="sheet-block sheet-pt">
+        <h2>压力-温度额定值 · {{ row.rating.label }} · {{ series.group_label }}</h2>
+        {% if series.available %}
+          <div class="pt-grid">
+            {% for temp, value in series.rows %}
+              <span class="pt-cell"><b>{{ temp }} °C</b><em>{{ value }} {{ series.unit }}</em></span>
+            {% endfor %}
+          </div>
+          <p class="sheet-source">来源：{{ series.caption }}；{{ series.group_label }}。</p>
+        {% else %}
+          <p class="sheet-text">该标准的压力-温度表请查 {{ standard.effective_edition }} 对应条款。</p>
+          <p class="sheet-source">{{ standard.rating_note_zh|truncatechars:230 }}</p>
+        {% endif %}
+      </section>
+
+      <section class="sheet-block sheet-notes">
+        <h2>材料与说明</h2>
+        <p class="sheet-text"><strong>基础材料：</strong>{{ standard.base_material|default:"—" }}（{{ standard.region }}）</p>
+        <p class="sheet-text"><strong>等级说明：</strong>{{ standard.rating_note_zh|truncatechars:250 }}</p>
+        <p class="sheet-text"><strong>公差 / 标记：</strong>{{ notes }}</p>
+      </section>
+    </div>
+
+    <div class="sheet-blanknotes">
+      <h2>备注 / 特殊要求</h2>
+      <div class="blank-lines"><i></i><i></i><i></i><i></i></div>
+    </div>
+
+    <div class="sheet-signoff">
+      <span class="signoff-item">工单号 <i></i></span>
+      <span class="signoff-item">检验员 <i></i></span>
+      <span class="signoff-item">日期 <i></i></span>
+      <span class="signoff-note">本卡随工件流转，检验后归档</span>
+    </div>
+
+    <footer class="sheet-footer">
+      <div class="sheet-foot-main">
+        <p><strong>数据来源：</strong>{{ standard.edition }}；尺寸数据按 {{ standard.effective_edition }} 转录，核对日期 {{ reference_doc.verified_on|date:"Y-m-d"|default:"—" }}。编号 #{{ row.pk }}。</p>
+        <p class="sheet-disclaimer">{{ disclaimer }}</p>
+      </div>
+      <div class="sheet-foot-qr">
+        {{ qr_svg|safe }}
+        <span>扫码回查</span>
+      </div>
+      <div class="sheet-foot-side">
+        <p>打印：{{ generated_at|date:"Y-m-d H:i" }}</p>
+        <p class="sheet-url">{{ print_absolute_url }}</p>
+        <p>第 1 页 / 共 1 页</p>
+      </div>
+    </footer>
+  </div>

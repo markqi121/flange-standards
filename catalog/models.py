@@ -7,6 +7,7 @@
 - 所有长度单位 mm，重量 kg；空值保持 NULL，不当 0 处理。
 """
 
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
 
@@ -21,13 +22,18 @@ class Standard(models.Model):
     edition = models.CharField('标准版本', max_length=80)
     dimension_edition = models.CharField('尺寸数据版本', max_length=80, blank=True)
     region = models.CharField('适用地区', max_length=160, blank=True)
+    region_en = models.CharField('Region (EN)', max_length=160, blank=True)
     rating_name = models.CharField('压力等级叫法', max_length=40, blank=True)
+    rating_name_en = models.CharField('Rating name (EN)', max_length=40, blank=True)
     size_syntax = models.CharField('尺寸写法', max_length=60, blank=True)
     base_material = models.CharField('基础材料', max_length=80, blank=True)
     material_options = models.JSONField('可选材料', default=list, blank=True)
     intro_zh = models.JSONField('中文简介', default=list, blank=True)
+    intro_en = models.JSONField('English introduction', default=list, blank=True)
     rating_note_zh = models.TextField('压力等级说明', blank=True)
+    rating_note_en = models.TextField('Rating note (EN)', blank=True)
     edition_note_zh = models.TextField('版本说明', blank=True)
+    edition_note_en = models.TextField('Edition note (EN)', blank=True)
     reference_doc_id = models.CharField('参考数据文档', max_length=60, blank=True)
     sort_order = models.PositiveSmallIntegerField('排序', default=0)
 
@@ -51,6 +57,7 @@ class FlangeType(models.Model):
     name_zh = models.CharField('中文名称', max_length=40)
     name_en = models.CharField('英文名称', max_length=60)
     note_zh = models.TextField('说明', blank=True)
+    note_en = models.TextField('Description (EN)', blank=True)
     sort_order = models.PositiveSmallIntegerField('排序', default=0)
 
     class Meta:
@@ -111,6 +118,8 @@ class DimensionRow(models.Model):
     weight = models.FloatField('近似重量 (kg)', null=True, blank=True)
 
     note = models.CharField('备注', max_length=200, blank=True)
+    slug = models.SlugField('SEO slug', max_length=220, unique=True, null=True, blank=True)
+    view_count = models.PositiveIntegerField('查看次数', default=0, editable=False)
     updated_at = models.DateTimeField('更新时间', auto_now=True)
 
     class Meta:
@@ -132,11 +141,43 @@ class DimensionRow(models.Model):
         return f'{self.standard.short} {self.rating.label} {self.size_label} {self.flange_type.name_zh}'
 
     @property
+    def title_en(self):
+        return f'{self.standard.short} {self.rating.label} {self.size_label} {self.flange_type.name_en}'
+
+    def get_absolute_url(self):
+        if self.slug:
+            return reverse('catalog:spec_detail', args=[self.slug])
+        return reverse('catalog:spec_detail_legacy', args=[self.pk])
+
+    @property
     def slug_key(self):
         return f'{self.standard_id}/{self.flange_type_id}/{self.size}/{self.rating.code}'
 
-    def get_absolute_url(self):
-        return reverse('catalog:spec_detail', args=[self.pk])
+    def clean(self):
+        errors = {}
+        for field, label in (
+            ('od', '外径 D'), ('th', '厚度 C'), ('bc', '螺栓孔中心圆 K'),
+            ('bolt_hole', '螺栓孔直径 d'),
+        ):
+            value = getattr(self, field, None)
+            if value is not None and value <= 0:
+                errors[field] = f'{label}必须大于 0'
+        if self.bolts is not None and self.bolts <= 0:
+            errors['bolts'] = '螺栓孔数量必须大于 0'
+        if self.dn is not None and self.dn <= 0:
+            errors['dn'] = '公称尺寸 DN 必须大于 0'
+        if self.od and self.bc and self.bc >= self.od:
+            errors['bc'] = '螺栓孔中心圆 K 必须小于外径 D'
+        if self.rf and self.od and self.rf > self.od:
+            errors['rf'] = '密封面直径不能大于外径'
+        if self.hub and self.od and self.hub > self.od:
+            errors['hub'] = '轮毂直径不能大于外径'
+        if self.length is not None and self.length < 0:
+            errors['length'] = '长度不能为负数'
+        if self.weight is not None and self.weight < 0:
+            errors['weight'] = '重量不能为负数'
+        if errors:
+            raise ValidationError(errors)
 
     def print_url(self):
         return reverse('catalog:spec_print', args=[self.pk])

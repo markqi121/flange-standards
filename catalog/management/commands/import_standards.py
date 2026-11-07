@@ -13,8 +13,9 @@ from pathlib import Path
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
+from django.utils.text import slugify
 
-from catalog import zh_content
+from catalog import en_content, zh_content
 from catalog.models import (
     DataImport,
     DimensionRow,
@@ -28,6 +29,20 @@ DIMENSION_FIELDS = [
     'od', 'th', 'rf', 'rf_height', 'bc', 'bolts', 'bolt_hole',
     'hub', 'length', 'hub_weld', 'weight',
 ]
+
+
+def _row_slug(row):
+    standard = row['std']
+    size = slugify(row['size'])
+    if standard.startswith('asme'):
+        rating = f"class-{row['rating']}"
+        size = f"nps-{size}"
+    elif standard.startswith('en'):
+        rating = row['rating']
+        size = f"dn-{size[2:]}" if size.startswith('dn') else size
+    else:
+        rating = row['rating']
+    return slugify(f"{standard}-{rating}-{size}-{row['type']}-flange")
 
 
 def _rating_sort(code):
@@ -71,13 +86,18 @@ class Command(BaseCommand):
                         'edition': meta['edition'],
                         'dimension_edition': meta.get('dimensionEdition') or '',
                         'region': zh.get('region', meta.get('region', '')),
+                        'region_en': meta.get('region', ''),
                         'rating_name': zh.get('rating_name_zh', meta.get('ratingName', '')),
+                        'rating_name_en': meta.get('ratingName', ''),
                         'size_syntax': meta.get('sizeSyntax', ''),
                         'base_material': meta.get('baseMaterial', ''),
                         'material_options': meta.get('materialOptions', []),
                         'intro_zh': zh.get('intro_zh', []),
+                        'intro_en': meta.get('intro', []),
                         'rating_note_zh': zh.get('rating_note_zh', ''),
+                        'rating_note_en': meta.get('ratingNote', ''),
                         'edition_note_zh': zh.get('edition_note_zh', ''),
+                        'edition_note_en': meta.get('editionNote', ''),
                         'reference_doc_id': meta.get('referenceDocumentId') or '',
                         'sort_order': index,
                     },
@@ -92,6 +112,7 @@ class Command(BaseCommand):
                         'name_zh': zh['name_zh'],
                         'name_en': zh['name_en'],
                         'note_zh': zh['note_zh'],
+                        'note_en': en_content.TYPES.get(slug, {}).get('note_en', ''),
                         'sort_order': index,
                     },
                 )
@@ -114,7 +135,11 @@ class Command(BaseCommand):
                             },
                         )
                     defaults = {field: row.get(field) for field in DIMENSION_FIELDS}
-                    defaults.update({'size_label': row['size_label'], 'dn': row['dn']})
+                    defaults.update({
+                        'size_label': row['size_label'],
+                        'dn': row['dn'],
+                        'slug': _row_slug(row),
+                    })
                     DimensionRow.objects.update_or_create(
                         standard=standard,
                         flange_type=flange_types[row['type']],

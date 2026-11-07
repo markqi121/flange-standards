@@ -17,19 +17,47 @@
 - **手机**：自适应布局；打印页有「下载 PDF」（服务端用 Playwright 生成，iPhone 也能直接保存），也可以分享/打印。
 - **后台**：Django Admin 中文界面，可逐条维护尺寸规格、标准说明；参考数据只读。
 
-## 快速开始
+## 本地开发
+
+本地开发只需要 Python 和 Git，默认使用 SQLite，不需要额外的数据库服务或前端构建步骤。以下命令都在仓库根目录执行。
+
+### 环境要求
+
+- Python 3.10+（部署环境为 3.10–3.12）和 pip
+- Git
+- 可选：Playwright + Chromium，仅本地生成 PDF 时需要
+
+### 1. 克隆仓库、安装依赖
 
 ```bash
-cd /Users/manshu/网站/标准库
-python3 -m venv .venv                      # 首次
+git clone https://github.com/markqi121/flange-standards.git
+cd flange-standards
+
+python3 -m venv .venv
 ./.venv/bin/pip install -r requirements.txt
+```
+
+不想每次都写 `./.venv/bin/` 时，可以先 `source .venv/bin/activate`，之后用 `python manage.py ...`。
+
+### 2. 初始化数据库与标准数据
+
+```bash
 ./.venv/bin/python manage.py migrate
-./.venv/bin/python manage.py import_standards      # 从 flange-standards-data/ 导入
-./.venv/bin/python manage.py createsuperuser       # 首次建后台账号
+./.venv/bin/python manage.py import_standards   # 从 flange-standards-data/ 导入标准数据
+./.venv/bin/python manage.py createsuperuser    # 首次创建 /admin/ 后台账号
+```
+
+`import_standards` 可以重复执行，按「标准 + 类型 + 尺寸 + 等级」覆盖同名记录；数据包更新后用 `--reset` 清空尺寸和参考数据再全量导入。
+
+### 3. 启动开发服务器
+
+```bash
 ./.venv/bin/python manage.py runserver 127.0.0.1:8000
 ```
 
-打开 <http://127.0.0.1:8000/>：
+打开 <http://127.0.0.1:8000/>。默认 `DJANGO_DEBUG=1`，数据库是项目根目录的 `db.sqlite3`（已加入 `.gitignore`）。
+
+启动后可访问的页面：
 
 | 页面 | 地址 |
 |---|---|
@@ -50,7 +78,46 @@ python3 -m venv .venv                      # 首次
 截图与样例：`docs/images/`（首页、标准页、规格卡、打印页、对照、参考数据、标注图）；
 A4 单页打印样例：`docs/样例-规格卡-A4.pdf`；完整设计说明：`docs/设计方案.md`。
 
-本地默认后台账号（仅开发环境）：`admin` / `admin12345`。上线前务必改密码并关闭 `DJANGO_DEBUG`。
+### 4. 常用本地配置
+
+项目不会自动读取 `.env`，需要时在启动前 `export` 环境变量：
+
+| 变量 | 本地默认 | 说明 |
+|---|---|---|
+| `DJANGO_DEBUG` | `1` | 设为 `0` 模拟生产；同时需设置 `DJANGO_SECRET_KEY` 和 `DJANGO_ALLOWED_HOSTS` |
+| `DJANGO_DB_PATH` | `db.sqlite3` | SQLite 数据库文件位置 |
+| `DJANGO_DB_ENGINE` | 未设置（SQLite） | 设为 `django.db.backends.postgresql` 并配置 `DJANGO_DB_*` 可切 PostgreSQL |
+| `FLANGE_DATA_DIR` | `flange-standards-data/` | 标准数据包目录 |
+| `SITE_URL` | `http://127.0.0.1:8000` | 打印页和页面使用的站点地址 |
+| `PDF_RENDER_BASE_URL` | `https://127.0.0.1/std` | 本地生成 PDF 时改为 `http://127.0.0.1:8000` |
+| `PDF_CACHE_DIR` | `/var/lib/flange-std/pdf` | 本地生成 PDF 时改为可写目录，如 `$PWD/.tmp/pdf` |
+
+要使用「下载 PDF」和批量打印 PDF，先安装 Playwright 的 Chromium（约 700 MB，可选）：
+
+```bash
+./.venv/bin/python -m playwright install chromium
+export PDF_RENDER_BASE_URL=http://127.0.0.1:8000
+export PDF_CACHE_DIR="$PWD/.tmp/pdf"
+./.venv/bin/python manage.py runserver 127.0.0.1:8000
+```
+
+没有安装 Playwright 时，网页仍可直接用浏览器打印或另存为 PDF。
+
+报价模块的演示数据（可选，**演示价禁止用于正式报价**）：
+
+```bash
+./.venv/bin/python manage.py seed_demo    # 材料价、工艺费率、客户 A/B/C
+./.venv/bin/python manage.py seed_roles   # sales / engineering / finance / sales_manager / quote_admin 角色组
+```
+
+### 5. 检查与测试
+
+```bash
+./.venv/bin/python manage.py check
+./.venv/bin/python manage.py test quote catalog
+```
+
+`manage.py test quote` 运行报价模块全部测试；`manage.py test catalog` 会先导入标准数据，再检查查询、打印页和标注图。
 
 ## 目录
 
